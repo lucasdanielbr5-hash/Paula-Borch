@@ -1,1632 +1,562 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-<meta charset="UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#29252c">
+  <meta name="description" content="Paula Borch | Psicopedagogia. Atendimento psicopedagógico, avaliação, intervenção, alfabetização e orientação às famílias.">
+  <title>Paula Borch | Psicopedagogia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#29252c;--ink-2:#443d46;--muted:#79727b;--paper:#f8f6f2;--paper-2:#f0ece6;
+      --cream:#e7ded3;--plum:#806c83;--plum-dark:#4b3d50;--plum-soft:#eee8ef;
+      --sage:#dfe6df;--sage-deep:#768779;--line:#e6dfd9;--white:#fff;--gold:#b89a76;
+      --wa:#25d366;--serif:'Playfair Display',Georgia,serif;--sans:'DM Sans',Arial,sans-serif;
+      --container:min(1280px,calc(100% - 72px));
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scroll-padding-top:90px}
+    body{font-family:var(--sans);color:var(--ink);background:var(--paper);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    body.menu-open{overflow:hidden}
+    img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button,input,textarea{font:inherit}button{cursor:pointer}
+    ::selection{background:#d9cbdc;color:var(--ink)}
+    .container{width:var(--container);margin-inline:auto}
+    .eyebrow{display:flex;align-items:center;gap:12px;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--plum);line-height:1.5}
+    .eyebrow:before{content:'';width:34px;height:1px;background:currentColor;flex:0 0 auto}
+    .section{position:relative;padding:125px 0}
+    .section-heading{max-width:760px;margin-bottom:52px}
+    .section-heading h2{margin-top:18px;font:500 clamp(40px,5vw,68px)/1.05 var(--serif);letter-spacing:-.04em}
+    .section-heading h2 em{color:var(--plum);font-weight:500}
+    .section-heading p{max-width:570px;margin-top:19px;color:var(--muted);font-size:15px;line-height:1.9}
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    /* Navegação */
+    .site-header{position:fixed;z-index:1000;inset:0 0 auto;padding:14px 0;background:rgba(248,246,242,.88);border-bottom:1px solid rgba(70,59,72,.08);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);transition:background .3s,padding .3s,box-shadow .3s}
+    .site-header.scrolled{padding:8px 0;background:rgba(248,246,242,.97);box-shadow:0 10px 35px rgba(43,35,45,.07)}
+    .nav{height:52px;display:flex;align-items:center;gap:30px}
+    .brand{width:116px;flex:0 0 auto}.brand img{width:100%;max-height:47px;object-fit:contain;object-position:left center}
+    .nav-links{display:flex;align-items:center;gap:clamp(17px,2vw,29px);margin-left:auto}
+    .nav-links a{position:relative;font-size:13px;font-weight:600;color:#5e5760;transition:color .2s}
+    .nav-links a:after{content:'';position:absolute;left:0;bottom:-8px;width:0;height:1px;background:var(--plum);transition:width .25s}
+    .nav-links a:hover{color:var(--plum-dark)}.nav-links a:hover:after{width:100%}
+    .nav-cta{min-height:44px;padding:0 20px;display:flex;align-items:center;justify-content:center;border-radius:50px;background:var(--plum-dark);color:white;font-size:11px;font-weight:700;letter-spacing:.06em;white-space:nowrap;transition:transform .25s,background .25s}
+    .nav-cta:hover{background:var(--plum);transform:translateY(-2px)}
+    .menu-toggle{display:none;width:45px;height:45px;border:1px solid var(--line);border-radius:50%;background:transparent;position:relative}
+    .menu-toggle span{position:absolute;left:13px;width:17px;height:1.5px;background:var(--ink);transition:.25s}.menu-toggle span:first-child{top:18px}.menu-toggle span:last-child{top:25px}
+    .menu-toggle.active span:first-child{top:22px;transform:rotate(45deg)}.menu-toggle.active span:last-child{top:22px;transform:rotate(-45deg)}
 
-<meta
-    name="description"
-    content="Paula Borch | Psicopedagogia. Avaliação, intervenção, alfabetização e orientação às famílias."
->
+    /* Abertura em tela inteira */
+    .hero{position:relative;isolation:isolate;min-height:100svh;padding:94px 0 26px;overflow:hidden;background:radial-gradient(ellipse at 78% 45%,#f5f0e9 0%,#e9e0d7 52%,#e4d9d0 100%)}
+    .hero:before{content:'';position:absolute;z-index:-1;width:min(62vw,900px);aspect-ratio:1;right:2%;top:5%;border:1px solid rgba(91,72,95,.14);border-radius:50%;box-shadow:0 0 0 36px rgba(255,255,255,.13),0 0 0 72px rgba(255,255,255,.08)}
+    .hero:after{content:'ESCUTA  ·  APRENDIZAGEM  ·  DESENVOLVIMENTO';position:absolute;left:24px;bottom:44px;writing-mode:vertical-rl;transform:rotate(180deg);font-size:8px;font-weight:700;letter-spacing:.23em;color:rgba(75,61,80,.43)}
+    .hero-grid{width:var(--container);min-height:calc(100svh - 120px);margin:0 auto;display:grid;grid-template-columns:.86fr 1.14fr;align-items:center;gap:2vw}
+    .hero-copy{position:relative;z-index:5;padding:36px 0 62px;max-width:570px}
+    .hero-brandline{display:flex;align-items:center;gap:13px;margin-bottom:30px}
+    .hero-brandline img{width:88px;max-height:42px;object-fit:contain;object-position:left center}
+    .hero-brandline span{width:1px;height:34px;background:rgba(75,61,80,.22)}
+    .hero-brandline small{font-size:9px;line-height:1.5;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--plum-dark)}
+    .hero-kicker{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#8e7a8e}
+    .hero h1{margin-top:16px;font:500 clamp(54px,6.25vw,88px)/.99 var(--serif);letter-spacing:-.055em;color:var(--ink)}
+    .hero h1 em{display:block;color:var(--plum);font-weight:500}
+    .hero-subtitle{margin-top:24px;max-width:480px;font-size:14px;line-height:1.9;color:#68616a}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:31px}
+    .btn-primary,.btn-outline{min-height:52px;padding:0 22px;display:inline-flex;align-items:center;justify-content:center;gap:11px;border-radius:50px;font-size:10px;font-weight:700;letter-spacing:.075em;text-align:center;transition:transform .25s,background .25s,border-color .25s}
+    .btn-primary{background:var(--plum-dark);color:white;box-shadow:0 12px 25px rgba(75,61,80,.16)}.btn-primary:hover{background:var(--plum);transform:translateY(-3px)}
+    .btn-outline{border:1px solid rgba(75,61,80,.3);background:rgba(255,255,255,.28);color:var(--plum-dark)}.btn-outline:hover{background:#fff;border-color:var(--plum);transform:translateY(-3px)}
+    .hero-meta{display:flex;align-items:center;gap:22px;margin-top:43px;padding-top:20px;border-top:1px solid rgba(75,61,80,.17)}
+    .hero-meta-item strong{display:block;font:500 25px/1 var(--serif);color:var(--plum-dark)}.hero-meta-item span{display:block;margin-top:6px;font-size:9px;line-height:1.4;letter-spacing:.08em;text-transform:uppercase;color:#807681}
+    .hero-meta-divider{height:34px;width:1px;background:rgba(75,61,80,.2)}
+    .hero-visual{position:relative;align-self:stretch;min-height:calc(100svh - 120px);display:flex;align-items:flex-end;justify-content:center}
+    .hero-halo{position:absolute;z-index:0;left:12%;right:8%;bottom:1%;height:82%;border-radius:48% 48% 2% 2%;background:linear-gradient(155deg,rgba(255,255,255,.52),rgba(194,177,187,.28));border:1px solid rgba(255,255,255,.52)}
+    .hero-photo{position:relative;z-index:1;width:100%;height:calc(100svh - 120px);min-height:630px;max-height:1000px;display:flex;align-items:flex-end;justify-content:center}
+    .hero-photo img{width:100%;height:100%;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 24px 32px rgba(47,39,50,.13));animation:photoEntrance 1.15s cubic-bezier(.2,.8,.2,1) both}
+    @keyframes photoEntrance{from{opacity:0;transform:translateY(25px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+    .hero-caption{position:absolute;z-index:3;right:1%;bottom:12%;padding:12px 18px;border:1px solid rgba(255,255,255,.75);border-radius:50px;background:rgba(248,246,242,.8);backdrop-filter:blur(12px);box-shadow:0 10px 30px rgba(50,40,52,.08);font:italic 16px var(--serif);color:var(--plum-dark)}
+    .hero-stamp{position:absolute;z-index:3;left:1%;bottom:13%;width:88px;aspect-ratio:1;display:grid;place-items:center;border-radius:50%;background:var(--sage);border:7px solid rgba(248,246,242,.7);color:#6e806f;text-align:center;font-size:8px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;line-height:1.6;transform:rotate(-9deg)}
+    .scroll-cue{position:absolute;right:36px;bottom:34px;display:flex;align-items:center;gap:12px;color:#847b84;font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+    .scroll-cue:after{content:'';width:42px;height:1px;background:#a99baa}
 
-<title>Paula Borch | Psicopedagogia</title>
+    /* Manifesto */
+    .manifesto{padding:122px 0 132px;background:var(--paper);overflow:hidden}
+    .manifesto-grid{display:grid;grid-template-columns:.45fr 1.55fr;gap:7vw;align-items:start}
+    .manifesto-copy{max-width:900px}.manifesto h2{font:500 clamp(42px,5.4vw,74px)/1.07 var(--serif);letter-spacing:-.045em}
+    .manifesto h2 em{display:block;color:var(--plum);font-weight:500}.manifesto p{max-width:690px;margin-top:25px;font-size:15px;line-height:1.95;color:var(--muted)}
+    .manifesto-sign{display:flex;align-items:center;gap:14px;margin-top:34px;color:#847a86;font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}.manifesto-sign:before{content:'';width:48px;height:1px;background:var(--gold)}
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    /* Personalização interativa */
+    .personal{padding:120px 0 126px;background:#28232c;color:#fff;overflow:hidden;position:relative}
+    .personal:before{content:'PB';position:absolute;right:-35px;top:-95px;font:700 clamp(250px,35vw,470px)/1 var(--serif);color:rgba(255,255,255,.025);pointer-events:none}
+    .personal-grid{position:relative;z-index:1;display:grid;grid-template-columns:.85fr 1.15fr;gap:8vw;align-items:center}
+    .personal .eyebrow{color:#d2bfd5}.personal .eyebrow:before{background:#d2bfd5}
+    .personal h2{margin-top:20px;font:500 clamp(42px,5vw,65px)/1.08 var(--serif);letter-spacing:-.04em}.personal h2 em{color:#cbb8ce;font-weight:500}
+    .personal-intro{margin-top:20px;max-width:430px;font-size:14px;line-height:1.9;color:rgba(255,255,255,.65)}
+    .personal-note{margin-top:28px;padding-left:17px;border-left:1px solid #a890ad;font:italic 17px/1.65 var(--serif);color:#e3d9e5}
+    .choice-panel{padding:32px;border:1px solid rgba(255,255,255,.13);border-radius:22px;background:rgba(255,255,255,.055);backdrop-filter:blur(10px)}
+    .choice-label{font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#c5b5c8}
+    .choice-buttons{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:17px}
+    .choice-btn{min-height:72px;padding:12px;border:1px solid rgba(255,255,255,.17);border-radius:13px;background:rgba(255,255,255,.035);color:rgba(255,255,255,.78);font-size:11px;font-weight:600;line-height:1.45;text-align:left;transition:background .25s,border-color .25s,transform .25s}
+    .choice-btn:hover{transform:translateY(-2px);border-color:rgba(221,197,226,.7)}
+    .choice-btn[aria-pressed="true"]{background:#e8dfe9;color:#403346;border-color:#e8dfe9}
+    .choice-result{margin-top:20px;padding:24px;border-radius:15px;background:#f7f3f6;color:var(--ink)}
+    .choice-result small{font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--plum)}
+    .choice-result h3{margin-top:9px;font:500 26px/1.15 var(--serif)}
+    .choice-result p{margin-top:10px;font-size:13px;line-height:1.8;color:#746c76}
+    .choice-action{display:inline-flex;align-items:center;gap:9px;margin-top:18px;padding:0 0 6px;border:0;border-bottom:1px solid #a28ca6;background:transparent;color:var(--plum-dark);font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase}
 
-<link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
->
+    /* Sinais */
+    .when{background:var(--paper-2);padding:120px 0 125px}
+    .when-head{text-align:center;max-width:760px;margin:0 auto 49px}.when-head .eyebrow{justify-content:center}
+    .when-head h2{margin-top:18px;font:500 clamp(40px,5vw,65px)/1.06 var(--serif);letter-spacing:-.04em}.when-head p{max-width:590px;margin:18px auto 0;font-size:14px;line-height:1.85;color:var(--muted)}
+    .signal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .signal{min-height:164px;padding:22px 22px 20px;display:flex;flex-direction:column;justify-content:space-between;border:1px solid rgba(111,90,114,.12);border-radius:16px;background:rgba(255,255,255,.7);transition:transform .25s,box-shadow .25s,background .25s}
+    .signal:hover{transform:translateY(-5px);background:#fff;box-shadow:0 17px 35px rgba(51,42,53,.06)}
+    .signal-number{font:italic 19px var(--serif);color:#a28da4}.signal p{font-size:13px;font-weight:600;line-height:1.65;color:#514a54}
+    .when-quote{max-width:950px;margin:37px auto 0;padding:27px 32px;border-left:3px solid var(--plum);background:rgba(255,255,255,.56);font:italic clamp(21px,2.3vw,29px)/1.5 var(--serif);color:var(--plum-dark)}
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap');
+    /* Serviços */
+    .services{padding:125px 0;background:var(--paper)}
+    .services-intro{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:48px}.services-intro .section-heading{margin:0}.services-side{max-width:260px;padding-bottom:8px;font-size:13px;line-height:1.8;color:var(--muted)}
+    .service-list{border-top:1px solid var(--line)}
+    .service-row{display:grid;grid-template-columns:80px 1fr 1fr 45px;gap:24px;align-items:center;padding:27px 18px;border-bottom:1px solid var(--line);transition:background .25s,padding .25s}
+    .service-row:hover{padding-inline:28px;background:#fff}
+    .service-num{font:italic 20px var(--serif);color:#a18ca4}
+    .service-row h3{font:500 clamp(22px,2.6vw,32px)/1.2 var(--serif)}
+    .service-row p{max-width:450px;font-size:13px;line-height:1.8;color:var(--muted)}
+    .service-arrow{width:38px;height:38px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;color:var(--plum);transition:transform .25s,background .25s}
+    .service-row:hover .service-arrow{transform:rotate(-45deg);background:var(--plum-dark);color:#fff}
 
-:root{
-  --ink:#29272c;
-  --muted:#77727a;
-  --paper:#fbf9f6;
-  --cream:#f1ece5;
-  --cream-deep:#e9e1d8;
-  --plum:#74617b;
-  --plum-dark:#4e4055;
-  --plum-soft:#eee8f0;
-  --sage:#dfe7df;
-  --sage-dark:#78877b;
-  --line:#e6e0da;
-  --white:#fff;
-  --whatsapp:#25d366;
-  --serif:'Playfair Display',Georgia,serif;
-  --sans:'DM Sans',Arial,sans-serif;
-  --container:min(1240px,calc(100% - 64px));
-}
+    /* Processo */
+    .process{padding:120px 0 126px;background:var(--sage)}
+    .process-head{max-width:760px;margin-bottom:60px}.process-head .eyebrow{color:#667a69}.process-head h2{margin-top:18px;font:500 clamp(42px,5vw,66px)/1.06 var(--serif);letter-spacing:-.04em}.process-head p{max-width:540px;margin-top:18px;font-size:14px;line-height:1.9;color:#68756b}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;position:relative}.steps:before{content:'';position:absolute;top:39px;left:11%;right:11%;height:1px;background:rgba(93,117,99,.28)}
+    .step{position:relative;padding-right:24px}.step-icon{position:relative;z-index:2;width:78px;height:78px;display:grid;place-items:center;border:1px solid rgba(95,119,100,.24);border-radius:50%;background:#f7f8f4;color:#677a6b}
+    .step-icon svg{width:31px;height:31px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+    .step small{display:block;margin-top:26px;font-size:9px;font-weight:700;letter-spacing:.18em;color:#728477}.step h3{margin-top:9px;font:500 29px var(--serif)}.step p{max-width:300px;margin-top:10px;font-size:13px;line-height:1.8;color:#657267}
 
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:95px}
-body{font-family:var(--sans);color:var(--ink);background:var(--paper);overflow-x:hidden;-webkit-font-smoothing:antialiased}
-img{display:block;max-width:100%}
-a{color:inherit;text-decoration:none}
-button,input,textarea{font:inherit}
-button{cursor:pointer}
-::selection{background:#ded2e2;color:var(--ink)}
-.container{width:var(--container);margin:0 auto}
+    /* Sobre */
+    .about{padding:130px 0;background:var(--paper)}
+    .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:8vw;align-items:center}
+    .about-photo{position:relative;height:680px;min-height:550px;padding:24px 24px 0;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;border-radius:210px 210px 18px 18px;background:#e7ddd5}
+    .about-photo:before{content:'';position:absolute;inset:19px 19px 0;border:1px solid rgba(255,255,255,.6);border-radius:190px 190px 8px 8px;pointer-events:none}
+    .about-photo img{position:relative;z-index:1;width:100%;height:100%;object-fit:contain;object-position:center bottom}
+    .about-content h2{margin-top:18px;font:500 clamp(43px,5vw,66px)/1.05 var(--serif);letter-spacing:-.045em}.about-content h2 em{display:block;color:var(--plum);font-weight:500}
+    .about-text{max-width:630px;margin-top:23px;font-size:14px;line-height:1.95;color:var(--muted)}
+    .credentials{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:30px}
+    .credential{padding:17px 15px;border:1px solid var(--line);border-radius:13px;background:#fff}.credential strong{display:block;font:500 29px var(--serif);color:var(--plum-dark)}.credential span{display:block;margin-top:5px;font-size:10px;line-height:1.55;color:var(--muted)}
+    .about-signature{margin-top:28px;font:italic 23px var(--serif);color:var(--plum)}
 
-/* Navegação */
-header{position:fixed;z-index:1000;inset:0 0 auto;width:100%;padding:14px 0;background:rgba(251,249,246,.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(90,76,91,.08);transition:background .3s ease,box-shadow .3s ease,padding .3s ease}
-header.scrolled{padding:9px 0;background:rgba(251,249,246,.97);box-shadow:0 8px 32px rgba(51,42,53,.07)}
-.nav{height:54px;display:flex;align-items:center;gap:30px}
-.logo{width:116px;flex:0 0 auto;display:flex;align-items:center}
-.logo img{width:100%;height:auto;max-height:48px;object-fit:contain}
-.menu{margin-left:auto;display:flex;align-items:center;gap:clamp(16px,2.1vw,30px)}
-.menu a{position:relative;font-size:13px;font-weight:600;letter-spacing:.01em;color:#625e63;transition:color .2s ease}
-.menu a::after{content:'';position:absolute;left:0;bottom:-8px;width:0;height:1px;background:var(--plum);transition:width .25s ease}
-.menu a:hover{color:var(--plum-dark)}
-.menu a:hover::after{width:100%}
-.header-button{min-height:43px;padding:0 19px;display:flex;align-items:center;justify-content:center;border-radius:100px;background:var(--plum-dark);color:white;font-size:12px;font-weight:700;letter-spacing:.02em;white-space:nowrap;transition:transform .25s ease,background .25s ease}
-.header-button:hover{background:var(--plum);transform:translateY(-2px)}
-.menu-toggle{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:50%;background:var(--paper);position:relative}
-.menu-toggle span{position:absolute;left:13px;width:17px;height:1.5px;background:var(--ink);transition:.25s ease}
-.menu-toggle span:first-child{top:17px}.menu-toggle span:last-child{top:24px}
-.menu-toggle.active span:first-child{top:21px;transform:rotate(45deg)}.menu-toggle.active span:last-child{top:21px;transform:rotate(-45deg)}
+    /* Assinatura / frase */
+    .signature-band{padding:100px 0;background:var(--plum-dark);color:#fff;overflow:hidden;position:relative}
+    .signature-band:after{content:'possibilidades';position:absolute;right:-25px;bottom:-56px;font:italic clamp(95px,15vw,200px)/1 var(--serif);white-space:nowrap;color:rgba(255,255,255,.045)}
+    .signature-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr .55fr;gap:8vw;align-items:end}
+    .signature-band .eyebrow{color:#d5c6d8}.signature-band .eyebrow:before{background:#d5c6d8}
+    .signature-band h2{max-width:830px;margin-top:20px;font:500 clamp(40px,5.1vw,68px)/1.08 var(--serif);letter-spacing:-.04em}.signature-band h2 em{color:#d6c6d9;font-weight:500}
+    .signature-band p{font-size:14px;line-height:1.9;color:rgba(255,255,255,.68)}
 
-/* Abertura: fotografia inteira em destaque */
-.hero{position:relative;isolation:isolate;min-height:790px;min-height:100svh;padding:112px 0 34px;overflow:hidden;background:radial-gradient(circle at 75% 45%,#f8f5f0 0,#eee8e0 43%,#e7dfd7 100%)}
-.hero::before{content:'';position:absolute;z-index:-1;width:52vw;height:52vw;max-width:760px;max-height:760px;right:5%;top:9%;border:1px solid rgba(116,97,123,.13);border-radius:50%}
-.hero::after{content:'APRENDER • ACOLHER • DESENVOLVER';position:absolute;z-index:-1;left:0;bottom:54px;writing-mode:vertical-rl;transform:rotate(180deg);font-size:9px;font-weight:700;letter-spacing:.25em;color:rgba(78,64,85,.36)}
-.hero-grid{width:var(--container);min-height:calc(100svh - 146px);margin:auto;display:grid;grid-template-columns:.82fr 1.18fr;gap:30px;align-items:center}
-.hero-content{position:relative;z-index:4;padding:42px 0 55px;max-width:560px}
-.hero-eyebrow,.section-label{display:flex;align-items:center;gap:12px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.18em;color:var(--plum);line-height:1.5}
-.hero-eyebrow::before,.section-label i{content:'';display:block;width:32px;height:1px;background:currentColor;flex:0 0 auto}
-.hero h1{margin-top:25px;font-family:var(--serif);font-size:clamp(54px,6.5vw,92px);line-height:.98;letter-spacing:-.055em;font-weight:500;color:var(--ink)}
-.hero h1 span{display:block;margin-top:11px;font-family:var(--sans);font-size:clamp(15px,1.5vw,21px);font-weight:700;letter-spacing:.19em;color:var(--plum);line-height:1.4}
-.hero-text{max-width:450px;margin-top:27px;font-size:15px;line-height:1.9;color:#66616a}
-.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px;align-items:center}
-.button-main,.button-light{min-height:52px;padding:0 22px;border-radius:100px;display:inline-flex;align-items:center;justify-content:center;text-align:center;font-size:11px;font-weight:700;letter-spacing:.06em;transition:transform .25s ease,background .25s ease,border-color .25s ease}
-.button-main{background:var(--plum-dark);color:white;box-shadow:0 10px 24px rgba(78,64,85,.16)}
-.button-main:hover{background:var(--plum);transform:translateY(-3px)}
-.button-light{border:1px solid rgba(78,64,85,.28);background:rgba(255,255,255,.42);color:var(--plum-dark)}
-.button-light:hover{transform:translateY(-3px);background:white;border-color:var(--plum)}
-.hero-visual{position:relative;align-self:stretch;min-height:620px;display:flex;align-items:flex-end;justify-content:center}
-.hero-photo{position:relative;z-index:2;width:min(100%,760px);height:calc(100svh - 132px);min-height:610px;max-height:900px;display:flex;align-items:flex-end;justify-content:center;overflow:visible}
-.hero-photo::before{content:'';position:absolute;z-index:-1;left:12%;right:12%;bottom:0;height:80%;border-radius:48% 48% 8px 8px;background:linear-gradient(160deg,rgba(255,255,255,.58),rgba(214,202,210,.42))}
-.hero-photo img{width:100%;height:100%;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 22px 28px rgba(54,45,57,.10));animation:photoIn 1s cubic-bezier(.2,.8,.2,1) both}
-@keyframes photoIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
-.hero-name{position:absolute;z-index:3;right:2%;bottom:13%;padding:12px 17px;border:1px solid rgba(255,255,255,.75);border-radius:100px;background:rgba(251,249,246,.8);backdrop-filter:blur(12px);font-family:var(--serif);font-size:17px;font-style:italic;color:var(--plum-dark);box-shadow:0 8px 26px rgba(60,50,60,.08)}
-.hero-circle{position:absolute;z-index:4;left:4%;bottom:12%;width:76px;height:76px;display:grid;place-items:center;border-radius:50%;background:var(--sage);border:7px solid rgba(251,249,246,.75)}
-.hero-circle svg{width:34px;height:34px;fill:none;stroke:var(--sage-dark);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+    /* YouTube — biblioteca */
+    .library{padding:125px 0 135px;background:#f1ede8}
+    .library-top{display:flex;align-items:end;justify-content:space-between;gap:45px;margin-bottom:45px}.library-top .section-heading{margin:0}.library-top .section-heading p{max-width:440px}
+    .channel-link{display:inline-flex;align-items:center;gap:11px;min-height:46px;padding:0 18px;border:1px solid rgba(75,61,80,.2);border-radius:40px;color:var(--plum-dark);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;transition:background .25s,color .25s}
+    .channel-link:hover{background:var(--plum-dark);color:#fff}
+    .youtube-shell{display:grid;grid-template-columns:1.35fr .65fr;gap:18px;padding:17px;border:1px solid rgba(75,61,80,.1);border-radius:24px;background:#fff;box-shadow:0 24px 60px rgba(45,37,47,.07)}
+    .video-feature{position:relative;min-height:470px;overflow:hidden;border-radius:17px;background:#29232d}
+    .video-cover{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:#2d2831}
+    .video-cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.75;transition:transform .7s,opacity .4s}
+    .video-feature:hover .video-cover img{transform:scale(1.035);opacity:.9}
+    .video-cover:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(29,24,32,.04) 25%,rgba(29,24,32,.76) 100%)}
+    .video-play{position:relative;z-index:2;width:76px;height:76px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.75);border-radius:50%;background:rgba(255,255,255,.14);backdrop-filter:blur(10px);color:#fff;font-size:23px;padding-left:4px;transition:transform .25s,background .25s}
+    .video-play:hover{transform:scale(1.08);background:rgba(255,255,255,.27)}
+    .video-feature-info{position:absolute;z-index:2;left:30px;right:30px;bottom:28px;color:#fff;pointer-events:none}
+    .video-feature-info small{font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#e1d2e4}
+    .video-feature-info h3{margin-top:9px;font:500 clamp(27px,3.1vw,39px)/1.1 var(--serif)}
+    .video-feature iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:4}
+    .playlist{padding:12px 9px 12px 5px;display:flex;flex-direction:column;min-width:0}
+    .playlist-heading{padding:4px 12px 17px;border-bottom:1px solid var(--line)}.playlist-heading small{font-size:9px;font-weight:700;letter-spacing:.17em;text-transform:uppercase;color:var(--plum)}.playlist-heading h3{margin-top:7px;font:500 24px var(--serif)}
+    .playlist-card{width:100%;display:grid;grid-template-columns:112px 1fr;gap:13px;align-items:center;padding:15px 10px;border:0;border-bottom:1px solid var(--line);border-radius:10px;background:transparent;text-align:left;transition:background .2s}
+    .playlist-card:hover{background:#f7f3f7}.playlist-card[aria-pressed="true"]{background:var(--plum-soft)}
+    .playlist-thumb{position:relative;aspect-ratio:16/10;overflow:hidden;border-radius:8px;background:#ded7dc}.playlist-thumb img{width:100%;height:100%;object-fit:cover}.playlist-thumb:after{content:'▶';position:absolute;right:7px;bottom:7px;width:25px;height:25px;display:grid;place-items:center;border-radius:50%;background:rgba(44,36,48,.8);color:#fff;font-size:9px}
+    .playlist-copy small{font-size:8px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#95869a}.playlist-copy strong{display:block;margin-top:5px;font:500 17px/1.2 var(--serif);color:#3d3540}.playlist-copy span{display:block;margin-top:5px;font-size:10px;color:var(--muted)}
+    .video-hint{margin-top:auto;padding:17px 12px 2px;font-size:10px;line-height:1.6;color:#928a93}
 
-/* Texto de abertura */
-.intro{position:relative;padding:120px 0 130px;background:var(--paper);overflow:hidden}
-.intro::after{content:'aprender';position:absolute;right:-20px;bottom:-53px;font-family:var(--serif);font-size:clamp(100px,18vw,250px);font-style:italic;line-height:1;color:rgba(116,97,123,.045);pointer-events:none}
-.intro-grid{position:relative;z-index:1;display:grid;grid-template-columns:.55fr 1.45fr;gap:7vw;align-items:start}
-.intro-content{max-width:850px}
-.intro-title{font-family:var(--serif);font-size:clamp(42px,5.3vw,72px);font-weight:500;line-height:1.08;letter-spacing:-.04em;color:var(--ink)}
-.intro-title span{display:block;color:var(--plum);font-style:italic}
-.intro-text{max-width:650px;margin-top:27px;font-size:16px;line-height:1.95;color:var(--muted)}
-.intro-footer{display:flex;align-items:center;gap:15px;margin-top:36px}
-.intro-footer-line{width:58px;height:1px;background:#b9aebd}
-.intro-footer span{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#8d8391}
+    /* Contato */
+    .contact{padding:125px 0 130px;background:#e9e1d9}
+    .contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:8vw;align-items:center}
+    .contact-copy h2{max-width:550px;margin-top:20px;font:500 clamp(46px,5.2vw,70px)/1.04 var(--serif);letter-spacing:-.045em}.contact-copy h2 em{color:var(--plum);font-weight:500}
+    .contact-copy p{max-width:430px;margin-top:23px;font-size:14px;line-height:1.9;color:#77717a}
+    .social-link{display:inline-flex;align-items:center;gap:8px;margin-top:28px;padding-bottom:7px;border-bottom:1px solid rgba(75,61,80,.35);font-size:12px;font-weight:700;color:var(--plum-dark)}.social-link span{font-weight:500;color:#786f7b}
+    .contact-card{padding:38px 40px 34px;border:1px solid rgba(116,97,123,.12);border-radius:22px;background:#fff;box-shadow:0 25px 65px rgba(51,42,53,.09)}
+    .contact-card-head{margin-bottom:26px}.contact-card-head small{font-size:9px;font-weight:700;letter-spacing:.17em;text-transform:uppercase;color:var(--plum)}.contact-card-head h3{margin-top:9px;font:500 30px var(--serif)}.contact-card-head p{margin-top:7px;font-size:11px;line-height:1.7;color:#918a92}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:13px}.form-group{margin-bottom:15px}.form-group label{display:block;margin-bottom:7px;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#716a74}
+    .form-group input,.form-group textarea{width:100%;border:1px solid #e5dfe5;outline:0;background:#fcfbfa;color:var(--ink);border-radius:10px;transition:border-color .2s,box-shadow .2s,background .2s}
+    .form-group input{height:48px;padding:0 13px;font-size:12px}.form-group textarea{min-height:112px;padding:13px;resize:vertical;font-size:12px;line-height:1.6}
+    .form-group input::placeholder,.form-group textarea::placeholder{color:#b0aab1}.form-group input:focus,.form-group textarea:focus{background:#fff;border-color:#b4a3ba;box-shadow:0 0 0 4px rgba(116,97,123,.09)}
+    .form-submit{width:100%;min-height:51px;border:0;border-radius:50px;background:var(--plum-dark);color:#fff;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:10px;transition:background .25s,transform .25s}.form-submit:hover{background:var(--plum);transform:translateY(-2px)}
+    .form-note{margin-top:12px;text-align:center;font-size:9px;line-height:1.6;color:#a39ca5}
 
-/* Quando procurar */
-.when-section{padding:112px 0 120px;background:#f0ece7}
-.when-header{max-width:750px;margin:0 auto 52px;text-align:center}
-.when-header .section-label{justify-content:center}
-.when-header h2{margin-top:22px;font-family:var(--serif);font-weight:500;font-size:clamp(39px,4.8vw,62px);line-height:1.08;letter-spacing:-.04em}
-.when-header p{max-width:620px;margin:18px auto 0;font-size:15px;line-height:1.85;color:var(--muted)}
-.when-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
-.when-item{min-height:150px;padding:25px 25px 24px;border:1px solid rgba(116,97,123,.13);border-radius:17px;background:rgba(255,255,255,.64);display:flex;flex-direction:column;justify-content:space-between;gap:18px;transition:transform .25s ease,background .25s ease,box-shadow .25s ease}
-.when-item:hover{transform:translateY(-4px);background:white;box-shadow:0 15px 35px rgba(55,46,58,.06)}
-.when-item-icon{font-family:var(--serif);font-size:19px;font-style:italic;color:var(--plum)}
-.when-item p{max-width:300px;font-size:14px;font-weight:600;line-height:1.6;color:#514c54}
-.when-quote{max-width:930px;margin:45px auto 0;padding:28px 34px;border-left:3px solid var(--plum);background:rgba(255,255,255,.55);font-family:var(--serif);font-size:clamp(21px,2.4vw,30px);font-style:italic;line-height:1.5;color:var(--plum-dark)}
+    /* Rodapé e WhatsApp */
+    footer{padding:58px 0 24px;background:#29232d;color:#fff}
+    .footer-grid{display:grid;grid-template-columns:1.25fr .7fr 1fr;gap:55px;padding-bottom:42px;border-bottom:1px solid rgba(255,255,255,.13)}
+    .footer-logo{width:120px;max-height:53px;object-fit:contain;object-position:left center;margin-bottom:18px;filter:brightness(0) invert(1)}
+    .footer-description{max-width:320px;font-size:11px;line-height:1.85;color:rgba(255,255,255,.58)}.footer-title{margin-bottom:17px;font-size:9px;font-weight:700;letter-spacing:.17em;text-transform:uppercase;color:#cbb9cf}
+    .footer-links{display:flex;flex-direction:column;align-items:flex-start;gap:12px}.footer-links a{font-size:11px;color:rgba(255,255,255,.72);transition:color .2s}.footer-links a:hover{color:white}.footer-bottom{display:flex;justify-content:space-between;gap:20px;padding-top:22px}.footer-bottom span{font-size:9px;color:rgba(255,255,255,.42)}
+    .whatsapp-float{position:fixed;z-index:900;right:25px;bottom:24px;width:58px;height:58px;display:grid;place-items:center;border-radius:50%;background:var(--wa);color:#fff;box-shadow:0 12px 30px rgba(37,211,102,.28);transition:transform .25s}.whatsapp-float:hover{transform:translateY(-5px) scale(1.04)}.whatsapp-float svg{width:27px;height:27px;fill:none;stroke:#fff;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+    .whatsapp-float:before{content:'';position:absolute;inset:-5px;border:1px solid rgba(37,211,102,.25);border-radius:50%;animation:pulse 2.5s infinite}@keyframes pulse{0%{transform:scale(.9);opacity:.8}70%,100%{transform:scale(1.17);opacity:0}}
 
-/* Serviços */
-.services{padding:120px 0 130px;background:var(--paper)}
-.services::before{content:'ATUAÇÃO';display:block;width:var(--container);margin:0 auto 32px;font-size:10px;font-weight:700;letter-spacing:.2em;color:#8d8391}
-.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
-.service{position:relative;min-height:340px;padding:28px 25px 29px;border-radius:18px;border:1px solid var(--line);background:#fff;display:flex;flex-direction:column;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;overflow:hidden}
-.service::after{content:'';position:absolute;width:160px;height:160px;right:-80px;top:-80px;border-radius:50%;background:var(--plum-soft);transition:transform .4s ease}
-.service:nth-child(2)::after{background:var(--sage)}.service:nth-child(3)::after{background:#f1e7df}.service:nth-child(4)::after{background:#e7edf0}
-.service:hover{transform:translateY(-7px);box-shadow:0 18px 45px rgba(51,42,53,.08);border-color:#d5c9d8}
-.service:hover::after{transform:scale(1.3)}
-.service-icon{position:relative;z-index:1;width:58px;height:58px;display:grid;place-items:center;border-radius:17px;background:var(--plum-soft)}
-.service:nth-child(2) .service-icon{background:var(--sage)}.service:nth-child(3) .service-icon{background:#f1e7df}.service:nth-child(4) .service-icon{background:#e7edf0}
-.service-icon svg{width:29px;height:29px;fill:none;stroke:var(--plum);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.service:nth-child(2) .service-icon svg{stroke:#718274}.service:nth-child(3) .service-icon svg{stroke:#a17e6d}.service:nth-child(4) .service-icon svg{stroke:#667e89}
-.service-content{position:relative;z-index:1;margin-top:auto;padding-top:50px}
-.service h3{font-family:var(--serif);font-size:25px;line-height:1.16;font-weight:500;letter-spacing:-.02em;color:var(--ink)}
-.service p{margin-top:13px;font-size:13px;line-height:1.8;color:var(--muted)}
+    /* Entrada suave */
+    .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}.reveal.is-visible{opacity:1;transform:translateY(0)}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
 
-/* Como funciona */
-.process{padding:115px 0 125px;background:var(--sage);position:relative;overflow:hidden}
-.process::after{content:'';position:absolute;right:-170px;top:-180px;width:460px;height:460px;border:1px solid rgba(88,111,93,.12);border-radius:50%;box-shadow:0 0 0 38px rgba(255,255,255,.13),0 0 0 76px rgba(255,255,255,.1)}
-.process-header{position:relative;z-index:1;max-width:730px;margin-bottom:62px}
-.process-header .section-label{color:#657969}
-.process-header h2{margin-top:20px;font-family:var(--serif);font-size:clamp(42px,5vw,66px);font-weight:500;line-height:1.08;letter-spacing:-.04em}
-.process-header p{max-width:540px;margin-top:20px;font-size:15px;line-height:1.85;color:#68756b}
-.steps{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
-.steps::before{content:'';position:absolute;top:38px;left:11%;right:11%;height:1px;background:rgba(95,119,100,.28)}
-.step{position:relative;padding:0 25px 0 0}
-.step:not(:first-child){padding-left:25px}
-.step-icon{position:relative;z-index:2;width:76px;height:76px;display:grid;place-items:center;border:1px solid rgba(95,119,100,.25);border-radius:50%;background:#f6f7f2}
-.step-icon svg{width:33px;height:33px;fill:none;stroke:#647968;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-.step-number{margin-top:25px;font-size:10px;font-weight:700;letter-spacing:.17em;color:#728477}
-.step h3{margin-top:10px;font-family:var(--serif);font-size:29px;font-weight:500}
-.step p{max-width:290px;margin-top:12px;font-size:14px;line-height:1.8;color:#657267}
-
-/* Sobre */
-.about{padding:130px 0;background:var(--paper)}
-.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:8vw;align-items:center}
-.about-photo{position:relative;min-height:580px;height:650px;padding:24px 24px 0;background:#e9e0d9;border-radius:190px 190px 18px 18px;display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
-.about-photo::before{content:'';position:absolute;inset:20px 20px 0;border:1px solid rgba(255,255,255,.55);border-radius:175px 175px 8px 8px;pointer-events:none}
-.about-photo img{position:relative;z-index:1;width:100%;height:100%;object-fit:contain;object-position:center bottom}
-.about-title{max-width:610px;margin-top:22px;font-family:var(--serif);font-size:clamp(43px,5vw,66px);font-weight:500;line-height:1.06;letter-spacing:-.045em}
-.about-title span{display:block;color:var(--plum);font-style:italic}
-.about-text{max-width:610px;margin-top:25px;font-size:14px;line-height:1.95;color:var(--muted)}
-.about-points{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:32px}
-.about-point{min-height:112px;padding:16px 14px;border:1px solid var(--line);border-radius:13px;background:#fff}
-.about-point strong{display:block;font-family:var(--serif);font-size:29px;font-weight:500;color:var(--plum-dark)}
-.about-point span{display:block;margin-top:5px;font-size:11px;line-height:1.5;color:var(--muted)}
-
-/* Frase de marca */
-.quote{position:relative;padding:110px 0 115px;background:var(--plum-dark);color:white;overflow:hidden}
-.quote::before,.quote::after{content:'';position:absolute;border:1px solid rgba(255,255,255,.1);border-radius:50%;pointer-events:none}
-.quote::before{width:520px;height:520px;right:-130px;top:-230px}.quote::after{width:400px;height:400px;right:-70px;top:-170px}
-.quote-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr .55fr;gap:8vw;align-items:end}
-.quote-copy{position:relative;isolation:isolate}
-.quote-word{position:absolute;z-index:-1;right:-25px;bottom:-20px;font-family:var(--serif);font-size:clamp(90px,13vw,180px);font-style:italic;line-height:.8;letter-spacing:-.08em;color:rgba(255,255,255,.055);white-space:nowrap}
-.quote .section-label{color:#d6cbd9}.quote .section-label i{background:#d6cbd9}
-.quote h2{max-width:790px;margin-top:24px;font-family:var(--serif);font-size:clamp(39px,5vw,66px);font-weight:500;line-height:1.08;letter-spacing:-.04em}
-.quote p{font-size:15px;line-height:1.9;color:rgba(255,255,255,.72)}
-
-/* Vídeos */
-.videos{padding:125px 0 130px;background:#f7f4f0}
-.videos-heading{display:flex;align-items:end;justify-content:space-between;gap:50px;margin-bottom:45px}
-.videos-heading h2{max-width:620px;margin-top:20px;font-family:var(--serif);font-size:clamp(42px,5vw,65px);font-weight:500;line-height:1.08;letter-spacing:-.04em}
-.videos-heading p{max-width:350px;margin-bottom:5px;font-size:14px;line-height:1.85;color:var(--muted)}
-.video-mosaic{display:grid;grid-template-columns:1.35fr 1fr 1fr;grid-template-rows:250px 235px;gap:15px}
-.video-item{position:relative;overflow:hidden;border-radius:17px;background:#ded8d1;border:1px solid rgba(78,64,85,.1);box-shadow:0 12px 30px rgba(45,38,47,.05)}
-.video-item:nth-child(1){grid-column:1;grid-row:1/3}.video-item:nth-child(2){grid-column:2;grid-row:1}.video-item:nth-child(3){grid-column:3;grid-row:1}.video-item:nth-child(4){grid-column:2/4;grid-row:2}
-.video-item iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.video-tag{position:absolute;z-index:3;top:13px;left:13px;padding:8px 12px;border-radius:30px;background:rgba(251,249,246,.9);backdrop-filter:blur(8px);font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--plum-dark);pointer-events:none}
-.videos-button{display:flex;justify-content:center;margin-top:40px}
-.youtube-button{min-height:48px;padding:0 20px;display:inline-flex;align-items:center;gap:12px;border-radius:100px;background:var(--plum-dark);color:white;font-size:12px;font-weight:700;transition:transform .25s ease,background .25s ease}
-.youtube-button:hover{transform:translateY(-3px);background:var(--plum)}
-.youtube-button-icon{width:24px;height:24px;display:grid;place-items:center;border-radius:7px;background:#e04b45;font-size:9px}
-
-/* Contato */
-.contact{padding:120px 0 125px;background:#ebe5de}
-.contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:7vw;align-items:center}
-.contact h2{max-width:570px;margin-top:23px;font-family:var(--serif);font-size:clamp(45px,5vw,68px);font-weight:500;line-height:1.06;letter-spacing:-.045em}
-.contact h2 span{color:var(--plum);font-style:italic}
-.contact-text{max-width:420px;margin-top:23px;font-size:15px;line-height:1.85;color:#77717a}
-.contact-social{display:inline-flex;flex-wrap:wrap;align-items:center;gap:7px;margin-top:30px;padding-bottom:8px;border-bottom:1px solid rgba(116,97,123,.4);font-size:13px;font-weight:700;color:var(--plum-dark)}
-.contact-social span{font-weight:500;color:#766e79}
-.contact-form{padding:38px 40px 34px;background:#fff;border:1px solid rgba(116,97,123,.1);border-radius:21px;box-shadow:0 20px 60px rgba(51,42,53,.08)}
-.form-top{margin-bottom:28px}
-.form-top h3{font-family:var(--serif);font-size:29px;font-weight:500;letter-spacing:-.02em}
-.form-top p{margin-top:8px;font-size:12px;line-height:1.7;color:#918a92}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.form-group{margin-bottom:16px}
-.form-group label{display:block;margin-bottom:8px;font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#6f6872}
-.form-group input,.form-group textarea{width:100%;border:1px solid #e5dfe5;outline:none;background:#fcfbfa;color:var(--ink);border-radius:11px;transition:border-color .2s ease,box-shadow .2s ease,background .2s ease}
-.form-group input{height:49px;padding:0 14px;font-size:13px}
-.form-group textarea{min-height:120px;padding:14px;resize:vertical;font-size:13px;line-height:1.6}
-.form-group input::placeholder,.form-group textarea::placeholder{color:#b0aab1}
-.form-group input:focus,.form-group textarea:focus{background:#fff;border-color:#b4a3ba;box-shadow:0 0 0 4px rgba(116,97,123,.09)}
-.form-submit{width:100%;min-height:52px;border:0;border-radius:100px;background:var(--plum-dark);color:#fff;font-size:11px;font-weight:700;letter-spacing:.09em;display:flex;align-items:center;justify-content:center;gap:10px;transition:background .25s ease,transform .25s ease}
-.form-submit:hover{background:var(--plum);transform:translateY(-2px)}
-.form-submit svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.form-note{margin-top:12px;text-align:center;font-size:10px;color:#a39ca5;line-height:1.5}
-
-/* Rodapé */
-footer{padding:60px 0 25px;background:#3f3545;color:#fff}
-.footer-grid{display:grid;grid-template-columns:1.2fr .7fr 1fr;gap:60px;padding-bottom:42px;border-bottom:1px solid rgba(255,255,255,.14)}
-.footer-logo{width:125px;max-height:54px;object-fit:contain;object-position:left center;margin-bottom:20px;filter:brightness(0) invert(1)}
-.footer-description{max-width:320px;font-size:12px;line-height:1.85;color:rgba(255,255,255,.62)}
-.footer-title{margin:8px 0 18px;font-size:10px;font-weight:700;letter-spacing:.17em;text-transform:uppercase;color:#cfc2d2}
-.footer-links{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
-.footer-links a{font-size:12px;color:rgba(255,255,255,.75);transition:color .2s ease}
-.footer-links a:hover{color:white}
-.footer-email{max-width:100%;word-break:break-word}
-.footer-bottom{padding-top:22px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.footer-bottom span{font-size:10px;color:rgba(255,255,255,.48)}
-
-/* Atalho WhatsApp */
-.whatsapp-float{position:fixed;z-index:2000;right:25px;bottom:25px;width:60px;height:60px;display:grid;place-items:center;border-radius:50%;background:var(--whatsapp);color:#fff;box-shadow:0 12px 30px rgba(37,211,102,.28);transition:transform .25s ease}
-.whatsapp-float:hover{transform:translateY(-5px) scale(1.04)}
-.whatsapp-float svg{width:28px;height:28px;fill:none;stroke:#fff;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.whatsapp-float::before{content:'';position:absolute;inset:-5px;border:1px solid rgba(37,211,102,.22);border-radius:50%;animation:pulse 2.5s infinite}
-@keyframes pulse{0%{transform:scale(.9);opacity:.8}70%,100%{transform:scale(1.16);opacity:0}}
-
-/* Animações leves */
-.reveal{opacity:1;transform:none}
-.reveal.visible{animation:riseIn .65s cubic-bezier(.2,.8,.2,1) both}
-@keyframes riseIn{from{opacity:.15;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-
-/* Tablet */
-@media(max-width:1100px){
-  .menu{gap:15px}.menu a{font-size:12px}.header-button{padding:0 14px;font-size:11px}
-  .hero-grid{grid-template-columns:.9fr 1.1fr;gap:10px}.hero h1{font-size:clamp(50px,6vw,74px)}
-  .services-grid{grid-template-columns:repeat(2,1fr)}.service{min-height:290px}
-  .about-grid{gap:5vw}.about-photo{height:560px;min-height:500px}
-}
-
-/* Mobile e telas menores */
-@media(max-width:820px){
-  :root{--container:min(100% - 38px,680px)}
-  header{padding:7px 0}.nav{height:49px}.logo{width:105px}
-  .menu{position:fixed;top:70px;left:19px;right:19px;margin:0;padding:23px;display:flex;flex-direction:column;align-items:flex-start;gap:19px;background:rgba(251,249,246,.98);border:1px solid var(--line);border-radius:18px;box-shadow:0 18px 50px rgba(51,42,53,.12);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-8px);transition:.25s ease}
-  .menu.open{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}.menu a{font-size:15px}.menu a::after{display:none}
-  .header-button{display:none}.menu-toggle{display:block;margin-left:auto}
-  .hero{min-height:auto;padding:85px 0 48px}.hero::before{width:85vw;height:85vw;right:-13%;top:10%}.hero::after{display:none}
-  .hero-grid{min-height:0;display:flex;flex-direction:column-reverse;gap:0;align-items:stretch}
-  .hero-content{padding:16px 0 0;max-width:100%}.hero h1{margin-top:17px;font-size:clamp(48px,12vw,74px)}.hero h1 span{font-size:14px;letter-spacing:.16em}
-  .hero-text{margin-top:18px;font-size:14px;line-height:1.8}.hero-actions{margin-top:23px;flex-direction:column;align-items:stretch}.button-main,.button-light{width:100%;min-height:50px}
-  .hero-visual{min-height:0;height:55vh;max-height:570px;margin:0 -5px}.hero-photo{height:100%;min-height:0;max-height:none;width:100%}.hero-photo::before{left:13%;right:13%;height:84%}.hero-name{right:1%;bottom:9%;font-size:15px;padding:9px 13px}.hero-circle{left:3%;bottom:9%;width:62px;height:62px}
-  .intro{padding:85px 0 92px}.intro-grid{grid-template-columns:1fr;gap:23px}.intro-title{font-size:clamp(39px,10vw,58px)}.intro-text{font-size:14px;line-height:1.85}
-  .when-section{padding:85px 0 90px}.when-header{margin-bottom:33px}.when-header h2{font-size:clamp(36px,9vw,50px)}.when-header p{font-size:14px}.when-grid{grid-template-columns:repeat(2,1fr);gap:10px}.when-item{min-height:145px;padding:18px}.when-item p{font-size:13px}.when-quote{margin-top:30px;padding:22px;font-size:22px}
-  .services{padding:85px 0 90px}.services-grid{grid-template-columns:1fr 1fr;gap:11px}.service{min-height:285px;padding:21px 18px}.service-content{padding-top:35px}.service h3{font-size:22px}.service p{font-size:12px}
-  .process{padding:88px 0 92px}.process-header{margin-bottom:42px}.process-header h2{font-size:clamp(39px,9vw,56px)}.process-header p{font-size:14px}.steps{grid-template-columns:1fr;gap:30px}.steps::before{left:37px;right:auto;top:37px;bottom:40px;width:1px;height:auto}.step,.step:not(:first-child){padding:0 0 0 98px;min-height:90px}.step-icon{position:absolute;left:0;top:0;width:76px;height:76px}.step-number{margin-top:0;padding-top:1px}.step h3{margin-top:6px;font-size:26px}.step p{font-size:13px;margin-top:7px}
-  .about{padding:90px 0}.about-grid{grid-template-columns:1fr;gap:45px}.about-photo{height:min(125vw,570px);min-height:390px;max-height:570px;width:min(100%,490px);margin:auto}.about-title{font-size:clamp(42px,9vw,58px)}.about-text{font-size:13px}.about-points{gap:8px}.about-point{padding:14px 10px}.about-point strong{font-size:25px}.about-point span{font-size:10px}
-  .quote{padding:85px 0 90px}.quote-grid{grid-template-columns:1fr;gap:28px}.quote h2{font-size:clamp(38px,9vw,55px)}.quote p{font-size:14px}.quote-word{font-size:100px;right:-15px}
-  .videos{padding:88px 0 95px}.videos-heading{display:block;margin-bottom:30px}.videos-heading h2{font-size:clamp(40px,9vw,57px)}.videos-heading p{margin-top:17px;font-size:13px}.video-mosaic{grid-template-columns:1fr 1fr;grid-template-rows:270px 190px 200px;gap:10px}.video-item:nth-child(1){grid-column:1/-1;grid-row:1}.video-item:nth-child(2){grid-column:1;grid-row:2}.video-item:nth-child(3){grid-column:2;grid-row:2}.video-item:nth-child(4){grid-column:1/-1;grid-row:3}
-  .contact{padding:88px 0 95px}.contact-grid{grid-template-columns:1fr;gap:36px}.contact h2{font-size:clamp(43px,10vw,60px)}.contact-text{font-size:14px}.contact-form{padding:28px 22px}
-  .footer-grid{grid-template-columns:1fr 1fr;gap:35px}.footer-brand{grid-column:1/-1}.footer-bottom{align-items:flex-start;flex-direction:column;gap:8px}
-}
-
-@media(max-width:520px){
-  :root{--container:calc(100% - 34px)}
-  .hero{padding-top:76px}.hero-visual{height:49vh;min-height:330px}.hero-name{font-size:13px}.hero-circle{width:54px;height:54px}.hero-circle svg{width:27px;height:27px}
-  .when-grid{grid-template-columns:1fr}.when-item{min-height:112px}.when-item p{max-width:none}
-  .services-grid{grid-template-columns:1fr}.service{min-height:245px}.service-content{padding-top:32px}
-  .about-photo{min-height:350px;height:112vw}
-  .about-points{grid-template-columns:1fr 1fr}.about-point:last-child{grid-column:1/-1;min-height:auto}
-  .video-mosaic{grid-template-columns:1fr;grid-template-rows:250px 220px 220px 220px}.video-item:nth-child(1){grid-column:1;grid-row:1}.video-item:nth-child(2){grid-column:1;grid-row:2}.video-item:nth-child(3){grid-column:1;grid-row:3}.video-item:nth-child(4){grid-column:1;grid-row:4}
-  .form-row{grid-template-columns:1fr;gap:0}.contact-form{padding:25px 18px}.form-top h3{font-size:26px}
-  .footer-grid{grid-template-columns:1fr;gap:28px}.footer-brand{grid-column:auto}.whatsapp-float{right:16px;bottom:16px;width:55px;height:55px}
-}
-
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
-</style>
+    /* Responsivo */
+    @media(max-width:1120px){:root{--container:min(100% - 54px,1050px)}.nav-links{gap:15px}.nav-links a{font-size:12px}.nav-cta{padding:0 14px;font-size:10px}.hero-grid{grid-template-columns:.9fr 1.1fr}.hero h1{font-size:clamp(52px,6.6vw,76px)}.signal-grid{grid-template-columns:repeat(3,1fr)}.service-row{grid-template-columns:60px 1fr 1fr 38px}.about-grid{gap:5vw}.about-photo{height:600px}.youtube-shell{grid-template-columns:1.15fr .85fr}.playlist-card{grid-template-columns:95px 1fr}}
+    @media(max-width:850px){:root{--container:min(100% - 40px,700px)}.site-header{padding:7px 0}.nav{height:49px}.brand{width:103px}.nav-links{position:fixed;top:68px;left:20px;right:20px;margin:0;padding:24px;display:flex;flex-direction:column;align-items:flex-start;gap:20px;border:1px solid var(--line);border-radius:18px;background:rgba(248,246,242,.98);box-shadow:0 20px 55px rgba(43,35,45,.13);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-9px);transition:.25s}.nav-links.open{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}.nav-links a{font-size:15px}.nav-links a:after{display:none}.nav-cta{display:none}.menu-toggle{display:block;margin-left:auto}
+      .hero{padding:78px 0 35px;min-height:100svh}.hero:before{width:92vw;right:-18%;top:7%}.hero:after{display:none}.hero-grid{min-height:calc(100svh - 105px);grid-template-columns:1fr;grid-template-rows:minmax(330px,48svh) auto;gap:0}.hero-visual{min-height:0;height:48svh;grid-row:1}.hero-photo{height:100%;min-height:0;max-height:none}.hero-halo{left:16%;right:16%;height:85%}.hero-caption{right:2%;bottom:9%;font-size:13px}.hero-stamp{left:2%;bottom:9%;width:68px;font-size:7px}.hero-copy{padding:11px 0 8px;max-width:100%}.hero-brandline{margin-bottom:14px}.hero-brandline img{width:74px}.hero-kicker{font-size:9px}.hero h1{margin-top:8px;font-size:clamp(43px,9vw,63px)}.hero-subtitle{margin-top:13px;font-size:12px;line-height:1.65}.hero-actions{margin-top:18px;gap:8px}.btn-primary,.btn-outline{min-height:45px;padding:0 15px;font-size:9px}.hero-meta{margin-top:20px;padding-top:13px;gap:15px}.hero-meta-item strong{font-size:22px}.hero-meta-item span{font-size:8px}.scroll-cue{display:none}
+      .section{padding:88px 0}.manifesto-grid{grid-template-columns:1fr;gap:23px}.manifesto h2{font-size:clamp(41px,9vw,61px)}.manifesto p{font-size:14px}.personal-grid{grid-template-columns:1fr;gap:35px}.personal{padding:90px 0}.personal h2{font-size:clamp(42px,9vw,59px)}.choice-panel{padding:23px}.choice-buttons{grid-template-columns:1fr 1fr 1fr}.choice-btn{min-height:74px;font-size:10px;padding:10px}
+      .when{padding:88px 0}.when-head h2{font-size:clamp(38px,9vw,56px)}.signal-grid{grid-template-columns:repeat(2,1fr)}.signal{min-height:140px;padding:18px}.signal p{font-size:12px}.when-quote{padding:22px;font-size:22px}
+      .services{padding:90px 0}.services-intro{display:block}.services-side{margin-top:22px}.service-row{grid-template-columns:42px 1fr 38px;gap:14px;padding:22px 10px}.service-row p{grid-column:2;grid-row:2;max-width:100%;padding-top:0}.service-arrow{grid-column:3;grid-row:1}.service-row h3{font-size:24px}.process{padding:90px 0}.steps{grid-template-columns:1fr;gap:28px}.steps:before{left:38px;right:auto;top:38px;bottom:35px;width:1px;height:auto}.step{padding:0 0 0 100px;min-height:85px}.step-icon{position:absolute;left:0;top:0;width:77px;height:77px}.step small{margin-top:0;padding-top:3px}.step h3{font-size:25px}.step p{font-size:12px;margin-top:6px}
+      .about{padding:90px 0}.about-grid{grid-template-columns:1fr;gap:38px}.about-photo{width:min(100%,470px);height:115vw;min-height:390px;max-height:570px;margin:auto}.about-content h2{font-size:clamp(42px,9vw,59px)}.about-text{font-size:13px}.credentials{gap:7px}.credential{padding:13px 10px}.credential strong{font-size:24px}.credential span{font-size:9px}.signature-band{padding:85px 0}.signature-inner{grid-template-columns:1fr;gap:25px}.signature-band p{max-width:520px}
+      .library{padding:90px 0}.library-top{display:block}.channel-link{margin-top:23px}.youtube-shell{grid-template-columns:1fr;padding:11px}.video-feature{min-height:400px}.playlist{padding:10px 5px 3px}.playlist-card{grid-template-columns:110px 1fr}.video-hint{padding:15px 10px}
+      .contact{padding:90px 0}.contact-grid{grid-template-columns:1fr;gap:37px}.contact-card{padding:30px 25px}.contact-copy h2{font-size:clamp(45px,10vw,61px)}.footer-grid{grid-template-columns:1fr 1fr;gap:35px}.footer-brand{grid-column:1/-1}}
+    @media(max-width:520px){:root{--container:calc(100% - 34px)}.hero{padding-top:70px}.hero-grid{grid-template-rows:43svh auto;min-height:calc(100svh - 85px)}.hero-visual{height:43svh}.hero-brandline{margin-bottom:10px}.hero-brandline small{font-size:8px}.hero h1{font-size:clamp(40px,10vw,52px)}.hero-subtitle{font-size:11px}.hero-actions{flex-direction:column;align-items:stretch}.btn-primary,.btn-outline{width:100%}.hero-meta{gap:10px}.hero-meta-item strong{font-size:20px}.hero-meta-item span{font-size:7px;letter-spacing:.04em}.hero-meta-divider{height:29px}.hero-caption{bottom:7%;padding:9px 12px;font-size:11px}.hero-stamp{bottom:7%;width:59px;height:59px;border-width:5px}
+      .choice-buttons{grid-template-columns:1fr}.choice-btn{min-height:48px}.choice-result{padding:19px}.signal-grid{grid-template-columns:1fr 1fr;gap:8px}.signal{min-height:134px;padding:15px}.signal p{font-size:11px}.when-quote{font-size:19px;padding:18px}.service-row{grid-template-columns:31px 1fr 33px;gap:10px}.service-num{font-size:17px}.service-row h3{font-size:21px}.service-row p{font-size:11px}.about-photo{height:112vw;min-height:330px}.credentials{grid-template-columns:1fr 1fr}.credential:last-child{grid-column:1/-1}.video-feature{min-height:280px}.video-feature-info{left:19px;right:19px;bottom:18px}.video-feature-info h3{font-size:26px}.video-play{width:62px;height:62px}.playlist-card{grid-template-columns:92px 1fr;padding:12px 7px}.playlist-copy strong{font-size:15px}.form-row{grid-template-columns:1fr;gap:0}.contact-card{padding:25px 18px}.footer-grid{grid-template-columns:1fr;gap:28px}.footer-brand{grid-column:auto}.footer-bottom{flex-direction:column}.whatsapp-float{right:16px;bottom:16px;width:54px;height:54px}}
+  </style>
 </head>
-
 <body>
-
-<!-- =========================================================
-HEADER
-========================================================= -->
-
-<header id="header">
-
-<div class="container">
-
-<nav class="nav">
-
-<a
-    href="#inicio"
-    class="logo"
-    aria-label="Paula Borch"
->
-
-<img
-    src="https://i.imgur.com/b2bgrDe.png"
-    alt="Paula Borch"
->
-
-</a>
-
-<div class="menu" id="menu">
-
-<a href="#inicio">Início</a>
-
-<a href="#sobre">Sobre</a>
-
-<a href="#quando-procurar">Quando procurar</a>
-
-<a href="#atuacao">Atuação</a>
-
-<a href="#processo">Como funciona</a>
-
-<a href="#videos">Conteúdos</a>
-
-<a href="#contato">Contato</a>
-
-</div>
-
-<a
-    href="#contato"
-    class="header-button"
->
-    Vamos conversar
-</a>
-
-<button
-    class="menu-toggle"
-    id="menuToggle"
-    aria-label="Abrir menu"
-    aria-expanded="false"
->
-    <span></span>
-    <span></span>
-</button>
-
-</nav>
-
-</div>
-
-</header>
-
-<main>
-
-<!-- =========================================================
-HERO
-========================================================= -->
-
-<section
-    class="hero"
-    id="inicio"
->
-
-<div class="container">
-
-<div class="hero-grid">
-
-<div class="hero-content reveal">
-
-<div class="hero-eyebrow">
-    PAULA BORCH | PSICOPEDAGOGIA
-</div>
-
-<h1>
-    PAULA BORCH
-    <span>PSICOPEDAGOGIA</span>
-</h1>
-
-<p class="hero-text">
-
-Atendimento psicopedagógico voltado à compreensão das dificuldades de aprendizagem, ao desenvolvimento das habilidades cognitivas e escolares e à construção de novas possibilidades de aprendizagem.
-
-</p>
-
-<div class="hero-actions">
-
-<a
-    href="https://wa.me/5543920036581?text=Ol%C3%A1%2C%20Paula!%20Gostaria%20de%20saber%20mais%20sobre%20o%20atendimento%20psicopedag%C3%B3gico."
-    class="button-main"
-    target="_blank"
-    rel="noopener"
->
-    QUERO SABER MAIS SOBRE O ATENDIMENTO
-</a>
-
-<a
-    href="#sobre"
-    class="button-light"
->
-    CONHEÇA MEU TRABALHO
-</a>
-
-</div>
-
-</div>
-
-<div class="hero-visual reveal">
-
-<div class="hero-name">
-    Paula Borch
-</div>
-
-<div class="hero-photo">
-
-<img
-    src="https://i.imgur.com/JXwcHif.jpeg"
-    alt="Paula Borch, psicopedagoga"
-    fetchpriority="high"
-    decoding="async"
->
-
-</div>
-
-<div class="hero-circle">
-
-<svg viewBox="0 0 48 48">
-
-<path d="M24 38V10"/>
-
-<path d="M24 16c-7-7-15-2-13 5 1 4 5 5 8 4"/>
-
-<path d="M24 21c7-7 15-2 13 5-1 4-5 5-8 4"/>
-
-<path d="M24 27c-6-5-12 0-10 5 1 3 4 4 7 3"/>
-
-<path d="M24 31c6-5 12 0 10 5-1 3-4 4-7 3"/>
-
-</svg>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- =========================================================
-INTRO
-========================================================= -->
-
-<section class="intro">
-
-<div class="container">
-
-<div class="intro-grid reveal">
-
-<div class="section-label">
-
-<i></i>
-
-Um olhar individual
-
-</div>
-
-<div class="intro-content">
-
-<h2 class="intro-title">
-
-Aprender não é
-seguir uma fórmula.
-
-<span>
-É encontrar possibilidades.
-</span>
-
-</h2>
-
-<p class="intro-text">
-
-Cada pessoa possui uma história,
-um ritmo e uma maneira própria
-de se relacionar com o mundo.
-
-O acompanhamento parte da
-escuta e busca compreender
-o que existe por trás de cada
-dificuldade.
-
-</p>
-
-<div class="intro-footer">
-
-<div class="intro-footer-line"></div>
-
-<span>
-Cada história importa
-</span>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- =========================================================
-QUANDO PROCURAR UMA PSICOPEDAGOGA
-========================================================= -->
-
-<section class="when-section" id="quando-procurar">
-
-<div class="container">
-
-<div class="when-header reveal">
-
-<div class="section-label">
-<i></i>
-Quando procurar
-</div>
-
-<h2>Quando procurar uma psicopedagoga?</h2>
-
-<p>Algumas dificuldades que aparecem na rotina escolar podem indicar a importância de compreender melhor como a criança ou o adolescente aprende.</p>
-
-</div>
-
-<div class="when-grid">
-
-<article class="when-item reveal">
-<span class="when-item-icon" aria-hidden="true">01</span>
-<p>Dificuldades para aprender a ler e escrever.</p>
-</article>
-
-<article class="when-item reveal">
-<span class="when-item-icon" aria-hidden="true">02</span>
-<p>Trocas ou dificuldades na escrita.</p>
-</article>
-
-<article class="when-item reveal">
-<span class="when-item-icon" aria-hidden="true">03</span>
-<p>Dificuldades na compreensão da leitura.</p>
-</article>
-
-<article class="when-item reveal">
-<span class="when-item-icon" aria-hidden="true">04</span>
-<p>Dificuldades em matemática.</p>
-</article>
-
-<article class="when-item reveal">
-<span class="when-item-icon" aria-hidden="true">05</span>
-<p>Dificuldade para acompanhar as atividades escolares.</p>
-</article>
-
-<article class="when-item reveal">
-<span class="when-item-icon" aria-hidden="true">06</span>
-<p>Dificuldades de atenção e organização durante as tarefas.</p>
-</article>
-
-<article class="when-item reveal">
-<span class="when-item-icon" aria-hidden="true">07</span>
-<p>Necessidade de compreender melhor como a criança aprende.</p>
-</article>
-
-</div>
-
-<blockquote class="when-quote reveal">
-“Nem toda dificuldade escolar significa falta de capacidade. Às vezes, a criança precisa que seu processo de aprendizagem seja melhor compreendido.”
-</blockquote>
-
-</div>
-
-</section>
-
-<!-- =========================================================
-ATUAÇÃO
-========================================================= -->
-
-<section
-    class="services"
-    id="atuacao"
->
-
-<div class="container">
-
-<div class="services-grid">
-
-<article class="service reveal">
-<div class="service-icon">
-<svg viewBox="0 0 48 48" aria-hidden="true">
-<circle cx="21" cy="20" r="11"/>
-<path d="m29 28 9 9"/>
-<path d="M17 20h8M21 16v8"/>
-</svg>
-</div>
-<div class="service-content">
-<h3>Avaliação psicopedagógica</h3>
-<p>Investigação dos processos de aprendizagem para compreender habilidades, necessidades e possíveis dificuldades.</p>
-</div>
-</article>
-
-<article class="service reveal">
-<div class="service-icon">
-<svg viewBox="0 0 48 48" aria-hidden="true">
-<path d="M9 10h30v28H9z"/>
-<path d="M16 18h16M16 24h11M16 30h7"/>
-<path d="m29 31 3 3 6-7"/>
-</svg>
-</div>
-<div class="service-content">
-<h3>Intervenção psicopedagógica</h3>
-<p>Estratégias individualizadas para trabalhar as dificuldades identificadas e favorecer o desenvolvimento da aprendizagem.</p>
-</div>
-</article>
-
-<article class="service reveal">
-<div class="service-icon">
-<svg viewBox="0 0 48 48" aria-hidden="true">
-<path d="M9 9h22a7 7 0 0 1 7 7v22H16a7 7 0 0 1-7-7z"/>
-<path d="M16 17h15M16 23h15M16 29h10"/>
-<path d="M15 38V16"/>
-</svg>
-</div>
-<div class="service-content">
-<h3>Alfabetização e letramento</h3>
-<p>Desenvolvimento das habilidades de leitura e escrita, respeitando o ritmo e as necessidades de cada aprendiz.</p>
-</div>
-</article>
-
-<article class="service reveal">
-<div class="service-icon">
-<svg viewBox="0 0 48 48" aria-hidden="true">
-<circle cx="18" cy="16" r="6"/>
-<circle cx="32" cy="19" r="5"/>
-<path d="M6 37c1-7 5-11 12-11s11 4 12 11"/>
-<path d="M29 29c6-1 10 2 12 8"/>
-</svg>
-</div>
-<div class="service-content">
-<h3>Orientação às famílias</h3>
-<p>Diálogo e orientações para que a família compreenda o processo de aprendizagem e participe desse percurso.</p>
-</div>
-</article>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- =========================================================
-COMO FUNCIONA
-========================================================= -->
-
-<section
-    class="process"
-    id="processo"
->
-
-<div class="container">
-
-<div class="process-header reveal">
-
-<div class="section-label">
-
-<i></i>
-
-Como funciona
-
-</div>
-
-<h2>
-Um processo construído
-com calma e intenção.
-</h2>
-
-<p>
-Cada acompanhamento começa
-pela escuta e pela compreensão
-da realidade de cada pessoa.
-</p>
-
-</div>
-
-<div class="steps">
-
-<article class="step reveal">
-
-<div class="step-icon">
-
-<svg viewBox="0 0 48 48">
-
-<path d="M24 39c-8.2 0-15-5.4-15-12.5C9 19.1 15.7 13 24 13s15 6.1 15 13.5C39 33.6 32.2 39 24 39Z"/>
-
-<path d="M17 23c2-2 4-2 6 0s4 2 6 0"/>
-
-<path d="M19 29c1.7 1.5 4.3 1.5 6 0"/>
-
-<circle cx="19" cy="20" r="1.2"/>
-
-<circle cx="29" cy="20" r="1.2"/>
-
-</svg>
-
-</div>
-
-<div class="step-number">
-ETAPA 01
-</div>
-
-<h3>
-Escuta
-</h3>
-
-<p>
-Conhecer a história,
-compreender o contexto e
-ouvir aquilo que está por trás
-da dificuldade.
-</p>
-
-</article>
-
-<article class="step reveal">
-
-<div class="step-icon">
-
-<svg viewBox="0 0 48 48">
-
-<circle cx="22" cy="22" r="10"/>
-
-<path d="M29 29l9 9"/>
-
-<path d="M17 22h10"/>
-
-<path d="M22 17v10"/>
-
-</svg>
-
-</div>
-
-<div class="step-number">
-ETAPA 02
-</div>
-
-<h3>
-Compreensão
-</h3>
-
-<p>
-Observar necessidades,
-contexto e diferentes formas
-de aprender e se desenvolver.
-</p>
-
-</article>
-
-<article class="step reveal">
-
-<div class="step-icon">
-
-<svg viewBox="0 0 48 48">
-
-<path d="M9 34c7-1 11-5 14-11 3-6 7-9 16-10"/>
-
-<path d="M31 10h8v8"/>
-
-<circle cx="10" cy="34" r="3"/>
-
-<circle cx="24" cy="23" r="3"/>
-
-<circle cx="39" cy="13" r="3"/>
-
-</svg>
-
-</div>
-
-<div class="step-number">
-ETAPA 03
-</div>
-
-<h3>
-Caminhos
-</h3>
-
-<p>
-A partir da compreensão,
-são construídas estratégias
-adequadas a cada realidade.
-</p>
-
-</article>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- =========================================================
-SOBRE
-========================================================= -->
-
-<section
-    class="about"
-    id="sobre"
->
-
-<div class="container">
-
-<div class="about-grid">
-
-<div class="about-photo reveal">
-
-<img
-    src="https://i.imgur.com/UjvMkU0.jpeg"
-    alt="Paula Borch, em sua apresentação profissional"
-    loading="lazy"
-    decoding="async"
->
-
-</div>
-
-<div class="reveal">
-
-<div class="section-label">
-
-<i></i>
-
-Sobre Paula
-
-</div>
-
-<h2 class="about-title">
-
-Conhecimento com
-<span>
-sensibilidade.
-</span>
-
-</h2>
-
-<p class="about-text">
-Sou Paula Borch, pedagoga e psicopedagoga, graduada em Pedagogia pela Faculdade INESUL desde 2009 e pós-graduada em Psicopedagogia Clínica, Educacional e Hospitalar pelo Grupo Rhema Educação desde 2018.
-<br><br>
-Com 18 anos de experiência na educação básica e 4 anos de atuação clínica, desenvolvo avaliações e intervenções psicopedagógicas, além de trabalhos voltados à alfabetização e ao letramento.
-<br><br>
-Acredito que cada pessoa tem uma maneira única de aprender. Por isso, meu trabalho é pautado na escuta, na observação e no olhar individualizado, respeitando a história, o ritmo e as potencialidades de cada pessoa.
-<br><br>
-Meu propósito é compreender os processos de aprendizagem e construir estratégias significativas que favoreçam o desenvolvimento e novas possibilidades de aprender.
-</p>
-
-<div class="about-points">
-<div class="about-point">
-<strong>18 anos</strong>
-<span>de experiência na educação básica</span>
-</div>
-<div class="about-point">
-<strong>4 anos</strong>
-<span>de atuação clínica</span>
-</div>
-<div class="about-point">
-<strong>2009</strong>
-<span>graduação em Pedagogia</span>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- =========================================================
-FRASE
-========================================================= -->
-
-<section class="quote">
-
-<div class="container">
-
-<div class="quote-grid">
-
-<div class="quote-copy reveal">
-
-<span class="quote-word">
-caminhos
-</span>
-
-<div class="section-label">
-
-<i></i>
-
-Psicopedagogia
-
-</div>
-
-<h2>
-Quando entendemos
-como alguém aprende,
-abrimos novos caminhos.
-</h2>
-
-</div>
-
-<p class="reveal">
-
-Um olhar atento pode transformar
-a maneira como uma dificuldade é
-percebida — e também revelar
-possibilidades.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- =========================================================
-VÍDEOS
-========================================================= -->
-
-<section
-    class="videos"
-    id="videos"
->
-
-<div class="container">
-
-<div class="videos-heading reveal">
-
-<div>
-
-<div class="section-label">
-
-<i></i>
-
-Conteúdos
-
-</div>
-
-<h2>
-Conteúdos para
-aprender junto.
-</h2>
-
-</div>
-
-<p>
-Vídeos da Paula sobre
-aprendizagem, desenvolvimento,
-educação e psicopedagogia.
-</p>
-
-</div>
-
-<div class="video-mosaic">
-
-<article class="video-item reveal">
-
-<span class="video-tag">
-Destaque
-</span>
-
-<iframe
-    src="https://www.youtube.com/embed/G-WHLWXXQrg"
-    title="Paula Borch"
-    loading="lazy"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen>
-</iframe>
-
-</article>
-
-<article class="video-item reveal">
-
-<span class="video-tag">
-Conteúdo
-</span>
-
-<iframe
-    src="https://www.youtube.com/embed/FAuZXncvy5o"
-    title="Paula Borch"
-    loading="lazy"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen>
-</iframe>
-
-</article>
-
-<article class="video-item reveal">
-
-<span class="video-tag">
-Conteúdo
-</span>
-
-<iframe
-    src="https://www.youtube.com/embed/ocwri6_0fHY"
-    title="Paula Borch"
-    loading="lazy"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen>
-</iframe>
-
-</article>
-
-<article class="video-item reveal">
-
-<span class="video-tag">
-Short
-</span>
-
-<iframe
-    src="https://www.youtube.com/embed/bfmsMIZ-hPc"
-    title="Paula Borch"
-    loading="lazy"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen>
-</iframe>
-
-</article>
-
-</div>
-
-<div class="videos-button reveal">
-
-<a
-    href="https://www.youtube.com/@prof.paulaborch8774"
-    target="_blank"
-    rel="noopener"
-    class="youtube-button"
->
-
-<span class="youtube-button-icon">
-▶
-</span>
-
-Ver canal completo
-
-<span>→</span>
-
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- =========================================================
-CONTATO
-========================================================= -->
-
-<section
-    class="contact"
-    id="contato"
->
-
-<div class="container">
-
-<div class="contact-grid">
-
-<div class="reveal">
-
-<div class="section-label">
-
-<i></i>
-
-Vamos conversar
-
-</div>
-
-<h2>
-Conte um pouco sobre
-o que você <span>precisa.</span>
-</h2>
-
-<p class="contact-text">
-
-Preencha os dados ao lado. Ao enviar, sua mensagem será encaminhada diretamente para o WhatsApp da Paula.
-
-</p>
-
-<a class="contact-social" href="https://www.instagram.com/professorapaulaborch/" target="_blank" rel="noopener">
-Instagram <span>@professorapaulaborch</span> →
-</a>
-
-</div>
-
-<form
-    class="contact-form reveal"
-    id="whatsappForm"
->
-
-<div class="form-top">
-
-<h3>
-Vamos começar uma conversa
-</h3>
-
-<p>
-Os dados serão utilizados somente
-para entrar em contato com você.
-</p>
-
-</div>
-
-<div class="form-row">
-
-<div class="form-group">
-
-<label for="nome">
-Seu nome
-</label>
-
-<input
-    type="text"
-    id="nome"
-    name="nome"
-    placeholder="Digite seu nome"
-    autocomplete="name"
-    required
->
-
-</div>
-
-<div class="form-group">
-
-<label for="telefone">
-Seu WhatsApp
-</label>
-
-<input
-    type="tel"
-    id="telefone"
-    name="telefone"
-    placeholder="(00) 00000-0000"
-    autocomplete="tel"
-    required
->
-
-</div>
-
-</div>
-
-<div class="form-row">
-
-<div class="form-group">
-<label for="crianca">Nome da criança ou adolescente</label>
-<input
-    type="text"
-    id="crianca"
-    name="crianca"
-    placeholder="Nome da criança/adolescente"
-    required
->
-</div>
-
-<div class="form-group">
-<label for="idade">Idade da criança ou adolescente</label>
-<input
-    type="number"
-    id="idade"
-    name="idade"
-    min="0"
-    max="18"
-    placeholder="Ex.: 8"
-    required
->
-</div>
-
-</div>
-
-<div class="form-group">
-
-<label for="necessidade">
-O que você precisa?
-</label>
-
-<textarea
-    id="necessidade"
-    name="necessidade"
-    placeholder="Conte brevemente o que gostaria de conversar..."
-    required
-></textarea>
-
-</div>
-
-<button
-    type="submit"
-    class="form-submit"
->
-
-Enviar pelo WhatsApp
-
-<svg viewBox="0 0 24 24">
-
-<path d="M4 4l16 7-16 7 3-7-3-7Z"/>
-
-<path d="M7 11h9"/>
-
-</svg>
-
-</button>
-
-<div class="form-note">
-
-Você será direcionado para o WhatsApp após o envio.
-
-</div>
-
-</form>
-
-</div>
-
-</div>
-
-</section>
-
-</main>
-
-<!-- =========================================================
-FOOTER
-========================================================= -->
-
-<footer>
-
-<div class="container">
-
-<div class="footer-grid">
-
-<div class="footer-brand">
-
-<img
-    class="footer-logo"
-    src="https://i.imgur.com/b2bgrDe.png"
-    alt="Paula Borch"
->
-
-<p class="footer-description">
-
-Um espaço voltado à aprendizagem,
-desenvolvimento e construção de
-novas possibilidades.
-
-</p>
-
-</div>
-
-<div>
-
-<div class="footer-title">
-Navegação
-</div>
-
-<div class="footer-links">
-
-<a href="#inicio">Início</a>
-
-<a href="#sobre">Sobre</a>
-
-<a href="#atuacao">Atuação</a>
-
-<a href="#processo">Como funciona</a>
-
-<a href="#videos">Conteúdos</a>
-
-</div>
-
-</div>
-
-<div>
-
-<div class="footer-title">
-Contato
-</div>
-
-<div class="footer-links">
-
-<a href="#contato">
-Fale conosco
-</a>
-
-<a
-    href="mailto:contato@paulaborch.com.br"
-    class="footer-email"
->
-contato@paulaborch.com.br
-</a>
-
-<a
-    href="https://www.youtube.com/@prof.paulaborch8774"
-    target="_blank"
-    rel="noopener"
->
-YouTube
-</a>
-
-<a
-    href="https://www.instagram.com/professorapaulaborch/"
-    target="_blank"
-    rel="noopener"
->
-Instagram · @professorapaulaborch
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="footer-bottom">
-
-<span>
-© 2026 Paula Borch. Todos os direitos reservados.
-</span>
-
-<span>
-Educação • Desenvolvimento • Aprendizagem
-</span>
-
-</div>
-
-</div>
-
-</footer>
-
-<!-- =========================================================
-WHATSAPP
-========================================================= -->
-
-<a
-    href="https://wa.me/5543920036581?text=Ol%C3%A1%2C%20Paula!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20atendimento."
-    class="whatsapp-float"
-    aria-label="Entrar em contato pelo WhatsApp"
-    target="_blank"
-    rel="noopener"
->
-
-<svg viewBox="0 0 24 24">
-
-<path
-    d="M20 11.5a8.5 8.5 0 0 1-12.7 7.4L4 20l1.2-3.2A8.5 8.5 0 1 1 20 11.5Z"
-/>
-
-<path
-    d="M9.5 8.5c.3-.3.6-.3.9 0l1 1.2c.2.2.2.5.1.7l-.5.8c.7 1.3 1.7 2.3 3 3l.8-.5c.2-.1.5-.1.7.1l1.2 1c.3.3.3.6 0 .9-.5.5-1.2.8-1.9.6-3.6-1-6.4-3.8-7.4-7.4-.2-.7.1-1.4.6-1.9Z"
-/>
-
-</svg>
-
-</a>
-
-<script>
-
-/* =========================================================
-   CONFIGURAÇÃO WHATSAPP
-========================================================= */
-
-const WHATSAPP_PAULA = "5543920036581";
-
-/* =========================================================
-   HEADER
-========================================================= */
-
-const header =
-document.getElementById("header");
-
-window.addEventListener("scroll",()=>{
-
-    if(window.scrollY > 20){
-        header.classList.add("scrolled");
-    }else{
-        header.classList.remove("scrolled");
+  <header class="site-header" id="siteHeader">
+    <div class="container nav">
+      <a class="brand" href="#inicio" aria-label="Paula Borch - início"><img src="https://i.imgur.com/b2bgrDe.png" alt="Paula Borch"></a>
+      <nav class="nav-links" id="navLinks" aria-label="Navegação principal">
+        <a href="#inicio">Início</a><a href="#sobre">Sobre</a><a href="#atuacao">Atuação</a><a href="#processo">Como funciona</a><a href="#videos">Conteúdos</a><a href="#contato">Contato</a>
+      </nav>
+      <a class="nav-cta" href="#contato">Vamos conversar <span aria-hidden="true">↗</span></a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="hero-brandline">
+            <img src="https://i.imgur.com/b2bgrDe.png" alt="">
+            <span></span>
+            <small>Psicopedagogia<br>Clínica e educacional</small>
+          </div>
+          <div class="hero-kicker">Um olhar individual para cada aprendizagem</div>
+          <h1>Aprender é um caminho <em>singular.</em></h1>
+          <p class="hero-subtitle">Atendimento psicopedagógico voltado à compreensão das dificuldades de aprendizagem, ao desenvolvimento das habilidades cognitivas e escolares e à construção de novas possibilidades de aprendizagem.</p>
+          <div class="hero-actions">
+            <a class="btn-primary" href="https://wa.me/5543920036581?text=Ol%C3%A1%2C%20Paula!%20Gostaria%20de%20saber%20mais%20sobre%20o%20atendimento%20psicopedag%C3%B3gico." target="_blank" rel="noopener">Quero saber mais sobre o atendimento <span>↗</span></a>
+            <a class="btn-outline" href="#sobre">Conheça meu trabalho <span>↓</span></a>
+          </div>
+          <div class="hero-meta" aria-label="Experiência profissional">
+            <div class="hero-meta-item"><strong>18 anos</strong><span>Educação básica</span></div>
+            <div class="hero-meta-divider"></div>
+            <div class="hero-meta-item"><strong>4 anos</strong><span>Atuação clínica</span></div>
+            <div class="hero-meta-divider"></div>
+            <div class="hero-meta-item"><strong>2009</strong><span>Graduação</span></div>
+          </div>
+        </div>
+        <div class="hero-visual" aria-label="Fotografia de Paula Borch">
+          <div class="hero-halo"></div>
+          <div class="hero-photo"><img src="https://i.imgur.com/JXwcHif.jpeg" alt="Paula Borch, psicopedagoga" fetchpriority="high"></div>
+          <div class="hero-caption">Paula Borch</div>
+          <div class="hero-stamp">Escuta<br>e acolhimento</div>
+        </div>
+      </div>
+      <a class="scroll-cue" href="#manifesto">Explore o espaço</a>
+    </section>
+
+    <section class="manifesto" id="manifesto">
+      <div class="container manifesto-grid reveal">
+        <div class="eyebrow">O olhar psicopedagógico</div>
+        <div class="manifesto-copy">
+          <h2>Antes de buscar respostas, é preciso <em>compreender a história.</em></h2>
+          <p>Cada pessoa tem uma maneira única de aprender. Por isso, o acompanhamento começa pela escuta, pela observação e por um olhar individualizado, que respeita a história, o ritmo e as potencialidades de cada aprendiz.</p>
+          <div class="manifesto-sign">Aprender hoje, transformar sempre</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="personal" id="atendimento-personalizado">
+      <div class="container personal-grid">
+        <div class="reveal">
+          <div class="eyebrow">Um começo possível</div>
+          <h2>Cada história pede um <em>olhar diferente.</em></h2>
+          <p class="personal-intro">Selecione o que mais se aproxima do que sua família está vivendo. A proposta é ajudar a organizar a conversa inicial — não é um teste nem substitui uma avaliação psicopedagógica.</p>
+          <p class="personal-note">“Meu propósito é compreender os processos de aprendizagem e construir estratégias significativas para novas possibilidades de aprender.”</p>
+        </div>
+        <div class="choice-panel reveal">
+          <div class="choice-label">O que você gostaria de conversar?</div>
+          <div class="choice-buttons" role="group" aria-label="Selecione um tema">
+            <button class="choice-btn" type="button" data-choice="leitura" aria-pressed="true">Leitura, escrita e alfabetização</button>
+            <button class="choice-btn" type="button" data-choice="escola" aria-pressed="false">Aprendizagem e rotina escolar</button>
+            <button class="choice-btn" type="button" data-choice="familia" aria-pressed="false">Orientação para a família</button>
+          </div>
+          <div class="choice-result" aria-live="polite">
+            <small id="choiceEyebrow">Leitura e escrita</small>
+            <h3 id="choiceTitle">Compreender como a aprendizagem acontece.</h3>
+            <p id="choiceDescription">Converse sobre dificuldades no processo de alfabetização, leitura, compreensão ou escrita e conheça as possibilidades de acompanhamento.</p>
+            <a class="choice-action" id="choiceWhatsapp" href="https://wa.me/5543920036581?text=Ol%C3%A1%2C%20Paula!%20Gostaria%20de%20conversar%20sobre%20leitura%2C%20escrita%20e%20alfabetiza%C3%A7%C3%A3o." target="_blank" rel="noopener">Conversar sobre este tema <span>↗</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="when" id="quando-procurar">
+      <div class="container">
+        <div class="when-head reveal">
+          <div class="eyebrow">Atenção aos sinais</div>
+          <h2>Quando procurar uma <em>psicopedagoga?</em></h2>
+          <p>Algumas situações da rotina escolar podem indicar a importância de compreender melhor como a criança ou o adolescente aprende.</p>
+        </div>
+        <div class="signal-grid">
+          <article class="signal reveal"><span class="signal-number">01</span><p>Dificuldades para aprender a ler e escrever.</p></article>
+          <article class="signal reveal"><span class="signal-number">02</span><p>Trocas ou dificuldades na escrita.</p></article>
+          <article class="signal reveal"><span class="signal-number">03</span><p>Dificuldades na compreensão da leitura.</p></article>
+          <article class="signal reveal"><span class="signal-number">04</span><p>Dificuldades em matemática.</p></article>
+          <article class="signal reveal"><span class="signal-number">05</span><p>Dificuldade para acompanhar as atividades escolares.</p></article>
+          <article class="signal reveal"><span class="signal-number">06</span><p>Dificuldades de atenção e organização durante as tarefas.</p></article>
+          <article class="signal reveal"><span class="signal-number">07</span><p>Necessidade de compreender melhor como a criança aprende.</p></article>
+        </div>
+        <blockquote class="when-quote reveal">“Nem toda dificuldade escolar significa falta de capacidade. Às vezes, a criança precisa que seu processo de aprendizagem seja melhor compreendido.”</blockquote>
+      </div>
+    </section>
+
+    <section class="services" id="atuacao">
+      <div class="container">
+        <div class="services-intro">
+          <div class="section-heading reveal"><div class="eyebrow">Áreas de atuação</div><h2>Um trabalho que respeita <em>cada etapa.</em></h2><p>Os atendimentos são pensados a partir das necessidades identificadas e da singularidade de cada pessoa.</p></div>
+          <p class="services-side reveal">Conheça as frentes de trabalho e encontre o ponto de partida para uma conversa.</p>
+        </div>
+        <div class="service-list">
+          <article class="service-row reveal"><span class="service-num">01</span><h3>Avaliação psicopedagógica</h3><p>Investigação dos processos de aprendizagem para compreender habilidades, necessidades e possíveis dificuldades.</p><span class="service-arrow" aria-hidden="true">↗</span></article>
+          <article class="service-row reveal"><span class="service-num">02</span><h3>Intervenção psicopedagógica</h3><p>Estratégias individualizadas para trabalhar as dificuldades identificadas e favorecer o desenvolvimento da aprendizagem.</p><span class="service-arrow" aria-hidden="true">↗</span></article>
+          <article class="service-row reveal"><span class="service-num">03</span><h3>Alfabetização e letramento</h3><p>Desenvolvimento das habilidades de leitura e escrita, respeitando o ritmo e as necessidades de cada aprendiz.</p><span class="service-arrow" aria-hidden="true">↗</span></article>
+          <article class="service-row reveal"><span class="service-num">04</span><h3>Orientação às famílias</h3><p>Diálogo e orientações para que a família compreenda o processo de aprendizagem e participe desse percurso.</p><span class="service-arrow" aria-hidden="true">↗</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="process" id="processo">
+      <div class="container">
+        <div class="process-head reveal"><div class="eyebrow">Como funciona</div><h2>Um processo construído com <em>calma e intenção.</em></h2><p>Cada acompanhamento começa pela escuta e pela compreensão da realidade de cada pessoa.</p></div>
+        <div class="steps">
+          <article class="step reveal"><div class="step-icon"><svg viewBox="0 0 48 48"><path d="M24 39c-8.2 0-15-5.4-15-12.5C9 19.1 15.7 13 24 13s15 6.1 15 13.5C39 33.6 32.2 39 24 39Z"/><path d="M17 23c2-2 4-2 6 0s4 2 6 0M19 29c1.7 1.5 4.3 1.5 6 0"/><circle cx="19" cy="20" r="1.2"/><circle cx="29" cy="20" r="1.2"/></svg></div><small>ETAPA 01</small><h3>Escuta</h3><p>Conhecer a história, compreender o contexto e ouvir aquilo que está por trás da dificuldade.</p></article>
+          <article class="step reveal"><div class="step-icon"><svg viewBox="0 0 48 48"><circle cx="22" cy="22" r="10"/><path d="m29 29 9 9M17 22h10M22 17v10"/></svg></div><small>ETAPA 02</small><h3>Compreensão</h3><p>Observar necessidades, contexto e diferentes formas de aprender e se desenvolver.</p></article>
+          <article class="step reveal"><div class="step-icon"><svg viewBox="0 0 48 48"><path d="M9 34c7-1 11-5 14-11 3-6 7-9 16-10M31 10h8v8"/><circle cx="10" cy="34" r="3"/><circle cx="24" cy="23" r="3"/><circle cx="39" cy="13" r="3"/></svg></div><small>ETAPA 03</small><h3>Caminhos</h3><p>A partir da compreensão, são construídas estratégias adequadas a cada realidade.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="sobre">
+      <div class="container about-grid">
+        <div class="about-photo reveal"><img src="https://i.imgur.com/UjvMkU0.jpeg" alt="Paula Borch em fotografia profissional" loading="lazy"></div>
+        <div class="about-content reveal">
+          <div class="eyebrow">Sobre Paula Borch</div>
+          <h2>Conhecimento com <em>sensibilidade.</em></h2>
+          <p class="about-text">Sou Paula Borch, pedagoga e psicopedagoga, graduada em Pedagogia pela Faculdade INESUL desde 2009 e pós-graduada em Psicopedagogia Clínica, Educacional e Hospitalar pelo Grupo Rhema Educação desde 2018.<br><br>Com 18 anos de experiência na educação básica e 4 anos de atuação clínica, desenvolvo avaliações e intervenções psicopedagógicas, além de trabalhos voltados à alfabetização e ao letramento.<br><br>Acredito que cada pessoa tem uma maneira única de aprender. Por isso, meu trabalho é pautado na escuta, na observação e no olhar individualizado, respeitando a história, o ritmo e as potencialidades de cada pessoa.<br><br>Meu propósito é compreender os processos de aprendizagem e construir estratégias significativas que favoreçam o desenvolvimento e novas possibilidades de aprender.</p>
+          <div class="credentials"><div class="credential"><strong>18 anos</strong><span>de experiência na educação básica</span></div><div class="credential"><strong>4 anos</strong><span>de atuação clínica</span></div><div class="credential"><strong>2009</strong><span>graduação em Pedagogia</span></div></div>
+          <div class="about-signature">Paula Borch</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="signature-band">
+      <div class="container signature-inner">
+        <div class="reveal"><div class="eyebrow">Uma convicção profissional</div><h2>Nem sempre é sobre aprender mais rápido. Às vezes, é sobre encontrar <em>outro caminho.</em></h2></div>
+        <p class="reveal">A psicopedagogia olha para o processo, considera a pessoa por inteiro e ajuda a construir possibilidades respeitando o tempo e a história de cada aprendiz.</p>
+      </div>
+    </section>
+
+    <section class="library" id="videos">
+      <div class="container">
+        <div class="library-top">
+          <div class="section-heading reveal"><div class="eyebrow">Sala de conteúdos</div><h2>Aprender também é <em>compartilhar.</em></h2><p>Uma seleção de vídeos do canal da Paula para ampliar conversas sobre educação, aprendizagem e psicopedagogia.</p></div>
+          <a class="channel-link reveal" href="https://www.youtube.com/@prof.paulaborch8774" target="_blank" rel="noopener">Conheça o canal <span>↗</span></a>
+        </div>
+        <div class="youtube-shell reveal">
+          <div class="video-feature" id="videoFeature" data-video="G-WHLWXXQrg">
+            <div class="video-cover" id="videoCover">
+              <img id="featureThumb" src="https://i.ytimg.com/vi/G-WHLWXXQrg/maxresdefault.jpg" alt="Prévia de vídeo do canal Paula Borch" loading="lazy" onerror="this.src='https://i.ytimg.com/vi/G-WHLWXXQrg/hqdefault.jpg'">
+              <button class="video-play" id="playVideo" type="button" aria-label="Reproduzir vídeo">▶</button>
+              <div class="video-feature-info"><small>Canal Paula Borch · YouTube</small><h3 id="featureTitle">Conheça os conteúdos da Paula</h3></div>
+            </div>
+          </div>
+          <div class="playlist">
+            <div class="playlist-heading"><small>Playlist selecionada</small><h3>Vídeos da Paula</h3></div>
+            <button class="playlist-card" type="button" data-video="G-WHLWXXQrg" data-title="Conheça os conteúdos da Paula" aria-pressed="true"><span class="playlist-thumb"><img src="https://i.ytimg.com/vi/G-WHLWXXQrg/hqdefault.jpg" alt="" loading="lazy"></span><span class="playlist-copy"><small>Em destaque</small><strong>Vídeo 01</strong><span>Assistir no espaço</span></span></button>
+            <button class="playlist-card" type="button" data-video="FAuZXncvy5o" data-title="Mais um conteúdo para aprender junto" aria-pressed="false"><span class="playlist-thumb"><img src="https://i.ytimg.com/vi/FAuZXncvy5o/hqdefault.jpg" alt="" loading="lazy"></span><span class="playlist-copy"><small>Canal Paula Borch</small><strong>Vídeo 02</strong><span>Selecionar conteúdo</span></span></button>
+            <button class="playlist-card" type="button" data-video="ocwri6_0fHY" data-title="Reflexões sobre aprendizagem" aria-pressed="false"><span class="playlist-thumb"><img src="https://i.ytimg.com/vi/ocwri6_0fHY/hqdefault.jpg" alt="" loading="lazy"></span><span class="playlist-copy"><small>Canal Paula Borch</small><strong>Vídeo 03</strong><span>Selecionar conteúdo</span></span></button>
+            <button class="playlist-card" type="button" data-video="bfmsMIZ-hPc" data-title="Um vídeo curto da Paula" aria-pressed="false"><span class="playlist-thumb"><img src="https://i.ytimg.com/vi/bfmsMIZ-hPc/hqdefault.jpg" alt="" loading="lazy"></span><span class="playlist-copy"><small>Short</small><strong>Vídeo 04</strong><span>Selecionar conteúdo</span></span></button>
+            <p class="video-hint">Escolha um card para atualizar o vídeo em destaque. A reprodução começa quando você clicar no botão central.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contato">
+      <div class="container contact-grid">
+        <div class="contact-copy reveal">
+          <div class="eyebrow">Vamos conversar</div>
+          <h2>O próximo passo começa com uma <em>conversa.</em></h2>
+          <p>Conte um pouco sobre o que você está observando. Sua mensagem será encaminhada diretamente para o WhatsApp da Paula.</p>
+          <a class="social-link" href="https://www.instagram.com/professorapaulaborch/" target="_blank" rel="noopener">Instagram <span>@professorapaulaborch</span> ↗</a>
+        </div>
+        <form class="contact-card reveal" id="whatsappForm">
+          <div class="contact-card-head"><small>Contato inicial</small><h3>Vamos começar por aqui.</h3><p>Preencha os dados para iniciar uma conversa pelo WhatsApp.</p></div>
+          <div class="form-row">
+            <div class="form-group"><label for="nome">Seu nome</label><input type="text" id="nome" name="nome" placeholder="Como podemos chamar você?" autocomplete="name" required></div>
+            <div class="form-group"><label for="telefone">Seu WhatsApp</label><input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" autocomplete="tel" required></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label for="crianca">Nome da criança ou adolescente</label><input type="text" id="crianca" name="crianca" placeholder="Nome" required></div>
+            <div class="form-group"><label for="idade">Idade</label><input type="number" id="idade" name="idade" min="0" max="18" placeholder="Ex.: 8" required></div>
+          </div>
+          <div class="form-group"><label for="necessidade">O que você gostaria de conversar?</label><textarea id="necessidade" name="necessidade" placeholder="Conte brevemente o que tem observado..." required></textarea></div>
+          <button class="form-submit" type="submit">Enviar pelo WhatsApp <span>↗</span></button>
+          <p class="form-note">Ao enviar, você será direcionado ao WhatsApp para concluir o contato.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><img class="footer-logo" src="https://i.imgur.com/b2bgrDe.png" alt="Paula Borch"><p class="footer-description">Atendimento psicopedagógico com escuta, olhar individualizado e respeito às diferentes formas de aprender.</p></div>
+        <div><div class="footer-title">Navegação</div><div class="footer-links"><a href="#inicio">Início</a><a href="#sobre">Sobre</a><a href="#atuacao">Atuação</a><a href="#processo">Como funciona</a><a href="#videos">Conteúdos</a></div></div>
+        <div><div class="footer-title">Conecte-se</div><div class="footer-links"><a href="#contato">Fale com a Paula</a><a href="https://www.youtube.com/@prof.paulaborch8774" target="_blank" rel="noopener">YouTube ↗</a><a href="https://www.instagram.com/professorapaulaborch/" target="_blank" rel="noopener">Instagram · @professorapaulaborch ↗</a><a href="https://wa.me/5543920036581" target="_blank" rel="noopener">WhatsApp ↗</a></div></div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 Paula Borch. Todos os direitos reservados.</span><span>Psicopedagogia · Aprendizagem · Desenvolvimento</span></div>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/5543920036581?text=Ol%C3%A1%2C%20Paula!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20atendimento." aria-label="Entrar em contato pelo WhatsApp" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24"><path d="M20 11.5a8.5 8.5 0 0 1-12.7 7.4L4 20l1.2-3.2A8.5 8.5 0 1 1 20 11.5Z"/><path d="M9.5 8.5c.3-.3.6-.3.9 0l1 1.2c.2.2.2.5.1.7l-.5.8c.7 1.3 1.7 2.3 3 3l.8-.5c.2-.1.5-.1.7.1l1.2 1c.3.3.3.6 0 .9-.5.5-1.2.8-1.9.6-3.6-1-6.4-3.8-7.4-7.4-.2-.7.1-1.4.6-1.9Z"/></svg>
+  </a>
+
+  <script>
+    // Navegação responsiva e estado do cabeçalho
+    const siteHeader = document.getElementById('siteHeader');
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    const setMenu = (open) => {
+      navLinks.classList.toggle('open', open);
+      menuToggle.classList.toggle('active', open);
+      menuToggle.setAttribute('aria-expanded', String(open));
+      document.body.classList.toggle('menu-open', open);
+    };
+    menuToggle.addEventListener('click', () => setMenu(!navLinks.classList.contains('open')));
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenu(false)));
+    document.addEventListener('keydown', event => { if (event.key === 'Escape') setMenu(false); });
+    window.addEventListener('scroll', () => siteHeader.classList.toggle('scrolled', window.scrollY > 24), { passive: true });
+
+    // Seção personalizada: a escolha atualiza a conversa inicial no WhatsApp
+    const choiceContent = {
+      leitura: {
+        eyebrow: 'Leitura e escrita',
+        title: 'Compreender como a aprendizagem acontece.',
+        description: 'Converse sobre dificuldades no processo de alfabetização, leitura, compreensão ou escrita e conheça as possibilidades de acompanhamento.',
+        message: 'Gostaria de conversar sobre leitura, escrita e alfabetização.'
+      },
+      escola: {
+        eyebrow: 'Aprendizagem e rotina escolar',
+        title: 'Olhar para além da tarefa escolar.',
+        description: 'Converse sobre desafios para acompanhar atividades, organização, atenção durante as tarefas ou dificuldades em matemática.',
+        message: 'Gostaria de conversar sobre aprendizagem e rotina escolar.'
+      },
+      familia: {
+        eyebrow: 'Orientação às famílias',
+        title: 'A família também faz parte do caminho.',
+        description: 'Converse sobre como compreender o processo de aprendizagem e construir estratégias possíveis para o cotidiano da família.',
+        message: 'Gostaria de conversar sobre orientação à família.'
+      }
+    };
+    const choiceButtons = document.querySelectorAll('.choice-btn');
+    const choiceEyebrow = document.getElementById('choiceEyebrow');
+    const choiceTitle = document.getElementById('choiceTitle');
+    const choiceDescription = document.getElementById('choiceDescription');
+    const choiceWhatsapp = document.getElementById('choiceWhatsapp');
+    choiceButtons.forEach(button => button.addEventListener('click', () => {
+      const data = choiceContent[button.dataset.choice];
+      if (!data) return;
+      choiceButtons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+      choiceEyebrow.textContent = data.eyebrow;
+      choiceTitle.textContent = data.title;
+      choiceDescription.textContent = data.description;
+      choiceWhatsapp.href = 'https://wa.me/5543920036581?text=' + encodeURIComponent('Olá, Paula! ' + data.message);
+    }));
+
+    // Biblioteca YouTube: cards mudam o destaque; o player só é carregado após clique
+    const videoFeature = document.getElementById('videoFeature');
+    const videoCover = document.getElementById('videoCover');
+    const playlistCards = document.querySelectorAll('.playlist-card');
+    const featureThumb = document.getElementById('featureThumb');
+    const featureTitle = document.getElementById('featureTitle');
+    const playVideo = document.getElementById('playVideo');
+    let selectedVideo = 'G-WHLWXXQrg';
+    function selectVideo(button) {
+      selectedVideo = button.dataset.video;
+      const title = button.dataset.title || 'Conteúdo do canal Paula Borch';
+      playlistCards.forEach(card => card.setAttribute('aria-pressed', String(card === button)));
+      featureThumb.src = `https://i.ytimg.com/vi/${selectedVideo}/maxresdefault.jpg`;
+      featureThumb.onerror = () => { featureThumb.onerror = null; featureThumb.src = `https://i.ytimg.com/vi/${selectedVideo}/hqdefault.jpg`; };
+      featureTitle.textContent = title;
+      videoFeature.dataset.video = selectedVideo;
+      const existingFrame = videoFeature.querySelector('iframe');
+      if (existingFrame) existingFrame.remove();
+      videoCover.hidden = false;
     }
-
-});
-
-/* =========================================================
-   MENU MOBILE
-========================================================= */
-
-const menuToggle =
-document.getElementById("menuToggle");
-
-const menu =
-document.getElementById("menu");
-
-menuToggle.addEventListener("click",()=>{
-
-    const opened =
-        menu.classList.toggle("open");
-
-    menuToggle.classList.toggle(
-        "active",
-        opened
-    );
-
-    menuToggle.setAttribute(
-        "aria-expanded",
-        opened
-    );
-
-});
-
-document
-.querySelectorAll(".menu a")
-.forEach(link=>{
-
-    link.addEventListener("click",()=>{
-
-        menu.classList.remove("open");
-
-        menuToggle.classList.remove("active");
-
-        menuToggle.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
+    playlistCards.forEach(button => button.addEventListener('click', () => selectVideo(button)));
+    playVideo.addEventListener('click', () => {
+      if (videoFeature.querySelector('iframe')) return;
+      const frame = document.createElement('iframe');
+      frame.src = `https://www.youtube-nocookie.com/embed/${selectedVideo}?autoplay=1&rel=0`;
+      frame.title = featureTitle.textContent;
+      frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      frame.allowFullscreen = true;
+      frame.loading = 'lazy';
+      videoFeature.appendChild(frame);
+      videoCover.hidden = true;
     });
 
-});
-
-/* =========================================================
-   WHATSAPP FORM
-========================================================= */
-
-const whatsappForm =
-document.getElementById("whatsappForm");
-
-whatsappForm.addEventListener(
-    "submit",
-    function(event){
-
-        event.preventDefault();
-
-        const nome =
-            document
-            .getElementById("nome")
-            .value
-            .trim();
-
-        const telefone =
-            document
-            .getElementById("telefone")
-            .value
-            .trim();
-
-        const crianca =
-            document
-            .getElementById("crianca")
-            .value
-            .trim();
-
-        const idade =
-            document
-            .getElementById("idade")
-            .value
-            .trim();
-
-        const necessidade =
-            document
-            .getElementById("necessidade")
-            .value
-            .trim();
-
-        if(!nome || !telefone || !crianca || !idade || !necessidade){
-
-            alert(
-                "Por favor, preencha todos os campos."
-            );
-
-            return;
-        }
-
-        const mensagem =
-`Olá, Paula!
-
-Meu nome é ${nome}.
-
-Meu WhatsApp é: ${telefone}
-
-Nome da criança/adolescente: ${crianca}
-Idade: ${idade} anos
-
-Gostaria de conversar sobre:
-
-${necessidade}`;
-
-        const url =
-            "https://wa.me/" +
-            WHATSAPP_PAULA +
-            "?text=" +
-            encodeURIComponent(mensagem);
-
-        window.open(
-            url,
-            "_blank",
-            "noopener"
-        );
-
-    }
-);
-
-/* =========================================================
-   MÁSCARA TELEFONE
-========================================================= */
-
-const telefoneInput =
-document.getElementById("telefone");
-
-telefoneInput.addEventListener(
-    "input",
-    function(){
-
-        let value =
-            this.value.replace(/\D/g,"");
-
-        if(value.length > 11){
-            value = value.slice(0,11);
-        }
-
-        if(value.length <= 10){
-
-            value =
-                value.replace(
-                    /^(\d{2})(\d{4})(\d{0,4}).*/,
-                    "($1) $2-$3"
-                );
-
-        }else{
-
-            value =
-                value.replace(
-                    /^(\d{2})(\d{5})(\d{0,4}).*/,
-                    "($1) $2-$3"
-                );
-
-        }
-
-        this.value = value;
-
-    }
-);
-
-/* =========================================================
-   REVEAL
-========================================================= */
-
-const revealObserver =
-new IntersectionObserver(
-
-(entries)=>{
-
-    entries.forEach(entry=>{
-
-        if(entry.isIntersecting){
-
-            entry.target.classList.add(
-                "visible"
-            );
-
-            revealObserver.unobserve(
-                entry.target
-            );
-
-        }
-
+    // Formulário: compõe mensagem e abre WhatsApp
+    const whatsappForm = document.getElementById('whatsappForm');
+    whatsappForm.addEventListener('submit', event => {
+      event.preventDefault();
+      const nome = document.getElementById('nome').value.trim();
+      const telefone = document.getElementById('telefone').value.trim();
+      const crianca = document.getElementById('crianca').value.trim();
+      const idade = document.getElementById('idade').value.trim();
+      const necessidade = document.getElementById('necessidade').value.trim();
+      if (!nome || !telefone || !crianca || !idade || !necessidade) {
+        alert('Por favor, preencha todos os campos.');
+        return;
+      }
+      const mensagem = `Olá, Paula!\n\nMeu nome é ${nome}.\nMeu WhatsApp é: ${telefone}\n\nNome da criança/adolescente: ${crianca}\nIdade: ${idade} anos\n\nGostaria de conversar sobre:\n${necessidade}`;
+      window.open('https://wa.me/5543920036581?text=' + encodeURIComponent(mensagem), '_blank', 'noopener');
+    });
+    const phoneInput = document.getElementById('telefone');
+    phoneInput.addEventListener('input', function () {
+      let digits = this.value.replace(/\D/g, '').slice(0, 11);
+      if (digits.length > 10) this.value = digits.replace(/^(\d{2})(\d{5})(\d{0,4})$/, '($1) $2-$3');
+      else if (digits.length > 6) this.value = digits.replace(/^(\d{2})(\d{4})(\d{0,4})$/, '($1) $2-$3');
+      else if (digits.length > 2) this.value = digits.replace(/^(\d{2})(\d{0,4})$/, '($1) $2');
+      else this.value = digits;
     });
 
-},
-{
-    threshold:.12
-}
-);
-
-document
-.querySelectorAll(".reveal")
-.forEach(element=>{
-
-    revealObserver.observe(element);
-
-});
-
-/* =========================================================
-   ESC
-========================================================= */
-
-document.addEventListener(
-    "keydown",
-    event=>{
-
-        if(event.key === "Escape"){
-
-            menu.classList.remove("open");
-
-            menuToggle.classList.remove("active");
-
-            menuToggle.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
+    // Elementos entram suavemente ao aparecerem na tela
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
         }
-
-    }
-);
-
-</script>
-
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(element => revealObserver.observe(element));
+  </script>
 </body>
 </html>
