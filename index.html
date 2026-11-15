@@ -2433,6 +2433,68 @@ footer{
     }
 }
 
+
+/* =========================================================
+   CORREÇÃO FINAL DO HERO — FOTO INTEIRA, SEM SOBREPOSIÇÕES
+   A imagem mantém sua proporção natural e ocupa toda a largura.
+========================================================= */
+.hero{
+    overflow:visible !important;
+}
+
+.hero-visual{
+    width:100vw !important;
+    max-width:none !important;
+    height:auto !important;
+    min-height:0 !important;
+    margin-left:calc(50% - 50vw) !important;
+    margin-right:calc(50% - 50vw) !important;
+    overflow:visible !important;
+    display:block !important;
+}
+
+.hero-photo{
+    width:100% !important;
+    max-width:none !important;
+    height:auto !important;
+    min-height:0 !important;
+    margin:0 !important;
+    display:block !important;
+    overflow:visible !important;
+}
+
+.hero-photo img{
+    display:block !important;
+    width:100% !important;
+    max-width:100% !important;
+    height:auto !important;
+    max-height:none !important;
+    object-fit:initial !important;
+    object-position:center !important;
+    transform:none !important;
+    animation:none !important;
+    will-change:auto !important;
+}
+
+/* Retira o nome girado que aparecia por cima da fotografia. */
+.hero-name{
+    display:none !important;
+}
+
+/* O símbolo decorativo não deve cobrir a fotografia. */
+.hero-circle{
+    display:none !important;
+}
+
+@media(max-width:1050px){
+    .hero-visual,
+    .hero-photo{
+        width:100vw !important;
+        max-width:none !important;
+        height:auto !important;
+    }
+}
+
 </style>
 </head>
 
