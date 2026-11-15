@@ -292,36 +292,32 @@ header.scrolled{
 ========================================================= */
 
 .hero{
-    min-height:760px;
-
-    padding-top:58px;
-
-    background:
-        linear-gradient(
-            105deg,
-            #fafaf8 0%,
-            #ffffff 65%,
-            #f7f7f5 100%
-        );
-
+    min-height:0;
+    padding:58px 0 0;
+    background:linear-gradient(180deg,#fafaf8 0%,#ffffff 72%,#f7f7f5 100%);
     overflow:hidden;
 }
 
+/* A foto ocupa a largura da página, em uma faixa própria — não fica ao lado do texto. */
 .hero-grid{
-    min-height:680px;
-
-    display:grid;
-
-    grid-template-columns:.9fr 1.1fr;
-
-    gap:30px;
-
-    align-items:center;
+    min-height:0;
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+    align-items:stretch;
 }
 
 .hero-content{
-    padding-bottom:25px;
+    width:100%;
+    max-width:900px;
+    margin:0 auto;
+    padding:0 0 12px;
+    text-align:center;
 }
+
+.hero-eyebrow{justify-content:center;}
+.hero h1,.hero-text{margin-left:auto;margin-right:auto;}
+.hero-actions{justify-content:center;}
 
 .hero-eyebrow{
     display:flex;
@@ -438,36 +434,35 @@ header.scrolled{
 
 .hero-visual{
     position:relative;
-
-    height:650px;
-
+    width:100%;
+    height:auto;
+    min-height:0;
     display:flex;
     align-items:flex-end;
     justify-content:center;
+    margin:0 auto;
 }
 
 .hero-photo{
     position:relative;
-
     z-index:2;
-
-    width:min(680px,100%);
-    height:680px;
-
+    width:100%;
+    max-width:1100px;
+    height:auto;
+    margin:0 auto;
     display:flex;
     align-items:flex-end;
     justify-content:center;
-
     overflow:visible;
 }
 
 .hero-photo img{
     display:block;
     width:100%;
-    height:100%;
+    height:auto;
     max-width:100%;
-
-    /* Mantém a foto inteira visível, sem cortar cabeça, corpo ou laterais. */
+    max-height:78vh;
+    /* Exibe a imagem inteira, centralizada e sem recorte lateral. */
     object-fit:contain;
     object-position:center bottom;
 
@@ -1988,13 +1983,7 @@ footer{
         padding-top:30px;
     }
 
-    .hero-visual{
-        height:620px;
-    }
-
-    .hero-photo{
-        height:620px;
-    }
+    .hero-visual,.hero-photo{height:auto;}
 
     .intro-grid{
         grid-template-columns:1fr;
@@ -2153,13 +2142,7 @@ footer{
         font-size:39px;
     }
 
-    .hero-visual{
-        height:540px;
-    }
-
-    .hero-photo{
-        height:540px;
-    }
+    .hero-visual,.hero-photo{height:auto;}
 
     .hero-name{
         right:50%;
@@ -2366,13 +2349,7 @@ footer{
         font-size:37px;
     }
 
-    .hero-visual{
-        height:490px;
-    }
-
-    .hero-photo{
-        height:490px;
-    }
+    .hero-visual,.hero-photo{height:auto;}
 
     .hero-name{
         font-size:30px;
