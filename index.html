@@ -1,664 +1,3624 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#f8e9e6">
-  <meta name="description" content="Paula Borch | Psicopedagogia. Atendimento psicopedagógico voltado à compreensão das dificuldades de aprendizagem e ao desenvolvimento de novas possibilidades de aprender.">
-  <title>Paula Borch | Psicopedagogia</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --ink:#492638;
-      --ink-soft:#674556;
-      --plum:#794765;
-      --plum-deep:#633650;
-      --rose:#f3deda;
-      --rose-2:#f8ece9;
-      --cream:#fff9f5;
-      --paper:#fffdfb;
-      --sand:#f3e7dc;
-      --sage:#dfe7d9;
-      --sage-deep:#657861;
-      --lilac:#e9e1eb;
-      --peach:#f4e1d1;
-      --line:rgba(104,65,82,.15);
-      --shadow:0 18px 50px rgba(94,52,71,.09);
-      --serif:'Playfair Display',Georgia,serif;
-      --sans:'DM Sans',Arial,sans-serif;
-      --display:'Manrope',Arial,sans-serif;
-      --header-h:82px;
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="description"
+    content="Paula Borch — Psicopedagogia, desenvolvimento e aprendizagem."
+>
+
+<title>Paula Borch | Psicopedagogia</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+>
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"DM Sans",sans-serif;
+    color:#353936;
+    background:#fff;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+}
+
+img{
+    display:block;
+    max-width:100%;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button,
+input,
+textarea{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+::selection{
+    background:#e8e2ed;
+    color:#353936;
+}
+
+:root{
+    --white:#fff;
+    --background:#fbfbf9;
+    --surface:#f5f6f3;
+    --surface-2:#eef0ed;
+    --line:#e0e3de;
+    --text:#353936;
+    --soft:#777d79;
+    --muted:#999f9a;
+    --purple:#766480;
+    --purple-dark:#64536d;
+    --purple-soft:#eee9f1;
+    --sage:#eaf0eb;
+    --blue-soft:#edf2f3;
+    --whatsapp:#25D366;
+}
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.container{
+    width:min(1180px,calc(100% - 48px));
+    margin:auto;
+}
+
+/* =========================================================
+   SECTION LABEL
+========================================================= */
+
+.section-label{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    font-size:8px;
+    font-weight:600;
+
+    text-transform:uppercase;
+    letter-spacing:.18em;
+
+    color:#8c928d;
+}
+
+.section-label i{
+    width:26px;
+    height:1px;
+    display:block;
+    background:#a7aca7;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header{
+    position:fixed;
+    z-index:1000;
+
+    top:0;
+    left:0;
+
+    width:100%;
+
+    padding:9px 0;
+
+    background:rgba(255,255,255,.96);
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    border-bottom:1px solid rgba(40,45,42,.055);
+
+    transition:.3s ease;
+}
+
+header.scrolled{
+    padding:7px 0;
+
+    box-shadow:
+        0 5px 25px rgba(40,45,42,.055);
+}
+
+.nav{
+    height:48px;
+
+    display:flex;
+    align-items:center;
+}
+
+.logo{
+    width:78px;
+    flex-shrink:0;
+
+    display:flex;
+    align-items:center;
+}
+
+.logo img{
+    width:100%;
+    height:auto;
+}
+
+.menu{
+    margin-left:auto;
+    margin-right:27px;
+
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.menu a{
+    position:relative;
+
+    font-size:9px;
+    font-weight:500;
+
+    color:#737975;
+
+    transition:.25s;
+}
+
+.menu a:hover{
+    color:#353936;
+}
+
+.menu a::after{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:-7px;
+
+    width:0;
+    height:1px;
+
+    background:var(--purple);
+
+    transition:.3s;
+}
+
+.menu a:hover::after{
+    width:100%;
+}
+
+.header-button{
+    height:35px;
+
+    padding:0 17px;
+
+    border-radius:50px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#353936;
+    color:#fff;
+
+    font-size:9px;
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.header-button:hover{
+    background:var(--purple);
+    transform:translateY(-2px);
+}
+
+.menu-toggle{
+    display:none;
+
+    width:40px;
+    height:40px;
+
+    border:1px solid var(--line);
+    border-radius:50%;
+
+    background:#fff;
+
+    position:relative;
+}
+
+.menu-toggle span{
+    position:absolute;
+
+    left:12px;
+
+    width:16px;
+    height:1px;
+
+    background:#353936;
+
+    transition:.3s;
+}
+
+.menu-toggle span:first-child{
+    top:15px;
+}
+
+.menu-toggle span:last-child{
+    top:22px;
+}
+
+.menu-toggle.active span:first-child{
+    top:19px;
+    transform:rotate(45deg);
+}
+
+.menu-toggle.active span:last-child{
+    top:19px;
+    transform:rotate(-45deg);
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    min-height:760px;
+
+    padding-top:58px;
+
+    background:
+        linear-gradient(
+            105deg,
+            #fafaf8 0%,
+            #ffffff 65%,
+            #f7f7f5 100%
+        );
+
+    overflow:hidden;
+}
+
+.hero-grid{
+    min-height:680px;
+
+    display:grid;
+
+    grid-template-columns:.9fr 1.1fr;
+
+    gap:30px;
+
+    align-items:center;
+}
+
+.hero-content{
+    padding-bottom:25px;
+}
+
+.hero-eyebrow{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    font-size:8px;
+    font-weight:600;
+
+    letter-spacing:.18em;
+    text-transform:uppercase;
+
+    color:#8c928d;
+}
+
+.hero-eyebrow::before{
+    content:"";
+
+    width:26px;
+    height:1px;
+
+    background:#a5aaa5;
+}
+
+.hero h1{
+    max-width:620px;
+
+    margin-top:25px;
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:clamp(48px,6vw,75px);
+
+    line-height:.98;
+
+    letter-spacing:-.075em;
+
+    font-weight:500;
+}
+
+.hero h1 span{
+    color:var(--purple);
+}
+
+.hero-text{
+    max-width:450px;
+
+    margin-top:28px;
+
+    font-size:12px;
+
+    line-height:1.9;
+
+    color:var(--soft);
+}
+
+.hero-actions{
+    display:flex;
+    align-items:center;
+
+    gap:12px;
+
+    margin-top:30px;
+}
+
+.button-main,
+.button-light{
+    min-height:45px;
+
+    padding:0 20px;
+
+    border-radius:50px;
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:9px;
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.button-main{
+    background:#353936;
+    color:#fff;
+}
+
+.button-main:hover{
+    background:var(--purple);
+    transform:translateY(-3px);
+}
+
+.button-light{
+    border:1px solid var(--line);
+    background:#fff;
+    color:#666d68;
+}
+
+.button-light:hover{
+    transform:translateY(-3px);
+    border-color:#cfd2cd;
+}
+
+/* =========================================================
+   HERO FOTO
+========================================================= */
+
+.hero-visual{
+    position:relative;
+
+    height:650px;
+
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+}
+
+.hero-photo{
+    position:relative;
+
+    z-index:2;
+
+    width:min(610px,100%);
+    height:650px;
+
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+
+    overflow:visible;
+}
+
+.hero-photo img{
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+    object-position:center bottom;
+
+    transform-origin:center bottom;
+
+    animation:
+        paulaEntrance 1.5s
+        cubic-bezier(.16,1,.3,1)
+        forwards;
+
+    will-change:transform,opacity;
+}
+
+@keyframes paulaEntrance{
+
+    0%{
+        opacity:0;
+        transform:
+            scale(.82)
+            translateY(45px);
     }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth;scroll-padding-top:100px}
-    body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-    img{display:block;max-width:100%}
-    a{color:inherit;text-decoration:none}
-    button,input,textarea{font:inherit}
-    button{cursor:pointer}
-    ::selection{background:#e5cbd6;color:var(--ink)}
-    .container{width:min(1280px,calc(100% - 72px));margin-inline:auto}
-    .eyebrow{display:flex;align-items:center;gap:11px;text-transform:uppercase;letter-spacing:.22em;font-size:10px;font-weight:700;color:var(--plum)}
-    .eyebrow:before{content:"";width:25px;height:1px;background:#bd8fa2;display:inline-block}
-    .section-title{font-family:var(--serif);font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.035em;font-weight:600;margin:14px 0 0;color:var(--ink)}
-    .section-copy{font-size:15px;line-height:1.8;color:#725d66}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:47px;padding:0 22px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.01em;border:1px solid transparent;transition:transform .25s,background .25s,box-shadow .25s,border-color .25s}
-    .btn:hover{transform:translateY(-3px)}
-    .btn-primary{background:var(--plum);color:white;box-shadow:0 9px 22px rgba(121,71,101,.18)}
-    .btn-primary:hover{background:var(--plum-deep);box-shadow:0 12px 26px rgba(121,71,101,.23)}
-    .btn-outline{border-color:rgba(99,54,80,.38);color:var(--ink);background:rgba(255,250,247,.62)}
-    .btn-outline:hover{background:#fff;border-color:var(--plum)}
-    .btn svg{width:16px;height:16px;flex:none}
 
-    /* Header */
-    .site-header{position:absolute;z-index:50;inset:0 0 auto;background:rgba(255,249,246,.78);border-bottom:1px solid rgba(110,71,87,.08);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
-    .nav-wrap{height:var(--header-h);display:flex;align-items:center;gap:28px}
-    .brand{display:flex;align-items:center;gap:12px;min-width:250px}
-    .brand-symbol{width:49px;height:44px;flex:none}
-    .brand-name{font-family:var(--serif);font-size:27px;line-height:1;color:var(--ink);white-space:nowrap}
-    .brand-sub{font-family:var(--display);font-size:8px;letter-spacing:.36em;text-transform:uppercase;margin-top:5px;color:#805e70;text-align:center}
-    .main-nav{display:flex;align-items:center;justify-content:center;gap:clamp(15px,2.1vw,31px);margin-left:auto}
-    .main-nav a{font-size:12px;color:#573a49;position:relative;padding:10px 0;white-space:nowrap}
-    .main-nav a:after{content:"";position:absolute;left:0;bottom:3px;width:0;height:1px;background:var(--plum);transition:width .25s}
-    .main-nav a:hover:after,.main-nav a.active:after{width:100%}
-    .header-cta{min-height:42px;padding-inline:18px;font-size:11px;white-space:nowrap}
-    .menu-toggle{display:none;width:43px;height:43px;border:1px solid var(--line);background:#fff8f5;border-radius:50%;color:var(--ink)}
-    .menu-toggle svg{width:19px;height:19px}
-
-    /* Hero */
-    .hero{min-height:690px;height:min(860px,100svh);padding-top:var(--header-h);position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(104deg,#f8e9e6 0%,#f8e8e2 42%,#f7e0d5 100%)}
-    .hero:before{content:"";position:absolute;z-index:-1;inset:0;background:radial-gradient(ellipse at 70% 48%,rgba(255,245,224,.88) 0%,rgba(255,242,228,.4) 31%,transparent 60%),linear-gradient(90deg,rgba(255,250,247,.18),transparent 72%)}
-    .hero-inner{height:100%;min-height:calc(690px - var(--header-h));display:grid;grid-template-columns:.88fr 1.12fr;align-items:center;gap:28px;position:relative}
-    .hero-copy{position:relative;z-index:3;padding:35px 0 52px 18px;max-width:570px}
-    .hero-kicker{display:inline-flex;align-items:center;gap:9px;color:#855a6e;font-size:10px;letter-spacing:.22em;text-transform:uppercase;font-weight:700}
-    .hero-kicker:before{content:"";width:26px;height:1px;background:#b88c9e}
-    .hero h1{font-family:var(--serif);font-size:clamp(55px,6.2vw,88px);font-weight:600;line-height:.98;letter-spacing:-.055em;margin:24px 0 0;color:#4e293b}
-    .hero h1 span{display:block;font-style:italic;font-size:.76em;font-weight:500;color:#80516d;margin-top:8px;letter-spacing:-.04em}
-    .hero-motto{font-family:var(--display);font-size:clamp(18px,2vw,24px);font-weight:700;line-height:1.35;letter-spacing:-.04em;margin:23px 0 0;color:#593348}
-    .hand-line{width:188px;height:18px;margin:9px 0 16px;color:#95677f}
-    .hero-description{max-width:470px;font-size:14px;line-height:1.75;color:#6f5963;margin:0}
-    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:25px}
-    .hero-media{height:100%;min-height:580px;display:flex;align-items:flex-end;justify-content:center;position:relative;isolation:isolate}
-    .hero-media:before{content:"";position:absolute;z-index:-1;width:min(680px,100%);height:82%;right:0;bottom:0;border-radius:49% 49% 0 0 / 35% 35% 0 0;background:linear-gradient(145deg,#e6c4b8,#f7d9c8 57%,#e4c8c0);opacity:.7}
-    .hero-orbit{position:absolute;right:4%;bottom:6%;width:70%;height:71%;border:1px solid rgba(139,88,111,.2);border-radius:48% 48% 0 0 / 36% 36% 0 0;pointer-events:none}
-    .hero-photo{position:relative;z-index:2;width:100%;height:100%;max-height:680px;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 20px 22px rgba(94,54,69,.1));}
-    .hero-photo-wrap{position:absolute;inset:0 0 0 0;display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
-    .hero-photo-note{position:absolute;z-index:4;right:5%;bottom:7%;padding:12px 17px;border:1px solid rgba(255,255,255,.7);border-radius:16px;background:rgba(255,250,245,.76);backdrop-filter:blur(12px);font-family:var(--serif);font-size:15px;font-style:italic;color:#6c4358;box-shadow:var(--shadow)}
-    .hero-deco{position:absolute;pointer-events:none;z-index:1;opacity:.6}
-    .hero-deco-left{left:-28px;top:18%;width:105px}
-    .hero-deco-bottom{right:-18px;bottom:0;width:120px;transform:rotate(-16deg)}
-    .hero-scroll{position:absolute;bottom:25px;left:50%;transform:translateX(-50%);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#986f7e;display:flex;align-items:center;gap:10px;z-index:5}
-    .hero-scroll:after{content:"";width:42px;height:1px;background:#b88e9e}
-
-    /* Warning signs */
-    .attention{position:relative;padding:48px 0 58px;background:#fff9f6;overflow:hidden}
-    .attention:before{content:"";position:absolute;left:-80px;top:-90px;width:240px;height:240px;border-radius:50%;background:#f8e9e6;opacity:.8}
-    .attention-grid{position:relative;display:grid;grid-template-columns:.72fr 1.55fr;gap:48px;align-items:center}
-    .attention-intro{max-width:360px;padding-left:8px}
-    .attention-intro .section-title{font-size:clamp(30px,3.2vw,41px)}
-    .attention-intro p{font-size:14px;line-height:1.65;margin:15px 0 0;color:#664f5b}
-    .attention-intro strong{color:var(--ink)}
-    .mini-heart{width:45px;height:39px;margin-top:12px;color:#94677c}
-    .signs-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
-    .sign-card{min-height:116px;padding:17px 13px 14px;border:1px solid rgba(123,77,99,.12);border-radius:19px;background:rgba(255,255,255,.78);box-shadow:0 5px 15px rgba(91,55,70,.045);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:11px;transition:transform .25s,box-shadow .25s,border-color .25s}
-    .sign-card:hover{transform:translateY(-5px);border-color:rgba(123,77,99,.3);box-shadow:0 12px 24px rgba(91,55,70,.08)}
-    .sign-card svg{width:27px;height:27px;stroke:#83536f;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-    .sign-card span{font-size:11px;line-height:1.4;color:#5b4651}
-
-    /* Services */
-    .services{position:relative;padding:44px 0 68px;background:linear-gradient(180deg,#fff9f6 0%,#f9ece8 100%);overflow:hidden}
-    .services:before{content:"";position:absolute;bottom:-90px;left:-45px;width:210px;height:210px;border-radius:50%;background:#e8d7c5;opacity:.55}
-    .services-head{text-align:center;position:relative;margin-bottom:26px}
-    .services-head .eyebrow{justify-content:center}
-    .services-head .eyebrow:after{content:"";width:25px;height:1px;background:#bd8fa2}
-    .services-head .section-title{font-size:clamp(29px,3.4vw,39px);margin-top:8px}
-    .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:17px;position:relative}
-    .service-card{min-height:174px;padding:23px 20px 20px;border-radius:18px;border:1px solid rgba(115,75,94,.12);display:flex;flex-direction:column;align-items:center;text-align:center;box-shadow:0 7px 18px rgba(78,48,63,.04);transition:transform .3s,box-shadow .3s}
-    .service-card:hover{transform:translateY(-7px);box-shadow:0 18px 30px rgba(78,48,63,.1)}
-    .service-card:nth-child(1){background:#e6e5d9}
-    .service-card:nth-child(2){background:#eae1eb}
-    .service-card:nth-child(3){background:#f3e2d2}
-    .service-card:nth-child(4){background:#eadbe2}
-    .service-icon{width:46px;height:46px;display:grid;place-items:center;border:1px solid rgba(111,73,90,.2);border-radius:14px;background:rgba(255,255,255,.56);margin-bottom:14px}
-    .service-icon svg{width:25px;height:25px;stroke:#71435c;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-    .service-card h3{font-family:var(--display);font-size:14px;line-height:1.35;margin:0;color:#4f2e40;font-weight:700}
-    .service-card p{font-size:11px;line-height:1.55;color:#705c64;margin:7px 0 0;max-width:230px}
-
-    /* About */
-    .about{padding:83px 0;background:#fffaf7;position:relative;overflow:hidden}
-    .about-grid{display:grid;grid-template-columns:.82fr 1.18fr .76fr;gap:39px;align-items:center}
-    .about-image-frame{position:relative;min-height:400px;border-radius:48% 48% 23px 23px / 32% 32% 23px 23px;background:linear-gradient(145deg,#ead5d2,#f5e4dc);overflow:hidden;display:flex;align-items:flex-end;justify-content:center}
-    .about-image-frame:before{content:"";position:absolute;inset:14px;border:1px solid rgba(255,255,255,.75);border-radius:inherit;pointer-events:none}
-    .about-image-frame img{width:100%;height:100%;max-height:475px;object-fit:contain;object-position:center bottom;position:relative;z-index:1}
-    .about-copy{padding:18px 0}
-    .about-copy .section-title{font-size:clamp(34px,3.7vw,47px);margin-top:12px}
-    .about-copy .section-title span{color:var(--plum);font-style:italic}
-    .about-copy p{font-size:13px;line-height:1.75;color:#6b5861;margin:17px 0 0}
-    .about-copy .btn{margin-top:20px}
-    .credentials{padding:24px 23px;border:1px solid rgba(135,83,108,.12);border-radius:23px;background:linear-gradient(145deg,#faece8,#f5e3df);box-shadow:0 12px 30px rgba(97,52,73,.06)}
-    .credential{display:grid;grid-template-columns:48px 1fr;gap:12px;align-items:center;padding:12px 0}
-    .credential+.credential{border-top:1px solid rgba(126,76,98,.12)}
-    .credential svg{width:37px;height:37px;stroke:#82506d;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
-    .credential strong{display:block;font-family:var(--serif);font-size:25px;line-height:1;color:#583044;font-weight:600}
-    .credential span{display:block;font-size:11px;line-height:1.45;color:#765d69;margin-top:4px}
-    .credential small{display:block;font-size:10px;color:#886e7a;margin-top:3px}
-
-    /* Video */
-    .learning{padding:68px 0 76px;background:linear-gradient(115deg,#f9ece8,#fff8f4 56%,#f3e2de);position:relative;overflow:hidden}
-    .learning-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:45px;align-items:center}
-    .learning-copy .section-title{font-size:clamp(32px,3.6vw,45px)}
-    .learning-copy .section-copy{font-size:13px;margin:13px 0 18px}
-    .youtube-pill{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(112,57,69,.38);border-radius:999px;padding:10px 16px;font-size:11px;font-weight:700;color:#66394b;transition:.25s;background:rgba(255,255,255,.5)}
-    .youtube-pill:hover{background:#fff;transform:translateY(-2px)}
-    .youtube-pill svg{width:17px;height:17px;fill:#b33d42}
-    .video-library{display:grid;grid-template-columns:1.45fr .9fr;gap:14px;min-width:0}
-    .video-feature{position:relative;border-radius:18px;overflow:hidden;background:#533d39;min-height:290px;box-shadow:var(--shadow);isolation:isolate}
-    .video-feature iframe,.video-feature .video-cover{position:absolute;inset:0;width:100%;height:100%;border:0}
-    .video-cover{border:0;padding:0;background:#513c37;display:block;color:white;text-align:left;overflow:hidden}
-    .video-cover[hidden]{display:none}
-    .video-cover img{width:100%;height:100%;object-fit:cover;opacity:.83;transition:transform .5s}
-    .video-cover:hover img{transform:scale(1.04)}
-    .video-cover:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(43,28,26,.58),rgba(43,28,26,.08) 75%)}
-    .video-cover-label{position:absolute;z-index:2;right:7%;top:50%;transform:translateY(-50%);width:40%;font-family:var(--serif);font-size:clamp(22px,2.5vw,34px);line-height:1.13;font-style:italic;color:white;text-shadow:0 2px 12px rgba(0,0,0,.3)}
-    .play-button{position:absolute;z-index:3;left:50%;top:50%;transform:translate(-50%,-50%);width:62px;height:62px;border-radius:50%;background:rgba(62,39,43,.84);border:1px solid rgba(255,255,255,.7);display:grid;place-items:center;color:#fff;transition:.25s}
-    .play-button svg{width:21px;height:21px;fill:currentColor;margin-left:3px}
-    .video-cover:hover .play-button{background:var(--plum);transform:translate(-50%,-50%) scale(1.08)}
-    .video-side{display:flex;flex-direction:column;gap:10px}
-    .video-choice{display:grid;grid-template-columns:94px 1fr;gap:11px;align-items:center;border:1px solid rgba(116,74,93,.1);background:rgba(255,255,255,.57);border-radius:13px;padding:7px;text-align:left;color:#583c4b;min-height:64px;transition:.25s}
-    .video-choice:hover,.video-choice[aria-pressed="true"]{background:white;border-color:rgba(116,74,93,.34);box-shadow:0 6px 16px rgba(72,42,56,.07)}
-    .video-choice img{width:94px;height:57px;object-fit:cover;border-radius:8px}
-    .video-choice span{font-size:10px;line-height:1.4;font-weight:600}
-    .video-choice small{display:block;font-size:8px;letter-spacing:.08em;text-transform:uppercase;color:#9a7888;margin-bottom:3px}
-
-    /* philosophy + contact */
-    .connect{padding:64px 0;background:#fff9f6;position:relative;overflow:hidden}
-    .connect-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:44px;align-items:center}
-    .philosophy{padding:16px 24px 16px 4px;border-right:1px solid rgba(126,76,98,.2)}
-    .philosophy .section-title{font-size:clamp(29px,3.3vw,40px)}
-    .quote-card{margin-top:20px;padding:21px 23px;border-radius:19px;background:linear-gradient(135deg,#f4e5df,#eee3e9);position:relative}
-    .quote-mark{font-family:var(--serif);font-size:48px;line-height:.6;color:#a87991}
-    .quote-card p{font-family:var(--serif);font-size:19px;line-height:1.45;color:#5b394b;margin:10px 0 0}
-    .quote-card span{display:block;font-family:var(--sans);font-size:10px;color:#856b78;margin-top:12px;letter-spacing:.09em;text-transform:uppercase}
-    .contact-panel{display:grid;grid-template-columns:.83fr 1.17fr;gap:20px;align-items:center}
-    .contact-intro .section-title{font-size:clamp(30px,3.1vw,39px)}
-    .contact-intro p{font-size:12px;line-height:1.65;color:#705d66;margin:12px 0 16px}
-    .instagram-link{display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-size:12px;font-weight:700;color:#664052}
-    .instagram-link svg{width:20px;height:20px}
-    .contact-form{padding:20px;border-radius:19px;background:rgba(255,255,255,.82);border:1px solid rgba(128,80,103,.13);box-shadow:0 10px 26px rgba(94,52,71,.055)}
-    .contact-form h3{font-family:var(--serif);font-size:21px;margin:0 0 14px;font-weight:600}
-    .field{margin-bottom:10px}
-    .field input,.field textarea{display:block;width:100%;border:1px solid rgba(122,79,98,.15);border-radius:10px;padding:12px 13px;background:#fffaf8;color:var(--ink);font-size:11px;outline:none;transition:border-color .2s,box-shadow .2s}
-    .field input{height:42px}
-    .field textarea{resize:vertical;min-height:73px;line-height:1.5}
-    .field input:focus,.field textarea:focus{border-color:#b78da2;box-shadow:0 0 0 3px rgba(153,105,130,.1)}
-    .field input::placeholder,.field textarea::placeholder{color:#a48e98}
-    .form-submit{width:100%;border:0;min-height:43px;border-radius:10px;background:var(--plum);color:#fff;font-size:11px;font-weight:700;transition:.25s}
-    .form-submit:hover{background:var(--plum-deep);transform:translateY(-2px)}
-    .form-note{text-align:center;font-size:9px;color:#a08a94;margin:9px 0 0}
-
-    /* Footer and floating WhatsApp */
-    .footer{background:linear-gradient(105deg,#72465f,#8c5a75);color:#fff;padding:28px 0 18px}
-    .footer-main{display:flex;align-items:center;justify-content:space-between;gap:24px}
-    .footer-brand{display:flex;align-items:center;gap:12px}
-    .footer-brand .brand-name{color:#fff;font-size:24px}
-    .footer-brand .brand-sub{color:rgba(255,255,255,.72)}
-    .footer-tagline{font-family:var(--serif);font-style:italic;font-size:19px;color:rgba(255,255,255,.86)}
-    .footer-social{display:flex;gap:12px;align-items:center}
-    .footer-social a{width:34px;height:34px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.35);border-radius:50%;transition:.2s}
-    .footer-social a:hover{background:rgba(255,255,255,.16);transform:translateY(-2px)}
-    .footer-social svg{width:16px;height:16px;fill:none;stroke:white;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-    .footer-bottom{border-top:1px solid rgba(255,255,255,.2);margin-top:20px;padding-top:13px;display:flex;justify-content:space-between;gap:15px;color:rgba(255,255,255,.72);font-size:9px}
-    .whatsapp-float{position:fixed;z-index:45;right:22px;bottom:22px;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:#4d966b;color:white;box-shadow:0 9px 25px rgba(49,113,75,.25);transition:.25s}
-    .whatsapp-float:hover{transform:translateY(-4px) scale(1.04);background:#367b55}
-    .whatsapp-float svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-
-    /* Motion */
-    .fade-up{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.75,.2,1)}
-    .fade-up.is-visible{opacity:1;transform:translateY(0)}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}.fade-up{opacity:1;transform:none}}
-
-    /* Responsive */
-    @media(max-width:1080px){
-      :root{--header-h:74px}
-      .container{width:min(100% - 48px,920px)}
-      .brand{min-width:210px}.brand-name{font-size:24px}.brand-symbol{width:43px}
-      .main-nav{gap:15px}.main-nav a{font-size:11px}.header-cta{padding-inline:14px}
-      .hero{min-height:650px}.hero-inner{grid-template-columns:.92fr 1.08fr}.hero h1{font-size:clamp(52px,6.2vw,72px)}
-      .attention-grid{grid-template-columns:.78fr 1.45fr;gap:26px}.signs-grid{grid-template-columns:repeat(3,1fr)}
-      .about-grid{grid-template-columns:.78fr 1.22fr}.credentials{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:16px 20px}.credential+.credential{border-top:0;border-left:1px solid rgba(126,76,98,.12);padding-left:18px}
-      .learning-grid{gap:28px}.video-library{grid-template-columns:1.2fr .9fr}
-      .contact-panel{grid-template-columns:1fr}.contact-intro{display:grid;grid-template-columns:1fr auto;column-gap:15px;align-items:center}.contact-intro .eyebrow,.contact-intro .section-title,.contact-intro p{grid-column:1}.contact-intro .btn{grid-column:2;grid-row:2 / span 2}.instagram-link{grid-column:1}
+    35%{
+        opacity:1;
     }
-    @media(max-width:780px){
-      :root{--header-h:70px}
-      .container{width:calc(100% - 34px)}
-      .site-header{position:absolute}.nav-wrap{gap:12px}.brand{min-width:0}.brand-symbol{width:39px;height:38px}.brand-name{font-size:22px}.brand-sub{font-size:7px}
-      .header-cta{display:none}.menu-toggle{display:grid;place-items:center;margin-left:auto}
-      .main-nav{position:absolute;top:calc(var(--header-h) - 1px);left:17px;right:17px;display:flex;flex-direction:column;align-items:stretch;gap:0;padding:10px 18px;background:rgba(255,250,247,.98);border:1px solid rgba(112,70,88,.14);border-radius:0 0 18px 18px;box-shadow:0 18px 35px rgba(69,39,53,.13);opacity:0;visibility:hidden;transform:translateY(-8px);transition:.22s;margin:0}
-      .main-nav.open{opacity:1;visibility:visible;transform:translateY(0)}.main-nav a{padding:12px 4px;font-size:13px;border-bottom:1px solid rgba(112,70,88,.08)}.main-nav a:last-child{border-bottom:0}.main-nav a:after{display:none}
-      .hero{height:auto;min-height:0;padding-top:var(--header-h)}.hero-inner{min-height:0;display:flex;flex-direction:column;gap:0;align-items:stretch}.hero-copy{padding:52px 5px 12px;max-width:650px}.hero h1{font-size:clamp(53px,12vw,78px);margin-top:17px}.hero-motto{font-size:20px;margin-top:15px}.hero-description{font-size:13px;max-width:520px}.hero-actions{margin-top:19px}.hero-media{height:min(108vw,520px);min-height:340px;margin-top:0}.hero-photo-wrap{inset:0}.hero-photo{max-height:100%;max-width:100%}.hero-media:before{width:86%;height:92%;right:7%;border-radius:48% 48% 0 0 / 35% 35% 0 0}.hero-orbit{width:78%;height:82%;right:11%}.hero-photo-note{right:3%;bottom:5%;font-size:13px}.hero-scroll{display:none}
-      .attention{padding:45px 0}.attention-grid{grid-template-columns:1fr;gap:22px}.attention-intro{max-width:560px}.attention-intro .section-title{max-width:470px}.signs-grid{grid-template-columns:repeat(2,1fr)}.sign-card{min-height:105px}
-      .services{padding:43px 0 54px}.services-grid{grid-template-columns:repeat(2,1fr);gap:12px}.service-card{min-height:165px;padding:18px 13px}.service-card h3{font-size:13px}
-      .about{padding:58px 0}.about-grid{grid-template-columns:1fr;gap:25px}.about-image-frame{min-height:350px;max-height:450px;width:min(100%,440px);margin-inline:auto}.about-image-frame img{max-height:450px}.about-copy{padding:0}.credentials{grid-column:auto;grid-template-columns:1fr;gap:0}.credential+.credential{border-left:0;border-top:1px solid rgba(126,76,98,.12);padding-left:0}
-      .learning{padding:52px 0}.learning-grid{grid-template-columns:1fr;gap:23px}.learning-copy{max-width:550px}.video-library{grid-template-columns:1fr}.video-feature{min-height:240px}.video-side{display:grid;grid-template-columns:repeat(3,1fr)}.video-choice{grid-template-columns:1fr;align-content:start}.video-choice img{width:100%;height:75px}.video-choice span{font-size:9px}
-      .connect{padding:48px 0}.connect-grid{grid-template-columns:1fr;gap:28px}.philosophy{border-right:0;border-bottom:1px solid rgba(126,76,98,.2);padding:0 0 25px}.contact-panel{grid-template-columns:.9fr 1.1fr;align-items:start}.contact-intro{display:block}.contact-intro .btn{margin-top:4px}.instagram-link{margin-top:12px}
-      .footer-main{flex-wrap:wrap}.footer-tagline{order:3;width:100%;text-align:center}.footer-social{margin-left:auto}
-    }
-    @media(max-width:520px){
-      .container{width:calc(100% - 30px)}.brand-name{font-size:20px}.brand-symbol{width:35px}.hero-copy{padding-top:42px}.hero h1{font-size:52px}.hero-actions{display:grid;grid-template-columns:1fr}.hero-actions .btn{width:100%}.hero-media{height:390px;min-height:340px}.hero-photo-note{font-size:11px;padding:9px 12px}
-      .attention-intro .section-title{font-size:33px}.signs-grid{gap:9px}.sign-card{padding:13px 9px;min-height:115px}.sign-card span{font-size:10px}
-      .services-grid{grid-template-columns:1fr 1fr;gap:9px}.service-card{min-height:172px;padding:16px 10px}.service-card p{font-size:10px}.service-icon{width:41px;height:41px;margin-bottom:10px}
-      .about-image-frame{min-height:320px}.about-copy .section-title{font-size:36px}
-      .video-feature{min-height:210px}.video-cover-label{font-size:24px}.video-side{gap:7px}.video-choice{padding:5px;gap:6px}.video-choice img{height:58px}.video-choice span{font-size:8px}.video-choice small{font-size:7px}
-      .contact-panel{grid-template-columns:1fr}.contact-intro{display:block}.contact-form{padding:17px}.footer-main{justify-content:center;text-align:center}.footer-brand{justify-content:center;width:100%}.footer-social{margin:0}.footer-bottom{flex-direction:column;text-align:center;line-height:1.5}.whatsapp-float{width:52px;height:52px;right:14px;bottom:14px}
-    }
-  
 
-    /* Ajustes solicitados: fotografia integral, fundo neutro e marca original */
-    .site-header{
-      background:rgba(227,227,224,.94);
-      border-bottom:1px solid rgba(65,65,62,.10);
-      backdrop-filter:blur(10px);
-      -webkit-backdrop-filter:blur(10px);
+    100%{
+        opacity:1;
+        transform:
+            scale(1)
+            translateY(0);
     }
-    .brand{min-width:0;flex:none;display:flex;align-items:center}
-    .brand-logo{display:block;width:112px;height:auto;max-height:58px;object-fit:contain;object-position:left center}
-    .footer-brand{display:flex;align-items:center;min-width:140px}
-    .footer-brand-logo{display:block;width:112px;height:auto;max-height:58px;object-fit:contain}
+}
 
-    /* A cor da abertura acompanha o fundo cinza da fotografia. */
-    .hero{
-      height:100svh;
-      min-height:690px;
-      max-height:1000px;
-      background:#e3e3e0;
-      overflow:hidden;
+/* =========================================================
+   NOME VERTICAL
+========================================================= */
+
+.hero-name{
+    position:absolute;
+
+    z-index:4;
+
+    right:-17px;
+    top:50%;
+
+    transform:
+        translateY(-50%)
+        rotate(90deg);
+
+    transform-origin:center;
+
+    white-space:nowrap;
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:clamp(48px,5vw,70px);
+
+    font-weight:600;
+
+    letter-spacing:-.08em;
+
+    color:#e2e4e0;
+
+    pointer-events:none;
+
+    opacity:0;
+
+    animation:
+        nameEntrance 1.1s
+        .65s
+        cubic-bezier(.16,1,.3,1)
+        forwards;
+}
+
+@keyframes nameEntrance{
+
+    from{
+        opacity:0;
+
+        transform:
+            translateY(-50%)
+            rotate(90deg)
+            translateX(35px);
     }
-    .hero:before,.hero-media:before,.hero-orbit,.hero-deco{display:none!important}
-    .hero-inner{
-      height:100%;
-      min-height:0;
-      grid-template-columns:.9fr 1.1fr;
-      gap:24px;
+
+    to{
+        opacity:1;
+
+        transform:
+            translateY(-50%)
+            rotate(90deg)
+            translateX(0);
     }
-    .hero-copy{padding:22px 0 24px 18px}
-    .hero-media{
-      height:100%;
-      min-height:0;
-      padding:22px 0;
-      align-items:center;
-      justify-content:center;
-      background:#e3e3e0;
+}
+
+.hero-circle{
+    position:absolute;
+
+    right:5%;
+    bottom:35px;
+
+    width:68px;
+    height:68px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.9);
+
+    border:1px solid rgba(255,255,255,.95);
+
+    backdrop-filter:blur(12px);
+
+    z-index:5;
+}
+
+.hero-circle svg{
+    width:29px;
+    height:29px;
+
+    fill:none;
+
+    stroke:var(--purple);
+
+    stroke-width:1.4;
+
+    stroke-linecap:round;
+    stroke-linejoin:round;
+}
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.intro{
+    padding:135px 0;
+    background:#fff;
+}
+
+.intro-grid{
+    display:grid;
+
+    grid-template-columns:.38fr 1.62fr;
+
+    gap:70px;
+}
+
+.intro-content{
+    max-width:800px;
+    position:relative;
+}
+
+.intro-title{
+    position:relative;
+    z-index:2;
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:clamp(42px,5vw,64px);
+
+    line-height:1.03;
+
+    letter-spacing:-.07em;
+
+    font-weight:500;
+}
+
+.intro-title span{
+    display:block;
+    color:#8b908c;
+}
+
+/* palavra de fundo trabalhada */
+
+.intro-content::after{
+    content:"possibilidades";
+
+    position:absolute;
+
+    right:-50px;
+    bottom:-40px;
+
+    z-index:0;
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:clamp(70px,10vw,145px);
+
+    line-height:.8;
+
+    letter-spacing:-.1em;
+
+    font-weight:700;
+
+    color:#f2f2ef;
+
+    white-space:nowrap;
+
+    pointer-events:none;
+
+    opacity:0;
+
+    animation:
+        wordReveal 1.2s .4s ease forwards;
+}
+
+@keyframes wordReveal{
+
+    from{
+        opacity:0;
+        transform:translateX(35px);
     }
-    .hero-photo-wrap{
-      position:relative;
-      inset:auto;
-      width:100%;
-      height:100%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      overflow:visible;
-      background:#e3e3e0;
+
+    to{
+        opacity:1;
+        transform:translateX(0);
     }
+}
+
+.intro-text{
+    position:relative;
+    z-index:2;
+
+    max-width:650px;
+
+    margin-top:27px;
+
+    font-size:12px;
+
+    line-height:1.95;
+
+    color:var(--soft);
+}
+
+.intro-footer{
+    position:relative;
+    z-index:2;
+
+    margin-top:40px;
+
+    display:flex;
+    align-items:center;
+
+    gap:15px;
+}
+
+.intro-footer-line{
+    width:70px;
+    height:1px;
+
+    background:#d2d6d1;
+}
+
+.intro-footer span{
+    font-size:8px;
+
+    text-transform:uppercase;
+    letter-spacing:.14em;
+
+    color:#9da39e;
+}
+
+/* =========================================================
+   SERVIÇOS
+========================================================= */
+
+.services{
+    padding:0 0 135px;
+    background:#fff;
+}
+
+.services-grid{
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:15px;
+}
+
+.service{
+    min-height:250px;
+
+    position:relative;
+
+    padding:26px;
+
+    overflow:hidden;
+
+    border-radius:25px;
+
+    transition:.4s ease;
+}
+
+.service:hover{
+    transform:translateY(-6px);
+
+    box-shadow:
+        0 20px 50px rgba(40,45,42,.08);
+}
+
+.service:nth-child(1){
+    background:#eaf0eb;
+}
+
+.service:nth-child(2){
+    background:#eee9f1;
+}
+
+.service:nth-child(3){
+    background:#edf2f3;
+}
+
+.service-icon{
+    width:52px;
+    height:52px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:15px;
+
+    background:rgba(255,255,255,.7);
+}
+
+.service-icon svg{
+    width:27px;
+    height:27px;
+
+    fill:none;
+
+    stroke:#647169;
+
+    stroke-width:1.4;
+
+    stroke-linecap:round;
+    stroke-linejoin:round;
+}
+
+.service:nth-child(2) .service-icon svg{
+    stroke:var(--purple);
+}
+
+.service:nth-child(3) .service-icon svg{
+    stroke:#60777e;
+}
+
+.service-content{
+    position:absolute;
+
+    left:27px;
+    right:27px;
+    bottom:27px;
+}
+
+.service h3{
+    font-family:"Manrope",sans-serif;
+
+    font-size:22px;
+
+    font-weight:500;
+
+    letter-spacing:-.045em;
+}
+
+.service p{
+    max-width:310px;
+
+    margin-top:9px;
+
+    font-size:10px;
+
+    line-height:1.75;
+
+    color:#747a76;
+}
+
+/* =========================================================
+   PROCESSO
+========================================================= */
+
+.process{
+    padding:130px 0;
+
+    background:#fafaf8;
+}
+
+.process-header{
+    max-width:750px;
+
+    margin-bottom:70px;
+}
+
+.process-header h2{
+    margin-top:20px;
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:clamp(40px,4.8vw,60px);
+
+    line-height:1.04;
+
+    letter-spacing:-.07em;
+
+    font-weight:500;
+}
+
+.process-header p{
+    max-width:500px;
+
+    margin-top:20px;
+
+    font-size:11px;
+
+    line-height:1.85;
+
+    color:#7b817d;
+}
+
+.steps{
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    position:relative;
+}
+
+.steps::before{
+    content:"";
+
+    position:absolute;
+
+    top:31px;
+
+    left:8%;
+    right:8%;
+
+    height:1px;
+
+    background:#dfe2dc;
+}
+
+.step{
+    position:relative;
+
+    padding-right:30px;
+}
+
+.step:not(:first-child){
+    padding-left:30px;
+}
+
+.step-icon{
+    position:relative;
+    z-index:2;
+
+    width:63px;
+    height:63px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    border:1px solid #dfe2dc;
+
+    transition:.4s;
+}
+
+.step:hover .step-icon{
+    transform:scale(1.08);
+    background:#efebf2;
+}
+
+.step-icon svg{
+    width:27px;
+    height:27px;
+
+    fill:none;
+
+    stroke:#657168;
+
+    stroke-width:1.4;
+
+    stroke-linecap:round;
+    stroke-linejoin:round;
+}
+
+.step:nth-child(2) .step-icon svg{
+    stroke:var(--purple);
+}
+
+.step:nth-child(3) .step-icon svg{
+    stroke:#607980;
+}
+
+.step-number{
+    margin-top:24px;
+
+    font-size:8px;
+
+    font-weight:600;
+
+    letter-spacing:.16em;
+
+    color:#a0a59f;
+}
+
+.step h3{
+    margin-top:9px;
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:23px;
+
+    font-weight:500;
+
+    letter-spacing:-.045em;
+}
+
+.step p{
+    max-width:290px;
+
+    margin-top:9px;
+
+    font-size:10px;
+
+    line-height:1.8;
+
+    color:#7a807b;
+}
+
+/* =========================================================
+   SOBRE
+========================================================= */
+
+.about{
+    padding:140px 0;
+
+    background:#fff;
+}
+
+.about-grid{
+    display:grid;
+
+    grid-template-columns:.9fr 1.1fr;
+
+    gap:85px;
+
+    align-items:center;
+}
+
+.about-photo{
+    height:570px;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    background:#f6f6f3;
+
+    display:flex;
+
+    align-items:flex-end;
+    justify-content:center;
+}
+
+.about-photo img{
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+    object-position:center bottom;
+}
+
+.about-title{
+    margin-top:20px;
+
+    max-width:600px;
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:clamp(40px,4.7vw,58px);
+
+    line-height:1.04;
+
+    letter-spacing:-.07em;
+
+    font-weight:500;
+}
+
+.about-title span{
+    color:var(--purple);
+}
+
+.about-text{
+    max-width:510px;
+
+    margin-top:24px;
+
+    font-size:11px;
+
+    line-height:1.9;
+
+    color:#777d79;
+}
+
+.about-points{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:12px;
+
+    margin-top:32px;
+}
+
+.about-point{
+    padding:16px;
+
+    border:1px solid #e5e7e3;
+
+    border-radius:15px;
+
+    transition:.3s;
+}
+
+.about-point:hover{
+    background:#fafaf8;
+
+    transform:translateY(-3px);
+}
+
+.about-point strong{
+    display:block;
+
+    font-size:10px;
+    font-weight:600;
+}
+
+.about-point span{
+    display:block;
+
+    margin-top:5px;
+
+    font-size:9px;
+
+    line-height:1.55;
+
+    color:#878c88;
+}
+
+/* =========================================================
+   FRASE ROXA
+========================================================= */
+
+.quote{
+    padding:115px 0;
+
+    background:var(--purple);
+
+    color:#fff;
+
+    overflow:hidden;
+}
+
+.quote-grid{
+    display:grid;
+
+    grid-template-columns:1fr .55fr;
+
+    gap:80px;
+
+    align-items:end;
+}
+
+.quote-copy{
+    position:relative;
+    isolation:isolate;
+}
+
+.quote-word{
+    position:absolute;
+
+    right:-30px;
+    bottom:-20px;
+
+    z-index:-1;
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:clamp(90px,13vw,190px);
+
+    font-weight:700;
+
+    line-height:.8;
+
+    letter-spacing:-.1em;
+
+    color:rgba(255,255,255,.055);
+
+    white-space:nowrap;
+
+    pointer-events:none;
+}
+
+.quote h2{
+    max-width:790px;
+
+    margin-top:20px;
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:clamp(38px,5vw,62px);
+
+    line-height:1.04;
+
+    letter-spacing:-.07em;
+
+    font-weight:500;
+
+    position:relative;
+    z-index:2;
+}
+
+.quote p{
+    font-size:11px;
+
+    line-height:1.85;
+
+    color:rgba(255,255,255,.68);
+}
+
+.quote .section-label{
+    color:rgba(255,255,255,.6);
+}
+
+.quote .section-label i{
+    background:rgba(255,255,255,.5);
+}
+
+/* =========================================================
+   VÍDEOS
+========================================================= */
+
+.videos{
+    padding:135px 0;
+
+    background:#fff;
+}
+
+.videos-heading{
+    display:flex;
+
+    justify-content:space-between;
+    align-items:flex-end;
+
+    gap:60px;
+
+    margin-bottom:55px;
+}
+
+.videos-heading h2{
+    margin-top:19px;
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:clamp(40px,4.8vw,59px);
+
+    line-height:1.04;
+
+    letter-spacing:-.07em;
+
+    font-weight:500;
+}
+
+.videos-heading p{
+    max-width:310px;
+
+    margin-bottom:3px;
+
+    font-size:11px;
+
+    line-height:1.85;
+
+    color:#7d827e;
+}
+
+.video-mosaic{
+    display:grid;
+
+    grid-template-columns:1.45fr .8fr .8fr;
+
+    grid-template-rows:270px 210px;
+
+    gap:15px;
+}
+
+.video-item{
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:22px;
+
+    background:#f0f1ee;
+
+    border:1px solid #e4e6e2;
+
+    transition:.45s ease;
+}
+
+.video-item:hover{
+    transform:translateY(-5px);
+
+    box-shadow:
+        0 20px 45px rgba(40,45,42,.09);
+}
+
+.video-item:nth-child(1){
+    grid-column:1;
+    grid-row:1 / 3;
+}
+
+.video-item:nth-child(2){
+    grid-column:2;
+    grid-row:1;
+}
+
+.video-item:nth-child(3){
+    grid-column:3;
+    grid-row:1;
+}
+
+.video-item:nth-child(4){
+    grid-column:2 / 4;
+    grid-row:2;
+}
+
+.video-item iframe{
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    border:0;
+}
+
+.video-tag{
+    position:absolute;
+
+    z-index:4;
+
+    top:13px;
+    left:13px;
+
+    padding:7px 10px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.87);
+
+    backdrop-filter:blur(8px);
+
+    font-size:7px;
+
+    font-weight:600;
+
+    letter-spacing:.13em;
+
+    text-transform:uppercase;
+
+    color:#676d68;
+
+    pointer-events:none;
+}
+
+.videos-button{
+    margin-top:45px;
+
+    display:flex;
+    justify-content:center;
+}
+
+.youtube-button{
+    min-height:45px;
+
+    padding:0 20px;
+
+    display:inline-flex;
+
+    align-items:center;
+    gap:10px;
+
+    border-radius:50px;
+
+    background:#353936;
+
+    color:#fff;
+
+    font-size:9px;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.youtube-button:hover{
+    background:var(--purple);
+
+    transform:translateY(-3px);
+}
+
+.youtube-button-icon{
+    width:21px;
+    height:21px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:6px;
+
+    background:#ff0000;
+
+    font-size:7px;
+}
+
+/* =========================================================
+   CONTATO
+========================================================= */
+
+.contact{
+    padding:130px 0;
+
+    background:#f5f6f3;
+}
+
+.contact-grid{
+    display:grid;
+
+    grid-template-columns:.82fr 1.18fr;
+
+    gap:90px;
+
+    align-items:center;
+}
+
+.contact h2{
+    max-width:620px;
+
+    margin-top:20px;
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:clamp(40px,5vw,63px);
+
+    line-height:1.01;
+
+    letter-spacing:-.075em;
+
+    font-weight:500;
+}
+
+.contact h2 span{
+    color:var(--purple);
+}
+
+.contact-text{
+    max-width:450px;
+
+    margin-top:22px;
+
+    font-size:11px;
+
+    line-height:1.85;
+
+    color:#7c827d;
+}
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.contact-form{
+    padding:35px;
+
+    background:#fff;
+
+    border:1px solid #e1e4df;
+
+    border-radius:28px;
+
+    box-shadow:
+        0 18px 55px rgba(40,45,42,.05);
+}
+
+.form-top{
+    margin-bottom:28px;
+}
+
+.form-top h3{
+    font-family:"Manrope",sans-serif;
+
+    font-size:23px;
+
+    font-weight:500;
+
+    letter-spacing:-.045em;
+}
+
+.form-top p{
+    margin-top:7px;
+
+    font-size:9px;
+
+    line-height:1.7;
+
+    color:#858b86;
+}
+
+.form-row{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:12px;
+}
+
+.form-group{
+    margin-bottom:14px;
+}
+
+.form-group label{
+    display:block;
+
+    margin-bottom:7px;
+
+    font-size:8px;
+
+    font-weight:600;
+
+    letter-spacing:.1em;
+
+    text-transform:uppercase;
+
+    color:#777e79;
+}
+
+.form-group input,
+.form-group textarea{
+    width:100%;
+
+    border:1px solid #dfe2dd;
+
+    outline:none;
+
+    background:#fafaf8;
+
+    color:#353936;
+
+    border-radius:13px;
+
+    transition:.25s;
+}
+
+.form-group input{
+    height:48px;
+
+    padding:0 14px;
+
+    font-size:10px;
+}
+
+.form-group textarea{
+    min-height:125px;
+
+    padding:14px;
+
+    resize:vertical;
+
+    font-size:10px;
+
+    line-height:1.6;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder{
+    color:#adb2ae;
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+    background:#fff;
+
+    border-color:#b8acbd;
+
+    box-shadow:
+        0 0 0 3px rgba(118,100,128,.08);
+}
+
+.form-submit{
+    width:100%;
+
+    min-height:48px;
+
+    border:0;
+
+    border-radius:50px;
+
+    background:#353936;
+
+    color:#fff;
+
+    font-size:9px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:9px;
+}
+
+.form-submit:hover{
+    background:var(--purple);
+
+    transform:translateY(-2px);
+}
+
+.form-submit svg{
+    width:16px;
+    height:16px;
+
+    fill:none;
+
+    stroke:currentColor;
+
+    stroke-width:1.5;
+
+    stroke-linecap:round;
+    stroke-linejoin:round;
+}
+
+.form-note{
+    margin-top:11px;
+
+    text-align:center;
+
+    font-size:7px;
+
+    color:#a0a59f;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    padding:58px 0 24px;
+
+    background:#eceeea;
+
+    color:#4d534f;
+
+    border-top:1px solid #dfe2dd;
+}
+
+.footer-grid{
+    display:grid;
+
+    grid-template-columns:1.3fr .7fr .9fr;
+
+    gap:50px;
+
+    padding-bottom:45px;
+
+    border-bottom:1px solid #d9ddd8;
+}
+
+.footer-logo{
+    width:92px;
+
+    margin-bottom:17px;
+}
+
+.footer-description{
+    max-width:310px;
+
+    font-size:9px;
+
+    line-height:1.8;
+
+    color:#7b817c;
+}
+
+.footer-title{
+    margin-bottom:15px;
+
+    font-size:8px;
+
+    font-weight:600;
+
+    letter-spacing:.15em;
+
+    text-transform:uppercase;
+
+    color:#929892;
+}
+
+.footer-links{
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+    align-items:flex-start;
+}
+
+.footer-links a{
+    font-size:9px;
+
+    color:#68706b;
+
+    transition:.25s;
+}
+
+.footer-links a:hover{
+    color:var(--purple);
+}
+
+.footer-email{
+    display:inline-block;
+
+    margin-top:3px;
+
+    font-size:10px;
+
+    line-height:1.5;
+
+    color:#5e6560;
+
+    word-break:break-word;
+
+    transition:.25s;
+}
+
+.footer-email:hover{
+    color:var(--purple);
+}
+
+.footer-bottom{
+    padding-top:22px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+}
+
+.footer-bottom span{
+    font-size:8px;
+
+    color:#9aa09b;
+}
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+.whatsapp-float{
+    position:fixed;
+
+    z-index:2000;
+
+    right:24px;
+    bottom:24px;
+
+    width:57px;
+    height:57px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:50%;
+
+    background:var(--whatsapp);
+
+    color:#fff;
+
+    box-shadow:
+        0 9px 28px rgba(37,211,102,.3);
+
+    transition:.3s;
+}
+
+.whatsapp-float:hover{
+    transform:
+        translateY(-5px)
+        scale(1.04);
+}
+
+.whatsapp-float svg{
+    width:27px;
+    height:27px;
+
+    fill:none;
+
+    stroke:#fff;
+
+    stroke-width:1.7;
+
+    stroke-linecap:round;
+    stroke-linejoin:round;
+}
+
+.whatsapp-float::before{
+    content:"";
+
+    position:absolute;
+
+    inset:-5px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(37,211,102,.18);
+
+    animation:pulse 2.5s infinite;
+}
+
+@keyframes pulse{
+
+    0%{
+        transform:scale(.9);
+        opacity:.8;
+    }
+
+    70%{
+        transform:scale(1.16);
+        opacity:0;
+    }
+
+    100%{
+        transform:scale(1.16);
+        opacity:0;
+    }
+}
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+.reveal{
+    opacity:0;
+
+    transform:translateY(25px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s cubic-bezier(.2,.8,.2,1);
+}
+
+.reveal.visible{
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:1050px){
+
+    .menu{
+        gap:18px;
+        margin-right:18px;
+    }
+
+    .hero-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero-content{
+        padding-top:30px;
+    }
+
+    .hero-visual{
+        height:590px;
+    }
+
     .hero-photo{
-      display:block;
-      width:100%;
-      height:100%;
-      max-height:calc(100svh - var(--header-h) - 44px);
-      max-width:100%;
-      object-fit:contain;
-      object-position:center center;
-      filter:none;
-    }
-    .hero-photo-note{display:none}
-    .hero-scroll{color:#686864}
-    .footer{background:#e3e3e0;color:#492638}
-    .footer-tagline{color:#765667}
-    .footer-social a{border-color:rgba(73,38,56,.25)}
-    .footer-social svg{stroke:#654659}
-    .footer-bottom{border-top-color:rgba(73,38,56,.15);color:#786f72}
-    .about-image-frame{
-      border-radius:22px;
-      background:#e3e3e0;
-      overflow:hidden;
-    }
-    .about-image-frame img{
-      width:100%;
-      height:100%;
-      max-height:475px;
-      object-fit:contain;
-      object-position:center center;
+        height:590px;
     }
 
-    @media(max-width:1080px){
-      .brand-logo{width:104px;max-height:55px}
-      .hero{min-height:650px}
+    .intro-grid{
+        grid-template-columns:1fr;
+        gap:30px;
     }
-    @media(max-width:780px){
-      .brand-logo{width:100px;max-height:52px}
-      .site-header{background:rgba(227,227,224,.97)}
-      .hero{
-        height:auto;
-        min-height:100svh;
-        max-height:none;
-        padding-top:var(--header-h);
-      }
-      .hero-inner{height:auto;min-height:0;display:flex;flex-direction:column;gap:0;align-items:stretch}
-      .hero-copy{padding:38px 5px 16px}
-      .hero-media{
-        height:min(105vw,520px);
-        min-height:330px;
-        padding:0;
+
+    .services-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .service:last-child{
+        grid-column:1/-1;
+    }
+
+    .about-grid{
+        grid-template-columns:1fr;
+        gap:55px;
+    }
+
+    .about-photo{
+        height:540px;
+    }
+
+    .quote-grid{
+        grid-template-columns:1fr;
+        gap:30px;
+    }
+
+    .video-mosaic{
+        grid-template-columns:1fr 1fr;
+
+        grid-template-rows:
+            300px
+            210px
+            210px;
+    }
+
+    .video-item:nth-child(1){
+        grid-column:1/-1;
+        grid-row:1;
+    }
+
+    .video-item:nth-child(2){
+        grid-column:1;
+        grid-row:2;
+    }
+
+    .video-item:nth-child(3){
+        grid-column:2;
+        grid-row:2;
+    }
+
+    .video-item:nth-child(4){
+        grid-column:1/-1;
+        grid-row:3;
+    }
+
+    .contact-grid{
+        grid-template-columns:1fr;
+        gap:45px;
+    }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:800px){
+
+    .container{
+        width:min(100% - 34px,650px);
+    }
+
+    header{
+        padding:7px 0;
+    }
+
+    .nav{
+        height:45px;
+    }
+
+    .logo{
+        width:70px;
+    }
+
+    .menu{
+        position:fixed;
+
+        top:60px;
+
+        left:17px;
+        right:17px;
+
         margin:0;
-      }
-      .hero-photo-wrap{height:100%;width:100%;}
-      .hero-photo{
+
+        padding:22px;
+
+        display:flex;
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:20px;
+
+        background:rgba(255,255,255,.97);
+
+        backdrop-filter:blur(18px);
+
+        border:1px solid #e3e5e1;
+
+        border-radius:20px;
+
+        box-shadow:
+            0 20px 60px rgba(40,45,42,.09);
+
+        opacity:0;
+
+        pointer-events:none;
+
+        transform:translateY(-10px);
+
+        transition:.3s;
+    }
+
+    .menu.open{
+        opacity:1;
+
+        pointer-events:auto;
+
+        transform:translateY(0);
+    }
+
+    .menu a{
+        font-size:11px;
+    }
+
+    .header-button{
+        display:none;
+    }
+
+    .menu-toggle{
+        display:block;
+        margin-left:auto;
+    }
+
+    .hero{
+        padding-top:52px;
+
+        min-height:auto;
+
+        padding-bottom:60px;
+    }
+
+    .hero h1{
+        font-size:47px;
+    }
+
+    .hero-visual{
+        height:500px;
+    }
+
+    .hero-photo{
+        height:500px;
+    }
+
+    .hero-name{
+        right:50%;
+
+        top:auto;
+
+        bottom:12px;
+
+        transform:
+            translateX(50%)
+            rotate(90deg);
+
+        font-size:36px;
+    }
+
+    .hero-circle{
+        right:0;
+
+        bottom:24px;
+
+        width:60px;
+        height:60px;
+    }
+
+    .hero-actions{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .button-main,
+    .button-light{
         width:100%;
-        height:100%;
-        max-height:100%;
-        object-fit:contain;
-        object-position:center center;
-      }
-      .footer-brand-logo{width:108px;max-height:56px}
-      .about-image-frame{background:#e3e3e0;border-radius:20px;min-height:330px}
-    }
-    @media(max-width:520px){
-      .brand-logo{width:94px;max-height:48px}
-      .hero-media{height:390px;min-height:310px}
-      .footer-brand-logo{width:104px}
     }
 
-  </style>
+    .intro{
+        padding:95px 0;
+    }
+
+    .intro-title{
+        font-size:41px;
+    }
+
+    .intro-content::after{
+        right:-20px;
+        bottom:-20px;
+
+        font-size:80px;
+    }
+
+    .services{
+        padding-bottom:90px;
+    }
+
+    .services-grid{
+        grid-template-columns:1fr;
+    }
+
+    .service:last-child{
+        grid-column:auto;
+    }
+
+    .process{
+        padding:95px 0;
+    }
+
+    .steps{
+        grid-template-columns:1fr;
+        gap:45px;
+    }
+
+    .steps::before{
+        left:31px;
+        right:auto;
+
+        top:31px;
+        bottom:31px;
+
+        width:1px;
+        height:auto;
+    }
+
+    .step,
+    .step:not(:first-child){
+        padding:
+            0
+            0
+            0
+            94px;
+    }
+
+    .step-icon{
+        position:absolute;
+
+        left:0;
+        top:0;
+    }
+
+    .about{
+        padding:95px 0;
+    }
+
+    .about-photo{
+        height:480px;
+    }
+
+    .about-title{
+        font-size:41px;
+    }
+
+    .about-points{
+        grid-template-columns:1fr;
+    }
+
+    .quote{
+        padding:95px 0;
+    }
+
+    .quote h2{
+        font-size:40px;
+    }
+
+    .quote-word{
+        font-size:90px;
+        right:-30px;
+    }
+
+    .videos{
+        padding:95px 0;
+    }
+
+    .videos-heading{
+        display:block;
+    }
+
+    .videos-heading p{
+        margin-top:20px;
+    }
+
+    .video-mosaic{
+        grid-template-columns:1fr 1fr;
+
+        grid-template-rows:
+            280px
+            190px
+            190px;
+    }
+
+    .video-item:nth-child(1){
+        grid-column:1/-1;
+        grid-row:1;
+    }
+
+    .video-item:nth-child(2){
+        grid-column:1;
+        grid-row:2;
+    }
+
+    .video-item:nth-child(3){
+        grid-column:2;
+        grid-row:2;
+    }
+
+    .video-item:nth-child(4){
+        grid-column:1/-1;
+        grid-row:3;
+    }
+
+    .contact{
+        padding:95px 0;
+    }
+
+    .contact h2{
+        font-size:41px;
+    }
+
+    .contact-form{
+        padding:25px 20px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .footer-brand{
+        grid-column:1/-1;
+    }
+}
+
+/* =========================================================
+   MOBILE PEQUENO
+========================================================= */
+
+@media(max-width:520px){
+
+    .logo{
+        width:68px;
+    }
+
+    .hero h1{
+        font-size:43px;
+    }
+
+    .hero-visual{
+        height:440px;
+    }
+
+    .hero-photo{
+        height:440px;
+    }
+
+    .hero-name{
+        font-size:30px;
+    }
+
+    .intro-title{
+        font-size:38px;
+    }
+
+    .intro-content::after{
+        font-size:58px;
+        bottom:-10px;
+    }
+
+    .about-photo{
+        height:430px;
+    }
+
+    .about-title{
+        font-size:38px;
+    }
+
+    .form-row{
+        grid-template-columns:1fr;
+        gap:0;
+    }
+
+    .video-mosaic{
+        grid-template-columns:1fr;
+
+        grid-template-rows:
+            260px
+            200px
+            200px
+            220px;
+    }
+
+    .video-item:nth-child(1){
+        grid-column:1;
+        grid-row:1;
+    }
+
+    .video-item:nth-child(2){
+        grid-column:1;
+        grid-row:2;
+    }
+
+    .video-item:nth-child(3){
+        grid-column:1;
+        grid-row:3;
+    }
+
+    .video-item:nth-child(4){
+        grid-column:1;
+        grid-row:4;
+    }
+
+    .contact h2{
+        font-size:39px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .footer-brand{
+        grid-column:auto;
+    }
+
+    .footer-bottom{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .whatsapp-float{
+        width:55px;
+        height:55px;
+
+        right:17px;
+        bottom:17px;
+    }
+}
+
+</style>
 </head>
+
 <body>
-  <header class="site-header" id="topo">
-    <div class="container nav-wrap">
-      <a class="brand" href="#inicio" aria-label="Paula Borch - logo original - início">
-        <img class="brand-logo" src="https://i.imgur.com/b2bgrDe.png" alt="Paula Borch | Psicopedagogia">
-      </a>
-      <nav class="main-nav" id="mainNav" aria-label="Menu principal">
-        <a class="active" href="#inicio">Início</a>
-        <a href="#sobre">Sobre Mim</a>
-        <a href="#servicos">Serviços</a>
-        <a href="#conteudos">Dicas</a>
-        <a href="#depoimentos">Meu olhar</a>
-        <a href="#contato">Contato</a>
-      </nav>
-      <a class="btn btn-primary header-cta" href="https://wa.me/5543920036581?text=Ol%C3%A1%2C%20Paula!%20Gostaria%20de%20saber%20mais%20sobre%20o%20atendimento." target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8.5 8.5 0 0 1-12.7 7.4L4 20l1.2-3.2A8.5 8.5 0 1 1 20 11.5Z"/><path d="M9 8.5c.3-.3.6-.3.9 0l1 1.2c.2.2.2.5.1.7l-.5.8c.7 1.3 1.7 2.3 3 3l.8-.5c.2-.1.5-.1.7.1l1.2 1"/></svg>
-        Fale Conosco
-      </a>
-      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mainNav">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-      </button>
-    </div>
-  </header>
 
-  <main>
-    <section class="hero" id="inicio">
-      <svg class="hero-deco hero-deco-left" viewBox="0 0 120 260" fill="none" aria-hidden="true"><path d="M20 250C70 180 8 110 64 15" stroke="#9f7887" stroke-width="1.1"/><path d="M55 79C17 75 9 47 10 29c26 5 46 21 45 50ZM47 133c-31-7-43-31-40-52 26 8 42 24 40 52ZM54 183c-29 0-45-19-48-39 27 2 45 14 48 39Z" fill="#c0c8aa" stroke="#9aa78a" stroke-width="1"/></svg>
-      <svg class="hero-deco hero-deco-bottom" viewBox="0 0 120 180" fill="none" aria-hidden="true"><path d="M13 172C61 116 20 72 90 9" stroke="#a47d8c"/><path d="M56 83c-34 1-43-20-42-40 26 2 41 16 42 40Zm12-35c-2-25 15-39 35-41 0 22-12 37-35 41Zm-2 82c-29-3-39-24-37-44 26 4 39 19 37 44Z" fill="#c5c9b1" stroke="#9eaa92"/></svg>
-      <div class="container hero-inner">
-        <div class="hero-copy fade-up">
-          <div class="hero-kicker">Aprendizagem • Desenvolvimento • Acolhimento</div>
-          <h1>Paula Borch <span>Psicopedagogia</span></h1>
-          <p class="hero-motto">Aprender hoje,<br>transformar sempre.</p>
-          <svg class="hand-line" viewBox="0 0 190 18" fill="none" aria-hidden="true"><path d="M2 10C36 4 70 5 102 10c27 4 51 4 77-2" stroke="currentColor" stroke-width="1.35" stroke-linecap="round"/><path d="m174 5 5 3-5 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <p class="hero-description">Atendimento psicopedagógico voltado à compreensão das dificuldades de aprendizagem, ao desenvolvimento das habilidades cognitivas e escolares e à construção de novas possibilidades de aprendizagem.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="https://wa.me/5543920036581?text=Ol%C3%A1%2C%20Paula!%20Quero%20saber%20mais%20sobre%20o%20atendimento%20psicopedag%C3%B3gico.">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8.5 8.5 0 0 1-12.7 7.4L4 20l1.2-3.2A8.5 8.5 0 1 1 20 11.5Z"/><path d="M9 8.5c.3-.3.6-.3.9 0l1 1.2c.2.2.2.5.1.7l-.5.8c.7 1.3 1.7 2.3 3 3l.8-.5c.2-.1.5-.1.7.1l1.2 1"/></svg>
-              Quero falar pelo WhatsApp <span aria-hidden="true">→</span>
-            </a>
-            <a class="btn btn-outline" href="#sobre">Conheça meu trabalho <span aria-hidden="true">↓</span></a>
-          </div>
-        </div>
-        <div class="hero-media fade-up" aria-label="Fotografia de Paula Borch">
-          <div class="hero-orbit"></div>
-          <div class="hero-photo-wrap">
-            <img class="hero-photo" src="https://i.imgur.com/JXwcHif.jpeg" alt="Paula Borch, psicopedagoga" fetchpriority="high">
-          </div>
-          <div class="hero-photo-note">Um olhar para cada história</div>
-        </div>
-      </div>
-      <a class="hero-scroll" href="#atencao">Conheça o trabalho</a>
-    </section>
+<!-- =========================================================
+HEADER
+========================================================= -->
 
-    <section class="attention" id="atencao">
-      <div class="container attention-grid">
-        <div class="attention-intro fade-up">
-          <div class="eyebrow">Fique atento(a)</div>
-          <h2 class="section-title">Quando procurar uma psicopedagoga?</h2>
-          <p>Nem toda dificuldade escolar significa falta de capacidade. Às vezes, a criança precisa que seu processo de aprendizagem <strong>seja melhor compreendido.</strong></p>
-          <svg class="mini-heart" viewBox="0 0 50 42" fill="none" aria-hidden="true"><path d="M25 37S5 25 5 13C5 3 18 1 25 12 32 1 45 3 45 13c0 12-20 24-20 24Z" stroke="currentColor" stroke-width="1.3"/><path d="M1 40c11-5 19-5 27-2 7 2 14 1 21-3" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></svg>
-        </div>
-        <div class="signs-grid">
-          <article class="sign-card fade-up"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 5h18v22H7zM11 10h10M11 15h10M11 20h6"/><path d="M12 3v4m8-4v4"/></svg><span>Dificuldades para aprender a ler e escrever.</span></article>
-          <article class="sign-card fade-up"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="m7 23 14-14 5 5-14 14H7v-5Z"/><path d="m18 12 5 5M6 6h7M6 11h4"/></svg><span>Trocas ou dificuldades na escrita.</span></article>
-          <article class="sign-card fade-up"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 6h22v20H5zM9 11h14M9 16h12M9 21h9"/><path d="m21 22 2 2 4-5"/></svg><span>Dificuldades na compreensão da leitura.</span></article>
-          <article class="sign-card fade-up"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="6" y="5" width="20" height="22" rx="2"/><path d="M11 10h3m4 0h3M11 15h3m4 0h3M11 20h3m4 0h3"/></svg><span>Dificuldades em matemática.</span></article>
-          <article class="sign-card fade-up"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 4 27 10v12l-11 6L5 22V10l11-6Z"/><path d="M11 16h10M16 11v10"/><path d="m9 7 7 4 7-4"/></svg><span>Dificuldades para acompanhar as atividades escolares.</span></article>
-          <article class="sign-card fade-up"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 27s-11-6-11-14a6 6 0 0 1 11-3 6 6 0 0 1 11 3c0 8-11 14-11 14Z"/><path d="M10 16h4l2-4 3 8 2-4h3"/></svg><span>Dificuldades de atenção e organização durante as tarefas.</span></article>
-          <article class="sign-card fade-up"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="11" r="6"/><path d="M5 28c1-6 5-9 11-9s10 3 11 9"/><path d="M24 5h5M26.5 2.5v5"/></svg><span>Necessidade de compreender melhor como a criança aprende.</span></article>
-        </div>
-      </div>
-    </section>
+<header id="header">
 
-    <section class="services" id="servicos">
-      <div class="container">
-        <div class="services-head fade-up">
-          <div class="eyebrow">Nossos serviços</div>
-          <h2 class="section-title">Como posso ajudar?</h2>
-        </div>
-        <div class="services-grid">
-          <article class="service-card fade-up"><div class="service-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M10 5H7v23h18V5h-3M12 3h8v5h-8zM11 15l3 3 7-7M11 23h10"/></svg></div><h3>Avaliação Psicopedagógica</h3><p>Compreensão das habilidades, necessidades e dificuldades de aprendizagem.</p></article>
-          <article class="service-card fade-up"><div class="service-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3 19 7l5-1 1 5 4 3-3 4 1 5-5 1-3 5-4-3-5 1-1-5-4-3 3-4-1-5 5-1 4-5Z"/><path d="M11 16h10M16 11v10"/></svg></div><h3>Intervenção Psicopedagógica</h3><p>Estratégias personalizadas para apoiar o desenvolvimento e a aprendizagem.</p></article>
-          <article class="service-card fade-up"><div class="service-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 7h9v8H5zM18 7h9v8h-9zM11.5 18h9v8h-9z"/><path d="M9 11h1m12 0h1m-10 11h1"/><path d="M14 11h4m-2-2v4"/></svg></div><h3>Alfabetização e Letramento</h3><p>Construção de bases sólidas para ler, escrever e atribuir sentido à linguagem.</p></article>
-          <article class="service-card fade-up"><div class="service-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="11" cy="10" r="4"/><circle cx="23" cy="11" r="3.5"/><path d="M3 27c.5-6 3-9 8-9s7.5 3 8 9M18 20c1-2 2.5-3 5-3 4 0 5.5 3 6 8"/><path d="M14 4c2-2 5-1 6 1"/></svg></div><h3>Orientação às Famílias</h3><p>Parceria e orientação para apoiar a criança em seu percurso de aprendizagem.</p></article>
-        </div>
-      </div>
-    </section>
+<div class="container">
 
-    <section class="about" id="sobre">
-      <div class="container about-grid">
-        <div class="about-image-frame fade-up"><img src="https://i.imgur.com/UjvMkU0.jpeg" alt="Paula Borch em retrato profissional" loading="lazy"></div>
-        <div class="about-copy fade-up">
-          <div class="eyebrow">Sobre mim</div>
-          <h2 class="section-title">Olá! Sou Paula Borch</h2>
-          <p>Sou pedagoga e psicopedagoga, graduada em Pedagogia pela Faculdade INESUL desde 2009 e pós-graduada em Psicopedagogia Clínica, Educacional e Hospitalar pelo Grupo Rhema Educação desde 2018.</p>
-          <p>Com 18 anos de experiência na educação básica e 4 anos de atuação clínica, desenvolvo avaliações e intervenções psicopedagógicas, além de trabalhos voltados à alfabetização e ao letramento.</p>
-          <p>Acredito que cada pessoa tem uma maneira única de aprender. Por isso, meu trabalho é pautado na escuta, na observação e no olhar individualizado, respeitando a história, o ritmo e as potencialidades de cada pessoa.</p>
-          <a href="#contato" class="btn btn-primary">Saiba mais sobre meu trabalho <span aria-hidden="true">→</span></a>
-        </div>
-        <aside class="credentials fade-up" aria-label="Experiência e formação profissional">
-          <div class="credential"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="m3 14 17-9 17 9-17 9L3 14Z"/><path d="M10 18v9c6 5 14 5 20 0v-9M37 14v12"/></svg><div><strong>18 anos</strong><span>de experiência na educação básica</span></div></div>
-          <div class="credential"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 34S5 25 5 14a8 8 0 0 1 15-4 8 8 0 0 1 15 4c0 11-15 20-15 20Z"/></svg><div><strong>4 anos</strong><span>de atuação clínica</span></div></div>
-          <div class="credential"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="m20 3 5 11 12 1-9 8 3 12-11-6-11 6 3-12-9-8 12-1 5-11Z"/></svg><div><strong>2009</strong><span>graduação em Pedagogia</span><small>Pós-graduação em Psicopedagogia — 2018</small></div></div>
-        </aside>
-      </div>
-    </section>
+<nav class="nav">
 
-    <section class="learning" id="conteudos">
-      <div class="container learning-grid">
-        <div class="learning-copy fade-up">
-          <div class="eyebrow">Dicas e orientações</div>
-          <h2 class="section-title">Acompanhe meu canal no YouTube</h2>
-          <p class="section-copy">Conteúdos para apoiar o desenvolvimento e a aprendizagem, com reflexões e orientações sobre o universo da educação.</p>
-          <a class="youtube-pill" href="https://www.youtube.com/@prof.paulaborch8774" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8ZM9.5 15.7V8.3l6.3 3.7-6.3 3.7Z"/></svg> Inscreva-se no canal</a>
-        </div>
-        <div class="video-library fade-up">
-          <div class="video-feature" id="videoFeature">
-            <button class="video-cover" id="videoCover" type="button" aria-label="Reproduzir vídeo em destaque">
-              <img id="featuredThumb" src="https://img.youtube.com/vi/G-WHLWXXQrg/hqdefault.jpg" alt="Miniatura do vídeo em destaque" loading="lazy">
-              <span class="video-cover-label" id="featuredLabel">Aprender<br>também é<br>descobrir.</span>
-              <span class="play-button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7L8 5Z"/></svg></span>
-            </button>
-          </div>
-          <div class="video-side" aria-label="Escolha um vídeo">
-            <button class="video-choice" type="button" data-video="G-WHLWXXQrg" data-title="Aprender também é descobrir." aria-pressed="true"><img src="https://img.youtube.com/vi/G-WHLWXXQrg/mqdefault.jpg" alt="" loading="lazy"><span><small>Em destaque</small>Aprendizagem e desenvolvimento</span></button>
-            <button class="video-choice" type="button" data-video="FAuZXncvy5o" data-title="Dicas para apoiar a aprendizagem." aria-pressed="false"><img src="https://img.youtube.com/vi/FAuZXncvy5o/mqdefault.jpg" alt="" loading="lazy"><span><small>Orientação</small>Dicas para apoiar a aprendizagem</span></button>
-            <button class="video-choice" type="button" data-video="ocwri6_0fHY" data-title="Compreender as dificuldades." aria-pressed="false"><img src="https://img.youtube.com/vi/ocwri6_0fHY/mqdefault.jpg" alt="" loading="lazy"><span><small>Psicopedagogia</small>Compreender as dificuldades</span></button>
-            <button class="video-choice" type="button" data-video="bfmsMIZ-hPc" data-title="Um olhar para cada processo." aria-pressed="false"><img src="https://img.youtube.com/vi/bfmsMIZ-hPc/mqdefault.jpg" alt="" loading="lazy"><span><small>Vídeo curto</small>Um olhar para cada processo</span></button>
-          </div>
-        </div>
-      </div>
-    </section>
+<a
+    href="#inicio"
+    class="logo"
+    aria-label="Paula Borch"
+>
 
-    <section class="connect" id="depoimentos">
-      <div class="container connect-grid">
-        <div class="philosophy fade-up">
-          <div class="eyebrow">Meu olhar</div>
-          <h2 class="section-title">O que guia meu trabalho?</h2>
-          <div class="quote-card">
-            <div class="quote-mark">“</div>
-            <p>Meu propósito é compreender os processos de aprendizagem e construir estratégias significativas que favoreçam o desenvolvimento e novas possibilidades de aprender.</p>
-            <span>Paula Borch · Psicopedagogia</span>
-          </div>
-        </div>
-        <div class="contact-panel" id="contato">
-          <div class="contact-intro fade-up">
-            <div class="eyebrow">Entre em contato</div>
-            <h2 class="section-title">Vamos conversar?</h2>
-            <p>Preencha o formulário ou fale diretamente pelo WhatsApp. Será um prazer conhecer sua necessidade.</p>
-            <a class="btn btn-primary" href="https://wa.me/5543920036581?text=Ol%C3%A1%2C%20Paula!%20Gostaria%20de%20conversar%20sobre%20o%20atendimento.">Fale pelo WhatsApp <span aria-hidden="true">→</span></a>
-            <a class="instagram-link" href="https://www.instagram.com/professorapaulaborch/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>@professorapaulaborch</a>
-          </div>
-          <form class="contact-form fade-up" id="whatsappForm">
-            <h3>Conte um pouco sobre vocês</h3>
-            <div class="field"><input type="text" id="nomeResponsavel" name="nomeResponsavel" placeholder="Seu nome" autocomplete="name" required aria-label="Seu nome"></div>
-            <div class="field"><input type="text" id="idadeCrianca" name="idadeCrianca" placeholder="Idade da criança/adolescente" required aria-label="Idade da criança ou adolescente"></div>
-            <div class="field"><input type="tel" id="telefone" name="telefone" placeholder="Seu WhatsApp (opcional)" autocomplete="tel" aria-label="Seu WhatsApp"></div>
-            <div class="field"><textarea id="mensagem" name="mensagem" placeholder="Como posso ajudar? (opcional)" aria-label="Mensagem"></textarea></div>
-            <button class="form-submit" type="submit">Enviar mensagem pelo WhatsApp</button>
-            <p class="form-note">Ao enviar, você será direcionado(a) ao WhatsApp.</p>
-          </form>
-        </div>
-      </div>
-    </section>
-  </main>
+<img
+    src="https://i.imgur.com/b2bgrDe.png"
+    alt="Paula Borch"
+>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-main">
-        <a class="footer-brand" href="#inicio" aria-label="Paula Borch - logo original - início">
-          <img class="footer-brand-logo" src="https://i.imgur.com/b2bgrDe.png" alt="Paula Borch | Psicopedagogia">
-        </a>
-        <div class="footer-tagline">Aprender hoje, transformar sempre.</div>
-        <div class="footer-social">
-          <a href="https://www.youtube.com/@prof.paulaborch8774" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M22 8a3 3 0 0 0-2-2c-1.8-.5-8-.5-8-.5s-6.2 0-8 .5a3 3 0 0 0-2 2 24 24 0 0 0-.5 4 24 24 0 0 0 .5 4 3 3 0 0 0 2 2c1.8.5 8 .5 8 .5s6.2 0 8-.5a3 3 0 0 0 2-2 24 24 0 0 0 .5-4 24 24 0 0 0-.5-4Z"/><path d="m10 9 5 3-5 3V9Z"/></svg></a>
-          <a href="https://www.instagram.com/professorapaulaborch/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a>
-        </div>
-      </div>
-      <div class="footer-bottom"><span>© <span id="year"></span> Paula Borch | Psicopedagogia. Todos os direitos reservados.</span><span>Educação · Desenvolvimento · Aprendizagem</span></div>
-    </div>
-  </footer>
+</a>
 
-  <a class="whatsapp-float" href="https://wa.me/5543920036581?text=Ol%C3%A1%2C%20Paula!%20Gostaria%20de%20saber%20mais%20sobre%20o%20atendimento." target="_blank" rel="noopener" aria-label="Falar com Paula pelo WhatsApp">
-    <svg viewBox="0 0 24 24"><path d="M20 11.5a8.5 8.5 0 0 1-12.7 7.4L4 20l1.2-3.2A8.5 8.5 0 1 1 20 11.5Z"/><path d="M9.5 8.5c.3-.3.6-.3.9 0l1 1.2c.2.2.2.5.1.7l-.5.8c.7 1.3 1.7 2.3 3 3l.8-.5c.2-.1.5-.1.7.1l1.2 1"/></svg>
-  </a>
+<div class="menu" id="menu">
 
-  <script>
-    (() => {
-      const WHATSAPP_PAULA = '5543920036581';
-      const menu = document.getElementById('mainNav');
-      const menuToggle = document.getElementById('menuToggle');
+<a href="#inicio">Início</a>
 
-      menuToggle.addEventListener('click', () => {
-        const isOpen = menu.classList.toggle('open');
-        menuToggle.setAttribute('aria-expanded', String(isOpen));
-        menuToggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
-      });
+<a href="#sobre">Sobre</a>
 
-      menu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          menu.classList.remove('open');
-          menuToggle.setAttribute('aria-expanded', 'false');
-          menuToggle.setAttribute('aria-label', 'Abrir menu');
-        });
-      });
+<a href="#atuacao">Atuação</a>
 
-      // Carrega o player somente quando a pessoa escolhe assistir.
-      const videoCover = document.getElementById('videoCover');
-      const videoFeature = document.getElementById('videoFeature');
-      const featuredThumb = document.getElementById('featuredThumb');
-      const featuredLabel = document.getElementById('featuredLabel');
-      const videoChoices = [...document.querySelectorAll('.video-choice')];
-      let selectedVideo = 'G-WHLWXXQrg';
-      let selectedTitle = 'Aprender também é descobrir.';
+<a href="#processo">Como funciona</a>
 
-      function showVideo(id, title, shouldPlay = false) {
-        selectedVideo = id;
-        selectedTitle = title;
-        featuredThumb.src = `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
-        featuredThumb.alt = `Miniatura: ${title}`;
-        featuredLabel.innerHTML = title.replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
-        const oldFrame = videoFeature.querySelector('iframe');
-        if (oldFrame) oldFrame.remove();
-        videoCover.hidden = false;
-        videoChoices.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.video === id)));
-        if (shouldPlay) playSelectedVideo();
-      }
+<a href="#videos">Conteúdos</a>
 
-      function playSelectedVideo() {
-        const frame = document.createElement('iframe');
-        frame.src = `https://www.youtube-nocookie.com/embed/${selectedVideo}?autoplay=1&rel=0`;
-        frame.title = selectedTitle;
-        frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-        frame.allowFullscreen = true;
-        frame.loading = 'eager';
-        frame.referrerPolicy = 'strict-origin-when-cross-origin';
-        videoCover.hidden = true;
-        videoFeature.appendChild(frame);
-      }
+<a href="#contato">Contato</a>
 
-      videoCover.addEventListener('click', playSelectedVideo);
-      videoChoices.forEach(button => {
-        button.addEventListener('click', () => showVideo(button.dataset.video, button.dataset.title));
-      });
+</div>
 
-      // Formulário abre o WhatsApp com os dados preenchidos pela família.
-      document.getElementById('whatsappForm').addEventListener('submit', event => {
+<a
+    href="#contato"
+    class="header-button"
+>
+    Vamos conversar
+</a>
+
+<button
+    class="menu-toggle"
+    id="menuToggle"
+    aria-label="Abrir menu"
+    aria-expanded="false"
+>
+    <span></span>
+    <span></span>
+</button>
+
+</nav>
+
+</div>
+
+</header>
+
+<main>
+
+<!-- =========================================================
+HERO
+========================================================= -->
+
+<section
+    class="hero"
+    id="inicio"
+>
+
+<div class="container">
+
+<div class="hero-grid">
+
+<div class="hero-content reveal">
+
+<div class="hero-eyebrow">
+    Educação & Desenvolvimento
+</div>
+
+<h1>
+    Cada pessoa
+    aprende de um
+    jeito <span>único.</span>
+</h1>
+
+<p class="hero-text">
+
+Um trabalho que considera cada
+história, cada processo e cada
+forma de aprender com atenção,
+acolhimento e individualidade.
+
+</p>
+
+<div class="hero-actions">
+
+<a
+    href="#sobre"
+    class="button-main"
+>
+    Conheça o trabalho
+</a>
+
+<a
+    href="#processo"
+    class="button-light"
+>
+    Como funciona →
+</a>
+
+</div>
+
+</div>
+
+<div class="hero-visual reveal">
+
+<div class="hero-name">
+    Paula Borch
+</div>
+
+<div class="hero-photo">
+
+<img
+    src="https://i.imgur.com/1QDxDPB.png"
+    alt="Paula Borch"
+    fetchpriority="high"
+>
+
+</div>
+
+<div class="hero-circle">
+
+<svg viewBox="0 0 48 48">
+
+<path d="M24 38V10"/>
+
+<path d="M24 16c-7-7-15-2-13 5 1 4 5 5 8 4"/>
+
+<path d="M24 21c7-7 15-2 13 5-1 4-5 5-8 4"/>
+
+<path d="M24 27c-6-5-12 0-10 5 1 3 4 4 7 3"/>
+
+<path d="M24 31c6-5 12 0 10 5-1 3-4 4-7 3"/>
+
+</svg>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================================================
+INTRO
+========================================================= -->
+
+<section class="intro">
+
+<div class="container">
+
+<div class="intro-grid reveal">
+
+<div class="section-label">
+
+<i></i>
+
+Um olhar individual
+
+</div>
+
+<div class="intro-content">
+
+<h2 class="intro-title">
+
+Aprender não é
+seguir uma fórmula.
+
+<span>
+É encontrar possibilidades.
+</span>
+
+</h2>
+
+<p class="intro-text">
+
+Cada pessoa possui uma história,
+um ritmo e uma maneira própria
+de se relacionar com o mundo.
+
+O acompanhamento parte da
+escuta e busca compreender
+o que existe por trás de cada
+dificuldade.
+
+</p>
+
+<div class="intro-footer">
+
+<div class="intro-footer-line"></div>
+
+<span>
+Cada história importa
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================================================
+ATUAÇÃO
+========================================================= -->
+
+<section
+    class="services"
+    id="atuacao"
+>
+
+<div class="container">
+
+<div class="services-grid">
+
+<article class="service reveal">
+
+<div class="service-icon">
+
+<svg viewBox="0 0 48 48">
+
+<circle cx="24" cy="17" r="6"/>
+
+<path d="M12 38c1-7 5-11 12-11s11 4 12 11"/>
+
+<path d="M10 24c-3 0-5 2-5 5s2 5 5 5"/>
+
+<path d="M38 24c3 0 5 2 5 5s-2 5-5 5"/>
+
+</svg>
+
+</div>
+
+<div class="service-content">
+
+<h3>
+Desenvolvimento
+</h3>
+
+<p>
+Um olhar integrado para
+as necessidades e
+possibilidades de cada pessoa.
+</p>
+
+</div>
+
+</article>
+
+<article class="service reveal">
+
+<div class="service-icon">
+
+<svg viewBox="0 0 48 48">
+
+<path d="M8 12h32v25H8z"/>
+
+<path d="M15 19h18"/>
+
+<path d="M15 25h12"/>
+
+<path d="M15 31h8"/>
+
+</svg>
+
+</div>
+
+<div class="service-content">
+
+<h3>
+Aprendizagem
+</h3>
+
+<p>
+Estratégias que respeitam
+diferentes formas, ritmos
+e caminhos para aprender.
+</p>
+
+</div>
+
+</article>
+
+<article class="service reveal">
+
+<div class="service-icon">
+
+<svg viewBox="0 0 48 48">
+
+<circle cx="24" cy="24" r="15"/>
+
+<path d="M24 15v9l6 5"/>
+
+<path d="M15 38h18"/>
+
+</svg>
+
+</div>
+
+<div class="service-content">
+
+<h3>
+Acolhimento
+</h3>
+
+<p>
+Um espaço de escuta,
+compreensão e construção
+de novas possibilidades.
+</p>
+
+</div>
+
+</article>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================================================
+COMO FUNCIONA
+========================================================= -->
+
+<section
+    class="process"
+    id="processo"
+>
+
+<div class="container">
+
+<div class="process-header reveal">
+
+<div class="section-label">
+
+<i></i>
+
+Como funciona
+
+</div>
+
+<h2>
+Um processo construído
+com calma e intenção.
+</h2>
+
+<p>
+Cada acompanhamento começa
+pela escuta e pela compreensão
+da realidade de cada pessoa.
+</p>
+
+</div>
+
+<div class="steps">
+
+<article class="step reveal">
+
+<div class="step-icon">
+
+<svg viewBox="0 0 48 48">
+
+<path d="M24 39c-8.2 0-15-5.4-15-12.5C9 19.1 15.7 13 24 13s15 6.1 15 13.5C39 33.6 32.2 39 24 39Z"/>
+
+<path d="M17 23c2-2 4-2 6 0s4 2 6 0"/>
+
+<path d="M19 29c1.7 1.5 4.3 1.5 6 0"/>
+
+<circle cx="19" cy="20" r="1.2"/>
+
+<circle cx="29" cy="20" r="1.2"/>
+
+</svg>
+
+</div>
+
+<div class="step-number">
+ETAPA 01
+</div>
+
+<h3>
+Escuta
+</h3>
+
+<p>
+Conhecer a história,
+compreender o contexto e
+ouvir aquilo que está por trás
+da dificuldade.
+</p>
+
+</article>
+
+<article class="step reveal">
+
+<div class="step-icon">
+
+<svg viewBox="0 0 48 48">
+
+<circle cx="22" cy="22" r="10"/>
+
+<path d="M29 29l9 9"/>
+
+<path d="M17 22h10"/>
+
+<path d="M22 17v10"/>
+
+</svg>
+
+</div>
+
+<div class="step-number">
+ETAPA 02
+</div>
+
+<h3>
+Compreensão
+</h3>
+
+<p>
+Observar necessidades,
+contexto e diferentes formas
+de aprender e se desenvolver.
+</p>
+
+</article>
+
+<article class="step reveal">
+
+<div class="step-icon">
+
+<svg viewBox="0 0 48 48">
+
+<path d="M9 34c7-1 11-5 14-11 3-6 7-9 16-10"/>
+
+<path d="M31 10h8v8"/>
+
+<circle cx="10" cy="34" r="3"/>
+
+<circle cx="24" cy="23" r="3"/>
+
+<circle cx="39" cy="13" r="3"/>
+
+</svg>
+
+</div>
+
+<div class="step-number">
+ETAPA 03
+</div>
+
+<h3>
+Caminhos
+</h3>
+
+<p>
+A partir da compreensão,
+são construídas estratégias
+adequadas a cada realidade.
+</p>
+
+</article>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================================================
+SOBRE
+========================================================= -->
+
+<section
+    class="about"
+    id="sobre"
+>
+
+<div class="container">
+
+<div class="about-grid">
+
+<div class="about-photo reveal">
+
+<img
+    src="https://i.imgur.com/bwXelIG.png"
+    alt="Paula Borch"
+    loading="lazy"
+>
+
+</div>
+
+<div class="reveal">
+
+<div class="section-label">
+
+<i></i>
+
+Sobre Paula
+
+</div>
+
+<h2 class="about-title">
+
+Conhecimento com
+<span>
+sensibilidade.
+</span>
+
+</h2>
+
+<p class="about-text">
+
+O trabalho de Paula parte de uma
+visão individualizada da aprendizagem
+e do desenvolvimento.
+
+Mais do que observar apenas a
+dificuldade, o objetivo é compreender
+a pessoa, seu contexto e suas
+possibilidades.
+
+</p>
+
+<div class="about-points">
+
+<div class="about-point">
+
+<strong>
+Escuta
+</strong>
+
+<span>
+Compreender antes de intervir.
+</span>
+
+</div>
+
+<div class="about-point">
+
+<strong>
+Individualidade
+</strong>
+
+<span>
+Cada processo possui seu próprio ritmo.
+</span>
+
+</div>
+
+<div class="about-point">
+
+<strong>
+Estratégias
+</strong>
+
+<span>
+Construir caminhos adequados.
+</span>
+
+</div>
+
+<div class="about-point">
+
+<strong>
+Acolhimento
+</strong>
+
+<span>
+Um espaço seguro para desenvolver.
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================================================
+FRASE
+========================================================= -->
+
+<section class="quote">
+
+<div class="container">
+
+<div class="quote-grid">
+
+<div class="quote-copy reveal">
+
+<span class="quote-word">
+caminhos
+</span>
+
+<div class="section-label">
+
+<i></i>
+
+Psicopedagogia
+
+</div>
+
+<h2>
+Quando entendemos
+como alguém aprende,
+abrimos novos caminhos.
+</h2>
+
+</div>
+
+<p class="reveal">
+
+Um olhar atento pode transformar
+a maneira como uma dificuldade é
+percebida — e também revelar
+possibilidades.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================================================
+VÍDEOS
+========================================================= -->
+
+<section
+    class="videos"
+    id="videos"
+>
+
+<div class="container">
+
+<div class="videos-heading reveal">
+
+<div>
+
+<div class="section-label">
+
+<i></i>
+
+Conteúdos
+
+</div>
+
+<h2>
+Conteúdos para
+aprender junto.
+</h2>
+
+</div>
+
+<p>
+Vídeos da Paula sobre
+aprendizagem, desenvolvimento,
+educação e psicopedagogia.
+</p>
+
+</div>
+
+<div class="video-mosaic">
+
+<article class="video-item reveal">
+
+<span class="video-tag">
+Destaque
+</span>
+
+<iframe
+    src="https://www.youtube.com/embed/G-WHLWXXQrg"
+    title="Paula Borch"
+    loading="lazy"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+</iframe>
+
+</article>
+
+<article class="video-item reveal">
+
+<span class="video-tag">
+Conteúdo
+</span>
+
+<iframe
+    src="https://www.youtube.com/embed/FAuZXncvy5o"
+    title="Paula Borch"
+    loading="lazy"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+</iframe>
+
+</article>
+
+<article class="video-item reveal">
+
+<span class="video-tag">
+Conteúdo
+</span>
+
+<iframe
+    src="https://www.youtube.com/embed/ocwri6_0fHY"
+    title="Paula Borch"
+    loading="lazy"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+</iframe>
+
+</article>
+
+<article class="video-item reveal">
+
+<span class="video-tag">
+Short
+</span>
+
+<iframe
+    src="https://www.youtube.com/embed/bfmsMIZ-hPc"
+    title="Paula Borch"
+    loading="lazy"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+</iframe>
+
+</article>
+
+</div>
+
+<div class="videos-button reveal">
+
+<a
+    href="https://www.youtube.com/@prof.paulaborch8774"
+    target="_blank"
+    rel="noopener"
+    class="youtube-button"
+>
+
+<span class="youtube-button-icon">
+▶
+</span>
+
+Ver canal completo
+
+<span>→</span>
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================================================
+CONTATO
+========================================================= -->
+
+<section
+    class="contact"
+    id="contato"
+>
+
+<div class="container">
+
+<div class="contact-grid">
+
+<div class="reveal">
+
+<div class="section-label">
+
+<i></i>
+
+Vamos conversar
+
+</div>
+
+<h2>
+Conte um pouco sobre
+o que você <span>precisa.</span>
+</h2>
+
+<p class="contact-text">
+
+Preencha os dados ao lado.
+Ao enviar, sua mensagem será
+encaminhada diretamente para
+o WhatsApp da Paula.
+
+</p>
+
+</div>
+
+<form
+    class="contact-form reveal"
+    id="whatsappForm"
+>
+
+<div class="form-top">
+
+<h3>
+Vamos começar uma conversa
+</h3>
+
+<p>
+Os dados serão utilizados somente
+para entrar em contato com você.
+</p>
+
+</div>
+
+<div class="form-row">
+
+<div class="form-group">
+
+<label for="nome">
+Seu nome
+</label>
+
+<input
+    type="text"
+    id="nome"
+    name="nome"
+    placeholder="Digite seu nome"
+    autocomplete="name"
+    required
+>
+
+</div>
+
+<div class="form-group">
+
+<label for="telefone">
+Seu WhatsApp
+</label>
+
+<input
+    type="tel"
+    id="telefone"
+    name="telefone"
+    placeholder="(00) 00000-0000"
+    autocomplete="tel"
+    required
+>
+
+</div>
+
+</div>
+
+<div class="form-group">
+
+<label for="necessidade">
+O que você precisa?
+</label>
+
+<textarea
+    id="necessidade"
+    name="necessidade"
+    placeholder="Conte brevemente o que gostaria de conversar..."
+    required
+></textarea>
+
+</div>
+
+<button
+    type="submit"
+    class="form-submit"
+>
+
+Enviar pelo WhatsApp
+
+<svg viewBox="0 0 24 24">
+
+<path d="M4 4l16 7-16 7 3-7-3-7Z"/>
+
+<path d="M7 11h9"/>
+
+</svg>
+
+</button>
+
+<div class="form-note">
+
+Você será direcionado para o WhatsApp após o envio.
+
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<!-- =========================================================
+FOOTER
+========================================================= -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-grid">
+
+<div class="footer-brand">
+
+<img
+    class="footer-logo"
+    src="https://i.imgur.com/b2bgrDe.png"
+    alt="Paula Borch"
+>
+
+<p class="footer-description">
+
+Um espaço voltado à aprendizagem,
+desenvolvimento e construção de
+novas possibilidades.
+
+</p>
+
+</div>
+
+<div>
+
+<div class="footer-title">
+Navegação
+</div>
+
+<div class="footer-links">
+
+<a href="#inicio">Início</a>
+
+<a href="#sobre">Sobre</a>
+
+<a href="#atuacao">Atuação</a>
+
+<a href="#processo">Como funciona</a>
+
+<a href="#videos">Conteúdos</a>
+
+</div>
+
+</div>
+
+<div>
+
+<div class="footer-title">
+Contato
+</div>
+
+<div class="footer-links">
+
+<a href="#contato">
+Fale conosco
+</a>
+
+<a
+    href="mailto:contato@paulaborch.com.br"
+    class="footer-email"
+>
+contato@paulaborch.com.br
+</a>
+
+<a
+    href="https://www.youtube.com/@prof.paulaborch8774"
+    target="_blank"
+    rel="noopener"
+>
+YouTube
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
+<span>
+© 2026 Paula Borch. Todos os direitos reservados.
+</span>
+
+<span>
+Educação • Desenvolvimento • Aprendizagem
+</span>
+
+</div>
+
+</div>
+
+</footer>
+
+<!-- =========================================================
+WHATSAPP
+========================================================= -->
+
+<a
+    href="#contato"
+    class="whatsapp-float"
+    aria-label="Entrar em contato"
+>
+
+<svg viewBox="0 0 24 24">
+
+<path
+    d="M20 11.5a8.5 8.5 0 0 1-12.7 7.4L4 20l1.2-3.2A8.5 8.5 0 1 1 20 11.5Z"
+/>
+
+<path
+    d="M9.5 8.5c.3-.3.6-.3.9 0l1 1.2c.2.2.2.5.1.7l-.5.8c.7 1.3 1.7 2.3 3 3l.8-.5c.2-.1.5-.1.7.1l1.2 1c.3.3.3.6 0 .9-.5.5-1.2.8-1.9.6-3.6-1-6.4-3.8-7.4-7.4-.2-.7.1-1.4.6-1.9Z"
+/>
+
+</svg>
+
+</a>
+
+<script>
+
+/* =========================================================
+   CONFIGURAÇÃO WHATSAPP
+========================================================= */
+
+const WHATSAPP_PAULA = "5543920036581";
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+const header =
+document.getElementById("header");
+
+window.addEventListener("scroll",()=>{
+
+    if(window.scrollY > 20){
+        header.classList.add("scrolled");
+    }else{
+        header.classList.remove("scrolled");
+    }
+
+});
+
+/* =========================================================
+   MENU MOBILE
+========================================================= */
+
+const menuToggle =
+document.getElementById("menuToggle");
+
+const menu =
+document.getElementById("menu");
+
+menuToggle.addEventListener("click",()=>{
+
+    const opened =
+        menu.classList.toggle("open");
+
+    menuToggle.classList.toggle(
+        "active",
+        opened
+    );
+
+    menuToggle.setAttribute(
+        "aria-expanded",
+        opened
+    );
+
+});
+
+document
+.querySelectorAll(".menu a")
+.forEach(link=>{
+
+    link.addEventListener("click",()=>{
+
+        menu.classList.remove("open");
+
+        menuToggle.classList.remove("active");
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+    });
+
+});
+
+/* =========================================================
+   WHATSAPP FORM
+========================================================= */
+
+const whatsappForm =
+document.getElementById("whatsappForm");
+
+whatsappForm.addEventListener(
+    "submit",
+    function(event){
+
         event.preventDefault();
-        const nome = document.getElementById('nomeResponsavel').value.trim();
-        const idade = document.getElementById('idadeCrianca').value.trim();
-        const telefone = document.getElementById('telefone').value.trim();
-        const mensagem = document.getElementById('mensagem').value.trim();
-        if (!nome || !idade) {
-          alert('Informe seu nome e a idade da criança ou adolescente.');
-          return;
-        }
-        const body = [
-          'Olá, Paula! Gostaria de saber mais sobre o atendimento psicopedagógico.',
-          '',
-          `Meu nome: ${nome}`,
-          `Idade da criança/adolescente: ${idade}`,
-          telefone ? `Meu WhatsApp: ${telefone}` : '',
-          mensagem ? `Mensagem: ${mensagem}` : ''
-        ].filter(Boolean).join('\n');
-        const url = `https://wa.me/${WHATSAPP_PAULA}?text=${encodeURIComponent(body)}`;
-        window.open(url, '_blank', 'noopener,noreferrer');
-      });
 
-      // Entrada suave das seções, respeitando a preferência por movimento reduzido.
-      const revealItems = document.querySelectorAll('.fade-up');
-      if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        const observer = new IntersectionObserver(entries => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('is-visible');
-              observer.unobserve(entry.target);
-            }
-          });
-        }, {threshold: 0.12});
-        revealItems.forEach(item => observer.observe(item));
-      } else {
-        revealItems.forEach(item => item.classList.add('is-visible'));
-      }
-      document.getElementById('year').textContent = new Date().getFullYear();
-    })();
-  </script>
+        const nome =
+            document
+            .getElementById("nome")
+            .value
+            .trim();
+
+        const telefone =
+            document
+            .getElementById("telefone")
+            .value
+            .trim();
+
+        const necessidade =
+            document
+            .getElementById("necessidade")
+            .value
+            .trim();
+
+        if(!nome || !telefone || !necessidade){
+
+            alert(
+                "Por favor, preencha todos os campos."
+            );
+
+            return;
+        }
+
+        const mensagem =
+`Olá, Paula!
+
+Meu nome é ${nome}.
+
+Meu WhatsApp é: ${telefone}
+
+Gostaria de conversar sobre:
+
+${necessidade}`;
+
+        const url =
+            "https://wa.me/" +
+            WHATSAPP_PAULA +
+            "?text=" +
+            encodeURIComponent(mensagem);
+
+        window.open(
+            url,
+            "_blank",
+            "noopener"
+        );
+
+    }
+);
+
+/* =========================================================
+   MÁSCARA TELEFONE
+========================================================= */
+
+const telefoneInput =
+document.getElementById("telefone");
+
+telefoneInput.addEventListener(
+    "input",
+    function(){
+
+        let value =
+            this.value.replace(/\D/g,"");
+
+        if(value.length > 11){
+            value = value.slice(0,11);
+        }
+
+        if(value.length <= 10){
+
+            value =
+                value.replace(
+                    /^(\d{2})(\d{4})(\d{0,4}).*/,
+                    "($1) $2-$3"
+                );
+
+        }else{
+
+            value =
+                value.replace(
+                    /^(\d{2})(\d{5})(\d{0,4}).*/,
+                    "($1) $2-$3"
+                );
+
+        }
+
+        this.value = value;
+
+    }
+);
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+const revealObserver =
+new IntersectionObserver(
+
+(entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add(
+                "visible"
+            );
+
+            revealObserver.unobserve(
+                entry.target
+            );
+
+        }
+
+    });
+
+},
+{
+    threshold:.12
+}
+);
+
+document
+.querySelectorAll(".reveal")
+.forEach(element=>{
+
+    revealObserver.observe(element);
+
+});
+
+/* =========================================================
+   ESC
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    event=>{
+
+        if(event.key === "Escape"){
+
+            menu.classList.remove("open");
+
+            menuToggle.classList.remove("active");
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+        }
+
+    }
+);
+
+</script>
+
 </body>
 </html>
