@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://i.imgur.com">
+  <link rel="preload" as="image" href="https://i.imgur.com/c6qktEZ.png" fetchpriority="high">
   <link rel="preconnect" href="https://www.youtube-nocookie.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -84,44 +85,57 @@
     .mobile-toggle { display: none; width: 44px; height: 44px; padding: 9px; border: 0; background: transparent; color: var(--blue); }
     .mobile-toggle span { display: block; width: 23px; height: 1px; margin: 6px auto; background: currentColor; transition: transform .25s ease; }
 
-    /* Primeira tela: retrato integral, sem menu e sem texto por cima */
+    /* Primeira tela: fotografia integral à esquerda + apresentação à direita */
     .hero {
       position: relative;
       isolation: isolate;
       width: 100%;
+      min-height: 680px;
       height: 100vh;
       height: 100svh;
-      min-height: 580px;
       max-height: 1100px;
       overflow: hidden;
-      background: #D8D2CC;
+      background: #343334;
+      color: #fff;
     }
+    /* Camada atmosférica: preenche a tela sem deixar faixas vazias.
+       O retrato nítido acima usa contain para não cortar a professora. */
     .hero-backdrop {
       position: absolute;
-      inset: -24px;
-      z-index: -2;
-      width: calc(100% + 48px);
-      height: calc(100% + 48px);
+      inset: -30px;
+      z-index: -3;
+      width: calc(100% + 60px);
+      height: calc(100% + 60px);
       object-fit: cover;
-      object-position: center;
-      filter: blur(25px) brightness(.72) saturate(.78);
-      transform: scale(1.04);
-      opacity: .9;
+      object-position: center center;
+      filter: blur(28px) brightness(.58) saturate(.78);
+      transform: scale(1.06);
+      opacity: .96;
     }
     .hero-shade {
       position: absolute;
       inset: 0;
-      z-index: -1;
-      background: linear-gradient(180deg, rgba(28, 29, 29, .08), rgba(28, 29, 29, .12));
+      z-index: -2;
+      background:
+        linear-gradient(90deg,
+          rgba(20, 23, 25, .02) 0%,
+          rgba(20, 23, 25, .05) 46%,
+          rgba(20, 23, 25, .48) 63%,
+          rgba(20, 23, 25, .84) 100%);
       pointer-events: none;
     }
     .hero-portrait-wrap {
       position: absolute;
-      inset: 0;
+      z-index: -1;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 67%;
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       justify-content: center;
-      padding: 0;
+      padding: 0 0 0 clamp(12px, 2.2vw, 34px);
+      overflow: hidden;
     }
     .hero-portrait {
       display: block;
@@ -130,36 +144,157 @@
       max-width: 100%;
       max-height: 100%;
       object-fit: contain;
-      object-position: center center;
-      filter: drop-shadow(0 12px 35px rgba(23, 27, 29, .12));
+      object-position: center bottom;
+      filter: drop-shadow(0 14px 36px rgba(15, 18, 20, .18));
     }
+    .hero-content {
+      position: absolute;
+      z-index: 2;
+      inset: 0 0 0 auto;
+      width: min(39%, 590px);
+      height: 100%;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: clamp(30px, 4vw, 72px) clamp(28px, 5vw, 82px) clamp(58px, 6vw, 90px) clamp(20px, 2vw, 32px);
+      background: linear-gradient(90deg, rgba(23, 26, 28, .03) 0%, rgba(23, 26, 28, .43) 16%, rgba(23, 26, 28, .75) 100%);
+    }
+    .hero-copy {
+      width: 100%;
+      max-width: 520px;
+      padding: 8px 0 8px clamp(18px, 2.2vw, 34px);
+      border-left: 1px solid rgba(220, 202, 229, .72);
+    }
+    .hero-brand {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 34px;
+    }
+    .hero-brand img {
+      width: 67px;
+      height: 67px;
+      object-fit: contain;
+      flex: 0 0 auto;
+      padding: 5px;
+      background: rgba(255,255,255,.94);
+      border-radius: 50%;
+    }
+    .hero-brand-name {
+      color: #fff;
+      font-family: "Inter", sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: .02em;
+    }
+    .hero-brand-caption {
+      display: block;
+      margin-top: 5px;
+      color: rgba(255,255,255,.67);
+      font-size: 8px;
+      font-weight: 500;
+      letter-spacing: .19em;
+      text-transform: uppercase;
+    }
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      margin-bottom: 19px;
+      color: #D5C6DB;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2.1px;
+      text-transform: uppercase;
+    }
+    .hero-eyebrow::before {
+      content: "";
+      display: block;
+      width: 28px;
+      height: 1px;
+      background: currentColor;
+    }
+    .hero-title {
+      margin: 0;
+      color: #fff;
+      font-size: clamp(42px, 4.4vw, 67px);
+      line-height: .99;
+      font-weight: 300;
+      letter-spacing: -.065em;
+    }
+    .hero-title em {
+      display: block;
+      margin-top: 12px;
+      color: #D6C5DD;
+      font-size: .49em;
+      line-height: 1.25;
+      font-style: normal;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .hero-description {
+      max-width: 440px;
+      margin: 23px 0 0;
+      color: rgba(255,255,255,.84);
+      font-size: 13px;
+      line-height: 1.9;
+      font-weight: 300;
+    }
+    .hero-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      min-height: 49px;
+      margin-top: 29px;
+      padding: 0 22px;
+      border: 1px solid rgba(255,255,255,.8);
+      border-radius: 2px;
+      background: #766080;
+      color: #fff;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.25px;
+      text-transform: uppercase;
+      transition: background .25s ease, transform .25s ease, border-color .25s ease;
+    }
+    .hero-action:hover {
+      background: #5D4967;
+      border-color: #5D4967;
+      transform: translateY(-2px);
+    }
+    .hero-action svg { width: 17px; height: 17px; fill: currentColor; }
     .hero-index {
       position: absolute;
-      right: 34px;
-      bottom: 30px;
-      color: rgba(255, 255, 255, .82);
-      font-size: 9px;
+      left: 36px;
+      bottom: 26px;
+      z-index: 3;
+      color: rgba(255,255,255,.76);
+      font-size: 8px;
       font-weight: 500;
-      letter-spacing: 2.5px;
-      text-shadow: 0 2px 10px rgba(0,0,0,.35);
+      letter-spacing: 2.1px;
+      text-shadow: 0 2px 10px rgba(0,0,0,.3);
     }
     .hero-scroll {
       position: absolute;
+      z-index: 3;
       left: 50%;
-      bottom: 26px;
+      bottom: 24px;
       transform: translateX(-50%);
       display: inline-flex;
       flex-direction: column;
       align-items: center;
-      gap: 9px;
+      gap: 7px;
       color: rgba(255,255,255,.9);
-      font-size: 8px;
+      font-size: 7px;
       font-weight: 600;
-      letter-spacing: 2px;
+      letter-spacing: 1.7px;
       text-transform: uppercase;
       text-shadow: 0 2px 10px rgba(0,0,0,.4);
     }
-    .hero-scroll-mark { width: 25px; height: 25px; border: 1px solid rgba(255,255,255,.75); border-radius: 50%; display: grid; place-items: center; }
+    .hero-scroll-mark { width: 24px; height: 24px; border: 1px solid rgba(255,255,255,.75); border-radius: 50%; display: grid; place-items: center; }
     .hero-scroll-mark::after { content: ""; width: 6px; height: 6px; border-right: 1px solid white; border-bottom: 1px solid white; transform: rotate(45deg) translate(-1px,-1px); }
 
     /* Abertura editorial — separada da fotografia */
@@ -321,9 +456,14 @@
       .menu.open { opacity: 1; pointer-events: auto; transform: translateY(0); }
       .menu a { font-size: 10px; }
       .menu .menu-contact { text-align: center; }
-      .hero { min-height: 540px; }
-      .hero-portrait { object-position: center center; }
-      .hero-index { right: 17px; bottom: 18px; font-size: 8px; }
+      .hero { min-height: 610px; }
+      .hero-portrait-wrap { width: 65%; }
+      .hero-content { width: 42%; padding: 28px 22px 58px 10px; }
+      .hero-copy { padding-left: 22px; }
+      .hero-brand { margin-bottom: 25px; }
+      .hero-brand img { width: 56px; height: 56px; }
+      .hero-title { font-size: clamp(38px, 5vw, 52px); }
+      .hero-index { left: 18px; bottom: 18px; font-size: 7px; }
       .hero-scroll { bottom: 17px; font-size: 7px; }
       .opening, .section, .contact { padding: 88px 0; }
       .opening-grid, .section-heading, .special-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 30px; }
@@ -363,9 +503,23 @@
     }
 
     @media (max-width: 430px) {
-      .hero { min-height: 500px; }
-      .hero-scroll { left: 20px; transform: none; align-items: flex-start; }
-      .hero-index { bottom: 22px; }
+      .hero { min-height: 740px; height: 100svh; max-height: none; }
+      .hero-portrait-wrap { width: 100%; height: 100%; padding: 0; align-items: flex-start; }
+      .hero-portrait { width: 100%; height: 100%; object-fit: contain; object-position: center top; }
+      .hero-shade { background: linear-gradient(180deg, rgba(20,23,25,.02) 0%, rgba(20,23,25,.04) 36%, rgba(20,23,25,.44) 58%, rgba(20,23,25,.88) 100%); }
+      .hero-content { position: absolute; inset: auto 14px 16px; width: auto; height: auto; margin: 0; padding: 0; background: none; }
+      .hero-copy { max-width: none; padding: 21px 20px 22px; border-left: 2px solid #B9A7C1; background: rgba(33,35,37,.88); box-shadow: 0 16px 45px rgba(0,0,0,.2); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+      .hero-brand { gap: 11px; margin-bottom: 18px; }
+      .hero-brand img { width: 47px; height: 47px; }
+      .hero-brand-name { font-size: 14px; }
+      .hero-brand-caption { font-size: 7px; }
+      .hero-eyebrow { font-size: 7px; margin-bottom: 11px; }
+      .hero-title { font-size: clamp(34px, 9vw, 43px); }
+      .hero-title em { margin-top: 6px; font-size: .47em; }
+      .hero-description { margin-top: 12px; font-size: 11px; line-height: 1.65; }
+      .hero-action { width: 100%; margin-top: 17px; min-height: 45px; font-size: 8px; }
+      .hero-scroll { display: none; }
+      .hero-index { left: 18px; bottom: auto; top: 18px; font-size: 7px; }
       .youtube-grid { grid-template-columns: 1fr; grid-template-rows: 220px 190px 190px 190px; }
       .video:first-child, .video:nth-child(2), .video:nth-child(3), .video:nth-child(4) { grid-column: 1; }
       .video:first-child { grid-row: 1; }
@@ -376,6 +530,178 @@
       .credential, .credential:first-child { padding: 0; border-right: 0; }
       .footer-top { grid-template-columns: 1fr; }
       .footer-brand-block { grid-column: auto; }
+    }
+
+    /* =====================================================
+       CORREÇÃO FINAL DA PRIMEIRA TELA — FOTO SEM RECORTE
+       A imagem original inteira é exibida em contain no viewport.
+       Uma cópia desfocada preenche as áreas laterais/sobras.
+       O texto fica à direita, dentro da composição fotográfica.
+    ===================================================== */
+    .hero {
+      position: relative !important;
+      isolation: isolate !important;
+      width: 100% !important;
+      height: 100vh !important;
+      height: 100svh !important;
+      min-height: 650px !important;
+      max-height: none !important;
+      overflow: hidden !important;
+      background: #343334 !important;
+    }
+
+    /* Fundo atmosférico: é esta cópia que pode usar cover e blur. */
+    .hero-backdrop {
+      position: absolute !important;
+      inset: -34px !important;
+      z-index: 0 !important;
+      display: block !important;
+      width: calc(100% + 68px) !important;
+      height: calc(100% + 68px) !important;
+      max-width: none !important;
+      object-fit: cover !important;
+      object-position: center center !important;
+      filter: blur(30px) brightness(.58) saturate(.78) !important;
+      transform: scale(1.07) !important;
+      opacity: 1 !important;
+    }
+
+    /* A fotografia principal ocupa a tela inteira e nunca usa cover. */
+    .hero-portrait-wrap {
+      position: absolute !important;
+      inset: 0 !important;
+      z-index: 1 !important;
+      display: block !important;
+      width: 100% !important;
+      height: 100% !important;
+      max-width: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      overflow: visible !important;
+      background: transparent !important;
+    }
+
+    .hero-portrait {
+      position: absolute !important;
+      inset: 0 !important;
+      display: block !important;
+      width: 100% !important;
+      height: 100% !important;
+      max-width: none !important;
+      max-height: none !important;
+      margin: 0 !important;
+      object-fit: contain !important;
+      object-position: left center !important;
+      transform: none !important;
+      filter: drop-shadow(0 12px 34px rgba(0,0,0,.16)) !important;
+    }
+
+    /* Sombra gradual para leitura, sem um cartão opaco sobre a professora. */
+    .hero-shade {
+      position: absolute !important;
+      inset: 0 !important;
+      z-index: 2 !important;
+      pointer-events: none !important;
+      background: linear-gradient(
+        90deg,
+        rgba(14,19,21,0) 0%,
+        rgba(14,19,21,.02) 42%,
+        rgba(14,19,21,.42) 60%,
+        rgba(14,19,21,.82) 100%
+      ) !important;
+    }
+
+    /* Identificação e chamada sempre na lateral direita. */
+    .hero-content {
+      position: absolute !important;
+      z-index: 3 !important;
+      inset: 0 0 0 auto !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: flex-start !important;
+      width: min(43%, 610px) !important;
+      height: 100% !important;
+      margin: 0 !important;
+      padding: clamp(28px, 4vw, 64px) clamp(25px, 4.5vw, 72px) clamp(62px, 6vw, 88px) clamp(18px, 2vw, 32px) !important;
+      background: linear-gradient(90deg, rgba(18,23,25,0) 0%, rgba(18,23,25,.48) 20%, rgba(18,23,25,.72) 100%) !important;
+      box-sizing: border-box !important;
+    }
+
+    .hero-copy {
+      width: 100% !important;
+      max-width: 520px !important;
+      margin: 0 !important;
+      padding: 12px 0 12px clamp(18px, 2vw, 30px) !important;
+      border-left: 1px solid rgba(226,211,233,.76) !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      -webkit-backdrop-filter: none !important;
+      backdrop-filter: none !important;
+    }
+
+    .hero-brand { margin-bottom: clamp(20px, 3vw, 34px) !important; }
+    .hero-title { font-size: clamp(39px, 4.15vw, 64px) !important; }
+    .hero-description { max-width: 430px !important; font-size: clamp(12px, 1vw, 14px) !important; line-height: 1.85 !important; }
+    .hero-action { margin-top: 25px !important; }
+    .hero-index, .hero-scroll { z-index: 4 !important; }
+
+    /* Em telas estreitas, a foto continua inteira; a apresentação vai abaixo,
+       sobre uma faixa escura translúcida na própria primeira tela. */
+    @media (max-width: 760px) {
+      .hero {
+        height: 100svh !important;
+        min-height: 720px !important;
+      }
+      .hero-portrait-wrap { inset: 0 !important; width: 100% !important; height: 100% !important; }
+      .hero-portrait { object-fit: contain !important; object-position: center top !important; }
+      .hero-shade {
+        background: linear-gradient(
+          180deg,
+          rgba(14,19,21,0) 0%,
+          rgba(14,19,21,.02) 40%,
+          rgba(14,19,21,.40) 62%,
+          rgba(14,19,21,.88) 100%
+        ) !important;
+      }
+      .hero-content {
+        inset: auto 18px 18px !important;
+        width: auto !important;
+        height: auto !important;
+        max-height: 56% !important;
+        padding: 0 !important;
+        align-items: stretch !important;
+        background: none !important;
+      }
+      .hero-copy {
+        max-width: 620px !important;
+        margin: 0 auto !important;
+        padding: 23px 22px 24px !important;
+        border-left: 2px solid #D6C5DD !important;
+        background: rgba(25,29,31,.88) !important;
+        box-shadow: 0 16px 48px rgba(0,0,0,.22) !important;
+        -webkit-backdrop-filter: blur(13px) !important;
+        backdrop-filter: blur(13px) !important;
+      }
+      .hero-brand { margin-bottom: 17px !important; }
+      .hero-brand img { width: 49px !important; height: 49px !important; }
+      .hero-title { font-size: clamp(34px, 8.5vw, 48px) !important; }
+      .hero-description { margin-top: 12px !important; font-size: 11px !important; line-height: 1.65 !important; }
+      .hero-action { width: 100% !important; min-height: 44px !important; margin-top: 16px !important; }
+      .hero-scroll { display: none !important; }
+      .hero-index { top: 14px !important; bottom: auto !important; left: 16px !important; }
+    }
+
+    @media (max-width: 430px) {
+      .hero { min-height: 760px !important; }
+      .hero-content { inset: auto 12px 12px !important; max-height: 59% !important; }
+      .hero-copy { padding: 19px 17px 20px !important; }
+      .hero-brand img { width: 44px !important; height: 44px !important; }
+      .hero-brand-name { font-size: 14px !important; }
+      .hero-brand-caption { font-size: 7px !important; }
+      .hero-eyebrow { font-size: 7px !important; margin-bottom: 10px !important; }
+      .hero-title { font-size: clamp(31px, 8.8vw, 40px) !important; }
+      .hero-title em { margin-top: 6px !important; }
+      .hero-description { font-size: 10px !important; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -408,14 +734,34 @@
   </header>
 
   <main>
-    <!-- A imagem é exibida inteira. O fundo desfocado apenas preenche as áreas laterais. -->
-    <section class="hero" id="inicio" aria-label="Fotografia de Paula Borch">
-      <img class="hero-backdrop" src="https://i.imgur.com/jJzaGnB.png" alt="" aria-hidden="true" fetchpriority="high">
-      <div class="hero-shade"></div>
-      <div class="hero-portrait-wrap">
-        <img class="hero-portrait" src="https://i.imgur.com/jJzaGnB.png" alt="Paula Borch, psicopedagoga" fetchpriority="high" decoding="async">
+    <!-- Primeira tela: fotografia preenchendo o fundo e apresentação no lado direito. -->
+    <section class="hero" id="inicio" aria-label="Paula Borch — Psicopedagoga">
+      <img class="hero-backdrop" src="https://i.imgur.com/c6qktEZ.png" alt="" aria-hidden="true" fetchpriority="high">
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="hero-portrait-wrap" aria-hidden="true">
+        <img class="hero-portrait" src="https://i.imgur.com/c6qktEZ.png" alt="" fetchpriority="high" decoding="async">
       </div>
-      <a class="hero-scroll" href="#apresentacao" aria-label="Rolar para conhecer o trabalho">
+
+      <div class="hero-content">
+        <div class="hero-copy">
+          <div class="hero-brand">
+            <img src="https://i.imgur.com/b2bgrDe.png" alt="Logo Paula Borch" fetchpriority="high">
+            <div>
+              <div class="hero-brand-name">Paula Borch</div>
+              <span class="hero-brand-caption">Psicopedagogia</span>
+            </div>
+          </div>
+          <div class="hero-eyebrow">Pedagoga e Psicopedagoga</div>
+          <h1 class="hero-title">Cada aprendizagem tem <em>sua própria história.</em></h1>
+          <p class="hero-description">Avaliação e acompanhamento psicopedagógico com olhar individualizado, para compreender as dificuldades e construir novas possibilidades de aprendizagem.</p>
+          <a class="hero-action" href="https://wa.me/5543920036581?text=Ol%C3%A1%2C%20Paula!%20Gostaria%20de%20saber%20mais%20sobre%20o%20atendimento%20psicopedag%C3%B3gico." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.91 11.91 0 0 0 12.04 0C5.48 0 .14 5.34.14 11.9c0 2.1.55 4.15 1.6 5.96L.04 24l6.3-1.65a11.9 11.9 0 0 0 5.7 1.45h.01c6.56 0 11.9-5.34 11.9-11.9 0-3.18-1.24-6.17-3.43-8.42ZM12.05 21.8c-1.78 0-3.53-.48-5.05-1.4l-.36-.21-3.74.98 1-3.65-.23-.37a9.9 9.9 0 0 1-1.52-5.25c0-5.46 4.45-9.9 9.91-9.9 2.64 0 5.12 1.03 6.99 2.9a9.84 9.84 0 0 1 2.91 7c0 5.46-4.45 9.9-9.91 9.9Zm5.43-7.42c-.3-.15-1.77-.87-2.05-.97-.28-.1-.48-.15-.68.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.74-1.64-2.04-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.68-1.63-.93-2.23-.24-.58-.49-.5-.68-.51h-.58c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.49 0 1.47 1.07 2.89 1.22 3.09.15.2 2.1 3.21 5.08 4.5.71.31 1.27.5 1.7.64.72.23 1.37.2 1.89.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/></svg>
+            Conversar pelo WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <a class="hero-scroll" href="#apresentacao" aria-label="Conheça o trabalho">
         <span class="hero-scroll-mark"></span>
         <span>Conheça o trabalho</span>
       </a>
