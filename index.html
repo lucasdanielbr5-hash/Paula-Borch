@@ -8,7 +8,7 @@
 
 <meta
     name="description"
-    content="Paula Borch — Psicopedagogia, desenvolvimento e aprendizagem."
+    content="Paula Borch | Psicopedagogia. Avaliação, intervenção, alfabetização e orientação às famílias."
 >
 
 <title>Paula Borch | Psicopedagogia</title>
@@ -185,7 +185,7 @@ header.scrolled{
 .menu a{
     position:relative;
 
-    font-size:9px;
+    font-size:12px;
     font-weight:500;
 
     color:#737975;
@@ -353,27 +353,32 @@ header.scrolled{
 
     font-family:"Manrope",sans-serif;
 
-    font-size:clamp(48px,6vw,75px);
+    font-size:clamp(42px,4.8vw,62px);
 
-    line-height:.98;
+    line-height:1.02;
 
-    letter-spacing:-.075em;
+    letter-spacing:-.065em;
 
-    font-weight:500;
+    font-weight:600;
 }
 
 .hero h1 span{
+    display:block;
+    margin-top:10px;
     color:var(--purple);
+    font-size:.62em;
+    letter-spacing:-.015em;
+    font-weight:500;
 }
 
 .hero-text{
-    max-width:450px;
+    max-width:470px;
 
-    margin-top:28px;
+    margin-top:25px;
 
-    font-size:12px;
+    font-size:13px;
 
-    line-height:1.9;
+    line-height:1.85;
 
     color:var(--soft);
 }
@@ -389,9 +394,9 @@ header.scrolled{
 
 .button-main,
 .button-light{
-    min-height:45px;
+    min-height:48px;
 
-    padding:0 20px;
+    padding:0 18px;
 
     border-radius:50px;
 
@@ -399,8 +404,9 @@ header.scrolled{
     align-items:center;
     justify-content:center;
 
-    font-size:9px;
+    font-size:10px;
     font-weight:600;
+    letter-spacing:.025em;
 
     transition:.3s;
 }
@@ -445,8 +451,8 @@ header.scrolled{
 
     z-index:2;
 
-    width:min(610px,100%);
-    height:650px;
+    width:min(680px,100%);
+    height:680px;
 
     display:flex;
     align-items:flex-end;
@@ -456,9 +462,12 @@ header.scrolled{
 }
 
 .hero-photo img{
+    display:block;
     width:100%;
     height:100%;
+    max-width:100%;
 
+    /* Mantém a foto inteira visível, sem cortar cabeça, corpo ou laterais. */
     object-fit:contain;
     object-position:center bottom;
 
@@ -725,6 +734,93 @@ header.scrolled{
 }
 
 /* =========================================================
+   QUANDO PROCURAR UMA PSICOPEDAGOGA
+========================================================= */
+
+.when-section{
+    padding:120px 0;
+    background:#fafaf8;
+}
+
+.when-header{
+    max-width:760px;
+}
+
+.when-header h2{
+    margin-top:20px;
+    font-family:"Manrope",sans-serif;
+    font-size:clamp(38px,4.8vw,58px);
+    line-height:1.05;
+    letter-spacing:-.07em;
+    font-weight:500;
+}
+
+.when-header p{
+    max-width:560px;
+    margin-top:18px;
+    font-size:12px;
+    line-height:1.85;
+    color:#7b817d;
+}
+
+.when-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+    margin-top:38px;
+}
+
+.when-item{
+    min-height:76px;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:17px 19px;
+    border:1px solid #e5e7e2;
+    border-radius:17px;
+    background:#fff;
+    transition:.3s ease;
+}
+
+.when-item:hover{
+    transform:translateY(-3px);
+    border-color:#d5cbd9;
+    box-shadow:0 12px 30px rgba(40,45,42,.045);
+}
+
+.when-item-icon{
+    width:35px;
+    height:35px;
+    flex-shrink:0;
+    display:grid;
+    place-items:center;
+    border-radius:12px;
+    background:#eee9f1;
+    color:var(--purple);
+    font-family:"Manrope",sans-serif;
+    font-size:15px;
+}
+
+.when-item p{
+    font-size:11px;
+    line-height:1.65;
+    color:#626964;
+}
+
+.when-quote{
+    margin-top:27px;
+    padding:25px 29px;
+    border-left:3px solid var(--purple);
+    border-radius:0 16px 16px 0;
+    background:#eee9f1;
+    color:#5f5365;
+    font-family:"Manrope",sans-serif;
+    font-size:clamp(17px,2vw,21px);
+    line-height:1.55;
+    letter-spacing:-.025em;
+}
+
+/* =========================================================
    SERVIÇOS
 ========================================================= */
 
@@ -736,13 +832,13 @@ header.scrolled{
 .services-grid{
     display:grid;
 
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(4,1fr);
 
     gap:15px;
 }
 
 .service{
-    min-height:250px;
+    min-height:270px;
 
     position:relative;
 
@@ -772,6 +868,14 @@ header.scrolled{
 
 .service:nth-child(3){
     background:#edf2f3;
+}
+
+.service:nth-child(4){
+    background:#f1eee8;
+}
+
+.service:nth-child(4) .service-icon svg{
+    stroke:#82715d;
 }
 
 .service-icon{
@@ -819,7 +923,7 @@ header.scrolled{
 .service h3{
     font-family:"Manrope",sans-serif;
 
-    font-size:22px;
+    font-size:20px;
 
     font-weight:500;
 
@@ -831,7 +935,7 @@ header.scrolled{
 
     margin-top:9px;
 
-    font-size:10px;
+    font-size:11px;
 
     line-height:1.75;
 
@@ -1059,11 +1163,11 @@ header.scrolled{
 }
 
 .about-text{
-    max-width:510px;
+    max-width:590px;
 
     margin-top:24px;
 
-    font-size:11px;
+    font-size:12px;
 
     line-height:1.9;
 
@@ -1073,9 +1177,9 @@ header.scrolled{
 .about-points{
     display:grid;
 
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:repeat(3,1fr);
 
-    gap:12px;
+    gap:10px;
 
     margin-top:32px;
 }
@@ -1099,14 +1203,18 @@ header.scrolled{
 .about-point strong{
     display:block;
 
-    font-size:10px;
+    font-family:"Manrope",sans-serif;
+    font-size:19px;
+    line-height:1.15;
     font-weight:600;
+    letter-spacing:-.04em;
+    color:var(--purple-dark);
 }
 
 .about-point span{
     display:block;
 
-    margin-top:5px;
+    margin-top:7px;
 
     font-size:9px;
 
@@ -1442,6 +1550,27 @@ header.scrolled{
     line-height:1.85;
 
     color:#7c827d;
+}
+
+.contact-social{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    margin-top:22px;
+    color:var(--purple-dark);
+    font-size:12px;
+    font-weight:600;
+    transition:.25s;
+}
+
+.contact-social:hover{
+    color:#353936;
+    transform:translateX(3px);
+}
+
+.contact-social span{
+    color:#8b908c;
+    font-weight:400;
 }
 
 /* =========================================================
@@ -1860,11 +1989,11 @@ footer{
     }
 
     .hero-visual{
-        height:590px;
+        height:620px;
     }
 
     .hero-photo{
-        height:590px;
+        height:620px;
     }
 
     .intro-grid{
@@ -1872,12 +2001,12 @@ footer{
         gap:30px;
     }
 
-    .services-grid{
+    .when-grid{
         grid-template-columns:1fr 1fr;
     }
 
-    .service:last-child{
-        grid-column:1/-1;
+    .services-grid{
+        grid-template-columns:1fr 1fr;
     }
 
     .about-grid{
@@ -2000,7 +2129,7 @@ footer{
     }
 
     .menu a{
-        font-size:11px;
+        font-size:14px;
     }
 
     .header-button{
@@ -2021,15 +2150,15 @@ footer{
     }
 
     .hero h1{
-        font-size:47px;
+        font-size:39px;
     }
 
     .hero-visual{
-        height:500px;
+        height:540px;
     }
 
     .hero-photo{
-        height:500px;
+        height:540px;
     }
 
     .hero-name{
@@ -2080,16 +2209,20 @@ footer{
         font-size:80px;
     }
 
+    .when-section{
+        padding:95px 0;
+    }
+
+    .when-grid{
+        grid-template-columns:1fr;
+    }
+
     .services{
         padding-bottom:90px;
     }
 
     .services-grid{
         grid-template-columns:1fr;
-    }
-
-    .service:last-child{
-        grid-column:auto;
     }
 
     .process{
@@ -2230,15 +2363,15 @@ footer{
     }
 
     .hero h1{
-        font-size:43px;
+        font-size:37px;
     }
 
     .hero-visual{
-        height:440px;
+        height:490px;
     }
 
     .hero-photo{
-        height:440px;
+        height:490px;
     }
 
     .hero-name{
@@ -2357,6 +2490,8 @@ HEADER
 
 <a href="#sobre">Sobre</a>
 
+<a href="#quando-procurar">Quando procurar</a>
+
 <a href="#atuacao">Atuação</a>
 
 <a href="#processo">Como funciona</a>
@@ -2408,38 +2543,36 @@ HERO
 <div class="hero-content reveal">
 
 <div class="hero-eyebrow">
-    Educação & Desenvolvimento
+    PAULA BORCH | PSICOPEDAGOGIA
 </div>
 
 <h1>
-    Cada pessoa
-    aprende de um
-    jeito <span>único.</span>
+    PAULA BORCH
+    <span>PSICOPEDAGOGIA</span>
 </h1>
 
 <p class="hero-text">
 
-Um trabalho que considera cada
-história, cada processo e cada
-forma de aprender com atenção,
-acolhimento e individualidade.
+Atendimento psicopedagógico voltado à compreensão das dificuldades de aprendizagem, ao desenvolvimento das habilidades cognitivas e escolares e à construção de novas possibilidades de aprendizagem.
 
 </p>
 
 <div class="hero-actions">
 
 <a
-    href="#sobre"
+    href="https://wa.me/5543920036581?text=Ol%C3%A1%2C%20Paula!%20Gostaria%20de%20saber%20mais%20sobre%20o%20atendimento%20psicopedag%C3%B3gico."
     class="button-main"
+    target="_blank"
+    rel="noopener"
 >
-    Conheça o trabalho
+    QUERO SABER MAIS SOBRE O ATENDIMENTO
 </a>
 
 <a
-    href="#processo"
+    href="#sobre"
     class="button-light"
 >
-    Como funciona →
+    CONHEÇA MEU TRABALHO
 </a>
 
 </div>
@@ -2455,7 +2588,7 @@ acolhimento e individualidade.
 <div class="hero-photo">
 
 <img
-    src="https://i.imgur.com/1QDxDPB.png"
+    src="https://i.imgur.com/c6qktEZ.png"
     alt="Paula Borch"
     fetchpriority="high"
 >
@@ -2551,6 +2684,74 @@ Cada história importa
 </section>
 
 <!-- =========================================================
+QUANDO PROCURAR UMA PSICOPEDAGOGA
+========================================================= -->
+
+<section class="when-section" id="quando-procurar">
+
+<div class="container">
+
+<div class="when-header reveal">
+
+<div class="section-label">
+<i></i>
+Quando procurar
+</div>
+
+<h2>Quando procurar uma psicopedagoga?</h2>
+
+<p>Algumas dificuldades que aparecem na rotina escolar podem indicar a importância de compreender melhor como a criança ou o adolescente aprende.</p>
+
+</div>
+
+<div class="when-grid">
+
+<article class="when-item reveal">
+<span class="when-item-icon" aria-hidden="true">01</span>
+<p>Dificuldades para aprender a ler e escrever.</p>
+</article>
+
+<article class="when-item reveal">
+<span class="when-item-icon" aria-hidden="true">02</span>
+<p>Trocas ou dificuldades na escrita.</p>
+</article>
+
+<article class="when-item reveal">
+<span class="when-item-icon" aria-hidden="true">03</span>
+<p>Dificuldades na compreensão da leitura.</p>
+</article>
+
+<article class="when-item reveal">
+<span class="when-item-icon" aria-hidden="true">04</span>
+<p>Dificuldades em matemática.</p>
+</article>
+
+<article class="when-item reveal">
+<span class="when-item-icon" aria-hidden="true">05</span>
+<p>Dificuldade para acompanhar as atividades escolares.</p>
+</article>
+
+<article class="when-item reveal">
+<span class="when-item-icon" aria-hidden="true">06</span>
+<p>Dificuldades de atenção e organização durante as tarefas.</p>
+</article>
+
+<article class="when-item reveal">
+<span class="when-item-icon" aria-hidden="true">07</span>
+<p>Necessidade de compreender melhor como a criança aprende.</p>
+</article>
+
+</div>
+
+<blockquote class="when-quote reveal">
+“Nem toda dificuldade escolar significa falta de capacidade. Às vezes, a criança precisa que seu processo de aprendizagem seja melhor compreendido.”
+</blockquote>
+
+</div>
+
+</section>
+
+<!-- =========================================================
 ATUAÇÃO
 ========================================================= -->
 
@@ -2564,103 +2765,60 @@ ATUAÇÃO
 <div class="services-grid">
 
 <article class="service reveal">
-
 <div class="service-icon">
-
-<svg viewBox="0 0 48 48">
-
-<circle cx="24" cy="17" r="6"/>
-
-<path d="M12 38c1-7 5-11 12-11s11 4 12 11"/>
-
-<path d="M10 24c-3 0-5 2-5 5s2 5 5 5"/>
-
-<path d="M38 24c3 0 5 2 5 5s-2 5-5 5"/>
-
+<svg viewBox="0 0 48 48" aria-hidden="true">
+<circle cx="21" cy="20" r="11"/>
+<path d="m29 28 9 9"/>
+<path d="M17 20h8M21 16v8"/>
 </svg>
-
 </div>
-
 <div class="service-content">
-
-<h3>
-Desenvolvimento
-</h3>
-
-<p>
-Um olhar integrado para
-as necessidades e
-possibilidades de cada pessoa.
-</p>
-
+<h3>Avaliação psicopedagógica</h3>
+<p>Investigação dos processos de aprendizagem para compreender habilidades, necessidades e possíveis dificuldades.</p>
 </div>
-
 </article>
 
 <article class="service reveal">
-
 <div class="service-icon">
-
-<svg viewBox="0 0 48 48">
-
-<path d="M8 12h32v25H8z"/>
-
-<path d="M15 19h18"/>
-
-<path d="M15 25h12"/>
-
-<path d="M15 31h8"/>
-
+<svg viewBox="0 0 48 48" aria-hidden="true">
+<path d="M9 10h30v28H9z"/>
+<path d="M16 18h16M16 24h11M16 30h7"/>
+<path d="m29 31 3 3 6-7"/>
 </svg>
-
 </div>
-
 <div class="service-content">
-
-<h3>
-Aprendizagem
-</h3>
-
-<p>
-Estratégias que respeitam
-diferentes formas, ritmos
-e caminhos para aprender.
-</p>
-
+<h3>Intervenção psicopedagógica</h3>
+<p>Estratégias individualizadas para trabalhar as dificuldades identificadas e favorecer o desenvolvimento da aprendizagem.</p>
 </div>
-
 </article>
 
 <article class="service reveal">
-
 <div class="service-icon">
-
-<svg viewBox="0 0 48 48">
-
-<circle cx="24" cy="24" r="15"/>
-
-<path d="M24 15v9l6 5"/>
-
-<path d="M15 38h18"/>
-
+<svg viewBox="0 0 48 48" aria-hidden="true">
+<path d="M9 9h22a7 7 0 0 1 7 7v22H16a7 7 0 0 1-7-7z"/>
+<path d="M16 17h15M16 23h15M16 29h10"/>
+<path d="M15 38V16"/>
 </svg>
-
 </div>
-
 <div class="service-content">
-
-<h3>
-Acolhimento
-</h3>
-
-<p>
-Um espaço de escuta,
-compreensão e construção
-de novas possibilidades.
-</p>
-
+<h3>Alfabetização e letramento</h3>
+<p>Desenvolvimento das habilidades de leitura e escrita, respeitando o ritmo e as necessidades de cada aprendiz.</p>
 </div>
+</article>
 
+<article class="service reveal">
+<div class="service-icon">
+<svg viewBox="0 0 48 48" aria-hidden="true">
+<circle cx="18" cy="16" r="6"/>
+<circle cx="32" cy="19" r="5"/>
+<path d="M6 37c1-7 5-11 12-11s11 4 12 11"/>
+<path d="M29 29c6-1 10 2 12 8"/>
+</svg>
+</div>
+<div class="service-content">
+<h3>Orientação às famílias</h3>
+<p>Diálogo e orientações para que a família compreenda o processo de aprendizagem e participe desse percurso.</p>
+</div>
 </article>
 
 </div>
@@ -2861,68 +3019,28 @@ sensibilidade.
 </h2>
 
 <p class="about-text">
-
-O trabalho de Paula parte de uma
-visão individualizada da aprendizagem
-e do desenvolvimento.
-
-Mais do que observar apenas a
-dificuldade, o objetivo é compreender
-a pessoa, seu contexto e suas
-possibilidades.
-
+Sou Paula Borch, pedagoga e psicopedagoga, graduada em Pedagogia pela Faculdade INESUL desde 2009 e pós-graduada em Psicopedagogia Clínica, Educacional e Hospitalar pelo Grupo Rhema Educação desde 2018.
+<br><br>
+Com 18 anos de experiência na educação básica e 4 anos de atuação clínica, desenvolvo avaliações e intervenções psicopedagógicas, além de trabalhos voltados à alfabetização e ao letramento.
+<br><br>
+Acredito que cada pessoa tem uma maneira única de aprender. Por isso, meu trabalho é pautado na escuta, na observação e no olhar individualizado, respeitando a história, o ritmo e as potencialidades de cada pessoa.
+<br><br>
+Meu propósito é compreender os processos de aprendizagem e construir estratégias significativas que favoreçam o desenvolvimento e novas possibilidades de aprender.
 </p>
 
 <div class="about-points">
-
 <div class="about-point">
-
-<strong>
-Escuta
-</strong>
-
-<span>
-Compreender antes de intervir.
-</span>
-
+<strong>18 anos</strong>
+<span>de experiência na educação básica</span>
 </div>
-
 <div class="about-point">
-
-<strong>
-Individualidade
-</strong>
-
-<span>
-Cada processo possui seu próprio ritmo.
-</span>
-
+<strong>4 anos</strong>
+<span>de atuação clínica</span>
 </div>
-
 <div class="about-point">
-
-<strong>
-Estratégias
-</strong>
-
-<span>
-Construir caminhos adequados.
-</span>
-
+<strong>2009</strong>
+<span>graduação em Pedagogia</span>
 </div>
-
-<div class="about-point">
-
-<strong>
-Acolhimento
-</strong>
-
-<span>
-Um espaço seguro para desenvolver.
-</span>
-
-</div>
-
 </div>
 
 </div>
@@ -3141,12 +3259,13 @@ o que você <span>precisa.</span>
 
 <p class="contact-text">
 
-Preencha os dados ao lado.
-Ao enviar, sua mensagem será
-encaminhada diretamente para
-o WhatsApp da Paula.
+Preencha os dados ao lado. Ao enviar, sua mensagem será encaminhada diretamente para o WhatsApp da Paula.
 
 </p>
+
+<a class="contact-social" href="https://www.instagram.com/professorapaulaborch/" target="_blank" rel="noopener">
+Instagram <span>@professorapaulaborch</span> →
+</a>
 
 </div>
 
@@ -3202,6 +3321,34 @@ Seu WhatsApp
     required
 >
 
+</div>
+
+</div>
+
+<div class="form-row">
+
+<div class="form-group">
+<label for="crianca">Nome da criança ou adolescente</label>
+<input
+    type="text"
+    id="crianca"
+    name="crianca"
+    placeholder="Nome da criança/adolescente"
+    required
+>
+</div>
+
+<div class="form-group">
+<label for="idade">Idade da criança ou adolescente</label>
+<input
+    type="number"
+    id="idade"
+    name="idade"
+    min="0"
+    max="18"
+    placeholder="Ex.: 8"
+    required
+>
 </div>
 
 </div>
@@ -3331,6 +3478,14 @@ contato@paulaborch.com.br
 YouTube
 </a>
 
+<a
+    href="https://www.instagram.com/professorapaulaborch/"
+    target="_blank"
+    rel="noopener"
+>
+Instagram · @professorapaulaborch
+</a>
+
 </div>
 
 </div>
@@ -3358,9 +3513,11 @@ WHATSAPP
 ========================================================= -->
 
 <a
-    href="#contato"
+    href="https://wa.me/5543920036581?text=Ol%C3%A1%2C%20Paula!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20atendimento."
     class="whatsapp-float"
-    aria-label="Entrar em contato"
+    aria-label="Entrar em contato pelo WhatsApp"
+    target="_blank"
+    rel="noopener"
 >
 
 <svg viewBox="0 0 24 24">
@@ -3473,13 +3630,25 @@ whatsappForm.addEventListener(
             .value
             .trim();
 
+        const crianca =
+            document
+            .getElementById("crianca")
+            .value
+            .trim();
+
+        const idade =
+            document
+            .getElementById("idade")
+            .value
+            .trim();
+
         const necessidade =
             document
             .getElementById("necessidade")
             .value
             .trim();
 
-        if(!nome || !telefone || !necessidade){
+        if(!nome || !telefone || !crianca || !idade || !necessidade){
 
             alert(
                 "Por favor, preencha todos os campos."
@@ -3494,6 +3663,9 @@ whatsappForm.addEventListener(
 Meu nome é ${nome}.
 
 Meu WhatsApp é: ${telefone}
+
+Nome da criança/adolescente: ${crianca}
+Idade: ${idade} anos
 
 Gostaria de conversar sobre:
 
