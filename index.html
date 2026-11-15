@@ -342,6 +342,190 @@
       *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
       .reveal { opacity: 1; transform: none; }
     }
+
+    /* =====================================================
+       REFINAMENTO EDITORIAL — MENOS CARTÕES, MAIS CONTINUIDADE
+       ===================================================== */
+    .hero { min-height: 660px; max-height: none; }
+    .hero-backdrop { object-fit: cover; object-position: 38% center; filter: blur(30px) brightness(.58) saturate(.76); }
+    .hero-photo { inset: 0 auto 0 0; width: 60%; height: 100%; justify-content: flex-start; overflow: hidden; }
+    .hero-photo img { width: 100%; height: 100%; object-fit: contain; object-position: left center; }
+    .hero-shade { background: linear-gradient(90deg, rgba(19,22,25,.02) 0%, rgba(19,22,25,.04) 44%, rgba(19,22,25,.46) 62%, rgba(19,22,25,.84) 100%); }
+    .hero-content { width: 40%; padding: 40px clamp(27px,4.1vw,66px) 54px 10px; }
+    .hero-copy { max-width: 500px; padding-left: 25px; }
+    .hero-brand { margin-bottom: 25px; }
+    .hero h1 { font-size: clamp(36px,3.65vw,56px); }
+    .hero-description { font-size: 12px; line-height: 1.9; }
+
+    .intro-editorial { padding: 112px 0 118px; background: #fff; }
+    .intro-editorial-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 95px; align-items: start; }
+    .intro-editorial-heading h2 { max-width: 510px; margin: 0; color: var(--blue); font: 400 clamp(39px,4.7vw,63px)/1.04 Manrope,sans-serif; letter-spacing: -.067em; }
+    .intro-editorial-heading h2 em { color: var(--purple); font-style: normal; font-weight: 600; }
+    .intro-editorial-copy { max-width: 650px; padding-top: 4px; }
+    .intro-editorial-copy p { margin: 0; color: var(--muted); font-size: 13px; line-height: 2; }
+    .intro-editorial-copy p + p { margin-top: 18px; }
+    .intro-editorial-copy .intro-lead { color: var(--blue); font-size: 15px; line-height: 1.9; }
+    .editorial-signature { display: flex; align-items: center; gap: 14px; margin-top: 30px; color: var(--purple); font-size: 9px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; }
+    .editorial-signature span { width: 38px; height: 1px; background: var(--purple); }
+
+    .about { background: var(--cream); }
+    .about-grid { grid-template-columns: .72fr 1.28fr; gap: 90px; }
+    .about-photo { min-height: 545px; background: #EAE4DF; }
+    .about-copy { max-width: 720px; }
+    .about-copy .section-title { margin-bottom: 28px; }
+    .about-copy p { color: #69636B; font-size: 13px; line-height: 2.05; }
+    .about-copy p + p { margin-top: 18px; }
+
+    .when { background: #fff; }
+    .when-intro { display: grid; grid-template-columns: .92fr 1.08fr; gap: 90px; align-items: end; margin-bottom: 62px; }
+    .when-intro-copy { max-width: 610px; }
+    .when-intro-copy p { margin: 0; }
+    .when-intro-copy p + p { margin-top: 13px; }
+    .signals-layout { display: grid; grid-template-columns: .72fr 1.28fr; gap: 85px; padding-top: 31px; border-top: 1px solid var(--line); }
+    .signals-heading { max-width: 310px; }
+    .signals-overline { color: var(--purple); font-size: 9px; font-weight: 700; letter-spacing: 1.8px; line-height: 1.6; text-transform: uppercase; }
+    .signals-heading p { margin: 18px 0 0; color: var(--muted); font-size: 12px; line-height: 1.9; }
+    .signals-list { display: grid; grid-template-columns: 1fr 1fr; column-gap: 35px; margin: 0; padding: 0; list-style: none; counter-reset: none; }
+    .signals-list li { display: grid; grid-template-columns: 31px 1fr; gap: 13px; align-items: start; min-height: 68px; padding: 13px 0 16px; border-bottom: 1px solid var(--line); }
+    .signals-list li span { color: var(--purple); font: 600 12px Manrope,sans-serif; }
+    .signals-list li p { max-width: 290px; margin: 0; color: var(--ink-soft); font-size: 12px; line-height: 1.75; }
+    .when-quote { max-width: 950px; margin: 52px 0 0 auto; padding: 0 0 0 30px; border-left: 2px solid var(--purple); background: transparent; color: var(--purple-dark); font: 500 clamp(20px,2.5vw,29px)/1.55 Manrope,sans-serif; letter-spacing: -.04em; }
+
+    .services { background: var(--cream); }
+    .services-heading { display: grid; grid-template-columns: .85fr 1.15fr; column-gap: 85px; row-gap: 15px; align-items: end; margin-bottom: 46px; }
+    .services-heading .section-label { grid-column: 1 / -1; margin-bottom: 0; }
+    .services-heading .section-title { max-width: 650px; }
+    .services-heading .section-text { max-width: 470px; margin: 0 0 4px; }
+    .service-list { border-top: 1px solid var(--line); }
+    .service-line { display: grid; grid-template-columns: 42px 48px .85fr 1.15fr; gap: 25px; align-items: start; padding: 31px 0 34px; border-bottom: 1px solid var(--line); transition: padding .28s ease; }
+    .service-line:hover { padding-left: 9px; }
+    .service-index { padding-top: 6px; color: var(--purple); font: 700 10px Manrope,sans-serif; letter-spacing: 1.5px; }
+    .service-mark { width: 38px; height: 38px; color: var(--purple); }
+    .service-mark svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.25; stroke-linecap: round; stroke-linejoin: round; }
+    .service-copy h3 { margin: 0; color: var(--blue); font: 600 20px/1.35 Manrope,sans-serif; letter-spacing: -.5px; }
+    .service-copy p { max-width: 560px; margin: 0; color: var(--muted); font-size: 12px; line-height: 1.9; }
+
+    .process { background: #EEE8E0; }
+    .process-head { grid-template-columns: .92fr 1.08fr; gap: 90px; align-items: end; margin-bottom: 53px; }
+    .process-intro { max-width: 620px; }
+    .process-intro p { margin: 0; }
+    .process-timeline { display: grid; grid-template-columns: repeat(4,1fr); margin: 0; padding: 0; border-top: 1px solid rgba(64,95,112,.2); list-style: none; }
+    .process-stage { position: relative; display: flex; flex-direction: column; min-height: 265px; padding: 24px 27px 0 0; border-right: 1px solid rgba(64,95,112,.16); }
+    .process-stage:not(:first-child) { padding-left: 27px; }
+    .process-stage:last-child { border-right: 0; }
+    .process-number { color: var(--purple); font: 700 10px Manrope,sans-serif; letter-spacing: 2px; }
+    .process-stage h3 { margin: 48px 0 13px; color: var(--blue); font: 600 20px/1.3 Manrope,sans-serif; letter-spacing: -.5px; }
+    .process-stage p { max-width: 260px; margin: 0; color: #716C70; font-size: 11px; line-height: 1.9; }
+    .process-stage::after { content: ""; position: absolute; left: 0; bottom: -1px; width: 0; height: 2px; background: var(--purple); transition: width .4s ease; }
+    .process-stage:hover::after { width: calc(100% - 1px); }
+
+    .special { padding: 105px 0; }
+    .special-grid { grid-template-columns: .85fr 1.15fr; gap: 90px; }
+    .special-subtitle { max-width: 360px; margin: 21px 0 0; color: rgba(255,255,255,.76); font-size: 14px; line-height: 1.8; }
+    .special-copy p { margin: 0; font-size: 13px; line-height: 1.95; }
+    .special-copy p + p { margin-top: 17px; }
+    .special-copy .button { margin-top: 28px; }
+
+    .quote-editorial { padding: 116px 0 122px; background: #fff; }
+    .quote-editorial-inner { display: grid; grid-template-columns: .5fr 1.5fr; column-gap: 70px; row-gap: 18px; align-items: start; }
+    .quote-editorial .section-label { margin-top: 11px; }
+    .quote-editorial blockquote { max-width: 850px; margin: 0; color: var(--blue); font: 400 clamp(36px,4.7vw,63px)/1.06 Manrope,sans-serif; letter-spacing: -.07em; }
+    .quote-editorial blockquote em { color: var(--purple); font-style: normal; font-weight: 600; }
+    .quote-editorial-inner > p { grid-column: 2; max-width: 600px; margin: 8px 0 0; color: var(--muted); font-size: 12px; line-height: 1.95; }
+
+    .youtube { padding: 116px 0 108px; background: #26232A; }
+    .youtube-intro { grid-template-columns: 1.1fr .9fr; gap: 75px; align-items: end; margin-bottom: 44px; }
+    .youtube h2 { max-width: 680px; }
+    .youtube-intro-copy p { margin: 0; color: rgba(255,255,255,.68); font-size: 12px; line-height: 1.95; }
+    .youtube-intro-copy p + p { margin-top: 13px; }
+    .youtube-feature-layout { display: grid; grid-template-columns: 1.42fr .78fr; gap: 38px; align-items: center; }
+    .youtube-feature { position: relative; min-height: 0; aspect-ratio: 16 / 9; background: #111; border: 0; }
+    .youtube-feature-caption { max-width: 370px; }
+    .youtube-overline { color: #D9C9E0; font-size: 8px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+    .youtube-feature-caption h3 { margin: 18px 0 13px; color: #fff; font: 500 clamp(24px,2.8vw,35px)/1.15 Manrope,sans-serif; letter-spacing: -.045em; }
+    .youtube-feature-caption p { margin: 0; color: rgba(255,255,255,.64); font-size: 11px; line-height: 1.9; }
+    .youtube-feature-caption a { display: inline-block; margin-top: 24px; padding-bottom: 7px; border-bottom: 1px solid rgba(226,210,231,.55); color: #E2D2E7; font-size: 9px; font-weight: 700; letter-spacing: 1.3px; text-transform: uppercase; }
+    .youtube-related-heading { display: flex; align-items: baseline; gap: 20px; margin-top: 57px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.17); }
+    .youtube-related-heading span { color: #E2D2E7; font-size: 9px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; }
+    .youtube-related-heading p { margin: 0; color: rgba(255,255,255,.54); font-size: 10px; }
+    .youtube-related { display: grid; grid-template-columns: repeat(3,1fr); gap: 23px; margin-top: 22px; }
+    .youtube-related-item { display: block; min-width: 0; color: rgba(255,255,255,.77); }
+    .youtube-related-player { aspect-ratio: 16 / 9; background: #111; overflow: hidden; }
+    .youtube-related-player iframe { display: block; width: 100%; height: 100%; border: 0; }
+    .youtube-related-item span { display: block; margin-top: 11px; color: rgba(255,255,255,.72); font-size: 8px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; }
+    .youtube-bottom { margin-top: 34px; padding-top: 22px; }
+
+    @media (max-width: 1050px) {
+      .hero-content { width: 42%; padding-right: 25px; }
+      .hero-photo { width: 58%; }
+      .intro-editorial-grid, .when-intro, .signals-layout { gap: 50px; }
+      .service-line { grid-template-columns: 35px 42px .9fr 1.1fr; gap: 17px; }
+      .process-stage, .process-stage:not(:first-child) { padding-left: 17px; padding-right: 17px; }
+      .youtube-feature-layout { gap: 26px; }
+    }
+    @media (max-width: 760px) {
+      .hero { min-height: 790px; height: 100svh; }
+      .hero-backdrop { object-position: 36% 22%; filter: blur(24px) brightness(.52) saturate(.76); }
+      .hero-photo { inset: 0 0 auto; width: 100%; height: 61%; justify-content: center; }
+      .hero-photo img { width: 100%; height: 100%; object-fit: contain; object-position: center center; }
+      .hero-shade { background: linear-gradient(180deg, rgba(19,22,25,.02) 0%, rgba(19,22,25,.04) 44%, rgba(19,22,25,.78) 63%, rgba(19,22,25,.94) 100%); }
+      .hero-content { inset: auto 19px 23px; width: auto; height: auto; padding: 0; }
+      .hero-copy { max-width: 600px; padding: 20px 21px 22px; border-left: 2px solid #DCC9E2; background: rgba(30,29,33,.82); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+      .hero-brand { margin-bottom: 15px; }
+      .hero h1 { font-size: clamp(34px,8vw,47px); }
+      .hero-description { margin-top: 12px; font-size: 11px; line-height: 1.7; }
+      .hero-actions { margin-top: 15px; }
+      .intro-editorial { padding: 83px 0; }
+      .intro-editorial-grid, .when-intro, .signals-layout, .services-heading, .process-head, .special-grid, .youtube-intro, .youtube-feature-layout, .quote-editorial-inner { grid-template-columns: 1fr; gap: 26px; }
+      .intro-editorial-heading h2 { font-size: clamp(37px,10vw,50px); }
+      .about-grid { grid-template-columns: 1fr; gap: 34px; }
+      .about-photo { min-height: 420px; }
+      .when-intro { margin-bottom: 38px; }
+      .signals-layout { padding-top: 24px; }
+      .signals-heading { max-width: 520px; }
+      .signals-list { grid-template-columns: 1fr; }
+      .when-quote { margin-top: 36px; padding-left: 20px; }
+      .services-heading { margin-bottom: 30px; }
+      .services-heading .section-label { grid-column: auto; }
+      .service-line { grid-template-columns: 30px 39px 1fr; gap: 12px; padding: 24px 0; }
+      .service-copy { grid-column: 3; }
+      .service-copy h3 { font-size: 18px; }
+      .service-copy p { margin-top: 8px; }
+      .process-timeline { grid-template-columns: 1fr 1fr; }
+      .process-stage, .process-stage:not(:first-child) { min-height: 0; padding: 23px 19px 28px 0; border-bottom: 1px solid rgba(64,95,112,.16); }
+      .process-stage:nth-child(even) { padding-left: 19px; border-right: 0; }
+      .process-stage h3 { margin-top: 28px; }
+      .process-stage p { max-width: none; }
+      .special { padding: 78px 0; }
+      .special-subtitle { max-width: 470px; }
+      .quote-editorial { padding: 83px 0; }
+      .quote-editorial .section-label { margin-top: 0; }
+      .quote-editorial blockquote { font-size: clamp(36px,10vw,50px); }
+      .quote-editorial-inner > p { grid-column: auto; margin-top: 0; }
+      .youtube { padding: 84px 0; }
+      .youtube-intro { margin-bottom: 28px; }
+      .youtube-feature-layout { gap: 22px; }
+      .youtube-feature-caption { max-width: 570px; }
+      .youtube-related { gap: 14px; }
+      .youtube-related-item span { font-size: 7px; letter-spacing: .8px; }
+    }
+    @media (max-width: 480px) {
+      .hero { min-height: 815px; }
+      .hero-photo { height: 56%; }
+      .hero-copy { padding: 18px 16px 19px; }
+      .hero h1 { font-size: 33px; }
+      .hero-description { font-size: 10px; }
+      .service-line { grid-template-columns: 25px 34px 1fr; gap: 10px; }
+      .service-mark { width: 32px; height: 32px; }
+      .service-copy h3 { font-size: 16px; }
+      .process-timeline { grid-template-columns: 1fr; }
+      .process-stage, .process-stage:not(:first-child), .process-stage:nth-child(even) { padding: 23px 0; border-right: 0; }
+      .process-stage h3 { margin-top: 18px; }
+      .youtube-related { grid-template-columns: 1fr; gap: 24px; }
+      .youtube-related-player { aspect-ratio: 16 / 9; }
+      .youtube-related-item span { font-size: 8px; }
+    }
+
   </style>
 </head>
 <body>
@@ -404,6 +588,20 @@
       </div>
     </section>
 
+    <section class="intro-editorial" aria-labelledby="intro-title">
+      <div class="container intro-editorial-grid">
+        <div class="intro-editorial-heading reveal">
+          <div class="section-label">Um olhar individual</div>
+          <h2 id="intro-title">Aprender não é seguir uma fórmula. <em>É encontrar possibilidades.</em></h2>
+        </div>
+        <div class="intro-editorial-copy reveal delay-1">
+          <p class="intro-lead">Cada pessoa tem uma história, um ritmo e uma maneira própria de se relacionar com o conhecimento. Por isso, compreender uma dificuldade exige olhar para além do resultado escolar: é preciso observar o percurso, ouvir quem aprende e conhecer o contexto em que essa aprendizagem acontece.</p>
+          <p>O acompanhamento psicopedagógico começa justamente por essa escuta. A partir dela, o trabalho busca reconhecer habilidades, identificar necessidades e construir caminhos que façam sentido para cada criança ou adolescente — sem comparações e sem fórmulas prontas.</p>
+          <div class="editorial-signature"><span></span> Cada história importa</div>
+        </div>
+      </div>
+    </section>
+
     <section class="section about" id="sobre">
       <div class="container about-grid">
         <div class="about-photo reveal">
@@ -422,19 +620,30 @@
 
     <section class="section when" id="quando-procurar">
       <div class="container">
-        <div class="when-heading reveal">
-          <div class="section-label">Quando procurar</div>
-          <h2 class="section-title">Quando procurar uma <em>psicopedagoga?</em></h2>
-          <p class="section-text">Algumas dificuldades que aparecem na rotina escolar podem indicar a importância de compreender melhor como a criança ou o adolescente aprende.</p>
+        <div class="when-intro reveal">
+          <div>
+            <div class="section-label">Quando procurar</div>
+            <h2 class="section-title">Quando procurar uma <em>psicopedagoga?</em></h2>
+          </div>
+          <div class="when-intro-copy">
+            <p class="section-text">Nem sempre as dificuldades de aprendizagem aparecem de uma única forma. Elas podem surgir na leitura, na escrita, na matemática ou na maneira de organizar e realizar as tarefas escolares.</p>
+            <p class="section-text">Observar esses sinais com atenção ajuda a compreender o que a criança está vivendo e como aprende. A avaliação psicopedagógica oferece um espaço para investigar essas questões com cuidado, considerando sua história, suas habilidades e suas necessidades.</p>
+          </div>
         </div>
-        <div class="when-grid">
-          <article class="when-item reveal"><span class="when-number">01</span><p>Dificuldades para aprender a ler e escrever.</p></article>
-          <article class="when-item reveal delay-1"><span class="when-number">02</span><p>Trocas ou dificuldades na escrita.</p></article>
-          <article class="when-item reveal"><span class="when-number">03</span><p>Dificuldades na compreensão da leitura.</p></article>
-          <article class="when-item reveal delay-1"><span class="when-number">04</span><p>Dificuldades em matemática.</p></article>
-          <article class="when-item reveal"><span class="when-number">05</span><p>Dificuldade para acompanhar as atividades escolares.</p></article>
-          <article class="when-item reveal delay-1"><span class="when-number">06</span><p>Dificuldades de atenção e organização durante as tarefas.</p></article>
-          <article class="when-item reveal"><span class="when-number">07</span><p>Necessidade de compreender melhor como a criança aprende.</p></article>
+        <div class="signals-layout">
+          <div class="signals-heading reveal">
+            <span class="signals-overline">Alguns sinais que merecem atenção</span>
+            <p>Se uma ou mais dessas situações fazem parte da rotina, pode ser importante olhar com mais profundidade para o processo de aprendizagem.</p>
+          </div>
+          <ol class="signals-list">
+            <li class="reveal"><span>01</span><p>Dificuldades para aprender a ler e escrever.</p></li>
+            <li class="reveal delay-1"><span>02</span><p>Trocas ou dificuldades na escrita.</p></li>
+            <li class="reveal"><span>03</span><p>Dificuldades na compreensão da leitura.</p></li>
+            <li class="reveal delay-1"><span>04</span><p>Dificuldades em matemática.</p></li>
+            <li class="reveal"><span>05</span><p>Dificuldade para acompanhar as atividades escolares.</p></li>
+            <li class="reveal delay-1"><span>06</span><p>Dificuldades de atenção e organização durante as tarefas.</p></li>
+            <li class="reveal"><span>07</span><p>Necessidade de compreender melhor como a criança aprende.</p></li>
+          </ol>
         </div>
         <blockquote class="when-quote reveal">“Nem toda dificuldade escolar significa falta de capacidade. Às vezes, a criança precisa que seu processo de aprendizagem seja melhor compreendido.”</blockquote>
       </div>
@@ -442,33 +651,31 @@
 
     <section class="section services" id="atuacao">
       <div class="container">
-        <div class="section-heading">
-          <div class="reveal">
-            <div class="section-label">Serviços</div>
-            <h2 class="section-title">Um olhar atento para <em>cada necessidade.</em></h2>
-          </div>
-          <p class="section-text reveal delay-1">O acompanhamento é pensado de forma individualizada, considerando a história, as habilidades e as necessidades de cada aprendiz.</p>
+        <div class="services-heading reveal">
+          <div class="section-label">Serviços</div>
+          <h2 class="section-title">Um trabalho construído a partir de <em>cada necessidade.</em></h2>
+          <p class="section-text">O acompanhamento não segue um roteiro igual para todos. As propostas são pensadas a partir do que cada aprendiz apresenta, do que já conquistou e dos aspectos que precisam de atenção.</p>
         </div>
-        <div class="services-grid">
-          <article class="service reveal">
-            <div class="service-top"><span class="service-number">01</span><span class="service-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="20" cy="20" r="11"/><path d="m28 28 10 10M16 20h8M20 16v8"/></svg></span></div>
-            <h3>Avaliação psicopedagógica</h3>
-            <p>Investigação dos processos de aprendizagem para compreender habilidades, necessidades e possíveis dificuldades.</p>
+        <div class="service-list">
+          <article class="service-line reveal">
+            <div class="service-index">01</div>
+            <div class="service-mark" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="20" cy="20" r="11"/><path d="m28 28 10 10M16 20h8M20 16v8"/></svg></div>
+            <div class="service-copy"><h3>Avaliação psicopedagógica</h3><p>A avaliação é um percurso de investigação que considera a história escolar, as habilidades já desenvolvidas e as situações que geram dúvidas ou dificuldades. Observar como a criança lê, escreve, raciocina, organiza informações e responde às propostas ajuda a compreender seu modo de aprender e a orientar os próximos passos.</p></div>
           </article>
-          <article class="service reveal delay-1">
-            <div class="service-top"><span class="service-number">02</span><span class="service-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 9h28v30H10z"/><path d="M16 17h16M16 23h12M16 29h8M29 31l3 3 6-7"/></svg></span></div>
-            <h3>Intervenção psicopedagógica</h3>
-            <p>Estratégias individualizadas para trabalhar as dificuldades identificadas e favorecer o desenvolvimento da aprendizagem.</p>
+          <article class="service-line reveal">
+            <div class="service-index">02</div>
+            <div class="service-mark" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M10 9h28v30H10z"/><path d="M16 17h16M16 23h12M16 29h8M29 31l3 3 6-7"/></svg></div>
+            <div class="service-copy"><h3>Intervenção psicopedagógica</h3><p>Quando indicada, a intervenção transforma o que foi compreendido em objetivos de trabalho e estratégias individualizadas. As atividades são escolhidas para desenvolver habilidades, retomar aprendizagens e ampliar recursos para lidar com os desafios, respeitando o ritmo e as possibilidades de cada aprendiz.</p></div>
           </article>
-          <article class="service reveal delay-2">
-            <div class="service-top"><span class="service-number">03</span><span class="service-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M9 11h22a7 7 0 0 1 7 7v19H16a7 7 0 0 1-7-7z"/><path d="M16 18h15M16 24h15M16 30h10M14 37V17"/></svg></span></div>
-            <h3>Alfabetização e letramento</h3>
-            <p>Desenvolvimento das habilidades de leitura e escrita, respeitando o ritmo e as necessidades de cada aprendiz.</p>
+          <article class="service-line reveal">
+            <div class="service-index">03</div>
+            <div class="service-mark" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M9 11h22a7 7 0 0 1 7 7v19H16a7 7 0 0 1-7-7z"/><path d="M16 18h15M16 24h15M16 30h10M14 37V17"/></svg></div>
+            <div class="service-copy"><h3>Alfabetização e letramento</h3><p>O trabalho com leitura e escrita acompanha as etapas de construção da linguagem, considerando o que a criança já compreende e os desafios que encontra. As propostas procuram dar significado ao que se lê e escreve, fortalecendo habilidades importantes para a aprendizagem e para a participação na vida escolar.</p></div>
           </article>
-          <article class="service reveal delay-3">
-            <div class="service-top"><span class="service-number">04</span><span class="service-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="18" cy="16" r="6"/><circle cx="32" cy="19" r="5"/><path d="M6 38c1-8 5-12 12-12s11 4 12 12M29 29c6-1 10 2 12 9"/></svg></span></div>
-            <h3>Orientação às famílias</h3>
-            <p>Diálogo e orientações para que a família compreenda o processo de aprendizagem e participe desse percurso.</p>
+          <article class="service-line reveal">
+            <div class="service-index">04</div>
+            <div class="service-mark" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="18" cy="16" r="6"/><circle cx="32" cy="19" r="5"/><path d="M6 38c1-8 5-12 12-12s11 4 12 12M29 29c6-1 10 2 12 9"/></svg></div>
+            <div class="service-copy"><h3>Orientação às famílias</h3><p>A família também faz parte do processo. A orientação oferece um espaço de diálogo para compartilhar percepções, compreender as necessidades da criança e pensar em maneiras de apoiar a aprendizagem no cotidiano, com mais clareza e parceria entre os adultos que acompanham seu desenvolvimento.</p></div>
           </article>
         </div>
       </div>
@@ -476,27 +683,35 @@
 
     <section class="section process" id="processo">
       <div class="container">
-        <div class="process-head">
-          <div class="reveal"><div class="section-label">Como funciona o atendimento?</div><h2 class="section-title">Um caminho construído com <em>cuidado.</em></h2></div>
-          <p class="section-text reveal delay-1">Cada etapa ajuda a compreender a realidade da criança ou do adolescente e a definir, junto à família, os próximos passos do acompanhamento.</p>
+        <div class="process-head reveal">
+          <div><div class="section-label">Como funciona o atendimento?</div><h2 class="section-title">Um percurso de cuidado, <em>etapa por etapa.</em></h2></div>
+          <div class="process-intro"><p class="section-text">O atendimento começa com uma conversa e avança conforme as necessidades que vão sendo compreendidas. Cada etapa tem um propósito: conhecer a história, investigar a aprendizagem, compartilhar o que foi observado e, quando necessário, planejar a intervenção.</p></div>
         </div>
-        <div class="process-grid">
-          <article class="process-step reveal"><div class="process-number">ETAPA 01</div><h3>Primeiro contato</h3><p>Conversa inicial para compreender a demanda da família.</p></article>
-          <article class="process-step reveal delay-1"><div class="process-number">ETAPA 02</div><h3>Avaliação</h3><p>Investigação das habilidades e necessidades de aprendizagem.</p></article>
-          <article class="process-step reveal delay-2"><div class="process-number">ETAPA 03</div><h3>Devolutiva</h3><p>Apresentação dos resultados e orientações aos responsáveis.</p></article>
-          <article class="process-step reveal delay-3"><div class="process-number">ETAPA 04</div><h3>Intervenção</h3><p>Quando indicada, elaboração de um plano de acompanhamento individualizado.</p></article>
-        </div>
+        <ol class="process-timeline">
+          <li class="process-stage reveal"><span class="process-number">01</span><div><h3>Primeiro contato</h3><p>Uma conversa inicial para ouvir a família, compreender o motivo da procura e conhecer um pouco da trajetória escolar e das situações que despertaram preocupação.</p></div></li>
+          <li class="process-stage reveal delay-1"><span class="process-number">02</span><div><h3>Avaliação</h3><p>Um período de investigação das habilidades, estratégias e necessidades de aprendizagem. A observação permite compreender não apenas onde há dificuldade, mas também quais recursos a criança já utiliza.</p></div></li>
+          <li class="process-stage reveal delay-2"><span class="process-number">03</span><div><h3>Devolutiva</h3><p>Um momento de conversa com os responsáveis para apresentar os resultados, esclarecer dúvidas e compartilhar orientações sobre o que foi observado e quais caminhos podem ser considerados.</p></div></li>
+          <li class="process-stage reveal delay-3"><span class="process-number">04</span><div><h3>Intervenção</h3><p>Quando indicada, é elaborado um plano de acompanhamento individualizado, com propostas alinhadas às necessidades identificadas e aos objetivos construídos para o processo.</p></div></li>
+        </ol>
       </div>
     </section>
 
     <section class="special" id="sessao-especial">
       <div class="container special-grid">
-        <div class="reveal"><div class="special-kicker">Um encontro com atenção dedicada</div><h2 class="special-title">Sessão <em>Especial.</em></h2></div>
+        <div class="special-heading reveal"><div class="special-kicker">Um encontro com atenção dedicada</div><h2 class="special-title">Sessão <em>Especial.</em></h2><p class="special-subtitle">Um tempo reservado para olhar com mais cuidado para uma questão da aprendizagem.</p></div>
         <div class="special-copy reveal delay-1">
-          <p>Um espaço para olhar com mais cuidado para uma questão específica da aprendizagem, conversar sobre dúvidas e compreender quais caminhos podem fazer sentido para a criança ou adolescente.</p>
-          <div class="special-points"><div class="special-point">Escuta individualizada</div><div class="special-point">Foco em uma necessidade apresentada</div><div class="special-point">Orientações para os próximos passos</div></div>
+          <p>Há momentos em que a família precisa de um espaço para organizar dúvidas, compartilhar o que vem acontecendo e compreender melhor uma dificuldade específica. A Sessão Especial propõe esse encontro: uma conversa individualizada, com atenção à história apresentada e ao contexto da criança ou do adolescente.</p>
+          <p>O objetivo é acolher a demanda, refletir sobre o que pode estar interferindo na aprendizagem e conversar sobre possibilidades de encaminhamento e próximos passos.</p>
           <a class="button button-primary" href="https://wa.me/5543920036581?text=Ol%C3%A1%2C%20Paula!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Sess%C3%A3o%20Especial." target="_blank" rel="noopener">Quero saber sobre a sessão</a>
         </div>
+      </div>
+    </section>
+
+    <section class="quote-editorial" aria-label="Uma reflexão sobre aprendizagem">
+      <div class="container quote-editorial-inner">
+        <div class="section-label reveal">Uma ideia que orienta o trabalho</div>
+        <blockquote class="reveal delay-1">Quando entendemos como alguém aprende, <em>abrimos novos caminhos.</em></blockquote>
+        <p class="reveal delay-2">Uma dificuldade pode contar apenas uma parte da história. Com escuta, observação e compreensão do processo, também se tornam visíveis as habilidades, os interesses e as possibilidades que podem orientar o próximo passo.</p>
       </div>
     </section>
 
@@ -507,18 +722,20 @@
           <a class="youtube-channel-link" href="https://www.youtube.com/@prof.paulaborch8774" target="_blank" rel="noopener"><span class="youtube-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span> Canal Paula Borch</a>
         </div>
         <div class="youtube-intro">
-          <div class="reveal"><div class="section-label" style="color:#D9C9E0">Aprender também fora do atendimento</div><h2>Conhecimento que aproxima. <em>Aprendizagem que transforma.</em></h2></div>
-          <p class="reveal delay-1">Um espaço para acompanhar Paula, descobrir novos conteúdos e refletir sobre aprendizagem, desenvolvimento, educação e psicopedagogia. Dê o play e venha aprender junto.</p>
+          <div class="reveal"><div class="section-label" style="color:#D9C9E0">Aprender também fora do atendimento</div><h2>Uma conversa sobre aprendizagem pode <em>continuar por aqui.</em></h2></div>
+          <div class="youtube-intro-copy reveal delay-1"><p>O canal da Paula amplia esse espaço de troca. Em vídeos, ela compartilha ideias, explicações e reflexões sobre aprendizagem, desenvolvimento, educação e psicopedagogia — assuntos que fazem parte da rotina de crianças, famílias e educadores.</p><p>Escolha um conteúdo, acompanhe no seu tempo e conheça outras perspectivas para compreender os caminhos de aprender.</p></div>
         </div>
-        <div class="youtube-layout">
-          <article class="youtube-feature reveal"><span class="youtube-feature-label">Em destaque · Paula Borch</span><iframe src="https://www.youtube-nocookie.com/embed/G-WHLWXXQrg" title="Paula Borch — vídeo em destaque" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></article>
-          <div class="youtube-side">
-            <article class="youtube-card reveal delay-1"><span class="youtube-card-label">Mais conteúdos</span><iframe src="https://www.youtube-nocookie.com/embed/FAuZXncvy5o" title="Paula Borch — conteúdo em vídeo" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></article>
-            <article class="youtube-card reveal delay-2"><span class="youtube-card-label">Aprenda com a Paula</span><iframe src="https://www.youtube-nocookie.com/embed/ocwri6_0fHY" title="Paula Borch — conteúdo de psicopedagogia" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></article>
-            <article class="youtube-card reveal delay-3"><span class="youtube-card-label">Vídeo curto</span><iframe src="https://www.youtube-nocookie.com/embed/bfmsMIZ-hPc" title="Paula Borch — vídeo curto" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></article>
-          </div>
+        <div class="youtube-feature-layout">
+          <div class="youtube-feature reveal"><iframe src="https://www.youtube-nocookie.com/embed/G-WHLWXXQrg" title="Paula Borch — vídeo em destaque" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+          <div class="youtube-feature-caption reveal delay-1"><span class="youtube-overline">Em destaque no canal</span><h3>Aprender é um processo que merece ser compreendido.</h3><p>Assista ao vídeo em destaque e conheça um pouco mais das conversas que a Paula leva para o YouTube.</p><a href="https://www.youtube.com/watch?v=G-WHLWXXQrg" target="_blank" rel="noopener">Assistir no YouTube ↗</a></div>
         </div>
-        <div class="youtube-bottom reveal"><p>Novas ideias, orientações e conversas sobre os diferentes caminhos de aprender.</p><a class="button" href="https://www.youtube.com/@prof.paulaborch8774" target="_blank" rel="noopener">Inscreva-se no canal ↗</a></div>
+        <div class="youtube-related-heading reveal"><span>Continue explorando</span><p>Mais conteúdos para assistir e compartilhar.</p></div>
+        <div class="youtube-related">
+          <article class="youtube-related-item reveal"><div class="youtube-related-player"><iframe src="https://www.youtube-nocookie.com/embed/FAuZXncvy5o" title="Paula Borch — conteúdo em vídeo 2" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><span>Mais um conteúdo do canal</span></article>
+          <article class="youtube-related-item reveal delay-1"><div class="youtube-related-player"><iframe src="https://www.youtube-nocookie.com/embed/ocwri6_0fHY" title="Paula Borch — conteúdo em vídeo 3" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><span>Aprendizagem em pauta</span></article>
+          <article class="youtube-related-item reveal delay-2"><div class="youtube-related-player"><iframe src="https://www.youtube-nocookie.com/embed/bfmsMIZ-hPc" title="Paula Borch — vídeo curto" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><span>Um vídeo para assistir e compartilhar</span></article>
+        </div>
+        <div class="youtube-bottom reveal"><p>Se esse tema faz sentido para você, acompanhe o canal e fique por dentro dos próximos conteúdos.</p><a class="button" href="https://www.youtube.com/@prof.paulaborch8774" target="_blank" rel="noopener">Inscreva-se no canal ↗</a></div>
       </div>
     </section>
 
