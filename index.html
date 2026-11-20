@@ -2069,7 +2069,7 @@
       background-color: #302A32;
       background-image:
         linear-gradient(105deg, rgba(29,25,32,.88) 0%, rgba(39,32,42,.79) 54%, rgba(39,32,42,.69) 100%),
-        url("https://i.imgur.com/ccWuglF.png");
+        url("https://i.imgur.com/X2zobna.png");
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
@@ -2136,7 +2136,7 @@
         background-position: 56% center;
         background-image:
           linear-gradient(180deg, rgba(29,25,32,.82) 0%, rgba(39,32,42,.81) 100%),
-          url("https://i.imgur.com/ccWuglF.png");
+          url("https://i.imgur.com/X2zobna.png");
       }
       .process-overview {
         grid-template-columns: minmax(0,1fr);
@@ -2185,7 +2185,7 @@
           rgba(19,22,25,.61) 48%,
           rgba(19,22,25,.28) 70%,
           rgba(19,22,25,.06) 100%),
-        url("https://i.imgur.com/ccWuglF.png");
+        url("https://i.imgur.com/X2zobna.png");
       background-size: cover;
       background-position: 68% center;
       background-repeat: no-repeat;
@@ -2209,7 +2209,7 @@
             rgba(19,22,25,.80) 42%,
             rgba(19,22,25,.58) 72%,
             rgba(19,22,25,.30) 100%),
-          url("https://i.imgur.com/ccWuglF.png");
+          url("https://i.imgur.com/X2zobna.png");
         background-position: 68% center;
       }
       .process .process-stage,
@@ -2230,7 +2230,7 @@
           rgba(112, 67, 151, .70) 48%,
           rgba(132, 91, 163, .39) 70%,
           rgba(147, 111, 171, .10) 100%),
-        url("https://i.imgur.com/ccWuglF.png");
+        url("https://i.imgur.com/X2zobna.png");
       background-size: cover;
       background-position: 68% center;
       background-repeat: no-repeat;
@@ -2255,7 +2255,7 @@
             rgba(91, 43, 130, .88) 36%,
             rgba(112, 67, 151, .72) 68%,
             rgba(132, 91, 163, .48) 100%),
-          url("https://i.imgur.com/ccWuglF.png");
+          url("https://i.imgur.com/X2zobna.png");
         background-position: 68% center;
       }
       .process .process-stage,
@@ -2276,7 +2276,7 @@
           rgba(105,96,104,.64) 49%,
           rgba(143,133,139,.36) 72%,
           rgba(177,168,170,.12) 100%),
-        url("https://i.imgur.com/ccWuglF.png");
+        url("https://i.imgur.com/X2zobna.png");
       background-size: cover;
       background-position: 68% center;
       background-repeat: no-repeat;
@@ -2307,7 +2307,7 @@
             rgba(76,69,76,.82) 38%,
             rgba(105,96,104,.68) 70%,
             rgba(143,133,139,.42) 100%),
-          url("https://i.imgur.com/ccWuglF.png");
+          url("https://i.imgur.com/X2zobna.png");
         background-position: 68% center;
       }
       .process .process-stage,
@@ -2667,7 +2667,7 @@
           rgba(59,53,60,.82) 50%,
           rgba(63,57,63,.66) 73%,
           rgba(63,57,63,.48) 100%),
-        url("https://i.imgur.com/ccWuglF.png") !important;
+        url("https://i.imgur.com/X2zobna.png") !important;
       background-size: cover !important;
       background-position: 68% center !important;
       background-repeat: no-repeat !important;
@@ -2680,9 +2680,316 @@
             rgba(52,47,53,.88) 38%,
             rgba(59,53,60,.80) 70%,
             rgba(63,57,63,.62) 100%),
-          url("https://i.imgur.com/ccWuglF.png") !important;
+          url("https://i.imgur.com/X2zobna.png") !important;
         background-position: 68% center !important;
       }
+    }
+
+  
+
+    /* REDESENHO DA SEÇÃO DE ACOMPANHAMENTO — foto clara, sem camada escura. */
+    .process {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      color: var(--ink);
+      background-color: #F7F3EE !important;
+      background-image:
+        linear-gradient(90deg,
+          #F7F3EE 0%,
+          #F7F3EE 25%,
+          rgba(247,243,238,.97) 39%,
+          rgba(247,243,238,.77) 54%,
+          rgba(247,243,238,.30) 75%,
+          rgba(247,243,238,.08) 100%),
+        linear-gradient(0deg,
+          #F7F3EE 0%,
+          rgba(247,243,238,.82) 12%,
+          rgba(247,243,238,0) 39%),
+        url("https://i.imgur.com/X2zobna.png") !important;
+      background-size: cover !important;
+      background-position: center, center, 68% center !important;
+      background-repeat: no-repeat !important;
+    }
+
+    .process > .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .process-overview {
+      display: block !important;
+      margin-bottom: 39px !important;
+    }
+
+    .process-overview-copy {
+      width: min(58%, 650px);
+      max-width: 650px !important;
+      min-height: 310px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 12px 0 20px;
+    }
+
+    .process .section-label {
+      color: var(--purple-dark) !important;
+    }
+
+    .process .section-title {
+      max-width: 600px;
+      color: var(--blue) !important;
+    }
+
+    .process .section-title em {
+      color: var(--purple) !important;
+    }
+
+    .process .section-text {
+      max-width: 470px;
+      color: #6F6870 !important;
+    }
+
+    .process .process-timeline {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 13px;
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+
+    .process .process-stage,
+    .process .process-stage:not(:first-child) {
+      position: relative;
+      min-width: 0;
+      min-height: 208px;
+      padding: 23px 21px 25px;
+      border: 1px solid rgba(64,95,112,.13) !important;
+      border-radius: 3px;
+      background: rgba(255,255,255,.88) !important;
+      box-shadow: 0 12px 34px rgba(48,45,50,.055);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transform: translateY(0);
+      transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+    }
+
+    .process .process-stage:hover {
+      transform: translateY(-4px);
+      border-color: rgba(118,96,128,.38) !important;
+      background: rgba(255,255,255,.95) !important;
+      box-shadow: 0 17px 38px rgba(48,45,50,.09);
+    }
+
+    .process .process-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(118,96,128,.26);
+      border-radius: 50%;
+      color: var(--purple-dark) !important;
+      font: 600 10px Manrope, sans-serif;
+      letter-spacing: .7px;
+    }
+
+    .process .process-stage h3 {
+      margin: 25px 0 9px;
+      color: var(--blue) !important;
+      font: 600 17px/1.32 Manrope, sans-serif;
+    }
+
+    .process .process-stage p {
+      max-width: 260px;
+      margin: 0;
+      color: #716C70 !important;
+      font-size: 10px;
+      line-height: 1.85;
+    }
+
+    .process .process-stage::after {
+      display: block;
+      position: absolute;
+      left: 21px;
+      bottom: 0;
+      width: 34px;
+      height: 2px;
+      background: var(--purple);
+      opacity: .65;
+      transition: width .28s ease, opacity .28s ease;
+    }
+
+    .process .process-stage:hover::after {
+      width: calc(100% - 42px);
+      opacity: 1;
+    }
+
+    @media (max-width: 900px) {
+      .process-overview-copy {
+        width: min(66%, 620px);
+        min-height: 285px;
+      }
+      .process .process-timeline {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
+      .process .process-stage,
+      .process .process-stage:not(:first-child) {
+        min-height: 175px;
+        padding: 20px 19px 22px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .process {
+        background-image:
+          linear-gradient(180deg,
+            rgba(247,243,238,.24) 0%,
+            rgba(247,243,238,.72) 20%,
+            #F7F3EE 47%,
+            #F7F3EE 100%),
+          url("https://i.imgur.com/X2zobna.png") !important;
+        background-size: 100% 360px, 100% auto !important;
+        background-position: center top, 68% top !important;
+      }
+      .process-overview {
+        margin-bottom: 25px !important;
+      }
+      .process-overview-copy {
+        width: 100%;
+        min-height: 300px;
+        justify-content: flex-end;
+        padding: 110px 0 0;
+      }
+      .process .section-title {
+        max-width: 520px;
+      }
+      .process .section-text {
+        max-width: 520px;
+      }
+      .process .process-timeline {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+        gap: 10px;
+      }
+      .process .process-stage,
+      .process .process-stage:not(:first-child) {
+        min-height: 160px;
+        padding: 17px 15px 20px;
+      }
+      .process .process-stage h3 {
+        margin-top: 19px;
+        font-size: 15px;
+      }
+      .process .process-stage p {
+        font-size: 10px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .process-overview-copy {
+        min-height: 285px;
+      }
+      .process .process-timeline {
+        grid-template-columns: 1fr;
+        gap: 9px;
+      }
+      .process .process-stage,
+      .process .process-stage:not(:first-child) {
+        min-height: 0;
+        padding: 16px 16px 19px;
+      }
+      .process .process-stage h3 {
+        margin: 14px 0 6px;
+      }
+    }
+
+
+
+    /* AJUSTE PONTUAL — manter a professora natural, sem o degradê sobre rosto e corpo. */
+    @media (min-width: 641px) {
+      .process {
+        background-color: #F7F3EE !important;
+        background-image:
+          linear-gradient(90deg,
+            #F7F3EE 0%,
+            #F7F3EE 18%,
+            rgba(247,243,238,.96) 27%,
+            rgba(247,243,238,.82) 35%,
+            rgba(247,243,238,.46) 43%,
+            rgba(247,243,238,.12) 49%,
+            rgba(247,243,238,0) 54%),
+          url("https://i.imgur.com/X2zobna.png") !important;
+        background-size: cover !important;
+        background-position: center, 68% center !important;
+        background-repeat: no-repeat !important;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .process {
+        background-color: #F7F3EE !important;
+        background-image:
+          linear-gradient(90deg,
+            rgba(247,243,238,.96) 0%,
+            rgba(247,243,238,.88) 28%,
+            rgba(247,243,238,.58) 43%,
+            rgba(247,243,238,.12) 57%,
+            rgba(247,243,238,0) 68%),
+          url("https://i.imgur.com/X2zobna.png") !important;
+        background-size: 100% 360px, 100% auto !important;
+        background-position: center top, 68% top !important;
+        background-repeat: no-repeat !important;
+      }
+      .process-overview-copy {
+        width: 74% !important;
+      }
+    }
+
+
+
+    /* NAVEGACAO E ASSINATURA VISUAL — mais legibilidade e presença da marca */
+    .header { height: 100px; }
+    .header.compact { height: 90px; }
+    .nav { gap: 22px; }
+    .brand { flex: 0 0 auto; }
+    .brand img { width: 90px; height: 90px; }
+    .menu { gap: clamp(11px, 1.45vw, 20px); }
+    .menu a {
+      font-size: 11px;
+      letter-spacing: .82px;
+      line-height: 1.25;
+    }
+    .menu .menu-contact { padding: 13px 20px; }
+    .footer-brand img { width: 104px; height: 104px; }
+    .footer-brand { gap: 16px; }
+
+    @media (max-width: 1050px) and (min-width: 761px) {
+      .header { height: 92px; }
+      .header.compact { height: 84px; }
+      .nav { gap: 16px; }
+      .brand img { width: 78px; height: 78px; }
+      .menu { gap: 10px; }
+      .menu a { font-size: 9.5px; letter-spacing: .45px; }
+      .menu .menu-contact { padding: 11px 14px; }
+      .footer-brand img { width: 96px; height: 96px; }
+    }
+
+    @media (max-width: 760px) {
+      .header { height: 82px; }
+      .header.compact { height: 76px; }
+      .nav { gap: 14px; }
+      .brand img { width: 66px; height: 66px; }
+      .menu { gap: 20px; }
+      .menu a { font-size: 12px; letter-spacing: .65px; }
+      .menu .menu-contact { padding: 13px 16px; }
+      .footer-brand img { width: 90px; height: 90px; }
+    }
+
+    @media (max-width: 420px) {
+      .brand img { width: 62px; height: 62px; }
+      .menu a { font-size: 11.5px; }
+      .footer-brand img { width: 84px; height: 84px; }
     }
 
   </style>
