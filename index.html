@@ -3826,6 +3826,97 @@
   }
 }
 
+
+
+/* AJUSTES FINAIS MOBILE — enquadramento central, abertura elevada e foto natural */
+@media (max-width: 760px) {
+  /* Centraliza horizontalmente a professora no enquadramento vertical. */
+  .hero-backdrop {
+    object-position: center 23% !important;
+  }
+  .hero-photo {
+    justify-content: center !important;
+    align-items: stretch !important;
+  }
+  .hero-photo img {
+    object-position: center 23% !important;
+  }
+
+  /* A marca ganha presença e o conjunto de apresentação sobe na tela. */
+  .hero-content {
+    bottom: clamp(32px, 5vh, 46px) !important;
+  }
+  .hero-brand {
+    margin: 0 0 5px !important;
+    justify-content: flex-start !important;
+  }
+  .hero-brand img {
+    width: clamp(158px, 46vw, 184px) !important;
+    height: auto !important;
+    max-width: 72vw !important;
+    max-height: 158px !important;
+    object-fit: contain !important;
+    object-position: left center !important;
+  }
+
+  /* Acompanhamento: fotografia limpa no topo, sem véu/degradê branco. */
+  .process {
+    position: relative !important;
+    isolation: isolate !important;
+    overflow: hidden !important;
+    padding-top: 246px !important;
+    background-color: #F7F3EE !important;
+    background-image: none !important;
+  }
+  .process::before {
+    content: "" !important;
+    position: absolute !important;
+    z-index: 0 !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 246px !important;
+    background-image: url("https://i.imgur.com/X2zobna.png") !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: center 24% !important;
+    opacity: 1 !important;
+    pointer-events: none !important;
+  }
+  .process > .container {
+    position: relative !important;
+    z-index: 1 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content {
+    bottom: 34px !important;
+  }
+  .hero-brand img {
+    width: clamp(154px, 45vw, 174px) !important;
+    max-height: 150px !important;
+  }
+  .hero h1 {
+    font-size: clamp(25px, 7.2vw, 30px) !important;
+  }
+  .process {
+    padding-top: 226px !important;
+  }
+  .process::before {
+    height: 226px !important;
+    background-position: center 22% !important;
+  }
+}
+
+@media (max-height: 720px) and (max-width: 760px) {
+  .hero-content { bottom: 25px !important; }
+  .hero-brand img {
+    width: 148px !important;
+    max-height: 132px !important;
+  }
+}
+
 </style>
 </head>
 <body>
