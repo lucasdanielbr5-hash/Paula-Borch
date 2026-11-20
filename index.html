@@ -2019,20 +2019,20 @@
     }
 
 
-    /* LOGOMARCA EM DESTAQUE — sem identificação textual ao lado */
+    /* LOGOMARCA EM DESTAQUE — texto mais próximo da marca */
     .hero-brand {
       display: flex;
       align-items: center;
       justify-content: flex-start;
       gap: 0;
       width: 100%;
-      margin: 0 0 26px;
+      margin: 0 0 10px;
     }
     .hero-brand img {
       display: block;
-      width: 168px;
-      height: 148px;
-      max-width: 100%;
+      width: 300px;
+      height: 264px;
+      max-width: min(100%, 300px);
       padding: 0;
       margin: 0;
       object-fit: contain;
@@ -2044,13 +2044,645 @@
     .brand img { width: 70px; height: 70px; }
     .footer-brand img { width: 72px; height: 72px; }
     @media (max-width: 760px) {
-      .hero-brand { margin-bottom: 18px; }
-      .hero-brand img { width: 132px; height: 116px; }
+      .hero-brand { margin-bottom: 9px; }
+      .hero-brand img { width: 235px; height: 207px; max-width: 100%; }
       .brand img { width: 58px; height: 58px; }
       .footer-brand img { width: 62px; height: 62px; }
     }
     @media (max-width: 420px) {
-      .hero-brand img { width: 116px; height: 104px; }
+      .hero-brand img { width: 210px; height: 185px; }
+    }
+
+
+    /* Ajuste fino: eleva discretamente o bloco de apresentação na abertura. */
+    @media (min-width: 761px) {
+      .hero-copy { transform: translateY(-40px); }
+    }
+
+
+
+    /* Acompanhamento: a fotografia passa a ocupar o fundo de toda a seção. */
+    .process {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      background-color: #302A32;
+      background-image:
+        linear-gradient(105deg, rgba(29,25,32,.88) 0%, rgba(39,32,42,.79) 54%, rgba(39,32,42,.69) 100%),
+        url("https://i.imgur.com/ccWuglF.png");
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+    .process > .container {
+      position: relative;
+      z-index: 1;
+    }
+    .process-overview {
+      grid-template-columns: minmax(0,1fr);
+      gap: 0;
+      margin-bottom: 42px;
+    }
+    .process-overview-copy {
+      max-width: 760px;
+    }
+    .process-overview-copy .section-label {
+      color: #E0D0E5;
+    }
+    .process .section-title {
+      color: #fff;
+    }
+    .process .section-title em {
+      color: #E0D0E5;
+    }
+    .process .section-text {
+      max-width: 660px;
+      color: rgba(255,255,255,.82);
+    }
+    .process-timeline {
+      gap: 13px;
+      border-top: 0;
+    }
+    .process .process-stage,
+    .process .process-stage:not(:first-child) {
+      min-height: 205px;
+      padding: 23px 21px 22px;
+      border: 1px solid rgba(255,255,255,.21);
+      background: rgba(27,23,31,.48);
+      backdrop-filter: blur(7px);
+      -webkit-backdrop-filter: blur(7px);
+      transition: background .25s ease, border-color .25s ease, transform .25s ease;
+    }
+    .process .process-stage:hover {
+      background: rgba(27,23,31,.66);
+      border-color: rgba(224,208,229,.56);
+      transform: translateY(-3px);
+    }
+    .process .process-number {
+      color: #E0D0E5;
+    }
+    .process .process-stage h3 {
+      margin: 35px 0 10px;
+      color: #fff;
+    }
+    .process .process-stage p {
+      max-width: 260px;
+      color: rgba(255,255,255,.76);
+      font-size: 11px;
+      line-height: 1.8;
+    }
+    @media (max-width: 760px) {
+      .process {
+        background-position: 56% center;
+        background-image:
+          linear-gradient(180deg, rgba(29,25,32,.82) 0%, rgba(39,32,42,.81) 100%),
+          url("https://i.imgur.com/ccWuglF.png");
+      }
+      .process-overview {
+        grid-template-columns: minmax(0,1fr);
+        margin-bottom: 29px;
+      }
+      .process .process-stage,
+      .process .process-stage:not(:first-child) {
+        min-height: 155px;
+        padding: 18px 15px;
+        border: 1px solid rgba(255,255,255,.2);
+      }
+      .process .process-stage h3 {
+        margin-top: 23px;
+      }
+      .process .process-stage p {
+        font-size: 10px;
+      }
+    }
+    @media (max-width: 420px) {
+      .process-timeline {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      .process .process-stage,
+      .process .process-stage:not(:first-child) {
+        min-height: 0;
+        padding: 17px 16px;
+      }
+      .process .process-stage h3 {
+        margin: 15px 0 7px;
+      }
+    }
+
+
+
+    /* Acompanhamento: mesma atmosfera escura da abertura, invertida para a esquerda. */
+    .process {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      background-color: #17151A;
+      background-image:
+        linear-gradient(90deg,
+          rgba(19,22,25,.88) 0%,
+          rgba(19,22,25,.82) 27%,
+          rgba(19,22,25,.61) 48%,
+          rgba(19,22,25,.28) 70%,
+          rgba(19,22,25,.06) 100%),
+        url("https://i.imgur.com/ccWuglF.png");
+      background-size: cover;
+      background-position: 68% center;
+      background-repeat: no-repeat;
+    }
+    .process .process-stage,
+    .process .process-stage:not(:first-child) {
+      background: rgba(20,18,24,.66);
+      border-color: rgba(255,255,255,.2);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+    .process .process-stage:hover {
+      background: rgba(20,18,24,.78);
+      border-color: rgba(224,208,229,.52);
+    }
+    @media (max-width: 760px) {
+      .process {
+        background-image:
+          linear-gradient(90deg,
+            rgba(19,22,25,.88) 0%,
+            rgba(19,22,25,.80) 42%,
+            rgba(19,22,25,.58) 72%,
+            rgba(19,22,25,.30) 100%),
+          url("https://i.imgur.com/ccWuglF.png");
+        background-position: 68% center;
+      }
+      .process .process-stage,
+      .process .process-stage:not(:first-child) {
+        background: rgba(20,18,24,.78);
+      }
+    }
+
+  
+
+    /* Acompanhamento: degradê violeta vivo, mantendo a dissolução para a esquerda. */
+    .process {
+      background-color: #54286F;
+      background-image:
+        linear-gradient(90deg,
+          rgba(76, 29, 111, .94) 0%,
+          rgba(91, 43, 130, .88) 25%,
+          rgba(112, 67, 151, .70) 48%,
+          rgba(132, 91, 163, .39) 70%,
+          rgba(147, 111, 171, .10) 100%),
+        url("https://i.imgur.com/ccWuglF.png");
+      background-size: cover;
+      background-position: 68% center;
+      background-repeat: no-repeat;
+    }
+    .process .section-label { color: #E9D8F4; }
+    .process .section-title em { color: #E7C9FA; }
+    .process .process-stage,
+    .process .process-stage:not(:first-child) {
+      background: rgba(66, 31, 91, .64);
+      border-color: rgba(245, 230, 255, .34);
+    }
+    .process .process-stage:hover {
+      background: rgba(77, 38, 106, .78);
+      border-color: rgba(245, 230, 255, .66);
+    }
+    .process .process-number { color: #E9D8F4; }
+    @media (max-width: 760px) {
+      .process {
+        background-image:
+          linear-gradient(90deg,
+            rgba(76, 29, 111, .94) 0%,
+            rgba(91, 43, 130, .88) 36%,
+            rgba(112, 67, 151, .72) 68%,
+            rgba(132, 91, 163, .48) 100%),
+          url("https://i.imgur.com/ccWuglF.png");
+        background-position: 68% center;
+      }
+      .process .process-stage,
+      .process .process-stage:not(:first-child) {
+        background: rgba(66, 31, 91, .76);
+      }
+    }
+
+  
+
+    /* REFINO FINAL — tom neutro, sem divisórias na apresentação e marca integrada ao texto. */
+    .process {
+      background-color: #514B50;
+      background-image:
+        linear-gradient(90deg,
+          rgba(52,47,52,.90) 0%,
+          rgba(76,69,76,.82) 27%,
+          rgba(105,96,104,.64) 49%,
+          rgba(143,133,139,.36) 72%,
+          rgba(177,168,170,.12) 100%),
+        url("https://i.imgur.com/ccWuglF.png");
+      background-size: cover;
+      background-position: 68% center;
+      background-repeat: no-repeat;
+    }
+    .process .section-label,
+    .process .process-number { color: #E9E2E7; }
+    .process .section-title em { color: #E8DEE6; }
+    .process .process-stage,
+    .process .process-stage:not(:first-child) {
+      background: rgba(48,43,49,.56);
+      border-color: rgba(255,255,255,.22);
+    }
+    .process .process-stage:hover {
+      background: rgba(58,52,59,.68);
+      border-color: rgba(255,255,255,.42);
+    }
+
+    /* Remove o filete vertical entre a fotografia e a apresentação na abertura. */
+    .hero-copy {
+      border-left: 0 !important;
+      padding-left: 0 !important;
+    }
+    @media (max-width: 760px) {
+      .process {
+        background-image:
+          linear-gradient(90deg,
+            rgba(52,47,52,.88) 0%,
+            rgba(76,69,76,.82) 38%,
+            rgba(105,96,104,.68) 70%,
+            rgba(143,133,139,.42) 100%),
+          url("https://i.imgur.com/ccWuglF.png");
+        background-position: 68% center;
+      }
+      .process .process-stage,
+      .process .process-stage:not(:first-child) {
+        background: rgba(48,43,49,.68);
+      }
+    }
+
+    /* Aproxima a logomarca da chamada sem reduzir seu destaque de 300 px. */
+    .hero-brand { margin-bottom: -12px !important; }
+    @media (max-width: 760px) {
+      .hero-brand { margin-bottom: -7px !important; }
+    }
+
+    /* A apresentação profissional fica limpa, sem riscos verticais entre os indicadores. */
+    .about-credential,
+    .about-credential:first-child,
+    .about-credential:last-child {
+      border-right: 0 !important;
+    }
+    .about-credentials { column-gap: 18px; }
+    @media (max-width: 640px) {
+      .about-credentials { column-gap: 10px; }
+    }
+
+
+
+    /* YOUTUBE — área audiovisual clara para contrastar com o acompanhamento */
+    .youtube {
+      position: relative;
+      padding: clamp(78px,8vw,108px) 0 clamp(72px,7vw,94px);
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse at 4% 6%, rgba(118,96,128,.09), transparent 32%),
+        radial-gradient(ellipse at 93% 91%, rgba(64,95,112,.09), transparent 34%),
+        linear-gradient(128deg,#E9EFEC 0%,#F2F0EB 54%,#EEEAF0 100%);
+      border-top: 1px solid rgba(64,95,112,.08);
+      border-bottom: 1px solid rgba(64,95,112,.08);
+    }
+    .youtube::before {
+      top: 88px;
+      right: -22px;
+      color: rgba(64,95,112,.045);
+      font-size: clamp(76px,13vw,178px);
+    }
+    .youtube-topline { border-bottom-color: rgba(64,95,112,.16); }
+    .youtube-identity small { color: #77727A; }
+    .youtube-identity strong { color: var(--blue); }
+    .youtube-channel-link {
+      border-color: rgba(87,68,95,.35);
+      color: var(--purple-dark);
+      transition: background .25s ease, color .25s ease, border-color .25s ease, transform .25s ease;
+    }
+    .youtube-channel-link:hover {
+      background: var(--purple-dark);
+      border-color: var(--purple-dark);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    .youtube-overline { color: var(--purple); }
+    .youtube-feature-copy h2 { color: var(--blue); }
+    .youtube-feature-copy h2 em { color: var(--purple); }
+    .youtube-feature-copy p { color: #6E6970; }
+    .youtube-subscribe {
+      background: var(--purple);
+      box-shadow: 0 9px 22px rgba(87,68,95,.12);
+    }
+    .youtube-subscribe:hover { background: var(--purple-dark); }
+    .youtube-feature {
+      border: 1px solid rgba(64,95,112,.15);
+      box-shadow: 0 20px 46px rgba(52,61,65,.16);
+    }
+    .youtube-feature-label { background: rgba(48,55,59,.84); }
+    .youtube-related-heading { border-top-color: rgba(64,95,112,.17); }
+    .youtube-related-heading h3 { color: var(--blue); }
+    .youtube-related-heading p { color: #77727A; }
+    .youtube-related-item { color: var(--ink-soft); }
+    .youtube-related-player {
+      border-color: rgba(64,95,112,.17);
+      box-shadow: 0 9px 24px rgba(53,65,68,.08);
+    }
+    .youtube-related-item:hover .youtube-related-player {
+      border-color: rgba(118,96,128,.55);
+      box-shadow: 0 14px 30px rgba(53,65,68,.14);
+    }
+    .youtube-related-item h4 { color: var(--blue); }
+    .youtube-bottom { border-top-color: rgba(64,95,112,.17); }
+    .youtube-bottom-link { color: var(--purple-dark); }
+    .youtube-bottom-link:hover { color: var(--blue); }
+
+    /* CONTATO — encerramento editorial com presença visual e formulário acolhedor */
+    .contact {
+      position: relative;
+      isolation: isolate;
+      padding: clamp(78px,9vw,122px) 0;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 0% 100%, rgba(118,96,128,.10), transparent 34%),
+        linear-gradient(135deg,#F1ECE6 0%,#EAE7E4 48%,#E8ECEA 100%);
+    }
+    .contact::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: min(56vw,760px);
+      aspect-ratio: 1;
+      right: -18vw;
+      top: -35%;
+      border: 1px solid rgba(87,68,95,.10);
+      border-radius: 50%;
+      box-shadow: 0 0 0 34px rgba(87,68,95,.025), 0 0 0 68px rgba(87,68,95,.02);
+      pointer-events: none;
+    }
+    .contact-panel {
+      position: relative;
+      grid-template-columns: minmax(0,.9fr) minmax(0,1.1fr);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.7);
+      border-radius: 3px;
+      background: #FBF9F6;
+      box-shadow: 0 28px 76px rgba(55,51,54,.15), 0 3px 10px rgba(55,51,54,.04);
+    }
+    .contact-message {
+      min-height: 625px;
+      padding: clamp(42px,5.4vw,76px);
+      background:
+        radial-gradient(circle at 90% 13%, rgba(218,205,222,.16), transparent 34%),
+        linear-gradient(145deg,#405D67 0%,#4B5360 52%,#574A5B 100%);
+    }
+    .contact-message::before {
+      content: "CONVERSA";
+      right: -18px;
+      bottom: 31px;
+      width: auto;
+      height: auto;
+      border: 0;
+      border-radius: 0;
+      color: rgba(255,255,255,.055);
+      font: 700 clamp(42px,6vw,82px)/.9 Manrope,sans-serif;
+      letter-spacing: -.075em;
+      white-space: nowrap;
+    }
+    .contact-message::after {
+      right: -116px;
+      bottom: -126px;
+      width: 310px;
+      height: 310px;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 50%;
+      box-shadow: 0 0 0 30px rgba(255,255,255,.025);
+    }
+    .contact-eyebrow {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 28px;
+      color: #DCD2E1;
+    }
+    .contact-title {
+      max-width: 470px;
+      font-size: clamp(42px,4.5vw,64px);
+      line-height: 1.015;
+    }
+    .contact-title em { color: #DCCDE2; }
+    .contact-description {
+      max-width: 360px;
+      margin-top: 27px;
+      color: rgba(255,255,255,.79);
+      font-size: 12px;
+      line-height: 1.95;
+    }
+    .contact-social {
+      margin-top: 38px;
+      color: #E3D7E8;
+      border-bottom-color: rgba(227,215,232,.55);
+    }
+    .contact-signature { bottom: 35px; opacity: .8; }
+    .contact-signature span { background: #D9C7E0; }
+    .contact-form {
+      position: relative;
+      padding: clamp(38px,4.8vw,66px);
+      background:
+        linear-gradient(180deg,rgba(255,255,255,.7),rgba(255,255,255,0) 180px),
+        #FBF9F6;
+    }
+    .form-intro {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 9px;
+      margin-bottom: 31px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(64,95,112,.14);
+      color: var(--blue);
+      font: 600 25px/1.25 Manrope,sans-serif;
+      letter-spacing: -.7px;
+    }
+    .form-intro::before {
+      content: "PRIMEIRO CONTATO";
+      color: var(--purple);
+      font: 700 8px/1.4 "DM Sans",sans-serif;
+      letter-spacing: 1.8px;
+    }
+    .contact-form .form-grid { gap: 20px 15px; }
+    .contact-form .form-group { gap: 9px; }
+    .contact-form .form-group label {
+      color: #5E6870;
+      font-size: 8px;
+      letter-spacing: 1.15px;
+    }
+    .contact-form .form-group input,
+    .contact-form .form-group textarea,
+    .contact-form .form-group select {
+      min-height: 49px;
+      padding: 13px 14px;
+      border: 1px solid rgba(64,95,112,.15);
+      border-radius: 2px;
+      background: #fff;
+      box-shadow: 0 2px 7px rgba(52,61,65,.025);
+      transition: border-color .22s ease, box-shadow .22s ease, background .22s ease;
+    }
+    .contact-form .form-group textarea { min-height: 105px; }
+    .contact-form .form-group input:focus,
+    .contact-form .form-group textarea:focus,
+    .contact-form .form-group select:focus {
+      border-color: var(--purple);
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(118,96,128,.10);
+    }
+    .contact-form .form-footer {
+      align-items: flex-start;
+      gap: 16px;
+      margin-top: 25px;
+    }
+    .contact-form .form-note {
+      max-width: 290px;
+      color: #817B80;
+      font-size: 9px;
+      line-height: 1.7;
+    }
+    .contact-form .button {
+      min-height: 50px;
+      padding: 0 24px;
+      border-radius: 2px;
+      background: var(--purple-dark);
+      border-color: var(--purple-dark);
+      box-shadow: 0 9px 22px rgba(87,68,95,.16);
+      letter-spacing: 1px;
+    }
+    .contact-form .button:hover {
+      background: var(--blue);
+      border-color: var(--blue);
+      box-shadow: 0 12px 26px rgba(64,95,112,.20);
+    }
+    @media (max-width: 900px) {
+      .contact-message { min-height: 600px; padding: 38px; }
+      .contact-form { padding: 38px; }
+    }
+    @media (max-width: 640px) {
+      .youtube { padding: 68px 0 62px; }
+      .youtube::before { top: 45px; right: -10px; font-size: 70px; }
+      .youtube-topline { margin-bottom: 38px; }
+      .youtube-feature-layout { gap: 26px; }
+      .youtube-feature-copy h2 { font-size: clamp(36px,9vw,48px); }
+      .youtube-related-heading { margin-top: 44px; }
+      .youtube-related { gap: 20px 14px; }
+      .contact { padding: 62px 0; }
+      .contact::before { width: 90vw; right: -38vw; top: -8%; }
+      .contact-panel { grid-template-columns: 1fr; }
+      .contact-message { min-height: 0; padding: 42px 28px 74px; }
+      .contact-message::before { font-size: 52px; bottom: 27px; }
+      .contact-title { font-size: clamp(39px,9vw,52px); }
+      .contact-description { margin-top: 19px; }
+      .contact-social { margin-top: 25px; }
+      .contact-signature { left: 28px; bottom: 25px; }
+      .contact-form { padding: 34px 27px; }
+      .form-intro { font-size: 23px; margin-bottom: 25px; }
+      .contact-form .form-grid { grid-template-columns: 1fr; gap: 17px; }
+      .contact-form .form-group.full { grid-column: auto; }
+      .contact-form .form-footer { align-items: stretch; }
+      .contact-form .button { width: 100%; justify-content: center; }
+    }
+    @media (max-width: 420px) {
+      .contact-message { padding-inline: 23px; }
+      .contact-form { padding-inline: 22px; }
+      .contact-signature { left: 23px; }
+    }
+
+
+
+    /* HARMONIA FINAL — YouTube em tons suaves da identidade visual do site. */
+    .youtube {
+      color: var(--ink) !important;
+      background:
+        radial-gradient(ellipse at 6% 5%, rgba(118,96,128,.075), transparent 33%),
+        radial-gradient(ellipse at 94% 92%, rgba(64,95,112,.055), transparent 34%),
+        linear-gradient(128deg, #EFEAF0 0%, #F7F3EE 52%, #EEE8E3 100%) !important;
+      border-top: 1px solid rgba(87,68,95,.10);
+      border-bottom: 1px solid rgba(64,95,112,.10);
+    }
+    .youtube::before {
+      color: rgba(87,68,95,.035) !important;
+    }
+    .youtube-topline {
+      border-bottom-color: rgba(64,95,112,.16) !important;
+    }
+    .youtube-identity small { color: #77727A !important; }
+    .youtube-identity strong { color: var(--blue) !important; }
+    .youtube-channel-link {
+      border-color: rgba(87,68,95,.34) !important;
+      color: var(--purple-dark) !important;
+    }
+    .youtube-channel-link:hover {
+      background: var(--purple-dark) !important;
+      border-color: var(--purple-dark) !important;
+      color: #fff !important;
+    }
+    .youtube-overline { color: var(--purple) !important; }
+    .youtube-feature-copy h2 { color: var(--blue) !important; }
+    .youtube-feature-copy h2 em { color: var(--purple) !important; }
+    .youtube-feature-copy p { color: #6E6970 !important; }
+    .youtube-related-heading {
+      border-top-color: rgba(64,95,112,.17) !important;
+    }
+    .youtube-related-heading h3 { color: var(--blue) !important; }
+    .youtube-related-heading p { color: #77727A !important; }
+    .youtube-related-item > span { color: #77727A !important; }
+    .youtube-related-player {
+      border-color: rgba(64,95,112,.17) !important;
+      box-shadow: 0 9px 24px rgba(53,65,68,.08) !important;
+    }
+    .youtube-related-item:hover .youtube-related-player {
+      border-color: rgba(118,96,128,.50) !important;
+      box-shadow: 0 14px 30px rgba(53,65,68,.12) !important;
+    }
+    .youtube-bottom {
+      border-top-color: rgba(64,95,112,.17) !important;
+    }
+    .youtube-bottom p { color: #77727A !important; }
+    .youtube-bottom-link { color: var(--purple-dark) !important; }
+    .youtube-bottom-link:hover { color: var(--blue) !important; }
+    .youtube-subscribe {
+      background: var(--purple) !important;
+      border-color: var(--purple) !important;
+    }
+    .youtube-subscribe:hover {
+      background: var(--purple-dark) !important;
+      border-color: var(--purple-dark) !important;
+    }
+
+    /* Acompanhamento — reduzir o brilho da fotografia, sobretudo no lado do rosto. */
+    .process {
+      background-color: #343036 !important;
+      background-image:
+        linear-gradient(90deg,
+          rgba(45,40,46,.94) 0%,
+          rgba(52,47,53,.90) 28%,
+          rgba(59,53,60,.82) 50%,
+          rgba(63,57,63,.66) 73%,
+          rgba(63,57,63,.48) 100%),
+        url("https://i.imgur.com/ccWuglF.png") !important;
+      background-size: cover !important;
+      background-position: 68% center !important;
+      background-repeat: no-repeat !important;
+    }
+    @media (max-width: 760px) {
+      .process {
+        background-image:
+          linear-gradient(90deg,
+            rgba(45,40,46,.92) 0%,
+            rgba(52,47,53,.88) 38%,
+            rgba(59,53,60,.80) 70%,
+            rgba(63,57,63,.62) 100%),
+          url("https://i.imgur.com/ccWuglF.png") !important;
+        background-position: 68% center !important;
+      }
     }
 
   </style>
@@ -2203,9 +2835,7 @@
             <h2 class="section-title" id="process-title">Como acontece o <em>acompanhamento?</em></h2>
             <p class="section-text">Da conversa inicial à definição dos objetivos, cada etapa tem uma função clara para a família e para o aprendiz.</p>
           </div>
-          <figure class="process-photo reveal delay-1">
-            <img src="https://i.imgur.com/l6GYpmQ.jpg" data-imgur-fallback="l6GYpmQ" alt="Atividade realizada em um contexto de aprendizagem" loading="lazy" decoding="async">
-          </figure>
+
         </div>
         <ol class="process-timeline">
           <li class="process-stage reveal"><span class="process-number">01</span><div><h3>Escuta inicial</h3><p>Conversa com a família sobre a história escolar e o motivo da procura.</p></div></li>
