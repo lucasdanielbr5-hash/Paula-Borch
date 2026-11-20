@@ -2998,49 +2998,87 @@
 
 
 
-    /* INSTAGRAM — chamada editorial independente, alinhada à identidade do site. */
+    /* INSTAGRAM — composição editorial na paleta original da marca. */
     .instagram-follow {
       position: relative;
       isolation: isolate;
       overflow: hidden;
-      padding: 92px 0 96px;
-      background: linear-gradient(118deg, #F5F0F2 0%, #F7F3EE 55%, #EEE9EF 100%);
-      border-top: 1px solid rgba(87,68,95,.10);
-      border-bottom: 1px solid rgba(87,68,95,.10);
+      padding: clamp(76px, 8.5vw, 112px) 0;
+      background: var(--cream);
+      border-top: 1px solid rgba(64,95,112,.12);
+      border-bottom: 1px solid rgba(64,95,112,.12);
     }
-    .instagram-follow::before,
-    .instagram-follow::after {
+    .instagram-follow::before {
       content: "";
       position: absolute;
       z-index: -1;
-      border: 1px solid rgba(118,96,128,.13);
-      border-radius: 50%;
+      top: 0;
+      right: 0;
+      width: 40%;
+      height: 100%;
+      background: linear-gradient(145deg, rgba(237,231,239,.78), rgba(239,233,226,.48));
+      clip-path: polygon(17% 0, 100% 0, 100% 100%, 0 100%);
       pointer-events: none;
-    }
-    .instagram-follow::before {
-      width: 360px;
-      height: 360px;
-      right: -140px;
-      top: -210px;
-    }
-    .instagram-follow::after {
-      width: 250px;
-      height: 250px;
-      right: -88px;
-      top: -155px;
     }
     .instagram-follow-inner {
       display: grid;
-      grid-template-columns: minmax(0,1fr) minmax(360px,.88fr);
+      grid-template-columns: minmax(240px,.78fr) minmax(0,1.22fr);
       align-items: center;
-      gap: clamp(42px,7vw,100px);
+      gap: clamp(46px,7.4vw,104px);
     }
-    .instagram-follow-copy { max-width: 610px; }
+    .instagram-follow-portrait {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-width: 0;
+    }
+    .instagram-follow-avatar {
+      position: relative;
+      width: clamp(290px,29vw,390px);
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      padding: 7px;
+      border-radius: 5px;
+      background: var(--purple-light);
+      border: 1px solid rgba(118,96,128,.30);
+      box-shadow: 0 18px 42px rgba(48,45,50,.13);
+    }
+    .instagram-profile-image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      border-radius: 2px;
+      object-fit: cover;
+      object-position: center 28%;
+      background: var(--cream-2);
+    }
+    .instagram-portrait-caption {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 25px;
+      color: var(--purple-dark);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+    }
+    .instagram-portrait-caption::before {
+      content: "";
+      width: 23px;
+      height: 1px;
+      background: var(--blue);
+      opacity: .65;
+    }
+    .instagram-follow-copy { max-width: 650px; }
     .instagram-follow-eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 11px;
-      margin-bottom: 20px;
+      margin-bottom: 19px;
       color: var(--purple-dark);
       font-size: 9px;
       font-weight: 700;
@@ -3048,166 +3086,103 @@
       line-height: 1.5;
       text-transform: uppercase;
     }
-    .instagram-follow-eyebrow::before {
-      content: "";
-      width: 28px;
-      height: 1px;
-      background: currentColor;
+    .instagram-follow-eyebrow svg {
+      width: 17px;
+      height: 17px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.55;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
     .instagram-follow-title {
-      max-width: 590px;
+      max-width: 650px;
       margin: 0;
       color: var(--blue);
-      font: 400 clamp(38px,4.4vw,60px)/1.05 Manrope,sans-serif;
-      letter-spacing: -.065em;
+      font: 400 clamp(38px,4.5vw,61px)/1.04 Manrope,sans-serif;
+      letter-spacing: -.067em;
     }
     .instagram-follow-title em {
       color: var(--purple);
       font-style: normal;
       font-weight: 600;
     }
-    .instagram-follow-copy p {
-      max-width: 490px;
+    .instagram-follow-copy-text {
+      max-width: 530px;
       margin: 22px 0 0;
-      color: #716C70;
-      font-size: 12px;
+      color: var(--muted);
+      font-size: 13px;
       line-height: 1.95;
     }
-    .instagram-follow-card {
-      position: relative;
+    .instagram-follow-actions {
       display: flex;
       align-items: center;
-      gap: 22px;
-      min-height: 174px;
-      padding: 30px 30px;
-      overflow: hidden;
+      flex-wrap: wrap;
+      gap: 18px 25px;
+      margin-top: 30px;
+    }
+    .instagram-follow-handle {
       color: var(--blue);
-      background: rgba(255,255,255,.78);
-      border: 1px solid rgba(64,95,112,.13);
-      box-shadow: 0 17px 45px rgba(48,45,50,.065);
-      transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+      font: 600 14px Manrope,sans-serif;
+      letter-spacing: -.2px;
     }
-    .instagram-follow-card::after {
-      content: "";
-      position: absolute;
-      width: 185px;
-      height: 185px;
-      right: -90px;
-      bottom: -125px;
-      border: 1px solid rgba(118,96,128,.18);
-      border-radius: 50%;
-      pointer-events: none;
+    .instagram-follow-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 13px;
+      min-height: 49px;
+      padding: 0 22px;
+      color: #fff;
+      background: var(--purple);
+      border: 1px solid var(--purple);
+      border-radius: 2px;
+      box-shadow: 0 9px 22px rgba(87,68,95,.12);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+      transition: transform .25s ease, background .25s ease, border-color .25s ease, box-shadow .25s ease;
     }
-    .instagram-follow-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(118,96,128,.32);
-      box-shadow: 0 22px 54px rgba(48,45,50,.10);
-    }
-    .instagram-follow-avatar {
-      position: relative;
-      display: grid;
-      place-items: center;
-      flex: 0 0 104px;
-      width: 104px;
-      height: 104px;
-      padding: 4px;
-      border-radius: 50%;
-      background: linear-gradient(145deg, #C8B5CC, #E9DDEB 48%, #B9C4CC);
-      box-shadow: 0 8px 22px rgba(87,68,95,.12);
-    }
-    .instagram-profile-image {
-      position: relative;
-      z-index: 1;
-      display: block;
-      width: 100%;
-      height: 100%;
-      border: 3px solid #fff;
-      border-radius: 50%;
-      object-fit: cover;
-      background: #F0EAF1;
-    }
-    .instagram-avatar-fallback {
-      position: absolute;
-      inset: 4px;
-      display: grid;
-      place-items: center;
-      color: var(--purple-dark);
-      background: #F0EAF1;
-      border: 3px solid #fff;
-      border-radius: 50%;
-    }
-    .instagram-avatar-fallback svg {
-      width: 34px;
-      height: 34px;
+    .instagram-follow-button svg {
+      width: 15px;
+      height: 15px;
       fill: none;
       stroke: currentColor;
-      stroke-width: 1.45;
+      stroke-width: 1.7;
       stroke-linecap: round;
       stroke-linejoin: round;
     }
-    .instagram-follow-avatar.has-image .instagram-avatar-fallback { display: none; }
-    .instagram-photo-credit {
-      display: inline-block;
-      margin-top: 9px;
-      color: #8A828A;
-      font-size: 7px;
-      line-height: 1.4;
-      letter-spacing: .2px;
-      text-decoration: underline;
-      text-decoration-color: rgba(138,130,138,.45);
-      text-underline-offset: 2px;
+    .instagram-follow-button:hover {
+      transform: translateY(-3px);
+      background: var(--purple-dark);
+      border-color: var(--purple-dark);
+      box-shadow: 0 13px 26px rgba(87,68,95,.17);
     }
-    .instagram-follow-card-copy {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex: 1;
-      min-width: 0;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-    .instagram-follow-card-copy small {
-      color: #827A82;
-      font-size: 8px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-    }
-    .instagram-follow-handle {
-      display: block;
-      margin-top: 7px;
-      color: var(--blue);
-      font: 600 clamp(17px,2vw,23px)/1.25 Manrope,sans-serif;
-      letter-spacing: -.5px;
-      overflow-wrap: anywhere;
-    }
-    .instagram-follow-card-copy span {
-      margin-top: 8px;
-      color: #77727A;
-      font-size: 10px;
-      line-height: 1.6;
-    }
-    .instagram-follow-arrow {
-      position: relative;
-      z-index: 1;
-      align-self: flex-start;
-      color: var(--purple);
-      font-size: 22px;
-      line-height: 1;
-      transition: transform .25s ease;
-    }
-    .instagram-follow-card:hover .instagram-follow-arrow { transform: translate(3px,-3px); }
     @media (max-width: 760px) {
-      .instagram-follow { padding: 72px 0 76px; }
-      .instagram-follow-inner { grid-template-columns: 1fr; gap: 29px; }
+      .instagram-follow { padding: 72px 0 78px; }
+      .instagram-follow::before {
+        top: auto;
+        bottom: 0;
+        width: 100%;
+        height: 46%;
+        clip-path: polygon(0 12%,100% 0,100% 100%,0 100%);
+      }
+      .instagram-follow-inner {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+      }
+      .instagram-follow-avatar { width: min(100%, 320px); aspect-ratio: 4 / 5; }
+      .instagram-portrait-caption { margin-top: 19px; }
+      .instagram-follow-copy { margin-inline: auto; }
       .instagram-follow-title { font-size: clamp(37px,9.5vw,49px); }
-      .instagram-follow-copy p { margin-top: 17px; }
-      .instagram-follow-card { min-height: 140px; padding: 23px 20px; gap: 15px; }
-      .instagram-follow-avatar { flex-basis: 78px; width: 78px; height: 78px; }
+      .instagram-follow-copy-text { margin: 17px auto 0; font-size: 12px; }
+      .instagram-follow-actions { justify-content: center; gap: 15px; margin-top: 24px; }
+      .instagram-follow-button { min-height: 46px; }
     }
     @media (prefers-reduced-motion: reduce) {
-      .instagram-follow-card,
-      .instagram-follow-arrow { transition: none !important; }
+      .instagram-follow-button { transition: none !important; }
     }
 
   </style>
@@ -3434,26 +3409,27 @@
 
     <section class="instagram-follow" id="instagram" aria-labelledby="instagram-follow-title">
       <div class="container instagram-follow-inner">
-        <div class="instagram-follow-copy reveal">
-          <div class="instagram-follow-eyebrow">Continue acompanhando</div>
-          <h2 class="instagram-follow-title" id="instagram-follow-title">Acompanhe meu trabalho também pelo <em>Instagram.</em></h2>
-          <p>Um espaço para seguir de perto conteúdos, reflexões e novidades sobre educação, desenvolvimento e aprendizagem.</p>
+        <div class="instagram-follow-portrait reveal">
+          <div class="instagram-follow-avatar">
+            <img class="instagram-profile-image" src="https://i.imgur.com/jKNJUSb.jpeg" alt="Retrato de Paula Borch" loading="lazy" decoding="async">
+          </div>
+          <div class="instagram-portrait-caption">Perfil profissional</div>
         </div>
-        <a class="instagram-follow-card reveal delay-1" href="https://www.instagram.com/professorapaulaborch/" target="_blank" rel="noopener noreferrer" aria-label="Acompanhar Paula Borch no Instagram">
-          <span class="instagram-follow-avatar" aria-label="Foto de perfil do Instagram de Paula Borch">
-            <img class="instagram-profile-image" src="https://unavatar.io/instagram/professorapaulaborch" alt="Foto de perfil de Paula Borch no Instagram" loading="lazy" referrerpolicy="no-referrer">
-            <span class="instagram-avatar-fallback" aria-hidden="true">
-              <svg viewBox="0 0 32 32"><rect x="4.5" y="4.5" width="23" height="23" rx="6.5"/><circle cx="16" cy="16" r="5.3"/><circle cx="23.3" cy="8.9" r="1.2" fill="currentColor" stroke="none"/></svg>
-            </span>
-          </span>
-          <span class="instagram-follow-card-copy">
-            <small>Instagram · perfil profissional</small>
-            <strong class="instagram-follow-handle">@professorapaulaborch</strong>
-            <span>Acesse o perfil e acompanhe as publicações</span>
-            <span class="instagram-photo-credit">Foto de perfil via <span>unavatar</span></span>
-          </span>
-          <span class="instagram-follow-arrow" aria-hidden="true">↗</span>
-        </a>
+        <div class="instagram-follow-copy reveal delay-1">
+          <div class="instagram-follow-eyebrow">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.6" cy="6.8" r=".9" fill="currentColor" stroke="none"/></svg>
+            Continue acompanhando
+          </div>
+          <h2 class="instagram-follow-title" id="instagram-follow-title">Acompanhe meu trabalho também pelo <em>Instagram.</em></h2>
+          <p class="instagram-follow-copy-text">No perfil, compartilho conteúdos e atualizações sobre educação, aprendizagem e psicopedagogia.</p>
+          <div class="instagram-follow-actions">
+            <span class="instagram-follow-handle">@professorapaulaborch</span>
+            <a class="instagram-follow-button" href="https://www.instagram.com/professorapaulaborch/" target="_blank" rel="noopener noreferrer">
+              Acompanhar perfil
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -3560,15 +3536,6 @@
         revealItems.forEach(item => item.classList.add('visible'));
       }
       document.getElementById('year').textContent = new Date().getFullYear();
-
-      const instagramAvatar = document.querySelector('.instagram-profile-image');
-      const instagramAvatarWrap = document.querySelector('.instagram-follow-avatar');
-      if (instagramAvatar && instagramAvatarWrap) {
-        const showInstagramAvatar = () => instagramAvatarWrap.classList.add('has-image');
-        instagramAvatar.addEventListener('load', showInstagramAvatar, { once: true });
-        instagramAvatar.addEventListener('error', () => instagramAvatarWrap.classList.remove('has-image'), { once: true });
-        if (instagramAvatar.complete && instagramAvatar.naturalWidth > 0) showInstagramAvatar();
-      }
 
       const form = document.getElementById('contactForm');
       form.addEventListener('submit', event => {
