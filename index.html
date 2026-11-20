@@ -2018,6 +2018,41 @@
       .reveal { opacity: 1 !important; filter: none !important; transform: none !important; }
     }
 
+
+    /* LOGOMARCA EM DESTAQUE — sem identificação textual ao lado */
+    .hero-brand {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0;
+      width: 100%;
+      margin: 0 0 26px;
+    }
+    .hero-brand img {
+      display: block;
+      width: 168px;
+      height: 148px;
+      max-width: 100%;
+      padding: 0;
+      margin: 0;
+      object-fit: contain;
+      object-position: left center;
+      background: transparent;
+      border-radius: 0;
+      filter: drop-shadow(0 8px 22px rgba(0,0,0,.18));
+    }
+    .brand img { width: 70px; height: 70px; }
+    .footer-brand img { width: 72px; height: 72px; }
+    @media (max-width: 760px) {
+      .hero-brand { margin-bottom: 18px; }
+      .hero-brand img { width: 132px; height: 116px; }
+      .brand img { width: 58px; height: 58px; }
+      .footer-brand img { width: 62px; height: 62px; }
+    }
+    @media (max-width: 420px) {
+      .hero-brand img { width: 116px; height: 104px; }
+    }
+
   </style>
 </head>
 <body>
@@ -2051,10 +2086,7 @@
       <div class="hero-content">
         <div class="hero-copy">
           <div class="hero-brand">
-            <img src="https://i.imgur.com/oInPRcd.png" alt="Logomarca" fetchpriority="high">
-            <div>
-              <span class="hero-brand-caption">Pedagoga · Psicopedagoga</span>
-            </div>
+            <img src="https://i.imgur.com/oInPRcd.png" alt="Logomarca da profissional" fetchpriority="high">
           </div>
           <div class="hero-kicker">Psicopedagogia · Aprendizagem</div>
           <h1>Aprender não é seguir uma fórmula. <em>É encontrar possibilidades.</em></h1>
