@@ -3964,6 +3964,267 @@
   .hero-backdrop-mobile,
   .hero-photo .hero-mobile-photo { display: none !important; }
 }
+
+
+/* AJUSTE FINAL MOBILE — fotos sem cortes e YouTube reorganizado */
+.process-mobile-photo { display: none; }
+
+@media (max-width: 760px) {
+  /* Abertura: mantém a foto em tela cheia, mas desloca o enquadramento para revelar a professora. */
+  .hero {
+    height: 100svh !important;
+    min-height: 100svh !important;
+    max-height: none !important;
+    overflow: hidden !important;
+    background: #252128 !important;
+  }
+  .hero-backdrop-mobile {
+    display: block !important;
+    inset: -28px !important;
+    width: calc(100% + 56px) !important;
+    height: calc(100% + 56px) !important;
+    object-fit: cover !important;
+    object-position: 8% 24% !important;
+    filter: blur(24px) brightness(.42) saturate(.82) !important;
+    transform: scale(1.06) !important;
+  }
+  .hero-photo {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    overflow: hidden !important;
+    justify-content: center !important;
+    align-items: stretch !important;
+  }
+  .hero-photo .hero-desktop-photo { display: none !important; }
+  .hero-photo img.hero-mobile-photo {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 100% !important;
+    min-height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: cover !important;
+    object-position: 7% 24% !important;
+    transform: none !important;
+    filter: brightness(.96) contrast(1.025) saturate(.94) !important;
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+  }
+  .hero-shade {
+    background: linear-gradient(180deg,
+      rgba(18,16,20,.02) 0%,
+      rgba(18,16,20,.04) 36%,
+      rgba(18,16,20,.20) 52%,
+      rgba(18,16,20,.68) 75%,
+      rgba(18,16,20,.91) 100%) !important;
+  }
+
+  /* Acompanhamento: a foto deixa de ser uma faixa de background. A imagem inteira
+     aparece com a proporção original, sem cortar rosto ou corpo. */
+  .process {
+    padding: 0 0 58px !important;
+    background: #F7F3EE !important;
+    background-image: none !important;
+    overflow: hidden !important;
+  }
+  .process::before { display: none !important; content: none !important; }
+  .process-mobile-photo {
+    display: block !important;
+    width: 100vw !important;
+    max-width: none !important;
+    margin: 0 calc(50% - 50vw) 28px !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    line-height: 0 !important;
+    background: #F7F3EE !important;
+  }
+  .process-mobile-photo img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    max-width: none !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    filter: none !important;
+    transform: none !important;
+  }
+  .process > .container {
+    position: relative !important;
+    width: calc(100% - 34px) !important;
+    max-width: 560px !important;
+    margin-inline: auto !important;
+  }
+  .process-overview { margin: 0 0 22px !important; }
+  .process-overview-copy { min-height: 0 !important; padding: 0 !important; }
+
+  /* YouTube: um vídeo por linha, com área de reprodução grande e cartões legíveis. */
+  .youtube {
+    padding: 56px 0 54px !important;
+    background: linear-gradient(145deg, #F3EEF2 0%, #F7F3EE 55%, #EEE9E5 100%) !important;
+  }
+  .youtube > .container {
+    width: calc(100% - 32px) !important;
+    max-width: 560px !important;
+  }
+  .youtube-topline {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 12px !important;
+    margin: 0 0 24px !important;
+    padding: 0 0 15px !important;
+  }
+  .youtube-identity { min-width: 0 !important; gap: 10px !important; }
+  .youtube-identity strong { font-size: 12px !important; line-height: 1.3 !important; }
+  .youtube-identity small { font-size: 8px !important; letter-spacing: 1.2px !important; }
+  .youtube-channel-link {
+    flex: 0 0 auto !important;
+    min-height: 36px !important;
+    padding: 0 12px !important;
+    border-radius: 100px !important;
+    font-size: 8px !important;
+    letter-spacing: .7px !important;
+    white-space: nowrap !important;
+  }
+  .youtube-feature-layout {
+    display: grid !important;
+    grid-template-columns: minmax(0,1fr) !important;
+    gap: 16px !important;
+    align-items: start !important;
+  }
+  .youtube-feature-copy {
+    order: 0 !important;
+    max-width: none !important;
+    padding: 0 1px !important;
+  }
+  .youtube-feature-copy h2 {
+    max-width: 100% !important;
+    margin: 8px 0 10px !important;
+    font-size: clamp(32px,8.5vw,42px) !important;
+    line-height: 1.04 !important;
+  }
+  .youtube-feature-copy p {
+    max-width: 100% !important;
+    margin: 0 !important;
+    font-size: 12.5px !important;
+    line-height: 1.7 !important;
+  }
+  .youtube-subscribe {
+    display: inline-flex !important;
+    align-items: center !important;
+    min-height: 41px !important;
+    margin-top: 13px !important;
+    padding: 0 16px !important;
+    border-radius: 2px !important;
+    font-size: 8px !important;
+  }
+  .youtube-feature {
+    order: 1 !important;
+    position: relative !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    aspect-ratio: 16 / 9 !important;
+    overflow: hidden !important;
+    border: 1px solid rgba(64,95,112,.16) !important;
+    border-radius: 9px !important;
+    background: #242127 !important;
+    box-shadow: 0 12px 28px rgba(48,45,50,.12) !important;
+  }
+  .youtube-feature iframe {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    border: 0 !important;
+  }
+  .youtube-feature-label {
+    left: 10px !important;
+    top: 10px !important;
+    padding: 7px 9px !important;
+    font-size: 7px !important;
+    border-radius: 2px !important;
+  }
+  .youtube-related-heading {
+    display: block !important;
+    margin: 30px 0 13px !important;
+    padding-top: 20px !important;
+  }
+  .youtube-related-heading h3 {
+    margin: 6px 0 0 !important;
+    font-size: 21px !important;
+    line-height: 1.2 !important;
+  }
+  .youtube-related {
+    display: grid !important;
+    grid-template-columns: minmax(0,1fr) !important;
+    gap: 14px !important;
+    margin-top: 0 !important;
+  }
+  .youtube-related-item {
+    display: grid !important;
+    grid-template-columns: minmax(0,1fr) !important;
+    gap: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    padding: 9px 9px 12px !important;
+    border: 1px solid rgba(64,95,112,.13) !important;
+    border-radius: 8px !important;
+    background: rgba(255,255,255,.82) !important;
+    box-shadow: 0 7px 20px rgba(48,45,50,.055) !important;
+  }
+  .youtube-related-player {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    aspect-ratio: 16 / 9 !important;
+    overflow: hidden !important;
+    border: 0 !important;
+    border-radius: 5px !important;
+    background: #242127 !important;
+    box-shadow: none !important;
+  }
+  .youtube-related-player iframe {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .youtube-related-item h4 {
+    margin: 10px 2px 0 !important;
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+    color: var(--blue) !important;
+  }
+  .youtube-bottom {
+    margin-top: 22px !important;
+    padding-top: 17px !important;
+  }
+  .youtube-bottom-link { font-size: 9px !important; }
+}
+
+@media (max-width: 480px) {
+  .hero-photo img.hero-mobile-photo {
+    object-position: 5% 23% !important;
+  }
+  .hero-content { inset-inline: 16px !important; bottom: 16px !important; }
+  .hero-brand img { width: clamp(128px, 39vw, 150px) !important; max-height: 126px !important; }
+  .process-mobile-photo { margin-bottom: 24px !important; }
+  .youtube-topline { gap: 8px !important; }
+  .youtube-channel-link { padding-inline: 10px !important; font-size: 7.5px !important; }
+}
+
+@media (min-width: 761px) {
+  .process-mobile-photo { display: none !important; }
+}
+
 </style>
 </head>
 <body>
@@ -4113,6 +4374,7 @@
     </section>
 
     <section class="section process" id="processo" aria-labelledby="process-title">
+      <div class="process-mobile-photo" aria-hidden="true"><img src="https://i.imgur.com/l6GYpmQ.jpeg" alt="" loading="lazy" decoding="async"></div>
       <div class="container">
         <div class="process-overview">
           <div class="process-overview-copy reveal">
