@@ -393,6 +393,8 @@
     .signals-list li span { color: var(--purple); font: 600 12px Manrope,sans-serif; }
     .signals-list li p { max-width: 290px; margin: 0; color: var(--ink-soft); font-size: 12px; line-height: 1.75; }
     .when-quote { max-width: 950px; margin: 52px 0 0 auto; padding: 0 0 0 30px; border-left: 2px solid var(--purple); background: transparent; color: var(--purple-dark); font: 500 clamp(20px,2.5vw,29px)/1.55 Manrope,sans-serif; letter-spacing: -.04em; }
+    .when-quote { text-wrap: pretty; }
+    .when-quote::before { content: "“"; display: block; margin-bottom: 5px; color: var(--purple); font: 500 34px/1 Manrope,sans-serif; }
 
     .services { background: var(--cream); }
     .services-heading { display: grid; grid-template-columns: .85fr 1.15fr; column-gap: 85px; row-gap: 15px; align-items: end; margin-bottom: 46px; }
@@ -565,7 +567,7 @@
       max-height: none;
       object-fit: contain;
       object-position: left center;
-      filter: brightness(.88) contrast(1.06) saturate(.88);
+      filter: brightness(.91) contrast(1.06) saturate(.88);
       -webkit-mask-image: linear-gradient(90deg,
         #000 0%, #000 48%, rgba(0,0,0,.92) 57%,
         rgba(0,0,0,.58) 68%, rgba(0,0,0,.18) 78%, transparent 86%);
@@ -576,8 +578,8 @@
     .hero-shade {
       background:
         radial-gradient(ellipse 36% 61% at var(--face-x) var(--face-y),
-          rgba(255,255,255,.09) 0%,
-          rgba(255,255,255,.035) 30%,
+          rgba(255,255,255,.13) 0%,
+          rgba(255,255,255,.055) 30%,
           rgba(8,10,14,.30) 67%,
           rgba(8,10,14,.70) 100%),
         linear-gradient(90deg,
@@ -636,8 +638,8 @@
       .hero-shade {
         background:
           radial-gradient(ellipse 54% 38% at 50% 27%,
-            rgba(255,255,255,.09) 0%,
-            rgba(255,255,255,.025) 43%,
+            rgba(255,255,255,.12) 0%,
+            rgba(255,255,255,.04) 43%,
             rgba(8,10,14,.32) 100%),
           linear-gradient(180deg,
             rgba(8,10,14,.02) 0%,
@@ -2994,467 +2996,218 @@
 
   
 
-    /* SLIDER SOCIAL — alterna entre a vitrine do YouTube e as publicações do Instagram. */
-    .social-slider {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr);
-      align-items: stretch;
+
+
+    /* INSTAGRAM — chamada editorial independente, alinhada à identidade do site. */
+    .instagram-follow {
       position: relative;
-    }
-    .social-slide {
-      grid-area: 1 / 1;
-      min-width: 0;
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-      transform: translateY(14px);
-      transition: opacity .65s ease, transform .65s cubic-bezier(.2,.7,.2,1), visibility .65s ease;
-    }
-    .social-slide.is-active {
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-      transform: translateY(0);
-      z-index: 1;
-    }
-    .social-slide-instagram {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      min-height: 780px;
-      padding: 0 0 14px;
-    }
-    .instagram-slide-topline {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      margin-bottom: 40px;
-      padding-bottom: 23px;
-      border-bottom: 1px solid rgba(64,95,112,.16);
-    }
-    .instagram-identity { display: flex; align-items: center; gap: 15px; }
-    .instagram-mark {
-      display: grid;
-      place-items: center;
-      width: 42px;
-      height: 42px;
-      color: var(--purple-dark);
-      border: 1px solid rgba(87,68,95,.2);
-      border-radius: 50%;
-      background: rgba(255,255,255,.58);
-    }
-    .instagram-mark svg { width: 22px; height: 22px; }
-    .instagram-identity span:last-child { display: grid; gap: 4px; }
-    .instagram-identity small {
-      color: #77727A;
-      font-size: 8px;
-      font-weight: 700;
-      letter-spacing: 1.8px;
-      text-transform: uppercase;
-    }
-    .instagram-identity strong {
-      color: var(--blue);
-      font: 700 14px/1.3 Manrope,sans-serif;
-    }
-    .instagram-profile-link,
-    .instagram-follow {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      min-height: 43px;
-      padding: 0 19px;
-      border: 1px solid rgba(87,68,95,.34);
-      color: var(--purple-dark);
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      transition: background .25s ease, color .25s ease, transform .25s ease;
-    }
-    .instagram-profile-link:hover,
-    .instagram-follow:hover {
-      background: var(--purple-dark);
-      color: #fff;
-      transform: translateY(-2px);
-    }
-    .instagram-feature-layout {
-      display: grid;
-      grid-template-columns: .78fr 1.22fr;
-      gap: clamp(36px,6vw,88px);
-      align-items: center;
-    }
-    .instagram-feature-copy { max-width: 480px; }
-    .instagram-feature-copy h2 {
-      margin: 16px 0 18px;
-      color: var(--blue);
-      font: 400 clamp(38px,4.5vw,62px)/1.04 Manrope,sans-serif;
-      letter-spacing: -.065em;
-    }
-    .instagram-feature-copy h2 em { color: var(--purple); font-style: normal; font-weight: 600; }
-    .instagram-feature-copy > p:not(.instagram-note) {
-      max-width: 430px;
-      margin: 0 0 25px;
-      color: #6E6970;
-      font-size: 12px;
-      line-height: 1.9;
-    }
-    .instagram-follow {
-      background: var(--purple);
-      border-color: var(--purple);
-      color: #fff;
-    }
-    .instagram-follow:hover { background: var(--purple-dark); border-color: var(--purple-dark); }
-    .instagram-note {
-      margin: 18px 0 0;
-      color: #88818A;
-      font-size: 9px;
-      line-height: 1.6;
-    }
-    .instagram-feed-shell {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      min-width: 0;
-      min-height: 620px;
-      padding: 18px;
+      isolation: isolate;
       overflow: hidden;
-      border: 1px solid rgba(64,95,112,.12);
-      border-radius: 3px;
-      background: rgba(255,255,255,.58);
-      box-shadow: 0 18px 48px rgba(52,61,65,.08);
+      padding: 92px 0 96px;
+      background: linear-gradient(118deg, #F5F0F2 0%, #F7F3EE 55%, #EEE9EF 100%);
+      border-top: 1px solid rgba(87,68,95,.10);
+      border-bottom: 1px solid rgba(87,68,95,.10);
     }
-    .instagram-feed-shell .instagram-media {
-      flex: 0 1 540px;
-      width: 100% !important;
-      max-width: 540px !important;
-      min-width: 280px !important;
-    }
-    .social-slider-nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      margin-top: 34px;
-      padding-top: 19px;
-      border-top: 1px solid rgba(64,95,112,.16);
-    }
-    .social-slider-tabs { display: flex; align-items: center; gap: 9px; }
-    .social-slide-tab {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      min-height: 38px;
-      padding: 0 12px;
-      border: 1px solid transparent;
-      background: transparent;
-      color: #77727A;
-      cursor: pointer;
-      font: 700 9px/1 "DM Sans",sans-serif;
-      letter-spacing: .9px;
-      text-transform: uppercase;
-      transition: border-color .2s ease, color .2s ease, background .2s ease;
-    }
-    .social-slide-tab span { color: var(--purple); font: 700 9px Manrope,sans-serif; }
-    .social-slide-tab:hover,
-    .social-slide-tab.is-active {
-      border-color: rgba(87,68,95,.24);
-      background: rgba(255,255,255,.55);
-      color: var(--purple-dark);
-    }
-    .social-slider-timer {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: #858087;
-      font-size: 8px;
-      font-weight: 600;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-    .social-progress-track {
-      width: clamp(68px,10vw,130px);
-      height: 2px;
-      overflow: hidden;
-      background: rgba(87,68,95,.16);
-    }
-    .social-progress-fill {
-      display: block;
-      width: 100%;
-      height: 100%;
-      background: var(--purple);
-      transform: scaleX(0);
-      transform-origin: left center;
-    }
-    .social-progress-fill.is-running { animation: socialProgress 7s linear forwards; }
-    .social-slider-timer small { color: var(--purple-dark); font-size: 9px; font-weight: 700; }
-    .social-slider-announcer {
+    .instagram-follow::before,
+    .instagram-follow::after {
+      content: "";
       position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0,0,0,0);
-      white-space: nowrap;
-      border: 0;
+      z-index: -1;
+      border: 1px solid rgba(118,96,128,.13);
+      border-radius: 50%;
+      pointer-events: none;
     }
-    @keyframes socialProgress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-
-    @media (max-width: 900px) {
-      .instagram-feature-layout { grid-template-columns: .72fr 1.28fr; gap: 30px; }
-      .instagram-feed-shell { min-height: 580px; padding: 12px; }
+    .instagram-follow::before {
+      width: 360px;
+      height: 360px;
+      right: -140px;
+      top: -210px;
     }
-    @media (max-width: 760px) {
-      .social-slide-instagram { min-height: 0; padding-bottom: 4px; }
-      .instagram-slide-topline { align-items: flex-start; flex-direction: column; margin-bottom: 28px; }
-      .instagram-profile-link { align-self: flex-start; }
-      .instagram-feature-layout { grid-template-columns: 1fr; gap: 24px; }
-      .instagram-feature-copy { max-width: 620px; }
-      .instagram-feature-copy h2 { font-size: clamp(38px,9vw,52px); }
-      .instagram-feed-shell { min-height: 600px; padding: 10px; }
-      .social-slider-nav { align-items: flex-start; flex-direction: column; gap: 13px; margin-top: 22px; }
-      .social-slider-timer { width: 100%; }
-      .social-progress-track { flex: 1; }
+    .instagram-follow::after {
+      width: 250px;
+      height: 250px;
+      right: -88px;
+      top: -155px;
     }
-    @media (max-width: 420px) {
-      .social-slider-tabs { width: 100%; justify-content: space-between; }
-      .social-slide-tab { padding: 0 8px; font-size: 8px; }
-      .instagram-identity strong { font-size: 13px; }
-      .instagram-feed-shell { min-height: 560px; padding: 5px; }
-      .instagram-feed-shell .instagram-media { min-width: 260px !important; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .social-slide { transition: none !important; transform: none !important; }
-      .social-progress-fill.is-running { animation: none !important; }
-    }
-
-  
-
-    /* Instagram — vitrine editorial, integrada à identidade visual do site. */
-    .social-slide-instagram {
-      min-height: 720px;
-      padding: 4px 0 12px;
-      justify-content: flex-start;
-    }
-    .instagram-slide-topline {
-      margin-bottom: 46px;
-      padding-bottom: 22px;
-    }
-    .instagram-identity { gap: 16px; }
-    .instagram-mark {
-      width: 54px;
-      height: 54px;
-      color: #fff;
-      border: 0;
-      border-radius: 17px;
-      background: linear-gradient(145deg, #897493 0%, #62536C 100%);
-      box-shadow: 0 9px 22px rgba(87,68,95,.17);
-    }
-    .instagram-mark svg { width: 25px; height: 25px; }
-    .instagram-identity small { font-size: 9px; letter-spacing: 1.55px; }
-    .instagram-identity strong { font-size: 16px; letter-spacing: -.2px; }
-    .instagram-profile-link { min-height: 46px; padding-inline: 22px; border-radius: 2px; }
-    .instagram-feature-layout {
-      grid-template-columns: minmax(260px,.68fr) minmax(0,1.32fr);
-      gap: clamp(34px,5.5vw,76px);
+    .instagram-follow-inner {
+      display: grid;
+      grid-template-columns: minmax(0,1fr) minmax(360px,.88fr);
       align-items: center;
+      gap: clamp(42px,7vw,100px);
     }
-    .instagram-feature-copy { max-width: 440px; padding-bottom: 18px; }
-    .instagram-kicker {
-      display: flex;
+    .instagram-follow-copy { max-width: 610px; }
+    .instagram-follow-eyebrow {
+      display: inline-flex;
       align-items: center;
       gap: 11px;
-      color: var(--purple);
+      margin-bottom: 20px;
+      color: var(--purple-dark);
       font-size: 9px;
       font-weight: 700;
       letter-spacing: 2px;
+      line-height: 1.5;
       text-transform: uppercase;
     }
-    .instagram-kicker span { width: 27px; height: 1px; background: currentColor; }
-    .instagram-feature-copy h2 {
-      margin: 22px 0 21px;
-      font-size: clamp(40px,4.6vw,62px);
-      line-height: 1.04;
+    .instagram-follow-eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: currentColor;
     }
-    .instagram-feature-copy > p:not(.instagram-note) {
-      max-width: 390px;
-      margin-bottom: 30px;
-      font-size: 13px;
+    .instagram-follow-title {
+      max-width: 590px;
+      margin: 0;
+      color: var(--blue);
+      font: 400 clamp(38px,4.4vw,60px)/1.05 Manrope,sans-serif;
+      letter-spacing: -.065em;
+    }
+    .instagram-follow-title em {
+      color: var(--purple);
+      font-style: normal;
+      font-weight: 600;
+    }
+    .instagram-follow-copy p {
+      max-width: 490px;
+      margin: 22px 0 0;
+      color: #716C70;
+      font-size: 12px;
       line-height: 1.95;
     }
-    .instagram-follow {
-      min-height: 48px;
-      padding-inline: 23px;
-      border-radius: 2px;
-      letter-spacing: 1.05px;
-    }
-    .instagram-signature {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-top: 31px;
-      color: #827B83;
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: 1.15px;
-    }
-    .instagram-signature span { width: 26px; height: 1px; background: rgba(118,96,128,.65); }
-    .instagram-topics { min-width: 0; }
-    .instagram-topics-heading {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 17px;
-      color: #827B83;
-      font-size: 8px;
-      font-weight: 700;
-      letter-spacing: 1.45px;
-      text-transform: uppercase;
-    }
-    .instagram-topics-heading span:first-child { color: var(--purple); }
-    .instagram-topic-grid {
-      display: grid;
-      grid-template-columns: repeat(3,minmax(0,1fr));
-      gap: 12px;
-      align-items: stretch;
-    }
-    .instagram-topic-card {
+    .instagram-follow-card {
       position: relative;
       display: flex;
-      flex-direction: column;
-      min-height: 345px;
-      padding: 21px 18px 18px;
+      align-items: center;
+      gap: 22px;
+      min-height: 174px;
+      padding: 30px 30px;
       overflow: hidden;
-      border: 1px solid rgba(64,95,112,.12);
-      background: #F0EBF1;
-      box-shadow: 0 12px 28px rgba(47,48,52,.045);
-      transition: transform .3s ease, box-shadow .3s ease;
+      color: var(--blue);
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(64,95,112,.13);
+      box-shadow: 0 17px 45px rgba(48,45,50,.065);
+      transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
     }
-    .instagram-topic-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 18px 35px rgba(47,48,52,.09);
-    }
-    .instagram-topic-card::after {
+    .instagram-follow-card::after {
       content: "";
       position: absolute;
-      width: 150px;
-      height: 150px;
-      right: -70px;
-      top: 68px;
-      border: 1px solid currentColor;
+      width: 185px;
+      height: 185px;
+      right: -90px;
+      bottom: -125px;
+      border: 1px solid rgba(118,96,128,.18);
       border-radius: 50%;
-      opacity: .10;
       pointer-events: none;
     }
-    .instagram-topic-card--learning { color: #64556D; background: linear-gradient(155deg,#F0EAF1 0%,#E9E2EA 100%); }
-    .instagram-topic-card--literacy { color: #486372; background: linear-gradient(155deg,#EAF0F1 0%,#E3EAEC 100%); }
-    .instagram-topic-card--family { color: #76636A; background: linear-gradient(155deg,#F2EDE8 0%,#EAE3DD 100%); }
-    .instagram-topic-meta {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 7px;
-      color: currentColor;
-      font-size: 7px;
-      font-weight: 700;
-      letter-spacing: 1.1px;
-      text-transform: uppercase;
+    .instagram-follow-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(118,96,128,.32);
+      box-shadow: 0 22px 54px rgba(48,45,50,.10);
     }
-    .instagram-topic-meta span:first-child { opacity: .72; }
-    .instagram-topic-symbol {
+    .instagram-follow-avatar {
+      position: relative;
       display: grid;
       place-items: center;
-      width: 55px;
-      height: 55px;
-      margin: 42px 0 25px;
-      border: 1px solid currentColor;
+      flex: 0 0 104px;
+      width: 104px;
+      height: 104px;
+      padding: 4px;
       border-radius: 50%;
-      opacity: .88;
+      background: linear-gradient(145deg, #C8B5CC, #E9DDEB 48%, #B9C4CC);
+      box-shadow: 0 8px 22px rgba(87,68,95,.12);
     }
-    .instagram-topic-symbol svg { width: 33px; height: 33px; }
-    .instagram-topic-card h3 {
+    .instagram-profile-image {
       position: relative;
       z-index: 1;
-      max-width: 210px;
-      margin: 0 0 11px;
-      color: #3E5663;
-      font: 600 clamp(17px,1.55vw,21px)/1.22 Manrope,sans-serif;
-      letter-spacing: -.55px;
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 3px solid #fff;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #F0EAF1;
     }
-    .instagram-topic-card p {
-      position: relative;
-      z-index: 1;
-      margin: 0;
-      color: #6E6970;
-      font-size: 10px;
-      line-height: 1.75;
+    .instagram-avatar-fallback {
+      position: absolute;
+      inset: 4px;
+      display: grid;
+      place-items: center;
+      color: var(--purple-dark);
+      background: #F0EAF1;
+      border: 3px solid #fff;
+      border-radius: 50%;
     }
-    .instagram-topic-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      margin-top: auto;
-      padding-top: 20px;
-      border-top: 1px solid rgba(64,95,112,.14);
-      color: currentColor;
+    .instagram-avatar-fallback svg {
+      width: 34px;
+      height: 34px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.45;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .instagram-follow-avatar.has-image .instagram-avatar-fallback { display: none; }
+    .instagram-photo-credit {
+      display: inline-block;
+      margin-top: 9px;
+      color: #8A828A;
       font-size: 7px;
-      font-weight: 700;
-      letter-spacing: .8px;
       line-height: 1.4;
+      letter-spacing: .2px;
+      text-decoration: underline;
+      text-decoration-color: rgba(138,130,138,.45);
+      text-underline-offset: 2px;
+    }
+    .instagram-follow-card-copy {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex: 1;
+      min-width: 0;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .instagram-follow-card-copy small {
+      color: #827A82;
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
     }
-    .instagram-topic-footer i { font-size: 13px; font-style: normal; }
-    .instagram-topics-note {
-      margin: 15px 0 0;
-      color: #858087;
-      font-size: 9px;
+    .instagram-follow-handle {
+      display: block;
+      margin-top: 7px;
+      color: var(--blue);
+      font: 600 clamp(17px,2vw,23px)/1.25 Manrope,sans-serif;
+      letter-spacing: -.5px;
+      overflow-wrap: anywhere;
+    }
+    .instagram-follow-card-copy span {
+      margin-top: 8px;
+      color: #77727A;
+      font-size: 10px;
       line-height: 1.6;
-      text-align: right;
     }
-    .social-progress-fill.is-running { animation-duration: 7s; }
-
-    @media (max-width: 1050px) {
-      .instagram-feature-layout { grid-template-columns: .62fr 1.38fr; gap: 30px; }
-      .instagram-topic-grid { gap: 8px; }
-      .instagram-topic-card { min-height: 330px; padding: 18px 14px 15px; }
-      .instagram-topic-symbol { margin-top: 34px; }
-      .instagram-topic-card h3 { font-size: 17px; }
+    .instagram-follow-arrow {
+      position: relative;
+      z-index: 1;
+      align-self: flex-start;
+      color: var(--purple);
+      font-size: 22px;
+      line-height: 1;
+      transition: transform .25s ease;
     }
+    .instagram-follow-card:hover .instagram-follow-arrow { transform: translate(3px,-3px); }
     @media (max-width: 760px) {
-      .social-slide-instagram { min-height: 0; padding-bottom: 8px; }
-      .instagram-slide-topline { align-items: center; flex-direction: row; gap: 14px; margin-bottom: 30px; }
-      .instagram-identity { gap: 11px; }
-      .instagram-mark { width: 46px; height: 46px; border-radius: 14px; }
-      .instagram-identity strong { font-size: 13px; }
-      .instagram-profile-link { min-height: 40px; padding-inline: 12px; font-size: 8px; }
-      .instagram-feature-layout { grid-template-columns: 1fr; gap: 32px; }
-      .instagram-feature-copy { max-width: 620px; padding-bottom: 0; }
-      .instagram-feature-copy h2 { font-size: clamp(39px,9.5vw,54px); margin: 17px 0; }
-      .instagram-signature { margin-top: 20px; }
-      .instagram-topic-grid { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 9px; }
-      .instagram-topic-card { min-height: 280px; padding: 16px 12px 13px; }
-      .instagram-topic-symbol { width: 45px; height: 45px; margin: 27px 0 18px; }
-      .instagram-topic-symbol svg { width: 28px; height: 28px; }
-      .instagram-topic-card h3 { font-size: 16px; }
-      .instagram-topic-card p { font-size: 9px; }
-      .instagram-topic-footer { font-size: 6px; }
-      .instagram-topics-note { text-align: left; }
+      .instagram-follow { padding: 72px 0 76px; }
+      .instagram-follow-inner { grid-template-columns: 1fr; gap: 29px; }
+      .instagram-follow-title { font-size: clamp(37px,9.5vw,49px); }
+      .instagram-follow-copy p { margin-top: 17px; }
+      .instagram-follow-card { min-height: 140px; padding: 23px 20px; gap: 15px; }
+      .instagram-follow-avatar { flex-basis: 78px; width: 78px; height: 78px; }
     }
-    @media (max-width: 520px) {
-      .instagram-slide-topline { align-items: flex-start; flex-direction: column; }
-      .instagram-profile-link { align-self: flex-start; }
-      .instagram-topics-heading { align-items: flex-start; flex-direction: column; gap: 5px; }
-      .instagram-topic-grid { grid-template-columns: 1fr; gap: 10px; }
-      .instagram-topic-card { min-height: 0; display: grid; grid-template-columns: 48px 1fr; column-gap: 14px; padding: 17px; }
-      .instagram-topic-meta { grid-column: 1 / -1; margin-bottom: 12px; }
-      .instagram-topic-symbol { grid-column: 1; grid-row: 2 / span 2; width: 44px; height: 44px; margin: 0; }
-      .instagram-topic-card h3 { grid-column: 2; max-width: none; margin: 0 0 7px; font-size: 17px; }
-      .instagram-topic-card p { grid-column: 2; }
-      .instagram-topic-footer { grid-column: 1 / -1; margin-top: 14px; padding-top: 12px; font-size: 7px; }
+    @media (prefers-reduced-motion: reduce) {
+      .instagram-follow-card,
+      .instagram-follow-arrow { transition: none !important; }
     }
 
   </style>
@@ -3474,6 +3227,7 @@
         <li><a href="#atuacao">Serviços</a></li>
         <li><a href="#processo">Atendimento</a></li>
         <li><a href="#youtube">Conteúdos</a></li>
+        <li><a href="#instagram">Instagram</a></li>
         <li><a href="#contato" class="menu-contact">Contato</a></li>
       </ul>
     </div>
@@ -3548,7 +3302,7 @@
         <div class="when-intro reveal">
           <div>
             <div class="section-label">Quando procurar</div>
-            <h2 class="section-title">Quando a aprendizagem pede um <em>olhar mais atento.</em></h2>
+            <h2 class="section-title">Quando procurar uma <em>psicopedagoga?</em></h2>
           </div>
           <div class="when-intro-copy">
             <p class="section-text">Dificuldades persistentes na leitura, escrita, matemática, atenção ou organização podem indicar que vale investigar como a criança aprende.</p>
@@ -3568,6 +3322,9 @@
             <li class="reveal"><span>07</span><p>Necessidade de compreender melhor como a criança aprende.</p></li>
           </ol>
         </div>
+        <blockquote class="when-quote reveal">
+          “Nem toda dificuldade escolar significa falta de capacidade. Às vezes, a criança precisa que seu processo de aprendizagem seja melhor compreendido.”
+        </blockquote>
       </div>
     </section>
 
@@ -3618,11 +3375,8 @@
       </div>
     </section>
 
-    <section class="youtube social-hub" id="youtube" aria-label="Conteúdos da Paula no YouTube e Instagram">
+    <section class="youtube" id="youtube" aria-label="Conteúdos da Paula no YouTube">
       <div class="container">
-        <div class="social-slider" id="socialSlider">
-          <div class="social-slide social-slide-youtube is-active" data-social-panel="youtube" aria-hidden="false">
-
         <div class="youtube-topline reveal">
           <div class="youtube-identity">
             <span class="youtube-mark" aria-hidden="true">
@@ -3672,71 +3426,34 @@
           <a class="youtube-bottom-link" href="https://www.youtube.com/@prof.paulaborch8774" target="_blank" rel="noopener">Acessar o canal no YouTube <span aria-hidden="true">↗</span></a>
         </div>
 
-          </div>
+          
+      </div>
+    </section>
 
-          <div class="social-slide social-slide-instagram" data-social-panel="instagram" aria-hidden="true" inert>
-            <div class="instagram-slide-topline">
-              <div class="instagram-identity">
-                <span class="instagram-mark" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.6" cy="6.7" r=".85" fill="currentColor" stroke="none"/></svg>
-                </span>
-                <span><small>Instagram · perfil profissional</small><strong>@professorapaulaborch</strong></span>
-              </div>
-              <a class="instagram-profile-link" href="https://www.instagram.com/professorapaulaborch/" target="_blank" rel="noopener">Visitar o perfil <span aria-hidden="true">↗</span></a>
-            </div>
 
-            <div class="instagram-feature-layout">
-              <div class="instagram-feature-copy">
-                <div class="instagram-kicker"><span></span> Além do atendimento</div>
-                <h2>Aprendizagem em pauta, <em>todos os dias.</em></h2>
-                <p>Um espaço para acompanhar reflexões, orientações e conversas sobre desenvolvimento, educação e os diferentes caminhos de aprender.</p>
-                <a class="instagram-follow" href="https://www.instagram.com/professorapaulaborch/" target="_blank" rel="noopener">Explorar publicações <span aria-hidden="true">↗</span></a>
-                <div class="instagram-signature"><span></span> @professorapaulaborch</div>
-              </div>
 
-              <div class="instagram-topics" aria-label="Temas que fazem parte do trabalho da Paula">
-                <div class="instagram-topics-heading"><span>Um olhar sobre</span><span>Conteúdos e reflexões</span></div>
-                <div class="instagram-topic-grid">
-                  <article class="instagram-topic-card instagram-topic-card--learning">
-                    <div class="instagram-topic-meta"><span>01</span><span>Aprendizagem</span></div>
-                    <div class="instagram-topic-symbol" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"><circle cx="21" cy="20" r="11"/><path d="m29 28 10 10M16 20h10M21 15v10"/></svg></div>
-                    <h3>Compreender antes de orientar.</h3>
-                    <p>O processo de aprender começa com escuta, observação e investigação.</p>
-                    <span class="instagram-topic-footer">Olhar individualizado <i>↗</i></span>
-                  </article>
-                  <article class="instagram-topic-card instagram-topic-card--literacy">
-                    <div class="instagram-topic-meta"><span>02</span><span>Leitura e escrita</span></div>
-                    <div class="instagram-topic-symbol" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12c7-3 13-2 16 2v25c-4-4-10-5-16-2zM40 12c-7-3-13-2-16 2v25c4-4 10-5 16-2z"/><path d="M13 19h6M13 25h6M29 19h6M29 25h6"/></svg></div>
-                    <h3>Cada descoberta abre um caminho.</h3>
-                    <p>Leitura e escrita se constroem em etapas, com significado e experiência.</p>
-                    <span class="instagram-topic-footer">Alfabetização e letramento <i>↗</i></span>
-                  </article>
-                  <article class="instagram-topic-card instagram-topic-card--family">
-                    <div class="instagram-topic-meta"><span>03</span><span>Família</span></div>
-                    <div class="instagram-topic-symbol" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="16" r="6"/><circle cx="32" cy="19" r="5"/><path d="M6 39c1-8 5-12 12-12s11 4 12 12M29 30c6-1 10 2 12 9"/></svg></div>
-                    <h3>A família também faz parte.</h3>
-                    <p>Diálogo e parceria ajudam a sustentar o percurso de aprendizagem.</p>
-                    <span class="instagram-topic-footer">Orientação às famílias <i>↗</i></span>
-                  </article>
-                </div>
-                <p class="instagram-topics-note">Conheça esses e outros assuntos diretamente no perfil da Paula.</p>
-              </div>
-            </div>
-          </div>
+    <section class="instagram-follow" id="instagram" aria-labelledby="instagram-follow-title">
+      <div class="container instagram-follow-inner">
+        <div class="instagram-follow-copy reveal">
+          <div class="instagram-follow-eyebrow">Continue acompanhando</div>
+          <h2 class="instagram-follow-title" id="instagram-follow-title">Acompanhe meu trabalho também pelo <em>Instagram.</em></h2>
+          <p>Um espaço para seguir de perto conteúdos, reflexões e novidades sobre educação, desenvolvimento e aprendizagem.</p>
         </div>
-
-        <div class="social-slider-nav" aria-label="Alternar entre YouTube e Instagram">
-          <div class="social-slider-tabs">
-            <button class="social-slide-tab is-active" type="button" data-social-slide="0" aria-pressed="true" aria-controls="socialSlider"><span>01</span> YouTube</button>
-            <button class="social-slide-tab" type="button" data-social-slide="1" aria-pressed="false" aria-controls="socialSlider"><span>02</span> Instagram</button>
-          </div>
-          <div class="social-slider-timer" aria-hidden="true">
-            <span>Alternância automática</span>
-            <div class="social-progress-track"><i class="social-progress-fill"></i></div>
-            <small>07 s</small>
-          </div>
-        </div>
-        <span class="social-slider-announcer" id="socialSliderAnnouncer" aria-live="polite"></span>
+        <a class="instagram-follow-card reveal delay-1" href="https://www.instagram.com/professorapaulaborch/" target="_blank" rel="noopener noreferrer" aria-label="Acompanhar Paula Borch no Instagram">
+          <span class="instagram-follow-avatar" aria-label="Foto de perfil do Instagram de Paula Borch">
+            <img class="instagram-profile-image" src="https://unavatar.io/instagram/professorapaulaborch" alt="Foto de perfil de Paula Borch no Instagram" loading="lazy" referrerpolicy="no-referrer">
+            <span class="instagram-avatar-fallback" aria-hidden="true">
+              <svg viewBox="0 0 32 32"><rect x="4.5" y="4.5" width="23" height="23" rx="6.5"/><circle cx="16" cy="16" r="5.3"/><circle cx="23.3" cy="8.9" r="1.2" fill="currentColor" stroke="none"/></svg>
+            </span>
+          </span>
+          <span class="instagram-follow-card-copy">
+            <small>Instagram · perfil profissional</small>
+            <strong class="instagram-follow-handle">@professorapaulaborch</strong>
+            <span>Acesse o perfil e acompanhe as publicações</span>
+            <span class="instagram-photo-credit">Foto de perfil via <span>unavatar</span></span>
+          </span>
+          <span class="instagram-follow-arrow" aria-hidden="true">↗</span>
+        </a>
       </div>
     </section>
 
@@ -3747,7 +3464,6 @@
             <div class="contact-eyebrow"><span></span> Contato</div>
             <h2 class="contact-title" id="contact-title">Antes de qualquer resposta, existe <em>uma conversa.</em></h2>
             <p class="contact-description">Conte o que motivou sua busca. Sua mensagem abre uma conversa com Paula pelo WhatsApp para iniciar o diálogo com a família.</p>
-            <a class="contact-social" href="https://www.instagram.com/professorapaulaborch/" target="_blank" rel="noopener">Instagram <span>@professorapaulaborch</span> <span aria-hidden="true">↗</span></a>
             <div class="contact-signature" aria-hidden="true"><span></span><span></span><span></span></div>
           </div>
           <form class="contact-form reveal delay-1" id="contactForm">
@@ -3772,7 +3488,7 @@
       <div class="footer-top">
         <div><a href="#inicio" class="footer-brand" aria-label="Voltar ao início"><img src="https://i.imgur.com/oInPRcd.png" alt="Logomarca" loading="lazy"></a><p class="footer-desc">Psicopedagogia com escuta, olhar individualizado e respeito às diferentes formas de aprender.</p></div>
         <div><div class="footer-heading">Navegação</div><div class="footer-links"><a href="#sobre">Sobre</a><a href="#quando-procurar">Quando procurar</a><a href="#atuacao">Serviços</a><a href="#processo">Como funciona</a><a href="#youtube">Conteúdos</a></div></div>
-        <div><div class="footer-heading">Contato</div><div class="footer-links"><a href="https://www.instagram.com/professorapaulaborch/" target="_blank" rel="noopener">Instagram · @professorapaulaborch</a><a href="https://www.youtube.com/@prof.paulaborch8774" target="_blank" rel="noopener">Canal no YouTube</a><a href="https://wa.me/5543920036581" target="_blank" rel="noopener">WhatsApp</a><a href="mailto:contato@paulaborch.com.br">contato@paulaborch.com.br</a></div></div>
+        <div><div class="footer-heading">Contato</div><div class="footer-links"><a href="https://www.youtube.com/@prof.paulaborch8774" target="_blank" rel="noopener">Canal no YouTube</a><a href="https://www.instagram.com/professorapaulaborch/" target="_blank" rel="noopener noreferrer">Instagram · @professorapaulaborch</a><a href="https://wa.me/5543920036581" target="_blank" rel="noopener">WhatsApp</a><a href="mailto:contato@paulaborch.com.br">contato@paulaborch.com.br</a></div></div>
       </div>
       <div class="footer-bottom"><span>© <span id="year"></span> Psicopedagogia. Todos os direitos reservados.</span><span>Educação · Desenvolvimento · Aprendizagem</span></div>
     </div>
@@ -3845,100 +3561,14 @@
       }
       document.getElementById('year').textContent = new Date().getFullYear();
 
-      // Carrossel de conteúdos: YouTube e Instagram alternam a cada 7 segundos.
-      const socialSection = document.getElementById('youtube');
-      const socialSlider = document.getElementById('socialSlider');
-      if (socialSection && socialSlider) {
-        const socialSlides = Array.from(socialSlider.querySelectorAll('[data-social-panel]'));
-        const socialTabs = Array.from(document.querySelectorAll('[data-social-slide]'));
-        const socialProgress = document.querySelector('.social-progress-fill');
-        const socialAnnouncer = document.getElementById('socialSliderAnnouncer');
-        const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        const rotationDelay = 7000;
-        let activeSocialSlide = 0;
-        let rotationTimer = null;
-        let socialSectionVisible = false;
-
-        const pauseYoutubePlayers = () => {
-          socialSlider.querySelectorAll('.social-slide-youtube iframe').forEach(frame => {
-            try {
-              frame.contentWindow.postMessage(JSON.stringify({event: 'command', func: 'pauseVideo', args: []}), '*');
-            } catch (_) { /* O navegador pode bloquear a mensagem antes do player carregar. */ }
-          });
-        };
-
-
-        const restartProgress = () => {
-          if (!socialProgress) return;
-          socialProgress.classList.remove('is-running');
-          void socialProgress.offsetWidth;
-          if (socialSectionVisible && !reduceMotion) socialProgress.classList.add('is-running');
-        };
-
-        const showSocialSlide = (nextIndex) => {
-          const next = (nextIndex + socialSlides.length) % socialSlides.length;
-          if (next === activeSocialSlide) {
-            restartProgress();
-            return;
-          }
-          const previous = activeSocialSlide;
-          activeSocialSlide = next;
-          socialSlides.forEach((slide, index) => {
-            const active = index === activeSocialSlide;
-            slide.classList.toggle('is-active', active);
-            slide.setAttribute('aria-hidden', String(!active));
-            slide.inert = !active;
-          });
-          socialTabs.forEach((tab, index) => {
-            const active = index === activeSocialSlide;
-            tab.classList.toggle('is-active', active);
-            tab.setAttribute('aria-pressed', String(active));
-          });
-          if (previous === 1 && next === 0) pauseYoutubePlayers();
-          if (socialAnnouncer) socialAnnouncer.textContent = next === 0 ? 'Exibindo conteúdos do YouTube.' : 'Exibindo publicações do Instagram.';
-          restartProgress();
-        };
-
-        const stopRotation = () => {
-          if (rotationTimer) window.clearTimeout(rotationTimer);
-          rotationTimer = null;
-          if (socialProgress) socialProgress.classList.remove('is-running');
-        };
-        const scheduleRotation = () => {
-          stopRotation();
-          if (!socialSectionVisible || reduceMotion || document.hidden) return;
-          if (socialProgress) socialProgress.classList.add('is-running');
-          rotationTimer = window.setTimeout(() => {
-            showSocialSlide((activeSocialSlide + 1) % socialSlides.length);
-            scheduleRotation();
-          }, rotationDelay);
-        };
-
-        socialTabs.forEach((tab, index) => tab.addEventListener('click', () => {
-          showSocialSlide(index);
-          scheduleRotation();
-        }));
-
-        document.addEventListener('visibilitychange', () => {
-          if (document.hidden) stopRotation();
-          else scheduleRotation();
-        });
-
-        if ('IntersectionObserver' in window) {
-          const socialObserver = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-              socialSectionVisible = entry.isIntersecting && entry.intersectionRatio >= 0.12;
-              if (socialSectionVisible) scheduleRotation();
-              else stopRotation();
-            });
-          }, { threshold: [0, 0.12, 0.5] });
-          socialObserver.observe(socialSection);
-        } else {
-          socialSectionVisible = true;
-          scheduleRotation();
-        }
+      const instagramAvatar = document.querySelector('.instagram-profile-image');
+      const instagramAvatarWrap = document.querySelector('.instagram-follow-avatar');
+      if (instagramAvatar && instagramAvatarWrap) {
+        const showInstagramAvatar = () => instagramAvatarWrap.classList.add('has-image');
+        instagramAvatar.addEventListener('load', showInstagramAvatar, { once: true });
+        instagramAvatar.addEventListener('error', () => instagramAvatarWrap.classList.remove('has-image'), { once: true });
+        if (instagramAvatar.complete && instagramAvatar.naturalWidth > 0) showInstagramAvatar();
       }
-
 
       const form = document.getElementById('contactForm');
       form.addEventListener('submit', event => {
