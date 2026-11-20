@@ -3443,6 +3443,389 @@
       .hero-button { min-height: 36px !important; }
     }
 
+
+/* RESPONSIVIDADE REFEITA — ajustes finais para celulares e tablets */
+@media (min-width: 761px) and (max-width: 1024px) {
+  .container { width: calc(100% - 52px) !important; }
+  .about-layout, .special-layout { grid-template-columns: minmax(220px,.82fr) minmax(0,1.18fr) !important; gap: 28px !important; }
+  .about-photo { height: 440px !important; }
+  .about-credentials { grid-template-columns: repeat(2,minmax(0,1fr)) !important; gap: 20px 16px !important; }
+  .about-credential { padding: 0 !important; border: 0 !important; }
+  .services-heading { grid-template-columns: 1fr 1fr !important; gap: 16px 28px !important; }
+  .service-line, .service-line:hover { grid-template-columns: 34px minmax(150px,.86fr) minmax(0,1.14fr) !important; gap: 16px !important; }
+  .process .process-timeline { grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
+  .process-overview-copy { width: min(70%,650px) !important; min-height: 250px !important; }
+  .youtube-feature-layout { grid-template-columns: minmax(0,.85fr) minmax(0,1.15fr) !important; gap: 30px !important; }
+  .youtube-related { grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
+  .youtube-related-item:last-child { grid-column: 1 / -1 !important; max-width: calc(50% - 11px) !important; }
+  .contact-panel { grid-template-columns: minmax(0,.85fr) minmax(0,1.15fr) !important; }
+}
+
+@media (max-width: 760px) {
+  html { scroll-padding-top: 82px !important; }
+  body { overflow-x: hidden !important; }
+  .container { width: calc(100% - 36px) !important; max-width: 560px !important; }
+  .header { height: 78px !important; }
+  .header.compact { height: 72px !important; }
+  .nav { gap: 12px !important; }
+  .brand img { width: 62px !important; height: 62px !important; }
+  .mobile-toggle { flex: 0 0 44px; width: 44px !important; height: 44px !important; }
+  .menu {
+    top: calc(100% + 7px) !important;
+    left: 13px !important;
+    right: 13px !important;
+    gap: 0 !important;
+    padding: 10px 18px !important;
+    border: 1px solid rgba(64,95,112,.12);
+    border-radius: 4px;
+  }
+  .menu li { width: 100%; }
+  .menu a {
+    display: block;
+    width: 100%;
+    padding: 13px 2px;
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+    letter-spacing: .55px !important;
+    white-space: normal !important;
+    border-bottom: 1px solid rgba(64,95,112,.10);
+  }
+  .menu li:last-child a { border-bottom: 0; }
+  .menu .menu-contact { margin-top: 8px; padding: 12px 16px !important; border: 1px solid var(--purple) !important; }
+
+  /* Primeira tela: retrato vertical, foco puxado para a esquerda para mostrar o rosto inteiro. */
+  .hero {
+    width: 100% !important;
+    height: 100vh !important;
+    height: 100svh !important;
+    min-height: 100svh !important;
+    max-height: none !important;
+    overflow: hidden !important;
+    background: #17171b !important;
+  }
+  .hero-backdrop {
+    display: block !important;
+    inset: -24px !important;
+    width: calc(100% + 48px) !important;
+    height: calc(100% + 48px) !important;
+    object-fit: cover !important;
+    object-position: 8% 24% !important;
+    filter: blur(24px) brightness(.40) saturate(.78) !important;
+  }
+  .hero-photo {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    justify-content: center !important;
+    align-items: stretch !important;
+    overflow: hidden !important;
+    background: transparent !important;
+  }
+  .hero-photo img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 100% !important;
+    min-height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: cover !important;
+    object-position: 0% 26% !important;
+    transform: none !important;
+    filter: brightness(.98) contrast(1.03) saturate(.94) !important;
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+  }
+  .hero-shade {
+    inset: 0 !important;
+    background:
+      radial-gradient(ellipse 72% 48% at 23% 28%, rgba(255,255,255,.075), transparent 75%),
+      linear-gradient(180deg,
+        rgba(10,11,14,.03) 0%,
+        rgba(10,11,14,.04) 38%,
+        rgba(10,11,14,.25) 54%,
+        rgba(10,11,14,.72) 78%,
+        rgba(10,11,14,.92) 100%) !important;
+  }
+  .hero-content {
+    inset: auto 17px 18px !important;
+    width: auto !important;
+    height: auto !important;
+    max-height: none !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: flex-start !important;
+    overflow: visible !important;
+  }
+  .hero-copy {
+    width: 100% !important;
+    max-width: 560px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    transform: none !important;
+  }
+  .hero-brand { margin: 0 0 1px !important; gap: 0 !important; }
+  .hero-brand img {
+    width: clamp(132px,39vw,158px) !important;
+    height: auto !important;
+    max-width: 68vw !important;
+    max-height: 130px !important;
+    object-fit: contain !important;
+    object-position: left center !important;
+  }
+  .hero-kicker { margin: 3px 0 8px !important; font-size: 8px !important; letter-spacing: 1.25px !important; }
+  .hero h1 { max-width: 560px; font-size: clamp(27px,7.2vw,34px) !important; line-height: 1.04 !important; letter-spacing: -.05em !important; }
+  .hero h1 em { margin-top: 5px !important; font-size: .47em !important; line-height: 1.25 !important; letter-spacing: .11em !important; }
+  .hero-description { max-width: 540px !important; margin: 9px 0 0 !important; font-size: 11.5px !important; line-height: 1.52 !important; color: rgba(255,255,255,.94) !important; }
+  .hero-actions { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 8px !important; margin-top: 12px !important; }
+  .hero-button { width: 100% !important; min-height: 44px !important; padding: 7px 9px !important; font-size: 7.5px !important; line-height: 1.35 !important; letter-spacing: .45px !important; }
+  .hero-scroll { display: none !important; }
+  .hero-index { left: 15px !important; top: 14px !important; bottom: auto !important; }
+
+  /* Ritmo e largura das seções. */
+  .section { padding: 64px 0 !important; }
+  .special, .youtube, .instagram-follow, .contact { padding: 64px 0 !important; }
+  .section-title { font-size: clamp(32px,8.3vw,43px) !important; line-height: 1.08 !important; letter-spacing: -.055em !important; }
+  .section-label { margin-bottom: 12px !important; font-size: 9px !important; letter-spacing: 1.7px !important; }
+  .section-text { font-size: 13px !important; line-height: 1.8 !important; }
+
+  /* Sobre: foto primeiro, depois biografia e indicadores em duas colunas. */
+  .about-layout {
+    display: grid !important;
+    grid-template-columns: minmax(0,1fr) !important;
+    gap: 23px !important;
+    align-items: start !important;
+  }
+  .about-photo {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: 470px !important;
+    aspect-ratio: 4 / 5 !important;
+    margin: 0 !important;
+  }
+  .about-photo img { object-fit: cover !important; object-position: center 18% !important; }
+  .about-copy { width: 100% !important; max-width: none !important; }
+  .about-copy .section-title { margin-bottom: 16px !important; font-size: clamp(32px,8.2vw,42px) !important; }
+  .about-copy p { font-size: 13px !important; line-height: 1.8 !important; }
+  .about-copy p + p { margin-top: 11px !important; }
+  .about-credentials {
+    display: grid !important;
+    grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+    gap: 18px 14px !important;
+    margin-top: 24px !important;
+    padding-top: 20px !important;
+  }
+  .about-credential, .about-credential:first-child, .about-credential:last-child {
+    min-width: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+  }
+  .credential-icon { width: 25px !important; height: 25px !important; margin-bottom: 7px !important; }
+  .credential-icon svg { width: 24px !important; height: 24px !important; }
+  .about-credential strong { font-size: 23px !important; }
+  .about-credential > span { max-width: 155px !important; margin-top: 5px !important; font-size: 8px !important; line-height: 1.45 !important; }
+
+  /* Quando procurar: uma coluna, leitura contínua e sem itens espremidos. */
+  .when-intro { grid-template-columns: 1fr !important; gap: 13px !important; margin-bottom: 25px !important; }
+  .when-intro-copy { max-width: none !important; }
+  .signals-layout { display: block !important; padding-top: 19px !important; }
+  .signals-heading { margin-bottom: 9px !important; }
+  .signals-list { display: grid !important; grid-template-columns: 1fr !important; gap: 0 !important; }
+  .signals-list li { grid-template-columns: 28px minmax(0,1fr) !important; gap: 10px !important; min-height: 0 !important; padding: 13px 0 !important; }
+  .signals-list li span { font-size: 11px !important; }
+  .signals-list li p { max-width: none !important; font-size: 13px !important; line-height: 1.65 !important; }
+  .when-quote { margin: 23px 0 0 !important; padding: 0 0 0 16px !important; font-size: clamp(17px,4.7vw,21px) !important; line-height: 1.5 !important; }
+
+  /* Serviços: cada item vira uma unidade vertical fácil de ler. */
+  .services-heading { display: grid !important; grid-template-columns: 1fr !important; gap: 9px !important; margin-bottom: 25px !important; }
+  .services-heading .section-label { grid-column: auto !important; }
+  .services-heading .section-title, .services-heading .section-text { max-width: none !important; margin: 0 !important; }
+  .service-list { border-top: 1px solid rgba(64,95,112,.18) !important; }
+  .service-line, .service-line:hover {
+    display: grid !important;
+    grid-template-columns: 30px minmax(0,1fr) !important;
+    gap: 7px 12px !important;
+    align-items: start !important;
+    padding: 20px 0 !important;
+    background: transparent !important;
+  }
+  .service-index { grid-column: 1 !important; grid-row: 1 / span 2 !important; padding-top: 3px !important; font-size: 10px !important; }
+  .service-copy { display: contents !important; }
+  .service-copy h3 { grid-column: 2 !important; grid-row: 1 !important; font-size: 17px !important; line-height: 1.32 !important; }
+  .service-copy p { grid-column: 2 !important; grid-row: 2 !important; max-width: none !important; margin: 0 !important; font-size: 12.5px !important; line-height: 1.75 !important; }
+
+  /* Acompanhamento: imagem no topo, conteúdo e etapas abaixo em fluxo vertical. */
+  .process {
+    padding: 246px 0 62px !important;
+    background-color: #F7F3EE !important;
+    background-image:
+      linear-gradient(180deg, rgba(247,243,238,0) 0%, rgba(247,243,238,.12) 42%, rgba(247,243,238,.66) 78%, #F7F3EE 100%),
+      url("https://i.imgur.com/X2zobna.png") !important;
+    background-size: 100% 270px, cover !important;
+    background-position: center top, 68% top !important;
+    background-repeat: no-repeat !important;
+  }
+  .process > .container { width: calc(100% - 36px) !important; }
+  .process-overview { display: block !important; margin: 0 0 22px !important; }
+  .process-overview-copy {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+  }
+  .process .section-label { color: var(--purple-dark) !important; }
+  .process .section-title { max-width: none !important; color: var(--blue) !important; font-size: clamp(32px,8.2vw,42px) !important; }
+  .process .section-title em { color: var(--purple) !important; }
+  .process .section-text { max-width: none !important; margin-top: 12px !important; color: #6F6870 !important; font-size: 13px !important; }
+  .process .process-timeline { display: grid !important; grid-template-columns: 1fr !important; gap: 11px !important; margin: 0 !important; }
+  .process .process-stage, .process .process-stage:not(:first-child) {
+    display: grid !important;
+    grid-template-columns: 34px minmax(0,1fr) !important;
+    grid-template-rows: auto auto !important;
+    gap: 0 13px !important;
+    min-height: 0 !important;
+    padding: 17px 16px 18px !important;
+    border: 1px solid rgba(64,95,112,.13) !important;
+    border-radius: 3px !important;
+    background: rgba(255,255,255,.91) !important;
+    box-shadow: 0 8px 23px rgba(48,45,50,.05) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    transform: none !important;
+  }
+  .process .process-number { grid-column: 1 !important; grid-row: 1 / span 2 !important; width: 30px !important; height: 30px !important; }
+  .process .process-stage > div { grid-column: 2 !important; grid-row: 1 / span 2 !important; }
+  .process .process-stage h3 { margin: 0 0 6px !important; font-size: 16px !important; line-height: 1.3 !important; }
+  .process .process-stage p { max-width: none !important; font-size: 12px !important; line-height: 1.65 !important; color: #716C70 !important; }
+  .process .process-stage::after { display: none !important; }
+
+  /* YouTube: vídeo principal em largura total e demais vídeos em cartões fluidos. */
+  .youtube { padding: 64px 0 60px !important; }
+  .youtube-topline { align-items: flex-start !important; flex-direction: column !important; gap: 15px !important; margin-bottom: 27px !important; padding-bottom: 16px !important; }
+  .youtube-identity { gap: 10px !important; }
+  .youtube-feature-layout { display: grid !important; grid-template-columns: 1fr !important; gap: 20px !important; }
+  .youtube-feature-copy { order: 0 !important; max-width: none !important; }
+  .youtube-feature-copy h2 { max-width: none !important; font-size: clamp(35px,9vw,47px) !important; }
+  .youtube-feature-copy p { font-size: 13px !important; line-height: 1.75 !important; }
+  .youtube-feature { order: 1 !important; width: 100% !important; min-height: 0 !important; aspect-ratio: 16 / 9 !important; }
+  .youtube-feature iframe { position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important; }
+  .youtube-related-heading { margin-top: 34px !important; }
+  .youtube-related-heading h3 { font-size: 19px !important; }
+  .youtube-related { grid-template-columns: repeat(2,minmax(0,1fr)) !important; gap: 19px 12px !important; margin-top: 14px !important; }
+  .youtube-related-item { min-width: 0 !important; max-width: none !important; }
+  .youtube-related-player { width: 100% !important; aspect-ratio: 16 / 9 !important; }
+  .youtube-related-item h4 { margin-top: 8px !important; font-size: 11px !important; line-height: 1.4 !important; }
+  .youtube-bottom { margin-top: 23px !important; padding-top: 16px !important; }
+  .youtube-bottom-link { font-size: 9px !important; }
+
+  /* Instagram e contato: largura total, foto vertical e formulário confortável. */
+  .instagram-follow { padding: 64px 0 !important; }
+  .instagram-follow-inner { display: grid !important; grid-template-columns: 1fr !important; gap: 25px !important; text-align: center !important; }
+  .instagram-follow-portrait { width: 100% !important; }
+  .instagram-follow-avatar { width: min(100%,300px) !important; aspect-ratio: 4 / 5 !important; padding: 5px !important; }
+  .instagram-profile-image { object-fit: cover !important; object-position: center 20% !important; }
+  .instagram-portrait-caption { margin-top: 14px !important; font-size: 8px !important; }
+  .instagram-follow-copy { width: 100% !important; max-width: none !important; }
+  .instagram-follow-title { font-size: clamp(34px,8.7vw,45px) !important; }
+  .instagram-follow-copy-text { margin: 14px auto 0 !important; font-size: 13px !important; line-height: 1.75 !important; }
+  .instagram-follow-actions { justify-content: center !important; gap: 14px !important; margin-top: 20px !important; }
+  .instagram-follow-handle { font-size: 13px !important; }
+  .instagram-follow-button { width: 100% !important; max-width: 280px !important; min-height: 47px !important; font-size: 9px !important; }
+  .contact { padding: 62px 0 !important; }
+  .contact-panel { display: grid !important; grid-template-columns: minmax(0,1fr) !important; border-radius: 3px !important; }
+  .contact-message { min-height: 0 !important; padding: 34px 24px 52px !important; }
+  .contact-title { max-width: none !important; font-size: clamp(35px,9vw,47px) !important; line-height: 1.05 !important; }
+  .contact-description { max-width: none !important; margin-top: 15px !important; font-size: 13px !important; line-height: 1.75 !important; }
+  .contact-form { padding: 28px 20px !important; }
+  .form-intro { font-size: 20px !important; margin-bottom: 19px !important; }
+  .contact-form .form-grid { display: grid !important; grid-template-columns: 1fr !important; gap: 14px !important; }
+  .contact-form .form-group, .contact-form .form-group.full { grid-column: auto !important; min-width: 0 !important; }
+  .contact-form .form-group label { font-size: 9px !important; }
+  .contact-form .form-group input,
+  .contact-form .form-group textarea,
+  .contact-form .form-group select { width: 100% !important; min-height: 48px !important; font-size: 16px !important; }
+  .contact-form .form-group textarea { min-height: 110px !important; }
+  .contact-form .form-footer { display: flex !important; flex-direction: column !important; align-items: stretch !important; gap: 13px !important; }
+  .contact-form .form-note { font-size: 10px !important; }
+  .contact-form .button { width: 100% !important; min-height: 48px !important; justify-content: center !important; }
+
+  /* Rodapé reorganizado em coluna, sem colunas estreitas. */
+  footer { padding: 42px 0 22px !important; }
+  .footer-top { display: grid !important; grid-template-columns: 1fr !important; gap: 25px !important; padding-bottom: 25px !important; }
+  .footer-brand img { width: 92px !important; height: 92px !important; }
+  .footer-desc { max-width: 330px !important; font-size: 11px !important; }
+  .footer-heading { margin-bottom: 10px !important; font-size: 9px !important; }
+  .footer-links { gap: 10px !important; font-size: 12px !important; }
+  .footer-bottom { display: flex !important; flex-direction: column !important; align-items: flex-start !important; gap: 8px !important; font-size: 9px !important; line-height: 1.5 !important; }
+  .whatsapp-float { width: 49px !important; height: 49px !important; right: 14px !important; bottom: 14px !important; }
+}
+
+@media (max-width: 480px) {
+  .container { width: calc(100% - 32px) !important; }
+  .section, .special, .youtube, .instagram-follow { padding-block: 58px !important; }
+  .hero-content { inset-inline: 15px !important; bottom: 15px !important; }
+  .hero-brand img { width: clamp(122px,36vw,145px) !important; max-height: 118px !important; }
+  .hero h1 { font-size: clamp(25px,7.4vw,30px) !important; }
+  .hero-description { font-size: 10.5px !important; line-height: 1.48 !important; }
+  .hero-actions { grid-template-columns: 1fr !important; gap: 7px !important; margin-top: 10px !important; }
+  .hero-button { min-height: 39px !important; font-size: 7.3px !important; }
+  .about-photo { max-height: 430px !important; }
+  .about-credentials { gap: 16px 10px !important; }
+  .signals-list li p { font-size: 12.5px !important; }
+  .process { padding-top: 225px !important; background-size: 100% 245px, cover !important; }
+  .process .process-stage, .process .process-stage:not(:first-child) { padding: 15px 14px 16px !important; }
+  .youtube-related { grid-template-columns: 1fr !important; gap: 19px !important; }
+  .youtube-related-item:last-child { grid-column: auto !important; max-width: none !important; }
+  .instagram-follow-avatar { width: min(100%,280px) !important; }
+  .contact-message { padding: 31px 21px 48px !important; }
+  .contact-form { padding: 25px 17px !important; }
+  .footer-brand img { width: 86px !important; height: 86px !important; }
+}
+
+@media (max-height: 720px) and (max-width: 760px) {
+  .hero { height: 100svh !important; min-height: 100svh !important; }
+  .hero-content { bottom: 12px !important; }
+  .hero-brand img { width: 118px !important; max-height: 105px !important; }
+  .hero-kicker { margin: 2px 0 6px !important; font-size: 7px !important; }
+  .hero h1 { font-size: 24px !important; }
+  .hero-description { margin-top: 6px !important; font-size: 9.5px !important; line-height: 1.42 !important; }
+  .hero-actions { margin-top: 8px !important; }
+  .hero-button { min-height: 36px !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-photo img, .about-photo img, .instagram-profile-image { transition: none !important; }
+}
+
+/* Em telas pequenas, animações entram apenas no eixo vertical para não criar rolagem lateral. */
+@media (max-width: 760px) {
+  .about-photo.reveal,
+  .process-photo.reveal,
+  .contact-message.reveal,
+  .about-copy.reveal,
+  .process-overview-copy.reveal,
+  .contact-form.reveal {
+    transform: translate3d(0,18px,0) !important;
+  }
+  .about-photo.reveal.visible,
+  .process-photo.reveal.visible,
+  .contact-message.reveal.visible,
+  .about-copy.reveal.visible,
+  .process-overview-copy.reveal.visible,
+  .contact-form.reveal.visible {
+    transform: translate3d(0,0,0) !important;
+  }
+}
+
 </style>
 </head>
 <body>
