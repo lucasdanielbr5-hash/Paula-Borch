@@ -1871,6 +1871,154 @@
       .about-credentials { margin-top: 24px; }
     }
 
+  
+
+    /* REFINO DE IDENTIDADE — logomarca maior e animações suaves */
+    .brand img {
+      width: 76px;
+      height: 76px;
+      transition: transform .35s cubic-bezier(.2,.7,.2,1);
+    }
+    .brand:hover img { transform: scale(1.045); }
+
+    .hero-brand { gap: 17px; }
+    .hero-brand img {
+      width: 116px;
+      height: 104px;
+      object-fit: contain;
+      transform-origin: left center;
+      animation: logoArrive .85s cubic-bezier(.2,.7,.2,1) both;
+    }
+    .hero-brand > div { animation: heroTextArrive .78s .12s cubic-bezier(.2,.7,.2,1) both; }
+    .hero-copy > .hero-kicker,
+    .hero-copy > h1,
+    .hero-copy > .hero-description,
+    .hero-copy > .hero-actions {
+      animation: heroTextArrive .78s cubic-bezier(.2,.7,.2,1) both;
+    }
+    .hero-copy > .hero-kicker { animation-delay: .18s; }
+    .hero-copy > h1 { animation-delay: .27s; }
+    .hero-copy > .hero-description { animation-delay: .36s; }
+    .hero-copy > .hero-actions { animation-delay: .45s; }
+
+    .footer-brand img {
+      width: 76px;
+      height: 76px;
+      transition: transform .35s cubic-bezier(.2,.7,.2,1);
+    }
+    .footer-brand:hover img { transform: scale(1.045); }
+
+    /* Entrada por rolagem: cada conteúdo aparece uma única vez, sem efeitos excessivos. */
+    .reveal {
+      opacity: 0;
+      filter: blur(7px);
+      transform: translate3d(0,27px,0);
+      transition:
+        opacity .78s ease,
+        filter .82s ease,
+        transform .86s cubic-bezier(.2,.72,.22,1);
+      will-change: opacity, transform, filter;
+    }
+    .reveal.visible {
+      opacity: 1;
+      filter: blur(0);
+      transform: translate3d(0,0,0);
+      will-change: auto;
+    }
+    .about-photo.reveal,
+    .process-photo.reveal,
+    .contact-message.reveal { transform: translate3d(-30px,15px,0); }
+    .about-copy.reveal,
+    .process-overview-copy.reveal,
+    .contact-form.reveal { transform: translate3d(30px,15px,0); }
+    .about-photo.reveal.visible,
+    .process-photo.reveal.visible,
+    .contact-message.reveal.visible,
+    .about-copy.reveal.visible,
+    .process-overview-copy.reveal.visible,
+    .contact-form.reveal.visible { transform: translate3d(0,0,0); }
+    .delay-1 { transition-delay: .10s; }
+    .delay-2 { transition-delay: .20s; }
+    .delay-3 { transition-delay: .30s; }
+
+    /* Pequenos movimentos de interação mantêm a navegação viva sem poluir o layout. */
+    .service-line {
+      transition: padding .32s cubic-bezier(.2,.7,.2,1), background .32s ease;
+    }
+    .service-line:hover { background: rgba(255,255,255,.42); }
+    .service-mark { transition: transform .32s cubic-bezier(.2,.7,.2,1); }
+    .service-line:hover .service-mark { transform: translateY(-3px) scale(1.04); }
+    .process-stage {
+      transition: transform .32s cubic-bezier(.2,.7,.2,1), background .32s ease;
+    }
+    .process-stage:hover { transform: translateY(-4px); }
+    .about-photo img,
+    .special-photo img {
+      transition: transform .8s cubic-bezier(.2,.7,.2,1);
+    }
+    .about-photo:hover img,
+    .special-photo:hover img { transform: scale(1.025); }
+    .youtube-related-player,
+    .youtube-feature {
+      transition: transform .38s cubic-bezier(.2,.7,.2,1), box-shadow .38s ease;
+    }
+    .youtube-related-item:hover .youtube-related-player,
+    .youtube-feature:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 34px rgba(0,0,0,.22);
+    }
+    .button, .hero-button { transition: transform .28s cubic-bezier(.2,.7,.2,1), background .28s ease, border-color .28s ease, box-shadow .28s ease; }
+    .button:hover, .hero-button:hover { box-shadow: 0 9px 22px rgba(37,28,42,.14); }
+    .hero-scroll-mark { animation: scrollNudge 1.8s ease-in-out infinite; }
+    .whatsapp-float { isolation: isolate; }
+    .whatsapp-float::before {
+      content: "";
+      position: absolute;
+      inset: -5px;
+      z-index: -1;
+      border: 1px solid rgba(37,211,102,.48);
+      border-radius: 50%;
+      animation: whatsappPulse 2.8s ease-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes logoArrive {
+      from { opacity: 0; transform: translateY(9px) scale(.94); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    @keyframes heroTextArrive {
+      from { opacity: 0; transform: translateY(13px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes scrollNudge {
+      0%, 100% { transform: translateY(-2px); }
+      50% { transform: translateY(3px); }
+    }
+    @keyframes whatsappPulse {
+      0% { opacity: .6; transform: scale(.88); }
+      75%, 100% { opacity: 0; transform: scale(1.28); }
+    }
+
+    @media (max-width: 760px) {
+      .brand img { width: 58px; height: 58px; }
+      .hero-brand { gap: 12px; }
+      .hero-brand img { width: 76px; height: 68px; }
+      .footer-brand img { width: 68px; height: 68px; }
+    }
+    @media (max-width: 420px) {
+      .hero-brand img { width: 68px; height: 62px; }
+      .hero-brand-name { font-size: 16px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+      .reveal { opacity: 1 !important; filter: none !important; transform: none !important; }
+    }
+
   </style>
 </head>
 <body>
