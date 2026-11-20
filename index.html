@@ -2992,6 +2992,244 @@
       .footer-brand img { width: 84px; height: 84px; }
     }
 
+  
+
+    /* SLIDER SOCIAL — alterna entre a vitrine do YouTube e as publicações do Instagram. */
+    .social-slider {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      align-items: stretch;
+      position: relative;
+    }
+    .social-slide {
+      grid-area: 1 / 1;
+      min-width: 0;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(14px);
+      transition: opacity .65s ease, transform .65s cubic-bezier(.2,.7,.2,1), visibility .65s ease;
+    }
+    .social-slide.is-active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
+      z-index: 1;
+    }
+    .social-slide-instagram {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 780px;
+      padding: 0 0 14px;
+    }
+    .instagram-slide-topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 40px;
+      padding-bottom: 23px;
+      border-bottom: 1px solid rgba(64,95,112,.16);
+    }
+    .instagram-identity { display: flex; align-items: center; gap: 15px; }
+    .instagram-mark {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      color: var(--purple-dark);
+      border: 1px solid rgba(87,68,95,.2);
+      border-radius: 50%;
+      background: rgba(255,255,255,.58);
+    }
+    .instagram-mark svg { width: 22px; height: 22px; }
+    .instagram-identity span:last-child { display: grid; gap: 4px; }
+    .instagram-identity small {
+      color: #77727A;
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+    }
+    .instagram-identity strong {
+      color: var(--blue);
+      font: 700 14px/1.3 Manrope,sans-serif;
+    }
+    .instagram-profile-link,
+    .instagram-follow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 43px;
+      padding: 0 19px;
+      border: 1px solid rgba(87,68,95,.34);
+      color: var(--purple-dark);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: background .25s ease, color .25s ease, transform .25s ease;
+    }
+    .instagram-profile-link:hover,
+    .instagram-follow:hover {
+      background: var(--purple-dark);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    .instagram-feature-layout {
+      display: grid;
+      grid-template-columns: .78fr 1.22fr;
+      gap: clamp(36px,6vw,88px);
+      align-items: center;
+    }
+    .instagram-feature-copy { max-width: 480px; }
+    .instagram-feature-copy h2 {
+      margin: 16px 0 18px;
+      color: var(--blue);
+      font: 400 clamp(38px,4.5vw,62px)/1.04 Manrope,sans-serif;
+      letter-spacing: -.065em;
+    }
+    .instagram-feature-copy h2 em { color: var(--purple); font-style: normal; font-weight: 600; }
+    .instagram-feature-copy > p:not(.instagram-note) {
+      max-width: 430px;
+      margin: 0 0 25px;
+      color: #6E6970;
+      font-size: 12px;
+      line-height: 1.9;
+    }
+    .instagram-follow {
+      background: var(--purple);
+      border-color: var(--purple);
+      color: #fff;
+    }
+    .instagram-follow:hover { background: var(--purple-dark); border-color: var(--purple-dark); }
+    .instagram-note {
+      margin: 18px 0 0;
+      color: #88818A;
+      font-size: 9px;
+      line-height: 1.6;
+    }
+    .instagram-feed-shell {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-width: 0;
+      min-height: 620px;
+      padding: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(64,95,112,.12);
+      border-radius: 3px;
+      background: rgba(255,255,255,.58);
+      box-shadow: 0 18px 48px rgba(52,61,65,.08);
+    }
+    .instagram-feed-shell .instagram-media {
+      flex: 0 1 540px;
+      width: 100% !important;
+      max-width: 540px !important;
+      min-width: 280px !important;
+    }
+    .social-slider-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin-top: 34px;
+      padding-top: 19px;
+      border-top: 1px solid rgba(64,95,112,.16);
+    }
+    .social-slider-tabs { display: flex; align-items: center; gap: 9px; }
+    .social-slide-tab {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      min-height: 38px;
+      padding: 0 12px;
+      border: 1px solid transparent;
+      background: transparent;
+      color: #77727A;
+      cursor: pointer;
+      font: 700 9px/1 "DM Sans",sans-serif;
+      letter-spacing: .9px;
+      text-transform: uppercase;
+      transition: border-color .2s ease, color .2s ease, background .2s ease;
+    }
+    .social-slide-tab span { color: var(--purple); font: 700 9px Manrope,sans-serif; }
+    .social-slide-tab:hover,
+    .social-slide-tab.is-active {
+      border-color: rgba(87,68,95,.24);
+      background: rgba(255,255,255,.55);
+      color: var(--purple-dark);
+    }
+    .social-slider-timer {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #858087;
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .social-progress-track {
+      width: clamp(68px,10vw,130px);
+      height: 2px;
+      overflow: hidden;
+      background: rgba(87,68,95,.16);
+    }
+    .social-progress-fill {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: var(--purple);
+      transform: scaleX(0);
+      transform-origin: left center;
+    }
+    .social-progress-fill.is-running { animation: socialProgress 15s linear forwards; }
+    .social-slider-timer small { color: var(--purple-dark); font-size: 9px; font-weight: 700; }
+    .social-slider-announcer {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+    @keyframes socialProgress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+    @media (max-width: 900px) {
+      .instagram-feature-layout { grid-template-columns: .72fr 1.28fr; gap: 30px; }
+      .instagram-feed-shell { min-height: 580px; padding: 12px; }
+    }
+    @media (max-width: 760px) {
+      .social-slide-instagram { min-height: 0; padding-bottom: 4px; }
+      .instagram-slide-topline { align-items: flex-start; flex-direction: column; margin-bottom: 28px; }
+      .instagram-profile-link { align-self: flex-start; }
+      .instagram-feature-layout { grid-template-columns: 1fr; gap: 24px; }
+      .instagram-feature-copy { max-width: 620px; }
+      .instagram-feature-copy h2 { font-size: clamp(38px,9vw,52px); }
+      .instagram-feed-shell { min-height: 600px; padding: 10px; }
+      .social-slider-nav { align-items: flex-start; flex-direction: column; gap: 13px; margin-top: 22px; }
+      .social-slider-timer { width: 100%; }
+      .social-progress-track { flex: 1; }
+    }
+    @media (max-width: 420px) {
+      .social-slider-tabs { width: 100%; justify-content: space-between; }
+      .social-slide-tab { padding: 0 8px; font-size: 8px; }
+      .instagram-identity strong { font-size: 13px; }
+      .instagram-feed-shell { min-height: 560px; padding: 5px; }
+      .instagram-feed-shell .instagram-media { min-width: 260px !important; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .social-slide { transition: none !important; transform: none !important; }
+      .social-progress-fill.is-running { animation: none !important; }
+    }
+
   </style>
 </head>
 <body>
@@ -3008,7 +3246,7 @@
         <li><a href="#quando-procurar">Quando procurar</a></li>
         <li><a href="#atuacao">Serviços</a></li>
         <li><a href="#processo">Atendimento</a></li>
-        <li><a href="#youtube">YouTube</a></li>
+        <li><a href="#youtube">Conteúdos</a></li>
         <li><a href="#contato" class="menu-contact">Contato</a></li>
       </ul>
     </div>
@@ -3153,8 +3391,11 @@
       </div>
     </section>
 
-    <section class="youtube" id="youtube" aria-labelledby="youtube-title">
+    <section class="youtube social-hub" id="youtube" aria-label="Conteúdos da Paula no YouTube e Instagram">
       <div class="container">
+        <div class="social-slider" id="socialSlider">
+          <div class="social-slide social-slide-youtube is-active" data-social-panel="youtube" aria-hidden="false">
+
         <div class="youtube-topline reveal">
           <div class="youtube-identity">
             <span class="youtube-mark" aria-hidden="true">
@@ -3174,7 +3415,7 @@
           </div>
           <div class="youtube-feature reveal delay-1">
             <div class="youtube-feature-label">Vídeo em destaque</div>
-            <iframe src="https://www.youtube-nocookie.com/embed/G-WHLWXXQrg" title="Paula Borch — vídeo em destaque" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe src="https://www.youtube-nocookie.com/embed/G-WHLWXXQrg?enablejsapi=1" title="Paula Borch — vídeo em destaque" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
           </div>
         </div>
         <div class="youtube-related-heading reveal">
@@ -3183,19 +3424,19 @@
         <div class="youtube-related" aria-label="Mais vídeos do canal">
           <article class="youtube-related-item reveal">
             <div class="youtube-related-player">
-              <iframe src="https://www.youtube-nocookie.com/embed/FAuZXncvy5o" title="Paula Borch — outro conteúdo do canal" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <iframe src="https://www.youtube-nocookie.com/embed/FAuZXncvy5o?enablejsapi=1" title="Paula Borch — outro conteúdo do canal" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
             <h4>Conteúdo do canal</h4>
           </article>
           <article class="youtube-related-item reveal delay-1">
             <div class="youtube-related-player">
-              <iframe src="https://www.youtube-nocookie.com/embed/ocwri6_0fHY" title="Paula Borch — aprendizagem em pauta" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <iframe src="https://www.youtube-nocookie.com/embed/ocwri6_0fHY?enablejsapi=1" title="Paula Borch — aprendizagem em pauta" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
             <h4>Aprendizagem em pauta</h4>
           </article>
           <article class="youtube-related-item reveal delay-2">
             <div class="youtube-related-player">
-              <iframe src="https://www.youtube-nocookie.com/embed/bfmsMIZ-hPc" title="Paula Borch — mais um olhar sobre aprender" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <iframe src="https://www.youtube-nocookie.com/embed/bfmsMIZ-hPc?enablejsapi=1" title="Paula Borch — mais um olhar sobre aprender" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
             <h4>Mais um olhar sobre aprender</h4>
           </article>
@@ -3203,6 +3444,52 @@
         <div class="youtube-bottom reveal">
           <a class="youtube-bottom-link" href="https://www.youtube.com/@prof.paulaborch8774" target="_blank" rel="noopener">Acessar o canal no YouTube <span aria-hidden="true">↗</span></a>
         </div>
+
+          </div>
+
+          <div class="social-slide social-slide-instagram" data-social-panel="instagram" aria-hidden="true" inert>
+            <div class="instagram-slide-topline">
+              <div class="instagram-identity">
+                <span class="instagram-mark" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.6" cy="6.7" r=".9" fill="currentColor" stroke="none"/></svg>
+                </span>
+                <span><small>Instagram</small><strong>Publicações da Paula</strong></span>
+              </div>
+              <a class="instagram-profile-link" href="https://www.instagram.com/professorapaulaborch/" target="_blank" rel="noopener">Visitar o perfil <span aria-hidden="true">↗</span></a>
+            </div>
+
+            <div class="instagram-feature-layout">
+              <div class="instagram-feature-copy">
+                <div class="youtube-overline">No Instagram</div>
+                <h2>Aprendizagem também acontece <em>no dia a dia.</em></h2>
+                <p>Uma seleção das publicações do perfil da Paula, com ideias, orientações e conteúdos sobre aprendizagem e psicopedagogia.</p>
+                <a class="instagram-follow" href="https://www.instagram.com/professorapaulaborch/" target="_blank" rel="noopener">Acompanhar no Instagram <span aria-hidden="true">↗</span></a>
+                <p class="instagram-note">As publicações são carregadas diretamente do Instagram.</p>
+              </div>
+              <div class="instagram-feed-shell" aria-label="Publicações recentes do Instagram">
+                <blockquote class="instagram-media"
+                  data-instgrm-permalink="https://www.instagram.com/professorapaulaborch/"
+                  data-instgrm-version="14"
+                  style="background:#fff; border:0; border-radius:12px; box-shadow:none; margin:0 auto; max-width:540px; min-width:280px; padding:0; width:100%;">
+                  <a href="https://www.instagram.com/professorapaulaborch/" target="_blank" rel="noopener">Ver as publicações de @professorapaulaborch no Instagram</a>
+                </blockquote>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="social-slider-nav" aria-label="Alternar entre YouTube e Instagram">
+          <div class="social-slider-tabs">
+            <button class="social-slide-tab is-active" type="button" data-social-slide="0" aria-pressed="true" aria-controls="socialSlider"><span>01</span> YouTube</button>
+            <button class="social-slide-tab" type="button" data-social-slide="1" aria-pressed="false" aria-controls="socialSlider"><span>02</span> Instagram</button>
+          </div>
+          <div class="social-slider-timer" aria-hidden="true">
+            <span>Alternância automática</span>
+            <div class="social-progress-track"><i class="social-progress-fill"></i></div>
+            <small>15 s</small>
+          </div>
+        </div>
+        <span class="social-slider-announcer" id="socialSliderAnnouncer" aria-live="polite"></span>
       </div>
     </section>
 
@@ -3237,7 +3524,7 @@
     <div class="container">
       <div class="footer-top">
         <div><a href="#inicio" class="footer-brand" aria-label="Voltar ao início"><img src="https://i.imgur.com/oInPRcd.png" alt="Logomarca" loading="lazy"></a><p class="footer-desc">Psicopedagogia com escuta, olhar individualizado e respeito às diferentes formas de aprender.</p></div>
-        <div><div class="footer-heading">Navegação</div><div class="footer-links"><a href="#sobre">Sobre</a><a href="#quando-procurar">Quando procurar</a><a href="#atuacao">Serviços</a><a href="#processo">Como funciona</a><a href="#youtube">YouTube</a></div></div>
+        <div><div class="footer-heading">Navegação</div><div class="footer-links"><a href="#sobre">Sobre</a><a href="#quando-procurar">Quando procurar</a><a href="#atuacao">Serviços</a><a href="#processo">Como funciona</a><a href="#youtube">Conteúdos</a></div></div>
         <div><div class="footer-heading">Contato</div><div class="footer-links"><a href="https://www.instagram.com/professorapaulaborch/" target="_blank" rel="noopener">Instagram · @professorapaulaborch</a><a href="https://www.youtube.com/@prof.paulaborch8774" target="_blank" rel="noopener">Canal no YouTube</a><a href="https://wa.me/5543920036581" target="_blank" rel="noopener">WhatsApp</a><a href="mailto:contato@paulaborch.com.br">contato@paulaborch.com.br</a></div></div>
       </div>
       <div class="footer-bottom"><span>© <span id="year"></span> Psicopedagogia. Todos os direitos reservados.</span><span>Educação · Desenvolvimento · Aprendizagem</span></div>
@@ -3310,6 +3597,117 @@
         revealItems.forEach(item => item.classList.add('visible'));
       }
       document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Carrossel de conteúdos: YouTube e Instagram alternam a cada 15 segundos.
+      const socialSection = document.getElementById('youtube');
+      const socialSlider = document.getElementById('socialSlider');
+      if (socialSection && socialSlider) {
+        const socialSlides = Array.from(socialSlider.querySelectorAll('[data-social-panel]'));
+        const socialTabs = Array.from(document.querySelectorAll('[data-social-slide]'));
+        const socialProgress = document.querySelector('.social-progress-fill');
+        const socialAnnouncer = document.getElementById('socialSliderAnnouncer');
+        const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const rotationDelay = 15000;
+        let activeSocialSlide = 0;
+        let rotationTimer = null;
+        let socialSectionVisible = false;
+
+        const pauseYoutubePlayers = () => {
+          socialSlider.querySelectorAll('.social-slide-youtube iframe').forEach(frame => {
+            try {
+              frame.contentWindow.postMessage(JSON.stringify({event: 'command', func: 'pauseVideo', args: []}), '*');
+            } catch (_) { /* O navegador pode bloquear a mensagem antes do player carregar. */ }
+          });
+        };
+
+        const loadInstagramEmbed = () => {
+          if (window.instgrm && window.instgrm.Embeds) {
+            window.instgrm.Embeds.process();
+            return;
+          }
+          if (document.querySelector('script[data-paula-instagram-embed]')) return;
+          const embedScript = document.createElement('script');
+          embedScript.src = 'https://www.instagram.com/embed.js';
+          embedScript.async = true;
+          embedScript.dataset.paulaInstagramEmbed = 'true';
+          embedScript.onload = () => {
+            if (window.instgrm && window.instgrm.Embeds) window.instgrm.Embeds.process();
+          };
+          document.body.appendChild(embedScript);
+        };
+
+        const restartProgress = () => {
+          if (!socialProgress) return;
+          socialProgress.classList.remove('is-running');
+          void socialProgress.offsetWidth;
+          if (socialSectionVisible && !reduceMotion) socialProgress.classList.add('is-running');
+        };
+
+        const showSocialSlide = (nextIndex) => {
+          const next = (nextIndex + socialSlides.length) % socialSlides.length;
+          if (next === activeSocialSlide) {
+            restartProgress();
+            return;
+          }
+          const previous = activeSocialSlide;
+          activeSocialSlide = next;
+          socialSlides.forEach((slide, index) => {
+            const active = index === activeSocialSlide;
+            slide.classList.toggle('is-active', active);
+            slide.setAttribute('aria-hidden', String(!active));
+            slide.inert = !active;
+          });
+          socialTabs.forEach((tab, index) => {
+            const active = index === activeSocialSlide;
+            tab.classList.toggle('is-active', active);
+            tab.setAttribute('aria-pressed', String(active));
+          });
+          if (previous === 0 && next === 1) loadInstagramEmbed();
+          if (previous === 1 && next === 0) pauseYoutubePlayers();
+          if (socialAnnouncer) socialAnnouncer.textContent = next === 0 ? 'Exibindo conteúdos do YouTube.' : 'Exibindo publicações do Instagram.';
+          restartProgress();
+        };
+
+        const stopRotation = () => {
+          if (rotationTimer) window.clearTimeout(rotationTimer);
+          rotationTimer = null;
+          if (socialProgress) socialProgress.classList.remove('is-running');
+        };
+        const scheduleRotation = () => {
+          stopRotation();
+          if (!socialSectionVisible || reduceMotion || document.hidden) return;
+          if (socialProgress) socialProgress.classList.add('is-running');
+          rotationTimer = window.setTimeout(() => {
+            showSocialSlide((activeSocialSlide + 1) % socialSlides.length);
+            scheduleRotation();
+          }, rotationDelay);
+        };
+
+        socialTabs.forEach((tab, index) => tab.addEventListener('click', () => {
+          showSocialSlide(index);
+          scheduleRotation();
+        }));
+
+        document.addEventListener('visibilitychange', () => {
+          if (document.hidden) stopRotation();
+          else scheduleRotation();
+        });
+
+        if ('IntersectionObserver' in window) {
+          const socialObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+              socialSectionVisible = entry.isIntersecting && entry.intersectionRatio >= 0.12;
+              if (socialSectionVisible) scheduleRotation();
+              else stopRotation();
+            });
+          }, { threshold: [0, 0.12, 0.5] });
+          socialObserver.observe(socialSection);
+        } else {
+          socialSectionVisible = true;
+          scheduleRotation();
+        }
+      }
+
 
       const form = document.getElementById('contactForm');
       form.addEventListener('submit', event => {
